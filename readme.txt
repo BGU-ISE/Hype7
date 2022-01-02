@@ -18,7 +18,7 @@ plans for the future: change output to be in DB form. make settings.txt able to 
 
 Scraper Manager settings syntax:
 
-<columnName_in_csv>;<desired_uniform_name>;;<different_column_name_in_csv>;<its_desired_name>;;.....<last_column_name>;<that_desired_name>;; {newline}
+<columnName_in_csv>;<desired_uniform_name>;;<different_column_name_in_csv>;<its_desired_name>;;.....<last_column_name>;<that_desired_name> {newline}
 <the scraper social media>
 
 any number of columns can be chosen. any column not in the settings will be ignored. the writing order will decide the order of the formated csv.
