@@ -1,9 +1,17 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>Scraper_Manager</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Deprecatedstuff.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Deprecatedstuff.cs" />
+  </ItemGroup>
 
 </Project>

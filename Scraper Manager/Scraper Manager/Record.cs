@@ -73,13 +73,14 @@ namespace Scraper_Manager
             }
             box.Add(current_cell);
             this.values = box.ToArray();
-            Record i;
-            if (box.Count != 44)
-                i = new Record(line, values_names, origin);
+            return;
+         //   Record i;
+           // if (box.Count != 44)
+             //   i = new Record(line, values_names, origin);
                 
         }
 
-
+            
         public void setSwapOrder(Dictionary<int, int> swap_order, string[] new_names)
         {
             this.swap_order = swap_order;

@@ -1,0 +1,4 @@
+C:\Users\Iftah\Desktop\אוניברסיטה\שנה ד\Project\Scraper Manager\Scraper Manager\Scraper Manager\obj\Debug\net472\Scraper Manager.csprojAssemblyReference.cache
+C:\Users\Iftah\Desktop\אוניברסיטה\שנה ד\Project\Scraper Manager\Scraper Manager\Scraper Manager\obj\Debug\net472\Scraper Manager.csproj.CoreCompileInputs.cache
+C:\Users\Iftah\Desktop\אוניברסיטה\שנה ד\Project\Scraper Manager\Scraper Manager\Scraper Manager\obj\Debug\net472\Scraper Manager.AssemblyInfoInputs.cache
+C:\Users\Iftah\Desktop\אוניברסיטה\שנה ד\Project\Scraper Manager\Scraper Manager\Scraper Manager\obj\Debug\net472\Scraper Manager.AssemblyInfo.cs

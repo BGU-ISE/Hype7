@@ -8,5 +8,9 @@ namespace Scraper_Manager
 {
     class sql
     {
+        public static void instert_record()
+        {
+            
+        }
     }
 }
