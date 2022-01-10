@@ -1,0 +1,71 @@
+C:\Users\Almogi\source\repos\Hype7\bin\Debug\netcoreapp3.1\Hype7.exe
+C:\Users\Almogi\source\repos\Hype7\bin\Debug\netcoreapp3.1\Hype7.deps.json
+C:\Users\Almogi\source\repos\Hype7\bin\Debug\netcoreapp3.1\Hype7.runtimeconfig.json
+C:\Users\Almogi\source\repos\Hype7\bin\Debug\netcoreapp3.1\Hype7.runtimeconfig.dev.json
+C:\Users\Almogi\source\repos\Hype7\bin\Debug\netcoreapp3.1\Hype7.dll
+C:\Users\Almogi\source\repos\Hype7\bin\Debug\netcoreapp3.1\Hype7.pdb
+C:\Users\Almogi\source\repos\Hype7\obj\Debug\netcoreapp3.1\Hype7.csproj.AssemblyReference.cache
+C:\Users\Almogi\source\repos\Hype7\obj\Debug\netcoreapp3.1\Hype7.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Almogi\source\repos\Hype7\obj\Debug\netcoreapp3.1\Hype7.AssemblyInfoInputs.cache
+C:\Users\Almogi\source\repos\Hype7\obj\Debug\netcoreapp3.1\Hype7.AssemblyInfo.cs
+C:\Users\Almogi\source\repos\Hype7\obj\Debug\netcoreapp3.1\Hype7.csproj.CoreCompileInputs.cache
+C:\Users\Almogi\source\repos\Hype7\obj\Debug\netcoreapp3.1\Hype7.dll
+C:\Users\Almogi\source\repos\Hype7\obj\Debug\netcoreapp3.1\Hype7.pdb
+C:\Users\Almogi\source\repos\Hype7\obj\Debug\netcoreapp3.1\Hype7.genruntimeconfig.cache
+C:\Users\Almogi\Desktop\Hype7\bin\Debug\netcoreapp3.1\Hype7.exe
+C:\Users\Almogi\Desktop\Hype7\bin\Debug\netcoreapp3.1\Hype7.deps.json
+C:\Users\Almogi\Desktop\Hype7\bin\Debug\netcoreapp3.1\Hype7.runtimeconfig.json
+C:\Users\Almogi\Desktop\Hype7\bin\Debug\netcoreapp3.1\Hype7.runtimeconfig.dev.json
+C:\Users\Almogi\Desktop\Hype7\bin\Debug\netcoreapp3.1\Hype7.dll
+C:\Users\Almogi\Desktop\Hype7\bin\Debug\netcoreapp3.1\Hype7.pdb
+C:\Users\Almogi\Desktop\Hype7\obj\Debug\netcoreapp3.1\Hype7.csproj.AssemblyReference.cache
+C:\Users\Almogi\Desktop\Hype7\obj\Debug\netcoreapp3.1\Hype7.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Almogi\Desktop\Hype7\obj\Debug\netcoreapp3.1\Hype7.AssemblyInfoInputs.cache
+C:\Users\Almogi\Desktop\Hype7\obj\Debug\netcoreapp3.1\Hype7.AssemblyInfo.cs
+C:\Users\Almogi\Desktop\Hype7\obj\Debug\netcoreapp3.1\Hype7.csproj.CoreCompileInputs.cache
+C:\Users\Almogi\Desktop\Hype7\obj\Debug\netcoreapp3.1\Hype7.dll
+C:\Users\Almogi\Desktop\Hype7\obj\Debug\netcoreapp3.1\Hype7.pdb
+C:\Users\Almogi\Desktop\Hype7\obj\Debug\netcoreapp3.1\Hype7.genruntimeconfig.cache
+E:\Almogi\Documents\BGU\סמסטר ז\פרוייקט גמר\Hype7\bin\Debug\netcoreapp3.1\Hype7.exe
+E:\Almogi\Documents\BGU\סמסטר ז\פרוייקט גמר\Hype7\bin\Debug\netcoreapp3.1\Hype7.deps.json
+E:\Almogi\Documents\BGU\סמסטר ז\פרוייקט גמר\Hype7\bin\Debug\netcoreapp3.1\Hype7.runtimeconfig.json
+E:\Almogi\Documents\BGU\סמסטר ז\פרוייקט גמר\Hype7\bin\Debug\netcoreapp3.1\Hype7.runtimeconfig.dev.json
+E:\Almogi\Documents\BGU\סמסטר ז\פרוייקט גמר\Hype7\bin\Debug\netcoreapp3.1\Hype7.dll
+E:\Almogi\Documents\BGU\סמסטר ז\פרוייקט גמר\Hype7\bin\Debug\netcoreapp3.1\Hype7.pdb
+E:\Almogi\Documents\BGU\סמסטר ז\פרוייקט גמר\Hype7\bin\Debug\netcoreapp3.1\Microsoft.Data.Sqlite.dll
+E:\Almogi\Documents\BGU\סמסטר ז\פרוייקט גמר\Hype7\bin\Debug\netcoreapp3.1\SQLitePCLRaw.core.dll
+E:\Almogi\Documents\BGU\סמסטר ז\פרוייקט גמר\Hype7\obj\Debug\netcoreapp3.1\Hype7.GeneratedMSBuildEditorConfig.editorconfig
+E:\Almogi\Documents\BGU\סמסטר ז\פרוייקט גמר\Hype7\obj\Debug\netcoreapp3.1\Hype7.AssemblyInfoInputs.cache
+E:\Almogi\Documents\BGU\סמסטר ז\פרוייקט גמר\Hype7\obj\Debug\netcoreapp3.1\Hype7.AssemblyInfo.cs
+E:\Almogi\Documents\BGU\סמסטר ז\פרוייקט גמר\Hype7\obj\Debug\netcoreapp3.1\Hype7.csproj.CoreCompileInputs.cache
+E:\Almogi\Documents\BGU\סמסטר ז\פרוייקט גמר\Hype7\obj\Debug\netcoreapp3.1\Hype7.csproj.CopyComplete
+E:\Almogi\Documents\BGU\סמסטר ז\פרוייקט גמר\Hype7\obj\Debug\netcoreapp3.1\Hype7.dll
+E:\Almogi\Documents\BGU\סמסטר ז\פרוייקט גמר\Hype7\obj\Debug\netcoreapp3.1\Hype7.pdb
+E:\Almogi\Documents\BGU\סמסטר ז\פרוייקט גמר\Hype7\obj\Debug\netcoreapp3.1\Hype7.genruntimeconfig.cache
+E:\Almogi\Documents\BGU\סמסטר ז\פרוייקט גמר\Hype7\bin\Debug\netcoreapp3.1\System.Data.SQLite.dll
+E:\Almogi\Documents\BGU\סמסטר ז\פרוייקט גמר\Hype7\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\SQLite.Interop.dll
+E:\Almogi\Documents\BGU\סמסטר ז\פרוייקט גמר\Hype7\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\SQLite.Interop.dll
+E:\Almogi\Documents\BGU\סמסטר ז\פרוייקט גמר\Hype7\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\SQLite.Interop.dll
+E:\Almogi\Documents\BGU\סמסטר ז\פרוייקט גמר\Hype7\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\SQLite.Interop.dll
+C:\Users\Almogi\Desktop\Hype7\bin\Debug\netcoreapp3.1\Microsoft.Data.Sqlite.dll
+C:\Users\Almogi\Desktop\Hype7\bin\Debug\netcoreapp3.1\SQLitePCLRaw.core.dll
+C:\Users\Almogi\Desktop\Hype7\bin\Debug\netcoreapp3.1\System.Data.SQLite.dll
+C:\Users\Almogi\Desktop\Hype7\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\SQLite.Interop.dll
+C:\Users\Almogi\Desktop\Hype7\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\SQLite.Interop.dll
+C:\Users\Almogi\Desktop\Hype7\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\SQLite.Interop.dll
+C:\Users\Almogi\Desktop\Hype7\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\SQLite.Interop.dll
+E:\Almogi\Documents\BGU\סמסטר ז\פרוייקט גמר\Hype7\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+E:\Almogi\Documents\BGU\סמסטר ז\פרוייקט גמר\Hype7\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+E:\Almogi\Documents\BGU\סמסטר ז\פרוייקט גמר\Hype7\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+E:\Almogi\Documents\BGU\סמסטר ז\פרוייקט גמר\Hype7\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+E:\Almogi\Documents\BGU\סמסטר ז\פרוייקט גמר\Hype7\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+E:\Almogi\Documents\BGU\סמסטר ז\פרוייקט גמר\Hype7\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Almogi\Desktop\Hype7\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\Almogi\Desktop\Hype7\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\Almogi\Desktop\Hype7\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\Almogi\Desktop\Hype7\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\Almogi\Desktop\Hype7\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Almogi\Desktop\Hype7\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+E:\Almogi\Documents\BGU\סמסטר ז\פרוייקט גמר\Hype7\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+E:\Almogi\Documents\BGU\סמסטר ז\פרוייקט גמר\Hype7\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+E:\Almogi\Documents\BGU\סמסטר ז\פרוייקט גמר\Hype7\obj\Debug\netcoreapp3.1\Hype7.csproj.AssemblyReference.cache
