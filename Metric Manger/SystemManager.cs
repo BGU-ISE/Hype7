@@ -11,7 +11,7 @@ namespace Hype7
     {
         static private Dictionary<DateTime, List<VideoInfo>> Data = new Dictionary<DateTime, List<VideoInfo>>();
         static private Dictionary<string, int> indexByName = new Dictionary<string, int>();
-        static private string path = Directory.GetCurrentDirectory();
+        static private string path = null;
         static private List<string> id = new List<string>();
         static private List<string> ignoreHashtah = new List<string>();
         //static private string[] fieldsNameForMetric;
@@ -85,6 +85,7 @@ namespace Hype7
                 }
                 hashtag = indexByName["hashtags"];
             }
+            System.IO.File.Move(name, path + "\\Data\\ReadData");
             return dataCurrent;
         }
         public static void ReadAllFromCSV(string path)
@@ -431,18 +432,29 @@ namespace Hype7
         }
         public static List<string> GetFieldsName()
         {
-            //var ma = Path.Combine(path, "\\Data");
+            if (path == null)
+                path = GetPath();
             if (indexByName == null || indexByName.Count == 0)
-                ReadFieldNameFromCSV(path + "\\Data");
+                ReadFieldNameFromCSV(path + "\\Data\\UnReadData");
             return indexByName.Keys.ToList();
         }
         public static Dictionary<DateTime, List<VideoInfo>> GetAllData()
         {
+            if (path == null)
+                path = GetPath();
             if(Data == null || Data.Count == 0)
             {
-                Setup(path + "\\Data", path + "\\ignoreHashtag.txt");
+                Setup(path + "\\Data\\UnReadData", path + "\\Data\\ignoreHashtag.txt");
             }
             return Data;
+        }
+        private static string GetPath()
+        {
+            var current = Directory.GetCurrentDirectory();
+            string parent = System.IO.Directory.GetParent(current).FullName;
+            parent = System.IO.Directory.GetParent(parent).FullName;
+            parent = System.IO.Directory.GetParent(parent).FullName;
+            return parent;
         }
     }
 }

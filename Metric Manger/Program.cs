@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace Hype7
 {
@@ -25,12 +26,15 @@ namespace Hype7
             //DAL.OpenConnect();
             DateTime start = DateTime.Now;
             //DAL.CalcPlayCountPerDay();
-            Console.Write("Insert metric: ");
-            string metric = Console.ReadLine();
-            DAL.RunMetric(metric);
+            //Console.Write("Insert metric: ");
+            //string metric = Console.ReadLine();
+            //DAL.RunMetric(metric);
             //DAL.CloseConnect();
             DateTime end = DateTime.Now;
-            Console.WriteLine("Finish Test");
+            
+            //parent2 = System.IO.Directory.GetParent(parent2).FullName;
+            Console.WriteLine("Finish Test ");
+            Console.WriteLine("Finish Test ");
             Console.WriteLine("duration: " + (end - start) + " min");
             /*
             var temp = SystemManager.GetResultByMetricAllTime("Sum_i_1_3(playCountPerDay_i*(Sum_j_2_4(j+2))^i)+6/shareCount", 5);

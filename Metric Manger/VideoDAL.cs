@@ -18,7 +18,8 @@ namespace Hype7
             
             try
             {
-                DAL.OpenConnect();
+                if (!isDBOpen)
+                    DAL.OpenConnect();
                 string temp = GetValues(VideoDetails);
                 if (temp.Length != 0)
                 {
@@ -29,7 +30,8 @@ namespace Hype7
                     command.Prepare();
                     int changes = command.ExecuteNonQuery();
                     command.Dispose();
-                    DAL.CloseConnect();
+                    if (!isDBOpen)
+                        DAL.CloseConnect();
                 }
             }
             catch (SQLiteException e)

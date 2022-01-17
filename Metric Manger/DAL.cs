@@ -31,9 +31,10 @@ namespace Hype7
                 Console.WriteLine("Create DB.");
                 SQLiteConnection.CreateFile(DB);
                 connection = new SQLiteConnection(Connection_String);
-                InitTables(SystemManager.GetFieldsName());
+                connection.Open();
+                InitTables(SystemManager.GetFieldsName(), true);
                 Console.WriteLine("Initialization tables.");
-                InsertData(SystemManager.GetAllData());
+                InsertData(SystemManager.GetAllData(), true);
                 Console.WriteLine("Insert data to DB.");
                 if (connection.State == ConnectionState.Closed)
                     connection.Open();
@@ -47,11 +48,18 @@ namespace Hype7
                     connection.Open();
             }
         }
-        private static void InitTables(List<string> Fields)
+        public static void CloseConnect()
+        {
+            if (connection.State != ConnectionState.Closed)
+                connection.Close();
+        }
+
+        private static void InitTables(List<string> Fields, bool isDBOpen)
         {
             try
             {
-                OpenConnect();
+                if(!isDBOpen)
+                    OpenConnect();
                 string names = "";
                 foreach (string name in Fields)
                 {
@@ -77,7 +85,8 @@ namespace Hype7
                 command1.Dispose();
                 command2.Dispose();
                 command3.Dispose();
-                CloseConnect();
+                if (!isDBOpen)
+                    CloseConnect();
             }
             catch (SQLiteException e)
             {
@@ -85,15 +94,12 @@ namespace Hype7
             }
 
         }
-        private static bool isNumericField(string name)
-        {
-            return false;
-        }
-        private static void InsertData(Dictionary<DateTime, List<VideoInfo>> Data)
+        private static void InsertData(Dictionary<DateTime, List<VideoInfo>> Data, bool isDBOpen)
         {
             try
             {
-                OpenConnect();
+                if (!isDBOpen)
+                    OpenConnect();
                 foreach (var date in Data.Keys)
                 {
                     Console.WriteLine("upload information from day  " + date);
@@ -103,55 +109,21 @@ namespace Hype7
                         VideoDAL.saveVideo(element, date, true);
                     }
                 }
-                CloseConnect();
+                if (!isDBOpen)
+                    CloseConnect();
             }
             catch (SQLiteException e)
             {
                 DAL.CloseConnect();
             }
         }
-        public static int GetIndexOfNotEmptyTable()
-        {
-            float maxIndex = 0;
-            try
-            {
-                OpenConnect();
-                SQLiteCommand command = new SQLiteCommand(null, DAL.connection);
-                command.CommandText = "SELECT name FROM sqlite_master WHERE type = 'table'";
-                command.Prepare();
-                var reader = command.ExecuteReader();
-                SQLiteCommand commandVideo = new SQLiteCommand(null, DAL.connection);
-                while (reader.Read())
-                {
-                    string tableName = reader["name"].ToString();
-                    if (tableName.Contains("Video"))
-                    {
-                        commandVideo.CommandText = "SELECT id FROM " + tableName;
-                        commandVideo.Prepare();
-                        var readerVideo = commandVideo.ExecuteScalar(CommandBehavior.SingleResult);
-                        if (readerVideo != null)
-                        {
-                            var result = Regex.Matches(tableName, @"[0-9]");
-                            if (result.Count > 0)
-                                maxIndex = MathF.Max(maxIndex, float.Parse(result[0].Value));
-                        }
-                    }
-                }
-                command.Dispose();
-                commandVideo.Dispose();
-                reader.Close();
-            }
-            catch (SQLiteException e)
-            {
-                DAL.CloseConnect();
-            }
-            return (int)maxIndex;
-        }
-        public static void RunMetric(string metric)
+        
+        private static void RunMetric(string metric, bool isDBOpen)
         {
             try
             {
-                OpenConnect();
+                if (!isDBOpen)
+                    OpenConnect();
                 SQLiteCommand command = new SQLiteCommand("SELECT id, ("+metric+") as score FROM VideosInfoDay1", connection);
                 checke = command.CommandText;
                 command.Prepare();
@@ -168,7 +140,8 @@ namespace Hype7
                 reader.Close();
                 command.Dispose();
                 command2.Dispose();
-                CloseConnect();
+                if (!isDBOpen)
+                    CloseConnect();
             }
             catch (SQLiteException e)
             {
@@ -176,15 +149,17 @@ namespace Hype7
             }
 
         }
-        public static void RunQuery(string query)
+        private static void RunQuery(string query, bool isDBOpen)
         {
             try
             {
-                OpenConnect();
+                if (!isDBOpen)
+                    OpenConnect();
                 SQLiteCommand command = new SQLiteCommand(query, connection);
                 command.ExecuteNonQuery();
                 command.Dispose();
-                CloseConnect();
+                if (!isDBOpen)
+                    CloseConnect();
             }
             catch (SQLiteException e)
             {
@@ -192,38 +167,13 @@ namespace Hype7
             }
 
         }
-        public static void RunQueryIfOpen()
-        {
-            float maxIndex = 0;
-            try
-            {
-                OpenConnect();
-                SQLiteCommand command = new SQLiteCommand(null, DAL.connection);
-                command.CommandText = "SELECT a.id, (b.PlayCount - a.PlayCount) as PlayPerDay From VideosInfoDay1 a JOIN VideosInfoDay2 b ON a.id == b.id";
-                command.Prepare();
-                var reader = command.ExecuteReader();
-                SQLiteCommand commandVideo = new SQLiteCommand(null, DAL.connection);
-                while (reader.Read())
-                {
-                    string tableName = reader["id"].ToString();
-                    string playcount = reader["PlayPerDay"].ToString();
-                    int i = 0;
-                }
-                command.Dispose();
-                commandVideo.Dispose();
-                reader.Close();
-            }
-            catch (SQLiteException e)
-            {
-                DAL.CloseConnect();
-            }
-        }
-        public static void CalcPlayCountPerDay()
+        private static void CalcPlayCountPerDay(bool isDBOpen)
         {
             try
             {
-                DAL.OpenConnect();
-                int n = GetIndexOfNotEmptyTable();
+                if (!isDBOpen)
+                    DAL.OpenConnect();
+                int n = GetIndexOfNotEmptyTable(true);
                 SQLiteCommand command = new SQLiteCommand(null, DAL.connection);
                 SQLiteCommand command2 = new SQLiteCommand(null, connection);
                 for (int i=1; i<n; i++)
@@ -260,19 +210,21 @@ namespace Hype7
                 }
                 command.Dispose();
                 command2.Dispose();
-                DAL.CloseConnect();
+                if (!isDBOpen)
+                    DAL.CloseConnect();
             }
             catch (SQLiteException e)
             {
                 DAL.CloseConnect();
             }
         }
-        public static void CalcPlayCountAllWeek()
+        private static void CalcPlayCountAllWeek(bool isDBOpen)
         {
             try
             {
-                DAL.OpenConnect();
-                int n = GetIndexOfNotEmptyTable();
+                if (!isDBOpen)
+                    DAL.OpenConnect();
+                int n = GetIndexOfNotEmptyTable(true);
                 SQLiteCommand command = new SQLiteCommand(null, DAL.connection);
                 SQLiteCommand command2 = new SQLiteCommand(null, connection);
                 for (int i = 1; i < n; i++)
@@ -309,17 +261,86 @@ namespace Hype7
                 }
                 command.Dispose();
                 command2.Dispose();
-                DAL.CloseConnect();
+                if (!isDBOpen)
+                    DAL.CloseConnect();
             }
             catch (SQLiteException e)
             {
                 DAL.CloseConnect();
             }
         }
-        public static void CloseConnect()
+
+        private static int GetIndexOfNotEmptyTable(bool isDBOpen)
         {
-            if (connection.State != ConnectionState.Closed)
-                connection.Close();
+            float maxIndex = 0;
+            try
+            {
+                if (!isDBOpen)
+                    OpenConnect();
+                SQLiteCommand command = new SQLiteCommand(null, DAL.connection);
+                command.CommandText = "SELECT name FROM sqlite_master WHERE type = 'table'";
+                command.Prepare();
+                var reader = command.ExecuteReader();
+                SQLiteCommand commandVideo = new SQLiteCommand(null, DAL.connection);
+                while (reader.Read())
+                {
+                    string tableName = reader["name"].ToString();
+                    if (tableName.Contains("Video"))
+                    {
+                        commandVideo.CommandText = "SELECT id FROM " + tableName;
+                        commandVideo.Prepare();
+                        var readerVideo = commandVideo.ExecuteScalar(CommandBehavior.SingleResult);
+                        if (readerVideo != null)
+                        {
+                            var result = Regex.Matches(tableName, @"[0-9]");
+                            if (result.Count > 0)
+                                maxIndex = MathF.Max(maxIndex, float.Parse(result[0].Value));
+                        }
+                    }
+                }
+                command.Dispose();
+                commandVideo.Dispose();
+                reader.Close();
+            }
+            catch (SQLiteException e)
+            {
+                DAL.CloseConnect();
+            }
+            return (int)maxIndex;
+        }
+        private static bool isNumericField(string name)
+        {
+            return false;
+        }
+
+        // public functions, doesn't assume that the DB is open
+        public static void InitTables(List<string> Fields)
+        {
+            InitTables(Fields, false);
+        }
+        public static void InsertData(Dictionary<DateTime, List<VideoInfo>> Data)
+        {
+            InsertData(Data, false);
+        }
+        public static int GetIndexOfNotEmptyTable()
+        {
+            return GetIndexOfNotEmptyTable(false);
+        }
+        public static void CalcPlayCountPerDay()
+        {
+            CalcPlayCountPerDay(false);
+        }
+        public static void CalcPlayCountAllWeek()
+        {
+            CalcPlayCountAllWeek(false);
+        }
+        public static void RunQuery(string query)
+        {
+            RunQuery(query, false); 
+        }
+        public static void RunMetric(string metric)
+        {
+            RunMetric(metric, false);
         }
     }
 }

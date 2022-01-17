@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Almogi\\Documents\\BGU\\סמסטר ז\\פרוייקט גמר\\Hype7\\Hype7.csproj": {}
+    "E:\\Almogi\\Documents\\BGU\\סמסטר ז\\פרוייקט גמר\\code\\Hype7\\Metric Manger\\Hype7.csproj": {}
   },
   "projects": {
-    "E:\\Almogi\\Documents\\BGU\\סמסטר ז\\פרוייקט גמר\\Hype7\\Hype7.csproj": {
+    "E:\\Almogi\\Documents\\BGU\\סמסטר ז\\פרוייקט גמר\\code\\Hype7\\Metric Manger\\Hype7.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Almogi\\Documents\\BGU\\סמסטר ז\\פרוייקט גמר\\Hype7\\Hype7.csproj",
+        "projectUniqueName": "E:\\Almogi\\Documents\\BGU\\סמסטר ז\\פרוייקט גמר\\code\\Hype7\\Metric Manger\\Hype7.csproj",
         "projectName": "Hype7",
-        "projectPath": "E:\\Almogi\\Documents\\BGU\\סמסטר ז\\פרוייקט גמר\\Hype7\\Hype7.csproj",
+        "projectPath": "E:\\Almogi\\Documents\\BGU\\סמסטר ז\\פרוייקט גמר\\code\\Hype7\\Metric Manger\\Hype7.csproj",
         "packagesPath": "C:\\Users\\Almogi\\.nuget\\packages\\",
-        "outputPath": "E:\\Almogi\\Documents\\BGU\\סמסטר ז\\פרוייקט גמר\\Hype7\\obj\\",
+        "outputPath": "E:\\Almogi\\Documents\\BGU\\סמסטר ז\\פרוייקט גמר\\code\\Hype7\\Metric Manger\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

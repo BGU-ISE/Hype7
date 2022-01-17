@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4kd6O+meJJeW2JLXAWLPUBfBOHFnMKPKQ4Q2XGCnh2/KWesb53ykxpG21h1STUAqDIwjXU2XC+znWHJfYG/DAg==",
+  "dgSpecHash": "KDfjtihIqitNEmaxWsht45Rtcbm4JjBgAFDYGBzEje5wAzcB90HFuBlR3qvCX8R9V1+MPbh1g0o37x6X16pY+A==",
   "success": true,
-  "projectFilePath": "E:\\Almogi\\Documents\\BGU\\סמסטר ז\\פרוייקט גמר\\Hype7\\Hype7.csproj",
+  "projectFilePath": "E:\\Almogi\\Documents\\BGU\\סמסטר ז\\פרוייקט גמר\\code\\Hype7\\Metric Manger\\Hype7.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Almogi\\.nuget\\packages\\microsoft.data.sqlite.core\\6.0.1\\microsoft.data.sqlite.core.6.0.1.nupkg.sha512",
     "C:\\Users\\Almogi\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
