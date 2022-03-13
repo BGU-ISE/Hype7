@@ -1661,14 +1661,14 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
-      "Scraper Manager/1.0.0": {
+      "Metric Manager/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "compile": {
-          "bin/placeholder/Scraper Manager.dll": {}
+          "bin/placeholder/Metric Manager.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Scraper Manager.dll": {}
+          "bin/placeholder/Metric Manager.dll": {}
         }
       }
     }
@@ -6049,18 +6049,18 @@
         "system.xml.xdocument.nuspec"
       ]
     },
-    "Scraper Manager/1.0.0": {
+    "Metric Manager/1.0.0": {
       "type": "project",
-      "path": "../Scraper Manager/Scraper Manager.csproj",
-      "msbuildProject": "../Scraper Manager/Scraper Manager.csproj"
+      "path": "../Metric Manager/Metric Manager.csproj",
+      "msbuildProject": "../Metric Manager/Metric Manager.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
       "MSTest.TestAdapter >= 2.2.3",
       "MSTest.TestFramework >= 2.2.3",
+      "Metric Manager >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 16.9.4",
-      "Scraper Manager >= 1.0.0",
       "coverlet.collector >= 3.0.2"
     ]
   },
@@ -6071,11 +6071,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Iftah\\Desktop\\זסבזסב\\Scraper Manager\\Scraper ManagerTests\\Scraper ManagerTests.csproj",
-      "projectName": "Scraper ManagerTests",
-      "projectPath": "C:\\Users\\Iftah\\Desktop\\זסבזסב\\Scraper Manager\\Scraper ManagerTests\\Scraper ManagerTests.csproj",
+      "projectUniqueName": "C:\\Users\\Iftah\\Desktop\\זסבזסב\\metric manager v2\\Metric Manager\\Metric ManagerTests\\Metric ManagerTests.csproj",
+      "projectName": "Metric ManagerTests",
+      "projectPath": "C:\\Users\\Iftah\\Desktop\\זסבזסב\\metric manager v2\\Metric Manager\\Metric ManagerTests\\Metric ManagerTests.csproj",
       "packagesPath": "C:\\Users\\Iftah\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Iftah\\Desktop\\זסבזסב\\Scraper Manager\\Scraper ManagerTests\\obj\\",
+      "outputPath": "C:\\Users\\Iftah\\Desktop\\זסבזסב\\metric manager v2\\Metric Manager\\Metric ManagerTests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -6095,8 +6095,8 @@
         "net5.0": {
           "targetAlias": ".NETCoreApp,Version=v5.0",
           "projectReferences": {
-            "C:\\Users\\Iftah\\Desktop\\זסבזסב\\Scraper Manager\\Scraper Manager\\Scraper Manager.csproj": {
-              "projectPath": "C:\\Users\\Iftah\\Desktop\\זסבזסב\\Scraper Manager\\Scraper Manager\\Scraper Manager.csproj"
+            "C:\\Users\\Iftah\\Desktop\\זסבזסב\\metric manager v2\\Metric Manager\\Metric Manager\\Metric Manager.csproj": {
+              "projectPath": "C:\\Users\\Iftah\\Desktop\\זסבזסב\\metric manager v2\\Metric Manager\\Metric Manager\\Metric Manager.csproj"
             }
           }
         }

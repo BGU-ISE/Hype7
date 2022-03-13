@@ -1,0 +1,6 @@
+C:\Users\Iftah\Desktop\זסבזסב\metric manager v2\Metric Manager\Metric ManagerTests\bin\Debug\.netcoreapp,version=v5.0\CoverletSourceRootsMapping
+C:\Users\Iftah\Desktop\זסבזסב\metric manager v2\Metric Manager\Metric ManagerTests\obj\Debug\.netcoreapp,version=v5.0\Metric ManagerTests.csproj.AssemblyReference.cache
+C:\Users\Iftah\Desktop\זסבזסב\metric manager v2\Metric Manager\Metric ManagerTests\obj\Debug\.netcoreapp,version=v5.0\Metric ManagerTests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Iftah\Desktop\זסבזסב\metric manager v2\Metric Manager\Metric ManagerTests\obj\Debug\.netcoreapp,version=v5.0\Metric ManagerTests.AssemblyInfoInputs.cache
+C:\Users\Iftah\Desktop\זסבזסב\metric manager v2\Metric Manager\Metric ManagerTests\obj\Debug\.netcoreapp,version=v5.0\Metric ManagerTests.AssemblyInfo.cs
+C:\Users\Iftah\Desktop\זסבזסב\metric manager v2\Metric Manager\Metric ManagerTests\obj\Debug\.netcoreapp,version=v5.0\Metric ManagerTests.csproj.CoreCompileInputs.cache
