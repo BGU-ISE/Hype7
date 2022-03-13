@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "v58XRAnOd7jqtUMzyG6tqyTyRxyYeFW2+NQo7qr28vaaohiDftSjqNtIS+/kFjV6rTGkVR0mvQdgV9rKS/qf2A==",
+  "dgSpecHash": "H5a1Fl7qBCuslBbSbcLz++CCtCppA+ihrnCK1qb/N1LMwXkxoJYVG+mF9wY9RNHKyBPLrBjkzXIRGUwXUhpIGQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Scraper Manager\\Scraper Manager\\Scraper Manager.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\Iftah\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }

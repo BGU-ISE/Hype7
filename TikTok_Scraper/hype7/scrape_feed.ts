@@ -38,16 +38,17 @@ function runner() {
         current_date = current_date.replace("/", "_").replace("/", "_");
         if(true){
         try {
-            const posts = await trend('', { number:100000 , sessionList: ['sid_tt=21bcb2d3d99223e5aa54c031c9f601dd;'], fileName:"tiktok_"+current_date, filetype:"all"});
+            const posts = await trend('', { number:10 , sessionList: ['sid_tt=21bcb2d3d99223e5aa54c031c9f601dd;'], fileName:"tiktok_"+current_date, filetype:"all"});
             var counter = 0;
         posts.collector.forEach(element => {
             counter++;
         });
-        console.log("done scraping! we scraped: 18960 videos");
+        console.log("done scraping! we scraped: "+counter+" videos");
         console.log(counter);
         } catch (error) {
-            //console.log(error);
-            console.log("done scraping! we scraped: 18965 videos");
+            console.log("scraping failed. error log:")
+            console.log(error);
+           // console.log("done scraping! we scraped: 18965 videos");
         }
         var endTime = performance.now();
 

@@ -1,2 +1,2 @@
-id;id;;diggcount;likes;;hashtags;hashtags
+id;id;;diggCount;likes;;hashtags;hashtags
 tiktok

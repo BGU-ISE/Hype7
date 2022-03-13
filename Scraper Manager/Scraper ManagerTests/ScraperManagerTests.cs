@@ -18,13 +18,23 @@ namespace Scraper_Manager.Tests
         static string setting_file;
 
 
-        private void createSettings()
+        private static void createSettings()
         {
-            Console.WriteLine("got");
+            
             string settings_str = "id;id;;diggcount;likes;;hashtags;hashtags\ntiktok";
             File.WriteAllText(setting_file, settings_str);
+  
         }
-        
+
+
+        private static void createHistory()
+        {
+            if (File.Exists(history_file))
+                File.Delete(history_file);
+            File.WriteAllText(history_file, "testfile1\n");
+
+        }
+
         [ClassInitialize()]
         public static void init(TestContext testContext)
         {
@@ -32,16 +42,12 @@ namespace Scraper_Manager.Tests
             input_dir = "../../../input_folder_test";
             output_dir = "../../../output_folder_test";
             setting_file = "../../../settingss.txt";
-           /* string[] files = Directory.GetFiles(output_dir);
-            foreach (var file in files)
-            {
-                File.Delete(file);
-            }
-         
+           
             if (File.Exists(setting_file))
                 File.Delete(setting_file);
             if (File.Exists(history_file))
-                File.Delete(history_file);*/
+                File.Delete(history_file);
+            createSettings();
         }
         /*
         [ClassCleanup()]
@@ -59,21 +65,35 @@ namespace Scraper_Manager.Tests
                 File.Delete(history_file);
         }
         
+        */
+        [TestInitialize()]
+        public void test_init()
+        {
+            createHistory();
+        }
 
-        [TestInitialize()]*/
 
         [TestMethod()]
         public void load_historyTest()
         {
-            createSettings();
-            Assert.IsTrue(true);
+
+            List<string> ans = ScraperManager.load_history(history_file);
+            Console.WriteLine("here1");
+
+            Assert.AreEqual(ans.Count, 1);
+            Assert.AreEqual(ans[0], "testfile1");
         }
 
        
         [TestMethod()]
         public void add_to_historyTest()
         {
-            Assert.Fail();
+            ScraperManager.add_to_history("testfile2", history_file);
+            List<string> ans = ScraperManager.load_history(history_file);
+            Console.WriteLine("here2");
+            Assert.AreEqual(ans.Count, 2);
+            Assert.AreEqual(ans[1], "testfile2");
+
         }
     }
 }

@@ -10,6 +10,7 @@ namespace Scraper_Manager
 
         public static List<string> load_history(string inputfile = "../../../input_folder/history.txt")
         {
+            Console.WriteLine("Reading history....");
             List<string> ans = new List<string>();
 
             using (var reader = new StreamReader(inputfile))
@@ -40,11 +41,13 @@ namespace Scraper_Manager
                 if (!history.Contains(Path.GetFileName(file)))
                 {
                     string output_path = "../../../output_folder/" + Path.GetFileNameWithoutExtension(file) + "_formated.csv";
-
+                    Console.WriteLine("Reading file:" + Path.GetFileName(file));
                     RecordsFile r = new RecordsFile("../../../settings.txt", file, output_path);
                     r.loadFile();
+                    Console.WriteLine("Saving to file:" + Path.GetFileName(output_path));
                     r.saveRecords();
                     add_to_history(Path.GetFileName(file));
+                    Console.WriteLine("Done with file:" + Path.GetFileName(file) +" adding to history");
                 }
             }
 
