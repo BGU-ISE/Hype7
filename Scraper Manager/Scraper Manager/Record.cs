@@ -8,9 +8,9 @@ namespace Scraper_Manager
 {
     public class Record
     {
-        string origin;
-        string[] values;
-        string[] values_names;
+        public string origin;
+        public string[] values;
+        public string[] values_names;
         string[] values_original;
         string[] values_names_original;
         Dictionary<int, int> swap_order;
@@ -118,7 +118,7 @@ namespace Scraper_Manager
             foreach (var item in this.values)
             {
                 if (line == "")
-                    line +=  long.Parse(item).ToString();
+                    line +=  item;
                 else
                     line += ", "+item;
 

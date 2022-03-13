@@ -9,15 +9,15 @@ namespace Scraper_Manager
 {
     public class RecordsFile
     {
-        string inputPath;
-        string outputPath;
-        string settingsPath;
-        List<Record> records = new List<Record>();
-        string origin;
-        Dictionary<int, int> swap_order;
-        Dictionary<string, string> settings_dict;
-        List<string> output_names;
-        List<string> values_names;
+        public string inputPath { get; set; }
+        public string outputPath { get; set; }
+        string settingsPath { get; set; }
+        public List<Record> records = new List<Record>();
+        string origin { get; set; }
+        Dictionary<int, int> swap_order { get; set; }
+       public  Dictionary<string, string> settings_dict { get; set; }
+        List<string> output_names { get; set; }
+        List<string> values_names { get; set; }
         public string[] output_names_arr { get { return output_names.ToArray(); } set { } }
 
         public RecordsFile(string settings_path, string input_path, string output_path)
@@ -147,15 +147,19 @@ namespace Scraper_Manager
                     else
                         file_content += c;
                 }
+                if(file_content != "")
+                    lines.Add(file_content);
             }
             return lines;
         }
         public void loadFile()
         {
             List<string> lines=  read_file();
+            Console.WriteLine("lines: " + lines.Count);
             eval_values_name(lines);
             eval_swap_order();
             lines.RemoveAt(0); //remove the values name
+         
             foreach (var line in lines)
             {
                 Record new_rec = new Record(line, values_names, origin);
