@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Data.SQLite;
 using System.Data.SqlClient;
+using Microsoft.Data.Sqlite;
+using System.Data.SQLite;
 
 namespace Hype7
 {
@@ -11,11 +12,12 @@ namespace Hype7
         static private List<string> FieldsName;
         static private string FieldsNameStr;
         static private string checke;
-        public static void saveVideo(VideoInfo VideoDetails, DateTime date, bool isDBOpen)
+        public static void saveVideo(VideoInfo VideoDetails, string date, bool isDBOpen)
         {
             //var dateFormat = date.ToShortDateString();
             //string[] arr = dateFormat.Split("/");
-            
+            // date.ToShortDateString()
+
             try
             {
                 if (!isDBOpen)
@@ -25,7 +27,7 @@ namespace Hype7
                 {
                     SQLiteCommand command = new SQLiteCommand(null, DAL.connection);
                     command.CommandText = "INSERT INTO VideosInfoDay"+ VideoDetails.GetSerialDate() + "(" + GetFields() + ")  " +
-                            " VALUES (" + GetValues(VideoDetails) + ", '" + date.ToShortDateString() + "')";
+                            " VALUES (" + GetValues(VideoDetails) + ", '" + date + "')";
                     checke = command.CommandText;
                     command.Prepare();
                     int changes = command.ExecuteNonQuery();
@@ -34,7 +36,7 @@ namespace Hype7
                         DAL.CloseConnect();
                 }
             }
-            catch (SQLiteException e)
+            catch (SqliteException e)
             {
                 DAL.CloseConnect();
             }
@@ -65,15 +67,17 @@ namespace Hype7
                 //return "";
             for (int i=0; i<21 /*Data.Length-1*/; i++)
             {
-                string temp = Data[i].Replace("'", "\'");
-                if (i == 0)
-                {
-                    decimal h2 = Decimal.Parse(temp, System.Globalization.NumberStyles.Any);
-                    temp = h2 + "";
-                }
+                //string temp = Data[i].Replace(" ", "\'");
+                Data[i] = Data[i].Replace("'", " ");
+                //Data[i] = Data[i].Replace(" ", "'");
+                //if (i == 0)
+                //{
+                //    decimal h2 = Decimal.Parse(temp, System.Globalization.NumberStyles.Any);
+                //    temp = h2 + "";
+                //}
 
                 //if(temp.Length > 0)
-                ans += "'" + temp + "', ";
+                ans += "'" + Data[i] + "', ";
             }
             var hash = Data[Data.Length - 1];
             hash = hash.Replace("[", string.Empty);

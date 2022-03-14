@@ -18,7 +18,17 @@ namespace Hype7
         //static private string metric;
         static private int hashtag;
 
-        public static void Setup(string pathFolder, string ignoreHashPath)
+        public static void InitializeData()
+        {
+            if (path == null)
+                path = GetPath();
+            ReadFromText(Path.Combine(path, "Data\\ignoreHashtag.txt"));
+            // check if DB create
+            // init table
+            // change names of tables
+            // 
+        }
+        private static void Setup(string pathFolder, string ignoreHashPath)
         {
             ReadAllFromCSV(pathFolder);
             ReadFromText(ignoreHashPath);
@@ -38,7 +48,7 @@ namespace Hype7
                 }
             }
         }
-        public static List<VideoInfo> ReadFromCSV(string name, DateTime date)
+        private static List<VideoInfo> ReadFromCSV(string name, DateTime date)
         {
             List<VideoInfo> dataCurrent = new List<VideoInfo>();
             using (var reader = new StreamReader(name))
@@ -85,10 +95,10 @@ namespace Hype7
                 }
                 hashtag = indexByName["hashtags"];
             }
-            System.IO.File.Move(name, path + "\\Data\\ReadData");
+            //System.IO.File.Move(name, Path.Combine(path, @"Data\\ReadData"), true);
             return dataCurrent;
         }
-        public static void ReadAllFromCSV(string path)
+        private static void ReadAllFromCSV(string path)
         {
             string[] fileArray = Directory.GetFiles(path);
             for (int i=0; i<fileArray.Length; i++)
@@ -96,10 +106,9 @@ namespace Hype7
                 DateTime date = ConvertPathToDatetime(fileArray[i]);
                 var temp = ReadFromCSV(fileArray[i], date);
                 Data[date] = temp;
-                
             }
         }
-        public static void ReadFieldNameFromCSV(string path)
+        private static void ReadFieldNameFromCSV(string path)
         {
             string[] fileArray = Directory.GetFiles(path);
             using (var reader = new StreamReader(fileArray[0]))
@@ -140,7 +149,7 @@ namespace Hype7
                 }
             }
         }
-        public static void ReadFromText(string name)
+        private static void ReadFromText(string name)
         {
             string text = System.IO.File.ReadAllText(name);
             text = text.Replace(" ", string.Empty);
@@ -447,6 +456,21 @@ namespace Hype7
                 Setup(path + "\\Data\\UnReadData", path + "\\Data\\ignoreHashtag.txt");
             }
             return Data;
+        }
+        public static List<VideoInfo> GetData(string currentDate)
+        {
+            if (path == null)
+                path = GetPath();
+            string[] fileArray = Directory.GetFiles(path + "\\Data\\UnReadData");
+            for (int i = 0; i < fileArray.Length; i++)
+            {
+                DateTime date = ConvertPathToDatetime(fileArray[i]);
+                if (date.ToString("dd-MM-yyyy").Equals(currentDate))
+                {
+                    return ReadFromCSV(fileArray[i], date);
+                }
+            }
+            return null; // Data[date];
         }
         private static string GetPath()
         {
