@@ -8,11 +8,24 @@
     ".NETCoreApp,Version=v5.0": {
       "Metric Manager/1.0.0": {
         "dependencies": {
+          "Aspose.Cells": "22.3.0",
           "Microsoft.Data.Sqlite.Core": "6.0.3",
           "System.Data.SQLite": "1.0.115.5"
         },
         "runtime": {
           "Metric Manager.dll": {}
+        }
+      },
+      "Aspose.Cells/22.3.0": {
+        "dependencies": {
+          "System.Drawing.Common": "4.7.0",
+          "System.Text.Encoding.CodePages": "4.7.0"
+        },
+        "runtime": {
+          "lib/net50/Aspose.Cells.dll": {
+            "assemblyVersion": "22.3.0.0",
+            "fileVersion": "22.3.0.0"
+          }
         }
       },
       "EntityFramework/6.4.4": {
@@ -279,6 +292,11 @@
         }
       },
       "System.Security.Principal.Windows/4.7.0": {},
+      "System.Text.Encoding.CodePages/4.7.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "3.1.0"
+        }
+      },
       "System.Windows.Extensions/4.7.0": {
         "dependencies": {
           "System.Drawing.Common": "4.7.0"
@@ -305,6 +323,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Aspose.Cells/22.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HZwNb9WKBfkV9/wT4dqlBRxke9sMyfPgiSM553V5SyU1zTvhWd6rwO7oIa8znbP+7HgllfBHe75KADnMPPmSUQ==",
+      "path": "aspose.cells/22.3.0",
+      "hashPath": "aspose.cells.22.3.0.nupkg.sha512"
     },
     "EntityFramework/6.4.4": {
       "type": "package",
@@ -480,6 +505,13 @@
       "sha512": "sha512-ojD0PX0XhneCsUbAZVKdb7h/70vyYMDYs85lwEI+LngEONe/17A0cFaRFqZU+sOEidcVswYWikYOQ9PPfjlbtQ==",
       "path": "system.security.principal.windows/4.7.0",
       "hashPath": "system.security.principal.windows.4.7.0.nupkg.sha512"
+    },
+    "System.Text.Encoding.CodePages/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-aeu4FlaUTemuT1qOd1MyU4T516QR4Fy+9yDbwWMPHOHy7U8FD6SgTzdZFO7gHcfAPHtECqInbwklVvUK4RHcNg==",
+      "path": "system.text.encoding.codepages/4.7.0",
+      "hashPath": "system.text.encoding.codepages.4.7.0.nupkg.sha512"
     },
     "System.Windows.Extensions/4.7.0": {
       "type": "package",

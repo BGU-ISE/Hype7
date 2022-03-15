@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "OPQeTu+PoAiCZT9Ycm5o3MKEr1lP5pMnmH5Msgp+9KnVqlQvzba+wjRrtAl700mv2Fxz2qzJl/s0eV7KeELSIQ==",
+  "dgSpecHash": "jrKK0D1XlYTS669SHx6zSR3+Nb+DJ6ut5CgMLuFTZC53Zem7HBds6IF1X+ZkvV+eAxBK00eCe/RAHeNaHPknhw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Almogi\\Desktop\\githubtry\\Project\\Hype7\\Metric Manager\\Metric ManagerTests\\Metric ManagerTests.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Almogi\\.nuget\\packages\\aspose.cells\\22.3.0\\aspose.cells.22.3.0.nupkg.sha512",
     "C:\\Users\\Almogi\\.nuget\\packages\\coverlet.collector\\3.0.2\\coverlet.collector.3.0.2.nupkg.sha512",
     "C:\\Users\\Almogi\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\Almogi\\.nuget\\packages\\microsoft.codecoverage\\16.9.4\\microsoft.codecoverage.16.9.4.nupkg.sha512",
@@ -107,6 +108,7 @@
     "C:\\Users\\Almogi\\.nuget\\packages\\system.security.permissions\\4.7.0\\system.security.permissions.4.7.0.nupkg.sha512",
     "C:\\Users\\Almogi\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
     "C:\\Users\\Almogi\\.nuget\\packages\\system.text.encoding\\4.3.0\\system.text.encoding.4.3.0.nupkg.sha512",
+    "C:\\Users\\Almogi\\.nuget\\packages\\system.text.encoding.codepages\\4.7.0\\system.text.encoding.codepages.4.7.0.nupkg.sha512",
     "C:\\Users\\Almogi\\.nuget\\packages\\system.text.encoding.extensions\\4.3.0\\system.text.encoding.extensions.4.3.0.nupkg.sha512",
     "C:\\Users\\Almogi\\.nuget\\packages\\system.text.regularexpressions\\4.3.0\\system.text.regularexpressions.4.3.0.nupkg.sha512",
     "C:\\Users\\Almogi\\.nuget\\packages\\system.threading\\4.3.0\\system.threading.4.3.0.nupkg.sha512",

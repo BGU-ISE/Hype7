@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Metric_Manager;
+using System;
 using System.IO;
 
 namespace Hype7
@@ -14,6 +15,7 @@ namespace Hype7
             //var temp2 = SystemManager.GetResultByFieldAllTime("playCount", 5, )
             //Console.WriteLine("Top video by metric   -   Sum_i_1_4(playCountPerDay_i*(0.5)^i)\n");
             DateTime start = DateTime.Now;
+            
             SystemManager.InitializeData();
             DAL.SetUpDB();
             DateTime end = DateTime.Now;
