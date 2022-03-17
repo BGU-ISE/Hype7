@@ -16,10 +16,15 @@ namespace Hype7
             //Console.WriteLine("Top video by metric   -   Sum_i_1_4(playCountPerDay_i*(0.5)^i)\n");
             DateTime start = DateTime.Now;
             
-            SystemManager.InitializeData();
-            DAL.SetUpDB();
+            SystemManager.InitializeData(); // get ignore hashtags, get metrics, get path
+            DAL.OpenConnect(); // create db and init table if doesnt exist, open db
+            DAL.SetUpDB(); // insert today data, calc views today
+            SystemManager.RunAllMetricsWeek(); // run all restore metrics
+            DAL.CloseConnect();
+
             DateTime end = DateTime.Now;
             Console.WriteLine("duration: " + (end - start) + " min");
+            Console.ReadLine();
             /*
             var temp = SystemManager.GetResultByMetricAllTime("Sum_i_1_3(playCountPerDay_i*(Sum_j_2_4(j+2))^i)+6/shareCount", 5);
             foreach (var element in temp)
@@ -43,7 +48,7 @@ namespace Hype7
             //SystemManager.ReadAllFromCSV(@"C:\Users\Almogi\Desktop\Hype7\Data");
             //Metric.ReadFromText(@"C:\Users\Almogi\Desktop\Hype7\ignoreHashtag.txt"); dayOfCollect playCount
             //SystemManager.GetResultByMetricAllTime("((playCount/shareCount)^2+commentCount)", 5, "id, shareCount, playCount");
-            Console.ReadLine();
+
         }
     }
 }

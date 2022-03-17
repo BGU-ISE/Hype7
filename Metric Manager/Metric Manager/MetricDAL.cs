@@ -7,7 +7,7 @@ namespace Hype7
 {
     static class MetricDAL
     {
-        public static void saveUser(Metric UserDetails)
+        public static void saveUser(MetricOld UserDetails)
         {
             try
             {

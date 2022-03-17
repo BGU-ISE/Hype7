@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Metric_Manager;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,10 +10,12 @@ namespace Hype7
 {
     public static class SystemManager
     {
+        
         static private Dictionary<DateTime, List<VideoInfo>> Data = new Dictionary<DateTime, List<VideoInfo>>();
         static private Dictionary<string, int> indexByName = new Dictionary<string, int>();
         static private string path = null;
-        static private List<string> id = new List<string>();
+        static private List<Metric> Metrics = new List<Metric>();
+        //static private List<string> id = new List<string>();
         static private List<string> ignoreHashtah = new List<string>();
         //static private string[] fieldsNameForMetric;
         //static private string metric;
@@ -23,10 +26,7 @@ namespace Hype7
             if (path == null)
                 path = GetPath();
             ReadFromText(Path.Combine(path, "Data\\ignoreHashtag.txt"));
-            // check if DB create
-            // init table
-            // change names of tables
-            // 
+            LoadMetrics();
         }
         private static void Setup(string pathFolder, string ignoreHashPath)
         {
@@ -57,7 +57,7 @@ namespace Hype7
                 string file_content = "";
                 List<string> lines = new List<string>();
                 int count = 0;
-                while (!reader.EndOfStream && count < 5000)
+                while (!reader.EndOfStream && count < 200000)
                 {
                     char c = (char)reader.Read();
                     if (c == ((char)13) && !reader.EndOfStream)
@@ -160,6 +160,116 @@ namespace Hype7
             }
         }
 
+        private static Metric GetMetric(string metric, string name)
+        {
+            foreach (Metric element in Metrics)
+            {
+                if (element.GetMetric().Equals(metric) && element.GetName().Equals(name))
+                    return element;
+            }
+            return null;
+        }
+        private static Metric GetMetric(string metric)
+        {
+            foreach (Metric element in Metrics)
+            {
+                if (element.GetMetric().Equals(metric))
+                    return element;
+            }
+            return null;
+        }
+        public static void AddMetric(string metric)
+        {
+            if(GetMetric(metric) == null)
+                Metrics.Add(new Metric(metric));
+            else
+            {
+                Console.WriteLine("this metric exist");
+            }
+        }
+        public static void AddMetric(string metric, string name)
+        {
+            Metric temp = GetMetric(metric);
+            if (temp == null)
+                Metrics.Add(new Metric(metric, name));
+            else
+            {
+                Console.WriteLine("this metric exist");
+                if (temp.GetName().Equals("empty"))
+                {
+                    RemoveMetric(temp);
+                    Metrics.Add(new Metric(metric, name));
+                    Console.WriteLine("update metrics name");
+                }
+                    
+            }
+        }
+        private static void RemoveMetric(Metric metric)
+        {
+            Metrics.Remove(metric);
+        }
+        public static void RunAllMetrics()
+        {
+            foreach (Metric metric in Metrics)
+            {
+                DAL.RunMetricLastDay(metric.GetMetric(), true);
+            }
+        }
+        public static void RunAllMetricsWeek()
+        {
+            foreach (Metric metric in Metrics)
+            {
+                DAL.RunMetricAllWeek(metric.GetMetric(), true);
+            }
+        }
+        public static void RunMetricByName(string name)
+        {
+            foreach (Metric metric in Metrics)
+            {
+                if (metric.GetName().Equals(name))
+                {
+                    DAL.RunMetricLastDay(metric.GetMetric(), true);
+                    return;
+                }
+            }
+        }
+        public static void LoadMetrics()
+        {
+            string text = System.IO.File.ReadAllText(Path.Combine(path, "Data\\metricToRun.txt"));
+            
+            string[] arr = text.Split(";;");
+            for (int i = 0; i < arr.Length; i++)
+            {
+                string[] MetricInfo = arr[i].Split(";");
+                Metrics.Add(new Metric(MetricInfo[0], MetricInfo[1]));
+            }
+        }
+        public static void SaveMetrics()
+        {
+            File.WriteAllText(Path.Combine(path, "Data\\metricToRun.txt"), String.Empty);
+            string ans = "";
+            foreach (Metric metric in Metrics)
+            {
+                ans += metric.GetMetric() + ";" + metric.GetName() + ";;";
+            }
+            if (ans.Length > 0)
+                ans = ans.Substring(0, ans.Length - 2);
+            using (var w = File.AppendText(Path.Combine(path, "Data\\metricToRun.txt")))
+            {
+                w.WriteLine(ans);
+                w.Flush();
+            }
+
+            string text = System.IO.File.ReadAllText(Path.Combine(path, "Data\\metricToRun.txt"));
+
+            string[] arr = text.Split(";;");
+            for (int i = 0; i < arr.Length; i++)
+            {
+                string[] MetricInfo = arr[i].Split(";");
+                Metrics.Add(new Metric(MetricInfo[0], MetricInfo[1]));
+            }
+        }
+
         public static List<VideoInfo> GetResultByFieldAndTime(string fieldName, string time)
         {
             DateTime date = ConvertStringToDatetime(time);
@@ -204,7 +314,7 @@ namespace Hype7
             DateTime date = ConvertStringToDatetime(time);
             var tempData = Data[date];
 
-            Metric metricFun = new Metric(metric);
+            MetricOld metricFun = new MetricOld(metric);
             tempData.Sort((a, b) => metricFun.Eval(b).CompareTo(metricFun.Eval(a)));
             return tempData;
         }
@@ -220,7 +330,7 @@ namespace Hype7
 
         public static List<VideoInfo> GetResultByMetricAllTime(string metric)
         {
-            Metric metricFun = new Metric(metric);
+            MetricOld metricFun = new MetricOld(metric);
             List<VideoInfo> all = new List<VideoInfo>();
             foreach (var element in Data.Keys)
             {
