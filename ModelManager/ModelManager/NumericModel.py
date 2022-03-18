@@ -34,9 +34,12 @@ class Model(IModel):
     self.scores = absolute(self.scores)
     print('Mean MAE: %.3f (%.3f)' % (self.scores.mean(), self.scores.std()) )
     self.model = self.model.fit(self.X_train, self.y_train)
+    self.model.save_model("model.txt")
 
-  def predict(self):  
-    result = self.model.predict(self.X_test)
+  def predict(self, data=None):
+    model2 = xgb.XGBRegressor()
+    model2.load_model("model.txt")
+    result = model2.predict(data)
     return result
 
 

@@ -5,26 +5,31 @@ from tqdm import tqdm #For memory function   reduce_mem_usage()
 class NumericFeaturizer():
     """description of class"""
 
-    def __init__(self, datafile, labelfile):
-        
-        self.df = pd.read_csv(datafile)
-        #self.df = datafile
-        self.labels  = labelfile
-        self.continuous =['id', 'createTime', 'authorMeta.id', 
+    def __init__(self, datafile, labelfile=None):  
+        try: 
+           self.df = pd.read_csv(datafile)
+        except:
+            print('Unable to readcsv of dataframe')
+        else: 
+            self.labels  = labelfile
+
+            self.continuous_train =['id', 'createTime', 'authorMeta.id', 
+                               'authorMeta.verified',
+                               'authorMeta.following', 'authorMeta.fans', 'authorMeta.heart',
+                               'authorMeta.video', 'authorMeta.digg', 'musicMeta.musicId',
+                               'musicMeta.musicOriginal', 'diggCount', 'shareCount',
+                               'playCount', 'commentCount', 'dv_playCount']
+            self.continuous_predict  = self.continuous_train.copy()
+            self.continuous_predict.remove('dv_playCount')
+
+            self.keep =  ['id', 'createTime', 'authorMeta.id', 
                            'authorMeta.verified',
                            'authorMeta.following', 'authorMeta.fans', 'authorMeta.heart',
                            'authorMeta.video', 'authorMeta.digg', 'musicMeta.musicId',
                            'musicMeta.musicOriginal', 'diggCount', 'shareCount',
-                           'playCount', 'commentCount', 'dv_playCount']
-        self.keep =  ['id', 'createTime', 'authorMeta.id', 
-       'authorMeta.verified',
-       'authorMeta.following', 'authorMeta.fans', 'authorMeta.heart',
-       'authorMeta.video', 'authorMeta.digg', 'musicMeta.musicId',
-       'musicMeta.musicOriginal', 'diggCount', 'shareCount',
-       'playCount', 'commentCount']
-
-        self.df = self.reduce_mem_usage(self.df)
-        self.df = self.df[self.keep]
+                           'playCount', 'commentCount']
+            self.df = self.reduce_mem_usage(self.df)
+            self.df = self.df[self.keep]
 
 
     def reduce_mem_usage(seldf, df):
@@ -54,8 +59,6 @@ class NumericFeaturizer():
                         df[col] = df[col].astype(np.float32)
                     else:
                         df[col] = df[col].astype(np.float64)
-            # elif 'datetime' not in col_type.name:
-            #     df[col] = df[col].astype('datetime64[ns]')
 
         end_mem = df.memory_usage().sum() / 1024 ** 2
         print('Memory usage after optimization is: {:.3f} MB'.format(end_mem))
@@ -72,22 +75,19 @@ class NumericFeaturizer():
         
     def prepare_to_train(self):
        try: 
-           if(self.labels is None):
-              raise AttributeError('')
-       except Exception as exc:
+           self.labels= pd.read_csv(self.labels)
+       except:
             print('No label file is given Unable to train')
-            raise
-       
-       self.labels= pd.read_csv(self.labels)
-       self.labels = self.reduce_mem_usage(self.labels)
-       self.labels = self.labels[['id', 'playCount']]
-       self.df = self.df.merge(self.labels, on='id', how='inner')
-       self.df["dv_playCount"]=round( self.df["playCount_y"]- self.df["playCount_x"] /7,4)
-       self.df = self.df.drop(['playCount_y'], axis=1)
-       self.df  = self.df.rename(columns={"playCount_x": "playCount"})
-       self.normalize(self.continuous)
-       return self.df
+       else: 
+           self.labels = self.reduce_mem_usage(self.labels)
+           self.labels = self.labels[['id', 'playCount']]
+           self.df = self.df.merge(self.labels, on='id', how='inner')
+           self.df["dv_playCount"]=round( self.df["playCount_y"]- self.df["playCount_x"] /7,4)
+           self.df = self.df.drop(['playCount_y'], axis=1)
+           self.df  = self.df.rename(columns={"playCount_x": "playCount"})
+           self.normalize(self.continuous_train)
+           return self.df
 
     def prepare_to_predict(self):
-       self.normalize(self.continuous)
+       self.normalize(self.continuous_predict)
        return self.df

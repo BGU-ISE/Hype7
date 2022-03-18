@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>752fbd9d-83e4-409a-8f6e-f26fbb78459a</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Main.py</StartupFile>
+    <StartupFile>UnitTests.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,9 +21,6 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Main.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="IModel.py">
       <SubType>Code</SubType>
     </Compile>
@@ -34,6 +31,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ModelManager.py" />
+    <Compile Include="UnitTests.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="tiktok_12_31_2021.csv" />
