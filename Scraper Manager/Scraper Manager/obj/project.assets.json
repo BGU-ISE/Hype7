@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Iftah\\Desktop\\זסבזסב\\Scraper Manager\\Scraper Manager\\Scraper Manager.csproj",
+      "projectUniqueName": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Scraper Manager\\Scraper Manager\\Scraper Manager.csproj",
       "projectName": "Scraper Manager",
-      "projectPath": "C:\\Users\\Iftah\\Desktop\\זסבזסב\\Scraper Manager\\Scraper Manager\\Scraper Manager.csproj",
+      "projectPath": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Scraper Manager\\Scraper Manager\\Scraper Manager.csproj",
       "packagesPath": "C:\\Users\\Iftah\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Iftah\\Desktop\\זסבזסב\\Scraper Manager\\Scraper Manager\\obj\\",
+      "outputPath": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Scraper Manager\\Scraper Manager\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

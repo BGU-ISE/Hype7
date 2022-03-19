@@ -1,3 +1,17 @@
+
+import { trend } from '../src';
+
+(async () => {
+    try {
+        const posts = await trend('', { number: 1, sessionList: ['sid_tt=asdasd13123123123adasda;'] });
+        console.log(posts.collector);
+    } catch (error) {
+        console.log(error);
+    }
+})();
+/*
+
+
 import { trend } from '../src';
 import { performance } from 'perf_hooks';
 var startTime = performance.now();
@@ -17,7 +31,7 @@ console.log('starting');
     var endTime = performance.now();
 
 console.log(`Call to doSomething took ${endTime - startTime} milliseconds`);
-})();
+})();*/
 
 /**
  * Output example
