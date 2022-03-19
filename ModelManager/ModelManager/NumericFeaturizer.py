@@ -3,33 +3,19 @@ import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 from tqdm import tqdm #For memory function   reduce_mem_usage()
 
 class NumericFeaturizer():
-    """description of class"""
 
     def __init__(self, datafile, labelfile=None):  
         try: 
-           self.df = pd.read_csv(datafile)
+           self.df = datafile
         except:
             print('Unable to readcsv of dataframe')
         else: 
             self.labels  = labelfile
+            self.continuous_train = self.df.columns.values.tolist()
+            self.continuous_train = self.continuous_train.append('dv_playCount')
+            self.continuous_predict = self.df.columns.values.tolist() 
 
-            self.continuous_train =['id', 'createTime', 'authorMeta.id', 
-                               'authorMeta.verified',
-                               'authorMeta.following', 'authorMeta.fans', 'authorMeta.heart',
-                               'authorMeta.video', 'authorMeta.digg', 'musicMeta.musicId',
-                               'musicMeta.musicOriginal', 'diggCount', 'shareCount',
-                               'playCount', 'commentCount', 'dv_playCount']
-            self.continuous_predict  = self.continuous_train.copy()
-            self.continuous_predict.remove('dv_playCount')
-
-            self.keep =  ['id', 'createTime', 'authorMeta.id', 
-                           'authorMeta.verified',
-                           'authorMeta.following', 'authorMeta.fans', 'authorMeta.heart',
-                           'authorMeta.video', 'authorMeta.digg', 'musicMeta.musicId',
-                           'musicMeta.musicOriginal', 'diggCount', 'shareCount',
-                           'playCount', 'commentCount']
             self.df = self.reduce_mem_usage(self.df)
-            self.df = self.df[self.keep]
 
 
     def reduce_mem_usage(seldf, df):
@@ -75,7 +61,8 @@ class NumericFeaturizer():
         
     def prepare_to_train(self):
        try: 
-           self.labels= pd.read_csv(self.labels)
+           if(self.labels is None):
+               raise('')
        except:
             print('No label file is given Unable to train')
        else: 

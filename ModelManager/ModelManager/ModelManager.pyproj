@@ -21,6 +21,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DBConnection.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="IModel.py">
       <SubType>Code</SubType>
     </Compile>
@@ -36,6 +39,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DataBase.db" />
     <Content Include="tiktok_12_31_2021.csv" />
     <Content Include="tiktok_duplicate_1_7_2022.csv" />
   </ItemGroup>

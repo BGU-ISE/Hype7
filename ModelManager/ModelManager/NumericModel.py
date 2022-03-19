@@ -15,14 +15,10 @@ class Model(IModel):
     
 
   def split(self, test_size):
-    continuous = ['id', 'createTime', 'authorMeta.id', 
-       'authorMeta.verified',
-       'authorMeta.following', 'authorMeta.fans', 'authorMeta.heart',
-       'authorMeta.video', 'authorMeta.digg', 'musicMeta.musicId',
-       'musicMeta.musicOriginal', 'diggCount', 'shareCount',
-       'playCount', 'commentCount']
+    columns = self.df.columns.values.tolist()
+    columns = columns.remove('dv_playCount')
     y = self.df[["dv_playCount"]]
-    X = self.df[continuous]
+    X = self.df[columns]
     self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(X, y, test_size=0.2, random_state=123)
 
   def fit(self):
