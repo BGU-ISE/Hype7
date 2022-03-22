@@ -3,7 +3,6 @@ C:\Users\Iftah\Desktop\זסבזסב\metric manager v2\Metric Manager\Metric Mana
 C:\Users\Iftah\Desktop\זסבזסב\metric manager v2\Metric Manager\Metric Manager\obj\Debug\net5.0\Metric Manager.AssemblyInfoInputs.cache
 C:\Users\Iftah\Desktop\זסבזסב\metric manager v2\Metric Manager\Metric Manager\obj\Debug\net5.0\Metric Manager.AssemblyInfo.cs
 C:\Users\Iftah\Desktop\זסבזסב\metric manager v2\Metric Manager\Metric Manager\obj\Debug\net5.0\Metric Manager.csproj.CoreCompileInputs.cache
-C:\Users\Almogi\Desktop\githubtry\Project\Hype7\Metric Manager\Metric Manager\obj\Debug\net5.0\Metric Manager.csproj.AssemblyReference.cache
 C:\Users\Almogi\Desktop\githubtry\Project\Hype7\Metric Manager\Metric Manager\obj\Debug\net5.0\Metric Manager.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Almogi\Desktop\githubtry\Project\Hype7\Metric Manager\Metric Manager\obj\Debug\net5.0\Metric Manager.AssemblyInfoInputs.cache
 C:\Users\Almogi\Desktop\githubtry\Project\Hype7\Metric Manager\Metric Manager\obj\Debug\net5.0\Metric Manager.AssemblyInfo.cs

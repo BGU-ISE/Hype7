@@ -16,7 +16,7 @@ namespace Hype7
             //Console.WriteLine("Top video by metric   -   Sum_i_1_4(playCountPerDay_i*(0.5)^i)\n");
             DateTime start = DateTime.Now;
             
-            SystemManager.InitializeData(); // get ignore hashtags, get metrics, get path
+            SystemManager.InitializeData(args); // get ignore hashtags, get metrics, get path
             DAL.OpenConnect(); // create db and init table if doesnt exist, open db
             DAL.SetUpDB(); // insert today data, calc views today
             SystemManager.RunAllMetricsWeek(); // run all restore metrics

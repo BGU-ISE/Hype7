@@ -138,3 +138,4 @@ C:\Users\Almogi\Desktop\githubtry\Project\Hype7\Metric Manager\Metric ManagerTes
 C:\Users\Almogi\Desktop\githubtry\Project\Hype7\Metric Manager\Metric ManagerTests\obj\Debug\.netcoreapp,version=v5.0\ref\Metric ManagerTests.dll
 C:\Users\Almogi\Desktop\githubtry\Project\Hype7\Metric Manager\Metric ManagerTests\obj\Debug\.netcoreapp,version=v5.0\Metric ManagerTests.pdb
 C:\Users\Almogi\Desktop\githubtry\Project\Hype7\Metric Manager\Metric ManagerTests\obj\Debug\.netcoreapp,version=v5.0\Metric ManagerTests.genruntimeconfig.cache
+C:\Users\Almogi\Desktop\githubtry\Project\Hype7\Metric Manager\Metric ManagerTests\bin\Debug\.netcoreapp,version=v5.0\Aspose.Cells.dll

@@ -19,6 +19,18 @@
           "Metric ManagerTests.dll": {}
         }
       },
+      "Aspose.Cells/22.3.0": {
+        "dependencies": {
+          "System.Drawing.Common": "4.7.0",
+          "System.Text.Encoding.CodePages": "4.7.0"
+        },
+        "runtime": {
+          "lib/net50/Aspose.Cells.dll": {
+            "assemblyVersion": "22.3.0.0",
+            "fileVersion": "22.3.0.0"
+          }
+        }
+      },
       "coverlet.collector/3.0.2": {},
       "EntityFramework/6.4.4": {
         "dependencies": {
@@ -1246,6 +1258,11 @@
           "System.Runtime": "4.3.0"
         }
       },
+      "System.Text.Encoding.CodePages/4.7.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "3.1.0"
+        }
+      },
       "System.Text.Encoding.Extensions/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.1.0",
@@ -1342,6 +1359,7 @@
       },
       "Metric Manager/1.0.0": {
         "dependencies": {
+          "Aspose.Cells": "22.3.0",
           "Microsoft.Data.Sqlite.Core": "6.0.3",
           "System.Data.SQLite": "1.0.115.5"
         },
@@ -1356,6 +1374,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Aspose.Cells/22.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HZwNb9WKBfkV9/wT4dqlBRxke9sMyfPgiSM553V5SyU1zTvhWd6rwO7oIa8znbP+7HgllfBHe75KADnMPPmSUQ==",
+      "path": "aspose.cells/22.3.0",
+      "hashPath": "aspose.cells.22.3.0.nupkg.sha512"
     },
     "coverlet.collector/3.0.2": {
       "type": "package",
@@ -2077,6 +2102,13 @@
       "sha512": "sha512-BiIg+KWaSDOITze6jGQynxg64naAPtqGHBwDrLaCtixsa5bKiR8dpPOHA7ge3C0JJQizJE+sfkz1wV+BAKAYZw==",
       "path": "system.text.encoding/4.3.0",
       "hashPath": "system.text.encoding.4.3.0.nupkg.sha512"
+    },
+    "System.Text.Encoding.CodePages/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-aeu4FlaUTemuT1qOd1MyU4T516QR4Fy+9yDbwWMPHOHy7U8FD6SgTzdZFO7gHcfAPHtECqInbwklVvUK4RHcNg==",
+      "path": "system.text.encoding.codepages/4.7.0",
+      "hashPath": "system.text.encoding.codepages.4.7.0.nupkg.sha512"
     },
     "System.Text.Encoding.Extensions/4.3.0": {
       "type": "package",

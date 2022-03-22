@@ -14,18 +14,24 @@ namespace Hype7
         static private Dictionary<DateTime, List<VideoInfo>> Data = new Dictionary<DateTime, List<VideoInfo>>();
         static private Dictionary<string, int> indexByName = new Dictionary<string, int>();
         static private string path = null;
+        static private string dataDir = null;
         static private List<Metric> Metrics = new List<Metric>();
-        //static private List<string> id = new List<string>();
-        static private List<string> ignoreHashtah = new List<string>();
-        //static private string[] fieldsNameForMetric;
-        //static private string metric;
+        static private List<string> ignoreHashtag = new List<string>();
         static private int hashtag;
 
-        public static void InitializeData()
+        public static void InitializeData(string[] args)
         {
-            if (path == null)
-                path = GetPath();
-            ReadFromText(Path.Combine(path, "Data\\ignoreHashtag.txt"));
+            if (path == null && args.Length == 0)
+                path = Path.Combine(GetPath(),  "Data");
+            else
+            {
+                path = args[0];
+                var arr = path.Split("\\");
+                dataDir = arr[arr.Length - 1];
+                path = path.Substring(0, path.Length - (dataDir.Length + 2));
+            }
+            Console.WriteLine(path);
+            ReadFromText(Path.Combine(path, "ignoreHashtag.txt"));
             LoadMetrics();
         }
         private static void Setup(string pathFolder, string ignoreHashPath)
@@ -156,7 +162,7 @@ namespace Hype7
             string[] ignore = text.Split(",");
             for (int i = 0; i < ignore.Length; i++)
             {
-                ignoreHashtah.Add(ignore[i]);
+                ignoreHashtag.Add(ignore[i]);
             }
         }
 
@@ -235,7 +241,7 @@ namespace Hype7
         }
         public static void LoadMetrics()
         {
-            string text = System.IO.File.ReadAllText(Path.Combine(path, "Data\\metricToRun.txt"));
+            string text = System.IO.File.ReadAllText(Path.Combine(path, "metricToRun.txt"));
             
             string[] arr = text.Split(";;");
             for (int i = 0; i < arr.Length; i++)
@@ -246,7 +252,7 @@ namespace Hype7
         }
         public static void SaveMetrics()
         {
-            File.WriteAllText(Path.Combine(path, "Data\\metricToRun.txt"), String.Empty);
+            File.WriteAllText(Path.Combine(path, "metricToRun.txt"), String.Empty);
             string ans = "";
             foreach (Metric metric in Metrics)
             {
@@ -254,13 +260,13 @@ namespace Hype7
             }
             if (ans.Length > 0)
                 ans = ans.Substring(0, ans.Length - 2);
-            using (var w = File.AppendText(Path.Combine(path, "Data\\metricToRun.txt")))
+            using (var w = File.AppendText(Path.Combine(path, "metricToRun.txt")))
             {
                 w.WriteLine(ans);
                 w.Flush();
             }
 
-            string text = System.IO.File.ReadAllText(Path.Combine(path, "Data\\metricToRun.txt"));
+            string text = System.IO.File.ReadAllText(Path.Combine(path, "metricToRun.txt"));
 
             string[] arr = text.Split(";;");
             for (int i = 0; i < arr.Length; i++)
@@ -421,7 +427,7 @@ namespace Hype7
         }
         private static List<string> RemoveIgnoreHashtag(List<string> lst)
         {
-            foreach (var element in ignoreHashtah)
+            foreach (var element in ignoreHashtag)
             {
                 lst.Remove(element);
             }
@@ -554,7 +560,7 @@ namespace Hype7
             if (path == null)
                 path = GetPath();
             if (indexByName == null || indexByName.Count == 0)
-                ReadFieldNameFromCSV(path + "\\Data\\UnReadData");
+                ReadFieldNameFromCSV(path + "\\UnReadData");
             return indexByName.Keys.ToList();
         }
         public static Dictionary<DateTime, List<VideoInfo>> GetAllData()
@@ -563,7 +569,7 @@ namespace Hype7
                 path = GetPath();
             if(Data == null || Data.Count == 0)
             {
-                Setup(path + "\\Data\\UnReadData", path + "\\Data\\ignoreHashtag.txt");
+                Setup(path + "\\UnReadData", path + "\\ignoreHashtag.txt");
             }
             return Data;
         }
@@ -571,7 +577,7 @@ namespace Hype7
         {
             if (path == null)
                 path = GetPath();
-            string[] fileArray = Directory.GetFiles(path + "\\Data\\UnReadData");
+            string[] fileArray = Directory.GetFiles(path + "\\UnReadData");
             for (int i = 0; i < fileArray.Length; i++)
             {
                 DateTime date = ConvertPathToDatetime(fileArray[i]);
