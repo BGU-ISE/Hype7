@@ -10,13 +10,13 @@ namespace Hype7
 {
     public static class SystemManager
     {
-        
+
         static private Dictionary<DateTime, List<VideoInfo>> Data = new Dictionary<DateTime, List<VideoInfo>>();
         static private Dictionary<string, int> indexByName = new Dictionary<string, int>();
-        static private string path = null;
+        static public string path = null;
         static private string dataDir = null;
         static private List<Metric> Metrics = new List<Metric>();
-        static private List<string> ignoreHashtag = new List<string>();
+        static public List<string> ignoreHashtag = new List<string>();
         static private int hashtag;
 
         public static void InitializeData(string[] args)
@@ -30,7 +30,7 @@ namespace Hype7
                 dataDir = arr[arr.Length - 1];
                 path = path.Substring(0, path.Length - (dataDir.Length + 2));
             }
-            Console.WriteLine(path);
+            //Console.WriteLine(path);
             ReadFromText(Path.Combine(path, "ignoreHashtag.txt"));
             LoadMetrics();
         }
@@ -595,6 +595,10 @@ namespace Hype7
             parent = System.IO.Directory.GetParent(parent).FullName;
             parent = System.IO.Directory.GetParent(parent).FullName;
             return parent;
+        }
+        public static bool GetMetricTest()
+        {
+            return (Metrics != null && Metrics.Count > 0);
         }
     }
 }

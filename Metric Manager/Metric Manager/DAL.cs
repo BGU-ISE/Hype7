@@ -14,9 +14,10 @@ namespace Hype7
     public static class DAL
     {
         public readonly static int SAVED_DAYS = 7;
-        private const String DB = @"DataBase.db";
+        private const String DBname = @"DataBase.db";
+        public static bool testMood = false;
         public static int LastIndexTable;
-        private const String Connection_String = @"Data Source=DataBase.db";
+        private static String Connection_String = @"Data Source=DataBase.db";
         private static List<string> intFileld = new List<string>();
         private static bool isOverDay7;
         static private string checke;
@@ -25,15 +26,28 @@ namespace Hype7
 
         public static void SetUpDB()
         {
-            //OpenConnect(); // create db if nesesery, and open it
-            SetIntField();
-            LastIndexTable = GetLastIndexTable(true);
-            int indexCreatesTable = CreateDateTable(SystemManager.GetFieldsName());
-            InsertDataFromToday(SystemManager.GetData(DateTime.Now.ToString("dd-MM-yyyy")), indexCreatesTable, true); // DateTime.Now.ToString("dd-MM-yyyy")
-            CalcPlayCountPerDay();
-            //InsertAllData(SystemManager.GetAllData(), true);
-            //CalcPlayCountAllWeek(true);
-            Console.WriteLine("finish setup for DB.");
+            if (testMood)
+            {
+                SetIntField();
+                LastIndexTable = GetLastIndexTable(true);
+                int indexCreatesTable = CreateDateTable(SystemManager.GetFieldsName());
+                InsertDataFromToday(SystemManager.GetData(DateTime.Now.ToString("04-01-2022")), indexCreatesTable, true);
+                indexCreatesTable = CreateDateTable(SystemManager.GetFieldsName());
+                InsertDataFromToday(SystemManager.GetData(DateTime.Now.ToString("05-01-2022")), indexCreatesTable, true);
+                CalcPlayCountPerDay();
+                //InsertAllData(SystemManager.GetAllData(), true);
+                //CalcPlayCountAllWeek(true);
+            }
+            else
+            {
+                SetIntField();
+                LastIndexTable = GetLastIndexTable(true);
+                int indexCreatesTable = CreateDateTable(SystemManager.GetFieldsName());
+                InsertDataFromToday(SystemManager.GetData(DateTime.Now.ToString("dd-MM-yyyy")), indexCreatesTable, true); // DateTime.Now.ToString("dd-MM-yyyy")
+                CalcPlayCountPerDay();
+                Console.WriteLine("finish setup for DB.");
+            }
+            
         }
         private static void SetIntField()
         {
@@ -45,9 +59,9 @@ namespace Hype7
         }
         public static void OpenConnect()
         {
-            if (!System.IO.File.Exists(DB))
+            if (!System.IO.File.Exists(DB()))
             {
-                SQLiteConnection.CreateFile(DB);
+                SQLiteConnection.CreateFile(DB());
                 connection = new SQLiteConnection(Connection_String);
                 connection.Open();
                 InitTables(true);
@@ -328,7 +342,7 @@ namespace Hype7
             try
             {
                 SQLiteCommand command = new SQLiteCommand(null, DAL.connection);
-                int i = LastIndexTable;
+                int i = LastIndexTable - 1;
                 //isOverDay7 = true;
 
                 if (isOverDay7)
@@ -454,8 +468,6 @@ namespace Hype7
             while (reader.Read())
             {
                 string id = reader["id"].ToString();
-                if (id.Equals("7046742924406639874"))
-                    id = "7046742924406639874";
                 var playcount = reader[columnName].ToString(); // bug here
                 if(playcount.Length > 0)
                 {
@@ -611,6 +623,33 @@ namespace Hype7
         public static void RunMetric(string metric)
         {
             //RunMetric(metric, false);
+        }
+        public static String DB()
+        {
+            if (testMood)
+            {
+                Connection_String = @"Data Source=DataBaseTest.db";
+                return @"DataBaseTest.db";
+            }
+            Connection_String = @"Data Source=DataBase.db";
+            return DAL.DBname;
+        }
+        public static void ResetDB()
+        {
+            testMood = true;
+            DB();
+            OpenConnect();
+            SQLiteCommand command = new SQLiteCommand("DROP TABLE VideosInfoDay1", DAL.connection);
+            command.ExecuteNonQuery();
+            command = new SQLiteCommand("DROP TABLE VideosInfoDay2", DAL.connection);
+            command.ExecuteNonQuery();
+            command = new SQLiteCommand("DELETE FROM ID", DAL.connection);
+            command.ExecuteNonQuery();
+            command = new SQLiteCommand("DELETE FROM PlayCountPerDay", DAL.connection);
+            command.ExecuteNonQuery();
+            command.Dispose();
+            CloseConnect();
+
         }
     }
 }
