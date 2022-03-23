@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SQLite;
+using System.Data;
 
 namespace Hype7.Tests
 {
@@ -62,6 +63,17 @@ namespace Hype7.Tests
             DAL.ResetDB();
             DAL.testMood = false;
             DAL.DB();
+        }
+
+        [TestMethod()]
+        public void CloseConnectTest()
+        {
+            Assert.IsNull(DAL.connection, "connection is open");
+            DAL.OpenConnect();
+            Assert.IsNotNull(DAL.connection, "connection is null");
+            Assert.IsTrue(DAL.connection.State == ConnectionState.Open, "connection is not open");
+            DAL.CloseConnect();
+            Assert.IsTrue(DAL.connection.State == ConnectionState.Closed, "connection is not close");
         }
     }
 }
