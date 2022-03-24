@@ -1,0 +1,16 @@
+C:\Users\Iftah\Desktop\אוניברסיטה\שנה ד\Project\Scraper Manager\System Manager\System Manager\System Manager\bin\Debug\net5.0\System Manager.exe
+C:\Users\Iftah\Desktop\אוניברסיטה\שנה ד\Project\Scraper Manager\System Manager\System Manager\System Manager\bin\Debug\net5.0\System Manager.deps.json
+C:\Users\Iftah\Desktop\אוניברסיטה\שנה ד\Project\Scraper Manager\System Manager\System Manager\System Manager\bin\Debug\net5.0\System Manager.runtimeconfig.json
+C:\Users\Iftah\Desktop\אוניברסיטה\שנה ד\Project\Scraper Manager\System Manager\System Manager\System Manager\bin\Debug\net5.0\System Manager.runtimeconfig.dev.json
+C:\Users\Iftah\Desktop\אוניברסיטה\שנה ד\Project\Scraper Manager\System Manager\System Manager\System Manager\bin\Debug\net5.0\System Manager.dll
+C:\Users\Iftah\Desktop\אוניברסיטה\שנה ד\Project\Scraper Manager\System Manager\System Manager\System Manager\bin\Debug\net5.0\ref\System Manager.dll
+C:\Users\Iftah\Desktop\אוניברסיטה\שנה ד\Project\Scraper Manager\System Manager\System Manager\System Manager\bin\Debug\net5.0\System Manager.pdb
+C:\Users\Iftah\Desktop\אוניברסיטה\שנה ד\Project\Scraper Manager\System Manager\System Manager\System Manager\obj\Debug\net5.0\System Manager.csproj.AssemblyReference.cache
+C:\Users\Iftah\Desktop\אוניברסיטה\שנה ד\Project\Scraper Manager\System Manager\System Manager\System Manager\obj\Debug\net5.0\System Manager.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Iftah\Desktop\אוניברסיטה\שנה ד\Project\Scraper Manager\System Manager\System Manager\System Manager\obj\Debug\net5.0\System Manager.AssemblyInfoInputs.cache
+C:\Users\Iftah\Desktop\אוניברסיטה\שנה ד\Project\Scraper Manager\System Manager\System Manager\System Manager\obj\Debug\net5.0\System Manager.AssemblyInfo.cs
+C:\Users\Iftah\Desktop\אוניברסיטה\שנה ד\Project\Scraper Manager\System Manager\System Manager\System Manager\obj\Debug\net5.0\System Manager.csproj.CoreCompileInputs.cache
+C:\Users\Iftah\Desktop\אוניברסיטה\שנה ד\Project\Scraper Manager\System Manager\System Manager\System Manager\obj\Debug\net5.0\System Manager.dll
+C:\Users\Iftah\Desktop\אוניברסיטה\שנה ד\Project\Scraper Manager\System Manager\System Manager\System Manager\obj\Debug\net5.0\ref\System Manager.dll
+C:\Users\Iftah\Desktop\אוניברסיטה\שנה ד\Project\Scraper Manager\System Manager\System Manager\System Manager\obj\Debug\net5.0\System Manager.pdb
+C:\Users\Iftah\Desktop\אוניברסיטה\שנה ד\Project\Scraper Manager\System Manager\System Manager\System Manager\obj\Debug\net5.0\System Manager.genruntimeconfig.cache
