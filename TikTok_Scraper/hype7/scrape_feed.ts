@@ -54,8 +54,8 @@ function runner() {
 
     console.log(`scarping took ${endTime - startTime} milliseconds`);
         }
-
-    return runner();
+    return;
+    //return runner();
     })();
 }
 

@@ -6,4 +6,8 @@
     <RootNamespace>System_Manager</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="DB\" />
+  </ItemGroup>
+
 </Project>

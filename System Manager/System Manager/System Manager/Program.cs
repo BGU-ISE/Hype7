@@ -6,7 +6,7 @@ namespace System_Manager
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main1(string[] args)
         {
             string[] arggg = { "../../../../../../Data/input", "../../../../../../Data/output" };
             string exe_folder = "../../../executables";
