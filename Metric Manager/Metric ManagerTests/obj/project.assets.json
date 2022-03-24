@@ -7290,12 +7290,17 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\Iftah\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+=======
+    "C:\\Users\\alina\\.nuget\\packages\\": {}
+>>>>>>> 9f284d55f236e86657d885fd3c46ef1e6ea0b756
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Metric Manager\\Metric ManagerTests\\Metric ManagerTests.csproj",
       "projectName": "Metric ManagerTests",
       "projectPath": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Metric Manager\\Metric ManagerTests\\Metric ManagerTests.csproj",
@@ -7307,6 +7312,16 @@
       ],
       "configFilePaths": [
         "C:\\Users\\Iftah\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+      "projectUniqueName": "C:\\Users\\alina\\source\\repos\\Hype7\\Metric Manager\\Metric ManagerTests\\Metric ManagerTests.csproj",
+      "projectName": "Metric ManagerTests",
+      "projectPath": "C:\\Users\\alina\\source\\repos\\Hype7\\Metric Manager\\Metric ManagerTests\\Metric ManagerTests.csproj",
+      "packagesPath": "C:\\Users\\alina\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\alina\\source\\repos\\Hype7\\Metric Manager\\Metric ManagerTests\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\alina\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 9f284d55f236e86657d885fd3c46ef1e6ea0b756
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7320,8 +7335,13 @@
         "net5.0": {
           "targetAlias": ".NETCoreApp,Version=v5.0",
           "projectReferences": {
+<<<<<<< HEAD
             "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Metric Manager\\Metric Manager\\Metric Manager.csproj": {
               "projectPath": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Metric Manager\\Metric Manager\\Metric Manager.csproj"
+=======
+            "C:\\Users\\alina\\source\\repos\\Hype7\\Metric Manager\\Metric Manager\\Metric Manager.csproj": {
+              "projectPath": "C:\\Users\\alina\\source\\repos\\Hype7\\Metric Manager\\Metric Manager\\Metric Manager.csproj"
+>>>>>>> 9f284d55f236e86657d885fd3c46ef1e6ea0b756
             }
           }
         }
@@ -7376,7 +7396,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
       }
     }
   }
