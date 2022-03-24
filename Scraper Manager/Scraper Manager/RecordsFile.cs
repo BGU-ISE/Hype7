@@ -133,6 +133,8 @@ namespace Scraper_Manager
                 while (!reader.EndOfStream)
                 {
                     char c = (char)reader.Read();
+                    if (c == '@')
+                        continue;
                     if (c == ((char)13) && !reader.EndOfStream)
                     {
                         char c2 = (char)reader.Read();
