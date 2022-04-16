@@ -4,11 +4,11 @@ import NumericModel
 import DBConnection
 class Test_test_1(unittest.TestCase):
     global x 
-    x =  'C:/Users/alina/source/repos/Hype7/ModelManager/ModelManager/tiktok_12_31_2021.csv'
+    x =  'C:/Users/alina/source/repos/Hype7U/ModelManager/ModelManager/tiktok_12_31_2021.csv'
     global y 
-    y = 'C:/Users/alina/source/repos/Hype7/ModelManager/ModelManager/tiktok_duplicate_1_7_2022.csv'
+    y = 'C:/Users/alina/source/repos/Hype7U/ModelManager/ModelManager/tiktok_duplicate_1_7_2022.csv'
     global db_file 
-    db_file = 'C:/Users/alina/source/repos/Hype7/ModelManager/ModelManager/DataBase.db'
+    db_file = 'C:/Users/alina/source/repos/Hype7U/ModelManager/ModelManager/DataBase.db'
 
     def setUp(self):
         self.db = DBConnection.DBConnection(db_file)

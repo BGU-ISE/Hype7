@@ -4,13 +4,16 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>752fbd9d-83e4-409a-8f6e-f26fbb78459a</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>UnitTests.py</StartupFile>
+    <StartupFile>Main.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>ModelManager</Name>
     <RootNamespace>ModelManager</RootNamespace>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <CommandLineArguments>1 2 3</CommandLineArguments>
+    <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -25,6 +28,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="IModel.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Main.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="NumericFeaturizer.py">
