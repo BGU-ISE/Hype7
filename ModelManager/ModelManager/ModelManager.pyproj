@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>752fbd9d-83e4-409a-8f6e-f26fbb78459a</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Main.py</StartupFile>
+    <StartupFile>ModelManager.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -28,9 +28,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="IModel.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Main.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="NumericFeaturizer.py">
