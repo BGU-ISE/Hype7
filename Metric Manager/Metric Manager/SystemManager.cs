@@ -54,7 +54,7 @@ namespace Hype7
                 }
             }
         }
-        private static List<VideoInfo> ReadFromCSV(string name, DateTime date)
+        private static List<VideoInfo> ReadFromCSV(string name, DateTime date, bool justFirst)
         {
             List<VideoInfo> dataCurrent = new List<VideoInfo>();
             using (var reader = new StreamReader(name))
@@ -89,6 +89,8 @@ namespace Hype7
                                     arr[i] = values[i];
                                 }
                                 dataCurrent.Add(new VideoInfo(arr, date));
+                                if (justFirst)
+                                    return dataCurrent;
                             }
                             file_content = "";
                         }
@@ -110,7 +112,7 @@ namespace Hype7
             for (int i=0; i<fileArray.Length; i++)
             {
                 DateTime date = ConvertPathToDatetime(fileArray[i]);
-                var temp = ReadFromCSV(fileArray[i], date);
+                var temp = ReadFromCSV(fileArray[i], date, false);
                 Data[date] = temp;
             }
         }
@@ -583,10 +585,41 @@ namespace Hype7
                 DateTime date = ConvertPathToDatetime(fileArray[i]);
                 if (date.ToString("dd-MM-yyyy").Equals(currentDate))
                 {
-                    return ReadFromCSV(fileArray[i], date);
+                    return ReadFromCSV(fileArray[i], date, false);
                 }
             }
             return null; // Data[date];
+        }
+        public static void SetNumericField(string currentDate)
+        {
+            if (path == null)
+                path = GetPath();
+            string[] fileArray = Directory.GetFiles(path + "\\UnReadData");
+            for (int i = 0; i < fileArray.Length; i++)
+            {
+                DateTime date = ConvertPathToDatetime(fileArray[i]);
+                if (date.ToString("dd-MM-yyyy").Equals(currentDate))
+                {
+                    List<VideoInfo> lst = ReadFromCSV(fileArray[i], date, true);
+                    foreach (VideoInfo video in lst)
+                    {
+                        string[] arr = video.GetData();
+                        List<int> numbers = new List<int>();
+                        for(int j=0; j<arr.Length; j++)
+                        {
+                            if (isNumeric(arr[j]))
+                                numbers.Add(j);
+                        }
+                        foreach(string name in indexByName.Keys)
+                        {
+                            if (numbers.Contains(indexByName[name]))
+                            {
+                                DAL.AddIntField(name);
+                            }
+                        }
+                    }
+                }
+            }
         }
         private static string GetPath()
         {
@@ -599,6 +632,10 @@ namespace Hype7
         public static bool GetMetricTest()
         {
             return (Metrics != null && Metrics.Count > 0);
+        }
+        private static bool isNumeric(string value)
+        {
+            return Regex.IsMatch(value, "^[0-9\\s]+$");
         }
     }
 }

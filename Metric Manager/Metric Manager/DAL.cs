@@ -19,6 +19,7 @@ namespace Hype7
         public static int LastIndexTable;
         private static String Connection_String = @"Data Source=DataBase.db";
         private static List<string> intFileld = new List<string>();
+        private static List<string> notIntField = new List<string>();
         private static bool isOverDay7;
         static private string checke;
 
@@ -28,8 +29,8 @@ namespace Hype7
         {
             if (testMood)
             {
-                SetIntField();
                 LastIndexTable = GetLastIndexTable(true);
+                InitIntField();
                 int indexCreatesTable = CreateDateTable(SystemManager.GetFieldsName());
                 InsertDataFromToday(SystemManager.GetData(DateTime.Now.ToString("04-01-2022")), indexCreatesTable, true);
                 indexCreatesTable = CreateDateTable(SystemManager.GetFieldsName());
@@ -40,22 +41,34 @@ namespace Hype7
             }
             else
             {
-                SetIntField();
                 LastIndexTable = GetLastIndexTable(true);
+                InitIntField();
                 int indexCreatesTable = CreateDateTable(SystemManager.GetFieldsName());
                 InsertDataFromToday(SystemManager.GetData(DateTime.Now.ToString("dd-MM-yyyy")), indexCreatesTable, true); // DateTime.Now.ToString("dd-MM-yyyy")
                 CalcPlayCountPerDay();
                 Console.WriteLine("finish setup for DB.");
             }
-            
         }
-        private static void SetIntField()
+        public static void AddIntField(string value)
         {
-            intFileld.Add("videoMeta_duration");
-            intFileld.Add("diggCount");
-            intFileld.Add("shareCount");
-            intFileld.Add("playCount");
-            intFileld.Add("commentCount");
+            intFileld.Add(value);
+        }
+        private static void InitIntField()
+        {
+            if (intFileld.Count == 0)
+            {
+                SystemManager.SetNumericField(DateTime.Now.ToString("dd-MM-yyyy"));
+                SetStringField();
+                foreach (string name in notIntField)
+                {
+                    intFileld.Remove(name);
+                }
+            }
+        }
+        private static void SetStringField()
+        {
+            notIntField.Add("id");
+            notIntField.Add("musicMeta_musicId");
         }
         public static void OpenConnect()
         {
@@ -98,8 +111,8 @@ namespace Hype7
                 names += "PullDate TEXT";
                 LastIndexTable = GetLastIndexTable(true);
                 int index = LastIndexTable + 1;
-                
-                if(index <= SAVED_DAYS)
+
+                if (index <= SAVED_DAYS)
                 {
                     SQLiteCommand command = new SQLiteCommand("CREATE TABLE VideosInfoDay" + index + " (" + names + ")", connection);
                     command.ExecuteNonQuery();
@@ -289,12 +302,10 @@ namespace Hype7
             {
                 if (!isDBOpen)
                     OpenConnect();
-                LastIndexTable = 8;
+                //LastIndexTable = 8;
                 SQLiteCommand command = new SQLiteCommand(null, DAL.connection);
                 for (int i = 1; i < LastIndexTable; i++)
                 {
-                    if (i == 3)
-                        i = 4;
                     command = new SQLiteCommand("SELECT id, (" + metric + ") as scoreDay" + i + " FROM VideosInfoDay" + i + " ORDER BY scoreDay" + i + " DESC", connection);
                     command.Prepare();
                     checke = command.CommandText;
@@ -342,6 +353,7 @@ namespace Hype7
             try
             {
                 SQLiteCommand command = new SQLiteCommand(null, DAL.connection);
+                LastIndexTable = GetLastIndexTable();
                 int i = LastIndexTable - 1;
                 //isOverDay7 = true;
 
@@ -350,18 +362,22 @@ namespace Hype7
                     moveColumn("PlayCountPerDay", "playCountDay");
                     i = SAVED_DAYS - 1;
                 }
+                if(LastIndexTable >= 2)
+                {
+                    command = new SQLiteCommand("SELECT a.id, (b.PlayCount - a.PlayCount) as playCountDay" + (i + 1) + " From VideosInfoDay" + i + " a JOIN VideosInfoDay" + (i + 1) + " b ON a.id == b.id", connection);
+                    command.Prepare();
+                    checke = command.CommandText;
+                    var reader = command.ExecuteReader();
+                    SaveResultToDB(reader, "PlayCountPerDay", "playCountDay" + (i + 1));
+                    command.Dispose();
 
-                command = new SQLiteCommand("SELECT a.id, (b.PlayCount - a.PlayCount) as playCountDay" + (i + 1) + " From VideosInfoDay" + i + " a JOIN VideosInfoDay" + (i + 1) + " b ON a.id == b.id", connection);
-                command.Prepare();
-                var reader = command.ExecuteReader();
-                SaveResultToDB(reader, "PlayCountPerDay", "playCountDay"+ (i + 1));
-                command.Dispose();
-
-                command = new SQLiteCommand("SELECT id, SUM(playCountDay1 + playCountDay2 + playCountDay3 + playCountDay4 + playCountDay5 + playCountDay6 + playCountDay7) as playCountAllWeek FROM PlayCountPerDay GROUP BY id", connection);
-                command.Prepare();
-                var reader5 = command.ExecuteReader();
-                SaveResultToDB(reader5, "PlayCountPerDay", "playCountAllWeek");
-                command.Dispose();
+                    command = new SQLiteCommand("SELECT id, SUM(playCountDay1 + playCountDay2 + playCountDay3 + playCountDay4 + playCountDay5 + playCountDay6 + playCountDay7) as playCountAllWeek FROM PlayCountPerDay GROUP BY id", connection);
+                    command.Prepare();
+                    checke = command.CommandText;
+                    var reader5 = command.ExecuteReader();
+                    SaveResultToDB(reader5, "PlayCountPerDay", "playCountAllWeek");
+                    command.Dispose();
+                }
             }
             catch (SQLiteException e)
             {
@@ -446,6 +462,7 @@ namespace Hype7
         private static void moveColumn(string tableName, string columnName)
         {
             SQLiteCommand command = new SQLiteCommand("ALTER TABLE " + tableName + " DROP COLUMN " + columnName + "1", connection);
+            checke = command.CommandText;
             command.ExecuteNonQuery();
             command.Dispose();
 
@@ -453,10 +470,12 @@ namespace Hype7
             {
                 //command = new SQLiteCommand("", connection);
                 command = new SQLiteCommand("ALTER TABLE " + tableName + " RENAME COLUMN " + columnName + j + " TO " + columnName + (j - 1), connection);
+                checke = command.CommandText;
                 command.ExecuteNonQuery();
                 command.Dispose();
             }
             command = new SQLiteCommand("ALTER TABLE " + tableName + " ADD COLUMN " + columnName + "7 INTEGER DEFAULT 0", connection);
+            checke = command.CommandText;
             command.ExecuteNonQuery();
             command.Dispose();
         }
