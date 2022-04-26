@@ -127,15 +127,17 @@ namespace Scraper_Manager
         {
             List<string> lines = new List<string>();
             string file_content = "";
+            bool isQoute = false;
             using (var reader = new StreamReader(this.inputPath))
             {
 
                 while (!reader.EndOfStream)
                 {
                     char c = (char)reader.Read();
+                    isQoute = isQoute ^ c == ((char)34);
                     if (c == '@')
                         continue;
-                    if (c == ((char)13) && !reader.EndOfStream)
+                    if (c == ((char)13) && !reader.EndOfStream && !isQoute)
                     {
                         char c2 = (char)reader.Read();
                         if (c2 == ((char)10))
