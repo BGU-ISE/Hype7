@@ -10,6 +10,7 @@ class Test_test_1(unittest.TestCase):
     global db_file 
     db_file = 'C:/Users/alina/source/repos/Hype7U/ModelManager/ModelManager/DataBase.db'
 
+""""
     def setUp(self):
         self.db = DBConnection.DBConnection(db_file)
         self.db.create_connection()
@@ -54,6 +55,6 @@ class Test_test_1(unittest.TestCase):
         features = NumericFeaturizer.NumericFeaturizer(None)
         self.assertRaises(Exception)
 
-
+"""
 if __name__ == '__main__':
     unittest.main()
