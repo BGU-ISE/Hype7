@@ -66,6 +66,9 @@ namespace Scraper_Manager
                             current_cell = "";
                         }
                         break;
+                    case '\'':
+                        current_cell += '`';
+                        break;
                     default:
                         current_cell += c;
                         break;
@@ -108,9 +111,10 @@ namespace Scraper_Manager
                     }
                 }
         }
-
-
-
+        public string GetID()
+        {
+            return values[0];
+        }
 
         public override string ToString()
         {
@@ -118,9 +122,9 @@ namespace Scraper_Manager
             foreach (var item in this.values)
             {
                 if (line == "")
-                    line +=  item;
+                    line += "'"+ item + "'";
                 else
-                    line += ", "+item;
+                    line += ", '"+item+"'";
 
             }
             return line;
