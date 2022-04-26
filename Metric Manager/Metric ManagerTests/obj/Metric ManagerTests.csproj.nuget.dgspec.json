@@ -1,40 +1,20 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-    "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Metric Manager\\Metric ManagerTests\\Metric ManagerTests.csproj": {}
+    "C:\\Users\\alina\\Source\\Repos\\Hype7U\\Metric Manager\\Metric ManagerTests\\Metric ManagerTests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Metric Manager\\Metric ManagerTests\\Metric ManagerTests.csproj": {
+    "C:\\Users\\alina\\Source\\Repos\\Hype7U\\Metric Manager\\Metric ManagerTests\\Metric ManagerTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Metric Manager\\Metric ManagerTests\\Metric ManagerTests.csproj",
+        "projectUniqueName": "C:\\Users\\alina\\Source\\Repos\\Hype7U\\Metric Manager\\Metric ManagerTests\\Metric ManagerTests.csproj",
         "projectName": "Metric ManagerTests",
-        "projectPath": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Metric Manager\\Metric ManagerTests\\Metric ManagerTests.csproj",
-        "packagesPath": "C:\\Users\\Iftah\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Metric Manager\\Metric ManagerTests\\obj\\",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\Iftah\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-    "C:\\Users\\alina\\source\\repos\\Hype7\\Metric Manager\\Metric ManagerTests\\Metric ManagerTests.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\alina\\source\\repos\\Hype7\\Metric Manager\\Metric ManagerTests\\Metric ManagerTests.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\alina\\source\\repos\\Hype7\\Metric Manager\\Metric ManagerTests\\Metric ManagerTests.csproj",
-        "projectName": "Metric ManagerTests",
-        "projectPath": "C:\\Users\\alina\\source\\repos\\Hype7\\Metric Manager\\Metric ManagerTests\\Metric ManagerTests.csproj",
+        "projectPath": "C:\\Users\\alina\\Source\\Repos\\Hype7U\\Metric Manager\\Metric ManagerTests\\Metric ManagerTests.csproj",
         "packagesPath": "C:\\Users\\alina\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alina\\source\\repos\\Hype7\\Metric Manager\\Metric ManagerTests\\obj\\",
+        "outputPath": "C:\\Users\\alina\\Source\\Repos\\Hype7U\\Metric Manager\\Metric ManagerTests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\alina\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 9f284d55f236e86657d885fd3c46ef1e6ea0b756
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -48,13 +28,8 @@
           "net5.0": {
             "targetAlias": ".NETCoreApp,Version=v5.0",
             "projectReferences": {
-<<<<<<< HEAD
-              "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Metric Manager\\Metric Manager\\Metric Manager.csproj": {
-                "projectPath": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Metric Manager\\Metric Manager\\Metric Manager.csproj"
-=======
-              "C:\\Users\\alina\\source\\repos\\Hype7\\Metric Manager\\Metric Manager\\Metric Manager.csproj": {
-                "projectPath": "C:\\Users\\alina\\source\\repos\\Hype7\\Metric Manager\\Metric Manager\\Metric Manager.csproj"
->>>>>>> 9f284d55f236e86657d885fd3c46ef1e6ea0b756
+              "C:\\Users\\alina\\Source\\Repos\\Hype7U\\Metric Manager\\Metric Manager\\Metric Manager.csproj": {
+                "projectPath": "C:\\Users\\alina\\Source\\Repos\\Hype7U\\Metric Manager\\Metric Manager\\Metric Manager.csproj"
               }
             }
           }
@@ -113,34 +88,17 @@
         }
       }
     },
-<<<<<<< HEAD
-    "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Metric Manager\\Metric Manager\\Metric Manager.csproj": {
+    "C:\\Users\\alina\\Source\\Repos\\Hype7U\\Metric Manager\\Metric Manager\\Metric Manager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Metric Manager\\Metric Manager\\Metric Manager.csproj",
+        "projectUniqueName": "C:\\Users\\alina\\Source\\Repos\\Hype7U\\Metric Manager\\Metric Manager\\Metric Manager.csproj",
         "projectName": "Metric Manager",
-        "projectPath": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Metric Manager\\Metric Manager\\Metric Manager.csproj",
-        "packagesPath": "C:\\Users\\Iftah\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Metric Manager\\Metric Manager\\obj\\",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\Iftah\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-    "C:\\Users\\alina\\source\\repos\\Hype7\\Metric Manager\\Metric Manager\\Metric Manager.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\alina\\source\\repos\\Hype7\\Metric Manager\\Metric Manager\\Metric Manager.csproj",
-        "projectName": "Metric Manager",
-        "projectPath": "C:\\Users\\alina\\source\\repos\\Hype7\\Metric Manager\\Metric Manager\\Metric Manager.csproj",
+        "projectPath": "C:\\Users\\alina\\Source\\Repos\\Hype7U\\Metric Manager\\Metric Manager\\Metric Manager.csproj",
         "packagesPath": "C:\\Users\\alina\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alina\\source\\repos\\Hype7\\Metric Manager\\Metric Manager\\obj\\",
+        "outputPath": "C:\\Users\\alina\\Source\\Repos\\Hype7U\\Metric Manager\\Metric Manager\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\alina\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 9f284d55f236e86657d885fd3c46ef1e6ea0b756
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

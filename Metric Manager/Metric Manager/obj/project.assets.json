@@ -687,6 +687,7 @@
       "path": "runtime.win-arm64.runtime.native.system.data.sqlclient.sni/4.4.0",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
@@ -702,6 +703,7 @@
       "path": "runtime.win-x64.runtime.native.system.data.sqlclient.sni/4.4.0",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
@@ -717,6 +719,7 @@
       "path": "runtime.win-x86.runtime.native.system.data.sqlclient.sni/4.4.0",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
@@ -1341,38 +1344,19 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
-    "C:\\Users\\Iftah\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
-=======
     "C:\\Users\\alina\\.nuget\\packages\\": {}
->>>>>>> 9f284d55f236e86657d885fd3c46ef1e6ea0b756
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Metric Manager\\Metric Manager\\Metric Manager.csproj",
+      "projectUniqueName": "C:\\Users\\alina\\Source\\Repos\\Hype7U\\Metric Manager\\Metric Manager\\Metric Manager.csproj",
       "projectName": "Metric Manager",
-      "projectPath": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Metric Manager\\Metric Manager\\Metric Manager.csproj",
-      "packagesPath": "C:\\Users\\Iftah\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Metric Manager\\Metric Manager\\obj\\",
-      "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
-      "configFilePaths": [
-        "C:\\Users\\Iftah\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-      "projectUniqueName": "C:\\Users\\alina\\source\\repos\\Hype7\\Metric Manager\\Metric Manager\\Metric Manager.csproj",
-      "projectName": "Metric Manager",
-      "projectPath": "C:\\Users\\alina\\source\\repos\\Hype7\\Metric Manager\\Metric Manager\\Metric Manager.csproj",
+      "projectPath": "C:\\Users\\alina\\Source\\Repos\\Hype7U\\Metric Manager\\Metric Manager\\Metric Manager.csproj",
       "packagesPath": "C:\\Users\\alina\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alina\\source\\repos\\Hype7\\Metric Manager\\Metric Manager\\obj\\",
+      "outputPath": "C:\\Users\\alina\\Source\\Repos\\Hype7U\\Metric Manager\\Metric Manager\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\alina\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 9f284d55f236e86657d885fd3c46ef1e6ea0b756
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1429,5 +1413,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\alina\\Source\\Repos\\Hype7U\\Metric Manager\\Metric Manager\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
