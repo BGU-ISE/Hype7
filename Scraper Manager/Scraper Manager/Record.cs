@@ -37,6 +37,7 @@ namespace Scraper_Manager
                 {
                     case (char)34:
                         is_str = !is_str;
+                        current_cell += c;
 
                         break;
                     case '[':
@@ -118,9 +119,9 @@ namespace Scraper_Manager
             foreach (var item in this.values)
             {
                 if (line == "")
-                    line +=  item;
+                    line +=  ""+item+"";
                 else
-                    line += ", "+item;
+                    line += "," + item+"";
 
             }
             return line;

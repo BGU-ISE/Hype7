@@ -134,7 +134,10 @@ namespace Scraper_Manager
                 while (!reader.EndOfStream)
                 {
                     char c = (char)reader.Read();
-                    isQoute = isQoute ^ c == ((char)34);
+   
+                    if(c == ((char)34))
+                        isQoute = !isQoute ;
+
                     if (c == '@')
                         continue;
                     if (c == ((char)13) && !reader.EndOfStream && !isQoute)
