@@ -94,5 +94,10 @@ namespace UI
         {
             btnSettings.BackColor = Color.FromArgb(24, 30, 54);
         }
+
+        private void Hamepage_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
