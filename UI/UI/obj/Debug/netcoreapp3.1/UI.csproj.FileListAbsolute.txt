@@ -15,3 +15,5 @@ C:\Users\alina\source\repos\Hype7U\UI\UI\obj\Debug\netcoreapp3.1\UI.csproj.CoreC
 C:\Users\alina\source\repos\Hype7U\UI\UI\obj\Debug\netcoreapp3.1\UI.dll
 C:\Users\alina\source\repos\Hype7U\UI\UI\obj\Debug\netcoreapp3.1\UI.pdb
 C:\Users\alina\source\repos\Hype7U\UI\UI\obj\Debug\netcoreapp3.1\UI.genruntimeconfig.cache
+C:\Users\alina\source\repos\Hype7U\UI\UI\obj\Debug\netcoreapp3.1\UI.Forms.Metric1.resources
+C:\Users\alina\source\repos\Hype7U\UI\UI\obj\Debug\netcoreapp3.1\UI.Forms.ModelMetric.resources
