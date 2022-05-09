@@ -189,7 +189,6 @@ namespace Scraper_Manager
                 w.Flush();
                 foreach (var record in this.records)
                 {
-                    
                     w.WriteLine(record.ToString());
                     w.Flush();
                 }

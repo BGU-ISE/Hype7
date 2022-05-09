@@ -3,8 +3,9 @@
     "",
     "\\Metric Manager",
     "\\Metric Manager\\Metric Manager",
-    "\\TikTok_Scraper"
+    "\\UI",
+    "\\UI\\UI"
   ],
-  "SelectedNode": "\\UI.csproj",
+  "SelectedNode": "\\UI\\UI\\Form2.cs",
   "PreviewInSolutionExplorer": false
 }

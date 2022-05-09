@@ -1,41 +1,28 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-    "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Metric Manager\\Metric Manager\\Metric Manager.csproj": {}
+    "C:\\Users\\Almogi\\Desktop\\githubtry\\Project\\Hype7\\Metric Manager\\Metric Manager\\Metric Manager.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Metric Manager\\Metric Manager\\Metric Manager.csproj": {
+    "C:\\Users\\Almogi\\Desktop\\githubtry\\Project\\Hype7\\Metric Manager\\Metric Manager\\Metric Manager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Metric Manager\\Metric Manager\\Metric Manager.csproj",
+        "projectUniqueName": "C:\\Users\\Almogi\\Desktop\\githubtry\\Project\\Hype7\\Metric Manager\\Metric Manager\\Metric Manager.csproj",
         "projectName": "Metric Manager",
-        "projectPath": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Metric Manager\\Metric Manager\\Metric Manager.csproj",
-        "packagesPath": "C:\\Users\\Iftah\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Metric Manager\\Metric Manager\\obj\\",
+        "projectPath": "C:\\Users\\Almogi\\Desktop\\githubtry\\Project\\Hype7\\Metric Manager\\Metric Manager\\Metric Manager.csproj",
+        "packagesPath": "C:\\Users\\Almogi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Almogi\\Desktop\\githubtry\\Project\\Hype7\\Metric Manager\\Metric Manager\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Iftah\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-    "C:\\Users\\alina\\source\\repos\\Hype7\\Metric Manager\\Metric Manager\\Metric Manager.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\alina\\source\\repos\\Hype7\\Metric Manager\\Metric Manager\\Metric Manager.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\alina\\source\\repos\\Hype7\\Metric Manager\\Metric Manager\\Metric Manager.csproj",
-        "projectName": "Metric Manager",
-        "projectPath": "C:\\Users\\alina\\source\\repos\\Hype7\\Metric Manager\\Metric Manager\\Metric Manager.csproj",
-        "packagesPath": "C:\\Users\\alina\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alina\\source\\repos\\Hype7\\Metric Manager\\Metric Manager\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\alina\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 9f284d55f236e86657d885fd3c46ef1e6ea0b756
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Almogi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -88,7 +75,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     }
