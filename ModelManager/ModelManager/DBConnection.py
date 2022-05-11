@@ -1,5 +1,6 @@
 import sqlite3
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+import sys 
 
 class DBConnection():
     """description of class"""
@@ -35,10 +36,15 @@ class DBConnection():
         for row in rows:
             print(row)
     
+    def prepare_query(self, table_name, textfile):
+        with open(textfile, 'r') as file:
+            data = file.read().rstrip()
+        query = 'SELECT ' + data + ' FROM ' + table_name
+        return query
+
     def get_numeric_dataframe(self, num):
-        #important to save the following fields: 'authorMeta.id' 'musicMeta.musicOriginal'
         tableName = 'VideosInfoDay' + str(num)
-        query = 'SELECT id, text, createTime, authorMeta_verified, authorMeta_following, authorMeta_fans, authorMeta_heart, authorMeta_video, authorMeta_digg, musicMeta_musicId,  diggCount, shareCount, playCount, commentCount FROM ' + tableName
+        query = self.prepare_query(tableName, 'NumericColumnNames.txt')
         dataframe = pd.read_sql(query, self.connection)
         return dataframe
 

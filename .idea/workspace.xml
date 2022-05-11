@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5d98ef29-5fb1-406a-aacb-5660e065ce66" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Metric Manager/.vs/Metric Manager/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/Metric Manager/.vs/Metric Manager/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Metric Manager/.vs/Metric Manager/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/Metric Manager/.vs/Metric Manager/v16/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Metric Manager/.vs/Metric Manager/v16/TestStore/0/002.testlog" beforeDir="false" afterPath="$PROJECT_DIR$/Metric Manager/.vs/Metric Manager/v16/TestStore/0/002.testlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Metric Manager/Metric Manager/obj/Debug/net5.0/Metric Manager.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/Metric Manager/Metric Manager/obj/Debug/net5.0/Metric Manager.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Metric Manager/Metric Manager/obj/Debug/net5.0/Metric Manager.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Metric Manager/Metric Manager/obj/Debug/net5.0/Metric Manager.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Metric Manager/Metric Manager/obj/Debug/net5.0/Metric Manager.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Metric Manager/Metric Manager/obj/Debug/net5.0/Metric Manager.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Metric Manager/Metric Manager/obj/Metric Manager.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Metric Manager/Metric Manager/obj/Metric Manager.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Metric Manager/Metric Manager/obj/Metric Manager.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Metric Manager/Metric Manager/obj/Metric Manager.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Metric Manager/Metric Manager/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Metric Manager/Metric Manager/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Metric Manager/Metric Manager/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Metric Manager/Metric Manager/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Metric Manager/Metric ManagerTests/obj/Debug/.netcoreapp,version=v5.0/Metric ManagerTests.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/Metric Manager/Metric ManagerTests/obj/Debug/.netcoreapp,version=v5.0/Metric ManagerTests.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Metric Manager/Metric ManagerTests/obj/Debug/.netcoreapp,version=v5.0/Metric ManagerTests.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Metric Manager/Metric ManagerTests/obj/Debug/.netcoreapp,version=v5.0/Metric ManagerTests.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Metric Manager/Metric ManagerTests/obj/Debug/.netcoreapp,version=v5.0/Metric ManagerTests.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Metric Manager/Metric ManagerTests/obj/Debug/.netcoreapp,version=v5.0/Metric ManagerTests.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Metric Manager/Metric ManagerTests/obj/Metric ManagerTests.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Metric Manager/Metric ManagerTests/obj/Metric ManagerTests.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Metric Manager/Metric ManagerTests/obj/Metric ManagerTests.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Metric Manager/Metric ManagerTests/obj/Metric ManagerTests.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Metric Manager/Metric ManagerTests/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Metric Manager/Metric ManagerTests/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Metric Manager/Metric ManagerTests/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Metric Manager/Metric ManagerTests/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ModelManager/.vs/ModelManager/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/ModelManager/.vs/ModelManager/v16/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scraper Manager/.vs/Scraper Manager/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/Scraper Manager/.vs/Scraper Manager/v16/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scraper Manager/.vs/Scraper Manager/v16/TestStore/2/002.testlog" beforeDir="false" afterPath="$PROJECT_DIR$/Scraper Manager/.vs/Scraper Manager/v16/TestStore/2/002.testlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scraper Manager/Scraper Manager/RecordsFile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scraper Manager/Scraper Manager/RecordsFile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scraper Manager/Scraper Manager/input_folder/history.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scraper Manager/Scraper Manager/input_folder/history.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scraper Manager/Scraper Manager/obj/Debug/net5.0/Scraper Manager.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/Scraper Manager/Scraper Manager/obj/Debug/net5.0/Scraper Manager.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scraper Manager/Scraper Manager/obj/Debug/net5.0/Scraper Manager.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Scraper Manager/Scraper Manager/obj/Debug/net5.0/Scraper Manager.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scraper Manager/Scraper Manager/obj/Debug/net5.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Scraper Manager/Scraper Manager/obj/Debug/net5.0/apphost.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scraper Manager/Scraper Manager/output_folder/tiktok_1_5_2022_formated.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Scraper Manager/Scraper Manager/output_folder/tiktok_1_5_2022_formated.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scraper Manager/Scraper Manager/output_folder/tiktok_1_6_2022_formated.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Scraper Manager/Scraper Manager/output_folder/tiktok_1_6_2022_formated.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scraper Manager/Scraper ManagerTests/RecordsFileTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scraper Manager/Scraper ManagerTests/RecordsFileTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scraper Manager/Scraper ManagerTests/ScraperManagerTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scraper Manager/Scraper ManagerTests/ScraperManagerTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TikTok_Scraper/hype7/history.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TikTok_Scraper/hype7/history.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TikTok_Scraper/hype7/scrape_feed.ts" beforeDir="false" afterPath="$PROJECT_DIR$/TikTok_Scraper/hype7/scrape_feed.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="28K5fu13Qt8WgzRJxg25YI8424W" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration name="scraper" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Scraper Manager" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Youtube scraper" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Youtube scraper/scraper.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.scraper" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5d98ef29-5fb1-406a-aacb-5660e065ce66" name="Changes" comment="" />
+      <created>1650952544802</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1650952544802</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Youtube scraper/scraper.py</url>
+          <line>24</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
