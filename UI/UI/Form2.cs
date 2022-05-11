@@ -53,6 +53,7 @@ namespace UI
             InitializeComponent();
             //List<MetricData> lst = new List<MetricData>();
             //lst.Add(new MetricData("m1", "test", "1234586", 12, 14, "12x-2", 1, 2, 3, 4, 5, 6, 7));
+            //var t = DAL.GetMetricsNames();
             dataGridView1.DataSource = DAL.GetMetrics("playCount", "slope", 10);
         }
         public void GetData()
