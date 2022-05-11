@@ -13,6 +13,18 @@ namespace Hype7.Tests
     [TestClass()]
     public class DALTests
     {
+        /*if (testMood)
+            {
+                LastIndexTable = GetLastIndexTable(true);
+                InitIntField();
+                int indexCreatesTable = CreateDateTable(SystemManager.GetFieldsName());
+                InsertDataFromToday(SystemManager.GetData(DateTime.Now.ToString("04-01-2022")), indexCreatesTable, true);
+                indexCreatesTable = CreateDateTable(SystemManager.GetFieldsName());
+                InsertDataFromToday(SystemManager.GetData(DateTime.Now.ToString("05-01-2022")), indexCreatesTable, true);
+                CalcPlayCountPerDay();
+                //InsertAllData(SystemManager.GetAllData(), true);
+                //CalcPlayCountAllWeek(true);
+            }*/
         [TestMethod()]
         public void OpenConnectTest()
         {

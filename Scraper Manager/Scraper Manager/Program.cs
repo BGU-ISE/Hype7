@@ -10,7 +10,9 @@ namespace Scraper_Manager
     {
         public static void Main(string[] args)
         {
+            DAL.OpenConnect();
             ScraperManager.run(args);
+            DAL.CloseConnect();
         }
     }
 }

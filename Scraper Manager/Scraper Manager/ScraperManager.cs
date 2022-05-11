@@ -4,10 +4,10 @@ using System.Collections.Generic;
 
 namespace Scraper_Manager
 {
-    public class ScraperManager
+    public static class ScraperManager
     {
-
-
+        public static int LastIndexTable;
+        public static List<string> fieldNames = new List<string>();
         public static List<string> load_history(string inputfile = "../../../input_folder/history.txt")
         {
             Console.WriteLine("Reading history....");
@@ -31,11 +31,19 @@ namespace Scraper_Manager
                 w.Flush();
             }
         }
-
+        private static void ReadFromText()
+        {
+            string text = System.IO.File.ReadAllText("../../../../../Metric Manager/Metric Manager/Data/lastIndexTable.txt");
+            text = text.Replace(" ", string.Empty);
+            string[] ignore = text.Split(",");
+            LastIndexTable = int.Parse(ignore[0]);
+        }
         public static void run(string[] args)
         {
             List<string> history = load_history();
             string[] dirs = Directory.GetFiles("../../../input_folder", "*.csv");
+            ReadFromText();
+
             foreach (string file in dirs)
             {
                 if (!history.Contains(Path.GetFileName(file)))
@@ -45,7 +53,8 @@ namespace Scraper_Manager
                     RecordsFile r = new RecordsFile("../../../settings.txt", file, output_path);
                     r.loadFile();
                     Console.WriteLine("Saving to file:" + Path.GetFileName(output_path));
-                    r.saveRecords();
+                    fieldNames = r.output_names;
+                    DAL.InsertDataFromToday(r, LastIndexTable, true);
                     add_to_history(Path.GetFileName(file));
                     Console.WriteLine("Done with file:" + Path.GetFileName(file) +" adding to history");
                 }

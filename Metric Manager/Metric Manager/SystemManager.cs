@@ -30,7 +30,6 @@ namespace Hype7
                 dataDir = arr[arr.Length - 1];
                 path = path.Substring(0, path.Length - (dataDir.Length + 2));
             }
-            //Console.WriteLine(path);
             ReadFromText(Path.Combine(path, "ignoreHashtag.txt"));
             LoadMetrics();
         }
@@ -167,7 +166,14 @@ namespace Hype7
                 ignoreHashtag.Add(ignore[i]);
             }
         }
-
+        public static void SaveToText(int num)
+        {
+            using (var w = new StreamWriter(Path.Combine(path, "lastIndexTable.txt")))
+            {
+                w.WriteLine(num);
+                w.Flush();
+            }
+        }
         private static Metric GetMetric(string metric, string name)
         {
             foreach (Metric element in Metrics)

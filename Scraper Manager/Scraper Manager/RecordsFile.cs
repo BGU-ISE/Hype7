@@ -16,8 +16,8 @@ namespace Scraper_Manager
         string origin { get; set; }
         Dictionary<int, int> swap_order { get; set; }
        public  Dictionary<string, string> settings_dict { get; set; }
-        List<string> output_names { get; set; }
-        List<string> values_names { get; set; }
+        public List<string> output_names { get; set; }
+        public List<string> values_names { get; set; }
         public string[] output_names_arr { get { return output_names.ToArray(); } set { } }
 
         public RecordsFile(string settings_path, string input_path, string output_path)
@@ -30,7 +30,7 @@ namespace Scraper_Manager
 
         }
 
-
+        
         private void load_settings()
         {
             this.settings_dict = new Dictionary<string, string>();
@@ -127,6 +127,7 @@ namespace Scraper_Manager
         {
             List<string> lines = new List<string>();
             string file_content = "";
+            bool is_quote = false;
             using (var reader = new StreamReader(this.inputPath))
             {
 
@@ -135,7 +136,8 @@ namespace Scraper_Manager
                     char c = (char)reader.Read();
                     if (c == '@')
                         continue;
-                    if (c == ((char)13) && !reader.EndOfStream)
+                    is_quote = is_quote ^ c == ((char)34);
+                    if (c == ((char)13) && !reader.EndOfStream && !is_quote)
                     {
                         char c2 = (char)reader.Read();
                         if (c2 == ((char)10))
@@ -189,7 +191,6 @@ namespace Scraper_Manager
                 w.Flush();
                 foreach (var record in this.records)
                 {
-                    
                     w.WriteLine(record.ToString());
                     w.Flush();
                 }

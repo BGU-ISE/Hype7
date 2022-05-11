@@ -27,27 +27,12 @@ namespace Hype7
 
         public static void SetUpDB()
         {
-            if (testMood)
-            {
-                LastIndexTable = GetLastIndexTable(true);
-                InitIntField();
-                int indexCreatesTable = CreateDateTable(SystemManager.GetFieldsName());
-                InsertDataFromToday(SystemManager.GetData(DateTime.Now.ToString("04-01-2022")), indexCreatesTable, true);
-                indexCreatesTable = CreateDateTable(SystemManager.GetFieldsName());
-                InsertDataFromToday(SystemManager.GetData(DateTime.Now.ToString("05-01-2022")), indexCreatesTable, true);
-                CalcPlayCountPerDay();
-                //InsertAllData(SystemManager.GetAllData(), true);
-                //CalcPlayCountAllWeek(true);
-            }
-            else
-            {
-                LastIndexTable = GetLastIndexTable(true);
-                InitIntField();
-                int indexCreatesTable = CreateDateTable(SystemManager.GetFieldsName());
-                InsertDataFromToday(SystemManager.GetData(DateTime.Now.ToString("dd-MM-yyyy")), indexCreatesTable, true); // DateTime.Now.ToString("dd-MM-yyyy")
-                CalcPlayCountPerDay();
-                Console.WriteLine("finish setup for DB.");
-            }
+            
+            LastIndexTable = GetLastIndexTable(true);
+            //InitIntField();
+            //int indexCreatesTable = CreateDateTable(SystemManager.GetFieldsName());
+            Console.WriteLine("finish setup for DB.");
+            
         }
         public static void AddIntField(string value)
         {
@@ -302,7 +287,7 @@ namespace Hype7
             {
                 if (!isDBOpen)
                     OpenConnect();
-                //LastIndexTable = 8;
+                LastIndexTable = GetLastIndexTable(true) + 1;
                 SQLiteCommand command = new SQLiteCommand(null, DAL.connection);
                 for (int i = 1; i < LastIndexTable; i++)
                 {
@@ -313,8 +298,8 @@ namespace Hype7
                     SaveResultToDB(reader, "FilterHypeScore", "scoreDay" + i);
                     command.Dispose(); 
                 }
-
-                command = new SQLiteCommand("SELECT id, scoreDay1, scoreDay2, scoreDay3, scoreDay4, scoreDay5, scoreDay6, scoreDay7 FROM FilterHypeScore WHERE metric='empty'", connection);
+                //, scoreDay4, scoreDay5, scoreDay6, scoreDay7
+                command = new SQLiteCommand("SELECT id, scoreDay1, scoreDay2, scoreDay3 FROM FilterHypeScore WHERE metric='empty'", connection);
                 command.Prepare();
                 checke = command.CommandText;
                 var reader2 = command.ExecuteReader();
@@ -348,7 +333,7 @@ namespace Hype7
             }
 
         }
-        private static void CalcPlayCountPerDay()
+        public static void CalcPlayCountPerDay()
         {
             try
             {
@@ -453,6 +438,7 @@ namespace Hype7
             {
                 DAL.CloseConnect();
             }
+            SystemManager.SaveToText((int)maxIndex);
             return (int)maxIndex;
         }
         private static bool isNumericField(string name)
@@ -547,7 +533,7 @@ namespace Hype7
                     command2.CommandText = "UPDATE " + tableName + " SET ";
                 }
 
-                string[] days = new string[SAVED_DAYS];
+                string[] days = new string[3];//savedays
                 for (int j = 0; j < days.Length; j++)
                 {
                     days[j] = reader["scoreDay" + (j + 1)].ToString();
@@ -612,7 +598,10 @@ namespace Hype7
             }
             return Point.getFormula();
         }
+        private static void HashtagMetric()
+        {
 
+        }
 
         // public functions, doesn't assume that the DB is open
         public static void InitTables(List<string> Fields)
