@@ -43,33 +43,43 @@ namespace UI
             this.MetricName,
             this.Metric,
             this.Slope});
-            this.dataGridView1.Location = new System.Drawing.Point(121, 108);
+            this.dataGridView1.Location = new System.Drawing.Point(173, 180);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(647, 234);
+            this.dataGridView1.Size = new System.Drawing.Size(924, 390);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // MetricName
             // 
             this.MetricName.HeaderText = "Metric Name";
+            this.MetricName.MinimumWidth = 8;
             this.MetricName.Name = "MetricName";
+            this.MetricName.Width = 150;
             // 
             // Metric
             // 
             this.Metric.HeaderText = "Metric";
+            this.Metric.MinimumWidth = 8;
             this.Metric.Name = "Metric";
+            this.Metric.Width = 150;
             // 
             // Slope
             // 
             this.Slope.HeaderText = "Slope";
+            this.Slope.MinimumWidth = 8;
             this.Slope.Name = "Slope";
+            this.Slope.Width = 150;
             // 
             // Form2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1143, 750);
             this.Controls.Add(this.dataGridView1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form2";
             this.Text = "Form2";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

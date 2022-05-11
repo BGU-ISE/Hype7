@@ -7,9 +7,6 @@
     <Compile Update="Form2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\Metric1.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Forms\ModelMetric.cs">
       <SubType>Form</SubType>
     </Compile>
