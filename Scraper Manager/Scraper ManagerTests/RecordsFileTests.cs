@@ -42,7 +42,7 @@ namespace Scraper_Manager.Tests
             createSettings();
         }
         [TestMethod()]
-        public void RecordsFileTest()
+        public void     ()
         {
             RecordsFile recordsFile = new RecordsFile(setting_file, input_file, output_file);
             Assert.AreEqual(input_file, recordsFile.inputPath);
