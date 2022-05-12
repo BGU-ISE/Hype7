@@ -7188,19 +7188,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Almogi\\.nuget\\packages\\": {}
+    "C:\\Users\\Iftah\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Almogi\\Desktop\\Hype7\\Scraper Manager\\Scraper ManagerTests\\Scraper ManagerTests.csproj",
+      "projectUniqueName": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Scraper Manager\\Scraper ManagerTests\\Scraper ManagerTests.csproj",
       "projectName": "Scraper ManagerTests",
-      "projectPath": "C:\\Users\\Almogi\\Desktop\\Hype7\\Scraper Manager\\Scraper ManagerTests\\Scraper ManagerTests.csproj",
-      "packagesPath": "C:\\Users\\Almogi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Almogi\\Desktop\\Hype7\\Scraper Manager\\Scraper ManagerTests\\obj\\",
+      "projectPath": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Scraper Manager\\Scraper ManagerTests\\Scraper ManagerTests.csproj",
+      "packagesPath": "C:\\Users\\Iftah\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Scraper Manager\\Scraper ManagerTests\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Almogi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Iftah\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7214,8 +7218,8 @@
         "net5.0": {
           "targetAlias": ".NETCoreApp,Version=v5.0",
           "projectReferences": {
-            "C:\\Users\\Almogi\\Desktop\\Hype7\\Scraper Manager\\Scraper Manager\\Scraper Manager.csproj": {
-              "projectPath": "C:\\Users\\Almogi\\Desktop\\Hype7\\Scraper Manager\\Scraper Manager\\Scraper Manager.csproj"
+            "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Scraper Manager\\Scraper Manager\\Scraper Manager.csproj": {
+              "projectPath": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Scraper Manager\\Scraper Manager\\Scraper Manager.csproj"
             }
           }
         }
@@ -7266,7 +7270,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.407\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
       }
     }
   }

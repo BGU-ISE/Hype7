@@ -123,15 +123,9 @@ namespace Scraper_Manager
             foreach (var item in this.values)
             {
                 if (line == "")
-<<<<<<< HEAD
                     line += "'"+ item + "'";
                 else
                     line += ", '"+item+"'";
-=======
-                    line +=  ""+item+"";
-                else
-                    line += "," + item+"";
->>>>>>> yotubescraper
 
             }
             return line;

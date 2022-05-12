@@ -127,11 +127,7 @@ namespace Scraper_Manager
         {
             List<string> lines = new List<string>();
             string file_content = "";
-<<<<<<< HEAD
             bool is_quote = false;
-=======
-            bool isQoute = false;
->>>>>>> yotubescraper
             using (var reader = new StreamReader(this.inputPath))
             {
 
@@ -139,17 +135,10 @@ namespace Scraper_Manager
                 {
                     char c = (char)reader.Read();
    
-                    if(c == ((char)34))
-                        isQoute = !isQoute ;
-
                     if (c == '@')
                         continue;
-<<<<<<< HEAD
                     is_quote = is_quote ^ c == ((char)34);
                     if (c == ((char)13) && !reader.EndOfStream && !is_quote)
-=======
-                    if (c == ((char)13) && !reader.EndOfStream && !isQoute)
->>>>>>> yotubescraper
                     {
                         char c2 = (char)reader.Read();
                         if (c2 == ((char)10))
