@@ -93,15 +93,12 @@ namespace UI
                 }
             }
         }*/
-
+   
+       
         private void Reset()
         {
-         //   DisableButton();
             lblTitle.Text = "HOME";
-            panelTitleBar.BackColor = Color.FromArgb(0, 150, 136);
-            //panelLogo.BackColor = Color.FromArgb(39, 39, 58);
             currentButton = null;
-            //btnCloseChildForm.Visible = false;
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -115,9 +112,6 @@ namespace UI
             pnlNav.Top = btnMetrics.Top;
             pnlNav.Left = btnMetrics.Left;
             btnMetrics.BackColor = Color.FromArgb(46, 51, 73);
-            //Form form = new Form2();
-            //form.Show();
-
             OpenChildForm(new Form2(), sender);
         }
 
@@ -132,6 +126,9 @@ namespace UI
             pnlNav.Top = btnHomepage.Top;
             pnlNav.Left = btnHomepage.Left;
             btnHomepage.BackColor = Color.FromArgb(46, 51, 73);
+            if (activeForm != null)
+                activeForm.Close();
+            Reset();
 
         }
 
