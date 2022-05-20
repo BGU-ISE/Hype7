@@ -63,7 +63,7 @@ namespace UI
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(233, 722);
+            this.panel1.Size = new System.Drawing.Size(233, 844);
             this.panel1.TabIndex = 0;
             // 
             // btnCustomMetric
@@ -133,7 +133,7 @@ namespace UI
             this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSettings.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSettings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnSettings.Location = new System.Drawing.Point(0, 669);
+            this.btnSettings.Location = new System.Drawing.Point(0, 791);
             this.btnSettings.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(233, 53);
@@ -220,12 +220,14 @@ namespace UI
             // 
             // panelTitleBar
             // 
+            this.panelTitleBar.AutoSize = true;
+            this.panelTitleBar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(54)))));
             this.panelTitleBar.Controls.Add(this.lblTitle);
             this.panelTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitleBar.Location = new System.Drawing.Point(233, 0);
             this.panelTitleBar.Name = "panelTitleBar";
-            this.panelTitleBar.Size = new System.Drawing.Size(956, 112);
+            this.panelTitleBar.Size = new System.Drawing.Size(1145, 78);
             this.panelTitleBar.TabIndex = 9;
             // 
             // lblTitle
@@ -233,26 +235,28 @@ namespace UI
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblTitle.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lblTitle.Location = new System.Drawing.Point(378, 33);
+            this.lblTitle.Location = new System.Drawing.Point(532, 33);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(117, 45);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "HOME";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // panelDesktopPane
             // 
             this.panelDesktopPane.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDesktopPane.Location = new System.Drawing.Point(233, 112);
+            this.panelDesktopPane.Location = new System.Drawing.Point(233, 78);
             this.panelDesktopPane.Name = "panelDesktopPane";
-            this.panelDesktopPane.Size = new System.Drawing.Size(956, 610);
+            this.panelDesktopPane.Size = new System.Drawing.Size(1145, 766);
             this.panelDesktopPane.TabIndex = 1;
             // 
             // MenuBtn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(1189, 722);
+            this.ClientSize = new System.Drawing.Size(1378, 844);
             this.Controls.Add(this.panelDesktopPane);
             this.Controls.Add(this.panelTitleBar);
             this.Controls.Add(this.pnlNav);
@@ -268,6 +272,7 @@ namespace UI
             this.panelTitleBar.ResumeLayout(false);
             this.panelTitleBar.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
