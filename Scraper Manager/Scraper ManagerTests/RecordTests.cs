@@ -43,7 +43,7 @@ namespace Scraper_Manager.Tests
         [TestMethod()]
         public void reformat_hashtagsTest()
         {
-            Assert.Fai  l();
+            Assert.Fail();
         }
 
         [TestMethod()]

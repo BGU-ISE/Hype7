@@ -1,12 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\LogicLayer",
-    "\\Metric Manager",
-    "\\Metric Manager\\Metric Manager",
-    "\\Metric Manger",
-    "\\TikTok_Scraper"
+    "\\UI"
   ],
-  "SelectedNode": "\\Metric Manager\\Metric Manager\\DAL.cs",
+  "SelectedNode": "\\UI\\UI.sln",
   "PreviewInSolutionExplorer": false
 }

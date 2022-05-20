@@ -1,4 +1,3 @@
-C:\Users\Iftah\Desktop\אוניברסיטה\שנה ד\Project\Scraper Manager\Scraper Manager\Scraper Manager\obj\Debug\net5.0\Scraper Manager.csproj.AssemblyReference.cache
 C:\Users\Iftah\Desktop\אוניברסיטה\שנה ד\Project\Scraper Manager\Scraper Manager\Scraper Manager\obj\Debug\net5.0\Scraper Manager.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Iftah\Desktop\אוניברסיטה\שנה ד\Project\Scraper Manager\Scraper Manager\Scraper Manager\obj\Debug\net5.0\Scraper Manager.AssemblyInfoInputs.cache
 C:\Users\Iftah\Desktop\אוניברסיטה\שנה ד\Project\Scraper Manager\Scraper Manager\Scraper Manager\obj\Debug\net5.0\Scraper Manager.AssemblyInfo.cs
