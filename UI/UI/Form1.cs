@@ -14,19 +14,6 @@ namespace UI
 {
     public partial class MenuBtn : Form
     {
-        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-
-        private static extern IntPtr CreateRoundRectRgn
-         (
-               int nLeftRect,
-               int nTopRect,
-               int nRightRect,
-               int nBottomRect,
-               int nWidthEllipse,
-               int nHeightEllipse
-
-         );
-
         //Fields
         private Button currentButton;
         private Form activeForm;
@@ -34,8 +21,7 @@ namespace UI
         public MenuBtn()
         {
             InitializeComponent();
-            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
-
+          
             pnlNav.Height = btnHomepage.Height;
             pnlNav.Top = btnHomepage.Top;
             pnlNav.Left = btnHomepage.Left;
