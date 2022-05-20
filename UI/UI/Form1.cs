@@ -95,15 +95,50 @@ namespace UI
             btnSettings.BackColor = Color.FromArgb(24, 30, 54);
         }
 
-        private void Hamepage_Click(object sender, EventArgs e)
+        private void btnHashtagsMetric_Leave(object sender, EventArgs e)
         {
+            btnHashtagsMetric.BackColor = Color.FromArgb(24, 30, 54);
+        }
 
+        private void btnNumericML_Leave(object sender, EventArgs e)
+        {
+            btnNumericML.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        private void btnCustomMetric_Leave(object sender, EventArgs e)
+        {
+            btnCustomMetric.BackColor = Color.FromArgb(24, 30, 54);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Form form = new Form2();
             form.Show();
+        }
+
+        private void btnHashtagsMetric_Click(object sender, EventArgs e)
+        {
+            pnlNav.Height = btnHashtagsMetric.Height;
+            pnlNav.Top = btnHashtagsMetric.Top;
+            pnlNav.Left = btnHashtagsMetric.Left;
+            btnHashtagsMetric.BackColor = Color.FromArgb(46, 51, 73);
+        }
+
+        private void btnNumericML_Click(object sender, EventArgs e)
+        {
+            pnlNav.Height = btnNumericML.Height;
+            pnlNav.Top = btnNumericML.Top;
+            pnlNav.Left = btnNumericML.Left;
+            btnNumericML.BackColor = Color.FromArgb(46, 51, 73);
+
+        }
+
+        private void btnCustomMetric_Click(object sender, EventArgs e)
+        {
+            pnlNav.Height = btnCustomMetric.Height;
+            pnlNav.Top = btnCustomMetric.Top;
+            pnlNav.Left = btnCustomMetric.Left;
+            btnCustomMetric.BackColor = Color.FromArgb(46, 51, 73);
         }
     }
 }

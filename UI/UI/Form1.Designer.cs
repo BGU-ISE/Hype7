@@ -31,13 +31,15 @@ namespace UI
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuBtn));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCustomMetric = new System.Windows.Forms.Button();
+            this.btnNumericML = new System.Windows.Forms.Button();
+            this.btnHashtagsMetric = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnMetrics = new System.Windows.Forms.Button();
             this.btnHomepage = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlNav = new System.Windows.Forms.Panel();
-            this.lblHamepage = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -46,27 +48,92 @@ namespace UI
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.TitleBarPanel = new System.Windows.Forms.Panel();
+            this.HomePageTitle = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel9.SuspendLayout();
+            this.TitleBarPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.panel1.Controls.Add(this.btnCustomMetric);
+            this.panel1.Controls.Add(this.btnNumericML);
+            this.panel1.Controls.Add(this.btnHashtagsMetric);
             this.panel1.Controls.Add(this.btnSettings);
             this.panel1.Controls.Add(this.btnMetrics);
             this.panel1.Controls.Add(this.btnHomepage);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(163, 433);
+            this.panel1.Size = new System.Drawing.Size(233, 722);
             this.panel1.TabIndex = 0;
+            // 
+            // btnCustomMetric
+            // 
+            this.btnCustomMetric.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCustomMetric.FlatAppearance.BorderSize = 0;
+            this.btnCustomMetric.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCustomMetric.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCustomMetric.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btnCustomMetric.Image = ((System.Drawing.Image)(resources.GetObject("btnCustomMetric.Image")));
+            this.btnCustomMetric.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCustomMetric.Location = new System.Drawing.Point(0, 392);
+            this.btnCustomMetric.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnCustomMetric.Name = "btnCustomMetric";
+            this.btnCustomMetric.Size = new System.Drawing.Size(233, 53);
+            this.btnCustomMetric.TabIndex = 5;
+            this.btnCustomMetric.Text = "Custom Metric";
+            this.btnCustomMetric.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnCustomMetric.UseVisualStyleBackColor = true;
+            this.btnCustomMetric.Click += new System.EventHandler(this.btnCustomMetric_Click);
+            this.btnCustomMetric.Leave += new System.EventHandler(this.btnCustomMetric_Leave);
+            // 
+            // btnNumericML
+            // 
+            this.btnNumericML.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnNumericML.FlatAppearance.BorderSize = 0;
+            this.btnNumericML.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNumericML.Font = new System.Drawing.Font("Nirmala UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnNumericML.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btnNumericML.Image = ((System.Drawing.Image)(resources.GetObject("btnNumericML.Image")));
+            this.btnNumericML.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNumericML.Location = new System.Drawing.Point(0, 339);
+            this.btnNumericML.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnNumericML.Name = "btnNumericML";
+            this.btnNumericML.Size = new System.Drawing.Size(233, 53);
+            this.btnNumericML.TabIndex = 4;
+            this.btnNumericML.Text = "Numeric ML Model";
+            this.btnNumericML.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnNumericML.UseVisualStyleBackColor = true;
+            this.btnNumericML.Click += new System.EventHandler(this.btnNumericML_Click);
+            this.btnNumericML.Leave += new System.EventHandler(this.btnNumericML_Leave);
+            // 
+            // btnHashtagsMetric
+            // 
+            this.btnHashtagsMetric.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnHashtagsMetric.FlatAppearance.BorderSize = 0;
+            this.btnHashtagsMetric.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHashtagsMetric.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnHashtagsMetric.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btnHashtagsMetric.Image = ((System.Drawing.Image)(resources.GetObject("btnHashtagsMetric.Image")));
+            this.btnHashtagsMetric.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnHashtagsMetric.Location = new System.Drawing.Point(0, 286);
+            this.btnHashtagsMetric.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnHashtagsMetric.Name = "btnHashtagsMetric";
+            this.btnHashtagsMetric.Size = new System.Drawing.Size(233, 53);
+            this.btnHashtagsMetric.TabIndex = 3;
+            this.btnHashtagsMetric.Text = "Top Hashtags";
+            this.btnHashtagsMetric.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnHashtagsMetric.UseVisualStyleBackColor = true;
+            this.btnHashtagsMetric.Click += new System.EventHandler(this.btnHashtagsMetric_Click);
+            this.btnHashtagsMetric.Leave += new System.EventHandler(this.btnHashtagsMetric_Leave);
             // 
             // btnSettings
             // 
@@ -75,10 +142,10 @@ namespace UI
             this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSettings.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSettings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnSettings.Location = new System.Drawing.Point(0, 401);
-            this.btnSettings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSettings.Location = new System.Drawing.Point(0, 669);
+            this.btnSettings.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(163, 32);
+            this.btnSettings.Size = new System.Drawing.Size(233, 53);
             this.btnSettings.TabIndex = 2;
             this.btnSettings.Text = "Settings";
             this.btnSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -94,12 +161,13 @@ namespace UI
             this.btnMetrics.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnMetrics.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnMetrics.Image = ((System.Drawing.Image)(resources.GetObject("btnMetrics.Image")));
-            this.btnMetrics.Location = new System.Drawing.Point(0, 140);
-            this.btnMetrics.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnMetrics.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnMetrics.Location = new System.Drawing.Point(0, 233);
+            this.btnMetrics.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnMetrics.Name = "btnMetrics";
-            this.btnMetrics.Size = new System.Drawing.Size(163, 32);
+            this.btnMetrics.Size = new System.Drawing.Size(233, 53);
             this.btnMetrics.TabIndex = 1;
-            this.btnMetrics.Text = "Metrics";
+            this.btnMetrics.Text = "Metric";
             this.btnMetrics.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnMetrics.UseVisualStyleBackColor = true;
             this.btnMetrics.Click += new System.EventHandler(this.BtnMetrics_Click);
@@ -114,10 +182,11 @@ namespace UI
             this.btnHomepage.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnHomepage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnHomepage.Image = ((System.Drawing.Image)(resources.GetObject("btnHomepage.Image")));
-            this.btnHomepage.Location = new System.Drawing.Point(0, 108);
-            this.btnHomepage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnHomepage.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnHomepage.Location = new System.Drawing.Point(0, 180);
+            this.btnHomepage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnHomepage.Name = "btnHomepage";
-            this.btnHomepage.Size = new System.Drawing.Size(163, 32);
+            this.btnHomepage.Size = new System.Drawing.Size(233, 53);
             this.btnHomepage.TabIndex = 0;
             this.btnHomepage.Text = "Homepage";
             this.btnHomepage.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -130,9 +199,9 @@ namespace UI
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(163, 108);
+            this.panel2.Size = new System.Drawing.Size(233, 180);
             this.panel2.TabIndex = 0;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -141,42 +210,31 @@ namespace UI
             this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(10, -2);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(14, -3);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(131, 108);
+            this.pictureBox1.Size = new System.Drawing.Size(187, 180);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // pnlNav
             // 
             this.pnlNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.pnlNav.Location = new System.Drawing.Point(0, 145);
-            this.pnlNav.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlNav.Location = new System.Drawing.Point(0, 242);
+            this.pnlNav.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pnlNav.Name = "pnlNav";
-            this.pnlNav.Size = new System.Drawing.Size(3, 75);
+            this.pnlNav.Size = new System.Drawing.Size(4, 125);
             this.pnlNav.TabIndex = 1;
             this.pnlNav.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
-            // 
-            // lblHamepage
-            // 
-            this.lblHamepage.AutoSize = true;
-            this.lblHamepage.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblHamepage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
-            this.lblHamepage.Location = new System.Drawing.Point(219, 28);
-            this.lblHamepage.Name = "lblHamepage";
-            this.lblHamepage.Size = new System.Drawing.Size(127, 30);
-            this.lblHamepage.TabIndex = 3;
-            this.lblHamepage.Text = "Homepage";
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
             this.panel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            this.panel3.Location = new System.Drawing.Point(197, 87);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel3.Location = new System.Drawing.Point(281, 145);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(226, 98);
+            this.panel3.Size = new System.Drawing.Size(323, 163);
             this.panel3.TabIndex = 5;
             // 
             // panel4
@@ -184,50 +242,50 @@ namespace UI
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
             this.panel4.Controls.Add(this.panel8);
             this.panel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            this.panel4.Location = new System.Drawing.Point(448, 85);
-            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel4.Location = new System.Drawing.Point(640, 142);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(226, 98);
+            this.panel4.Size = new System.Drawing.Size(323, 163);
             this.panel4.TabIndex = 6;
             // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
             this.panel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            this.panel8.Location = new System.Drawing.Point(258, 2);
-            this.panel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel8.Location = new System.Drawing.Point(369, 3);
+            this.panel8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(97, 98);
+            this.panel8.Size = new System.Drawing.Size(139, 163);
             this.panel8.TabIndex = 7;
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
             this.panel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            this.panel5.Location = new System.Drawing.Point(197, 220);
-            this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel5.Location = new System.Drawing.Point(281, 367);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(226, 204);
+            this.panel5.Size = new System.Drawing.Size(323, 340);
             this.panel5.TabIndex = 7;
             // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
             this.panel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            this.panel6.Location = new System.Drawing.Point(448, 220);
-            this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel6.Location = new System.Drawing.Point(640, 367);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(348, 140);
+            this.panel6.Size = new System.Drawing.Size(497, 233);
             this.panel6.TabIndex = 8;
             // 
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
             this.panel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            this.panel7.Location = new System.Drawing.Point(448, 375);
-            this.panel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel7.Location = new System.Drawing.Point(640, 625);
+            this.panel7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(348, 49);
+            this.panel7.Size = new System.Drawing.Size(497, 82);
             this.panel7.TabIndex = 7;
             // 
             // panel9
@@ -235,49 +293,59 @@ namespace UI
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
             this.panel9.Controls.Add(this.panel10);
             this.panel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            this.panel9.Location = new System.Drawing.Point(696, 85);
-            this.panel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel9.Location = new System.Drawing.Point(994, 142);
+            this.panel9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(101, 98);
+            this.panel9.Size = new System.Drawing.Size(144, 163);
             this.panel9.TabIndex = 8;
             // 
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
             this.panel10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            this.panel10.Location = new System.Drawing.Point(258, 2);
-            this.panel10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel10.Location = new System.Drawing.Point(369, 3);
+            this.panel10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(97, 98);
+            this.panel10.Size = new System.Drawing.Size(139, 163);
             this.panel10.TabIndex = 7;
             // 
-            // button1
+            // TitleBarPanel
             // 
-            this.button1.Location = new System.Drawing.Point(729, 28);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.TitleBarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(54)))));
+            this.TitleBarPanel.Controls.Add(this.HomePageTitle);
+            this.TitleBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TitleBarPanel.Location = new System.Drawing.Point(233, 0);
+            this.TitleBarPanel.Name = "TitleBarPanel";
+            this.TitleBarPanel.Size = new System.Drawing.Size(956, 112);
+            this.TitleBarPanel.TabIndex = 9;
+            // 
+            // HomePageTitle
+            // 
+            this.HomePageTitle.AutoSize = true;
+            this.HomePageTitle.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.HomePageTitle.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.HomePageTitle.Location = new System.Drawing.Point(378, 33);
+            this.HomePageTitle.Name = "HomePageTitle";
+            this.HomePageTitle.Size = new System.Drawing.Size(117, 45);
+            this.HomePageTitle.TabIndex = 0;
+            this.HomePageTitle.Text = "HOME";
             // 
             // MenuBtn
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(832, 433);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(1189, 722);
+            this.Controls.Add(this.TitleBarPanel);
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.lblHamepage);
             this.Controls.Add(this.pnlNav);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "MenuBtn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuBtn";
@@ -287,8 +355,9 @@ namespace UI
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
+            this.TitleBarPanel.ResumeLayout(false);
+            this.TitleBarPanel.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -300,7 +369,6 @@ namespace UI
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.Button btnMetrics;
         private System.Windows.Forms.Panel pnlNav;
-        private System.Windows.Forms.Label lblHamepage;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel8;
@@ -310,7 +378,11 @@ namespace UI
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel TitleBarPanel;
+        private System.Windows.Forms.Label HomePageTitle;
+        private System.Windows.Forms.Button btnNumericML;
+        private System.Windows.Forms.Button btnHashtagsMetric;
+        private System.Windows.Forms.Button btnCustomMetric;
     }
 }
 
