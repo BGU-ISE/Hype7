@@ -12,8 +12,8 @@ namespace UI
     {
         public readonly static int SAVED_DAYS = 7;
         private const String DBname = @"DataBase.db";
-
-        private static String Connection_String = @"Data Source=C:\Users\Almogi\Desktop\githubtry\Project\Hype7\Metric Manager\Metric Manager\bin\Debug\net5.0\DataBase.db";
+        
+        private static String Connection_String = @"Data Source= C:\Users\lynnn\source\repos\Hype7\Metric Manager\Metric Manager\bin\Debug\net5.0\DataBase.db";
         private static bool isOverDay7;
         static public string checke;
 

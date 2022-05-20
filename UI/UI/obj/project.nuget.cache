@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "n/W4/yWhig/02MaFt0XxnBQ6DKbJ3R5sFyEqGK31/rP71T4k8/eq4zoutnmx0rkbTTh/qsUNg4JL4Rs3PN0mnA==",
+  "dgSpecHash": "wGFgB4X57mY+mshEksw5UurlbzGEfveUsB6zkC/Ua8NdVXLOIZnUqdUK6qQ/aWxfGxS0Kro/RczCELS7EKWGlw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\lynnn\\Source\\Repos\\Hype7\\UI\\UI\\UI.csproj",
+  "projectFilePath": "C:\\Users\\lynnn\\source\\repos\\Hype7\\UI\\UI\\UI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lynnn\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\lynnn\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
