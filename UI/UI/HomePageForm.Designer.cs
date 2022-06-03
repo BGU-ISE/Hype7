@@ -44,27 +44,32 @@ namespace UI
             this.panelDesktopPane = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.TopHashPanel = new System.Windows.Forms.Panel();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.NumericMLPanel = new System.Windows.Forms.Panel();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.MetricPanel = new System.Windows.Forms.Panel();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelTitleBar.SuspendLayout();
             this.panelDesktopPane.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.TopHashPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.NumericMLPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.MetricPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -243,10 +248,10 @@ namespace UI
             // 
             this.panelDesktopPane.Controls.Add(this.button3);
             this.panelDesktopPane.Controls.Add(this.button2);
-            this.panelDesktopPane.Controls.Add(this.button1);
-            this.panelDesktopPane.Controls.Add(this.panel5);
-            this.panelDesktopPane.Controls.Add(this.panel4);
-            this.panelDesktopPane.Controls.Add(this.panel3);
+            this.panelDesktopPane.Controls.Add(this.TopHashPanel);
+            this.panelDesktopPane.Controls.Add(this.NumericMLPanel);
+            this.panelDesktopPane.Controls.Add(this.MetricPanel);
+            this.panelDesktopPane.Controls.Add(this.panel6);
             this.panelDesktopPane.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktopPane.Location = new System.Drawing.Point(233, 78);
             this.panelDesktopPane.Name = "panelDesktopPane";
@@ -255,7 +260,7 @@ namespace UI
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(939, 529);
+            this.button3.Location = new System.Drawing.Point(906, 665);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(112, 34);
             this.button3.TabIndex = 5;
@@ -264,66 +269,103 @@ namespace UI
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(514, 529);
+            this.button2.Location = new System.Drawing.Point(514, 665);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(112, 34);
             this.button2.TabIndex = 4;
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // TopHashPanel
             // 
-            this.button1.Location = new System.Drawing.Point(137, 529);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 34);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.TopHashPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(54)))));
+            this.TopHashPanel.Controls.Add(this.textBox6);
+            this.TopHashPanel.Controls.Add(this.pictureBox4);
+            this.TopHashPanel.Controls.Add(this.textBox3);
+            this.TopHashPanel.Location = new System.Drawing.Point(793, 88);
+            this.TopHashPanel.Name = "TopHashPanel";
+            this.TopHashPanel.Size = new System.Drawing.Size(333, 525);
+            this.TopHashPanel.TabIndex = 2;
+            this.TopHashPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.TopHashPanel_Paint);
             // 
-            // panel5
+            // textBox6
             // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(54)))));
-            this.panel5.Controls.Add(this.pictureBox4);
-            this.panel5.Controls.Add(this.textBox3);
-            this.panel5.Location = new System.Drawing.Point(800, 86);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(333, 419);
-            this.panel5.TabIndex = 2;
+            this.textBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(54)))));
+            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.textBox6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textBox6.ForeColor = System.Drawing.SystemColors.MenuBar;
+            this.textBox6.Location = new System.Drawing.Point(0, 54);
+            this.textBox6.Multiline = true;
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(333, 203);
+            this.textBox6.TabIndex = 2;
+            this.textBox6.Text = "Get the most popular hashtags in the last week and the videos that used the above" +
+    " hashtags. An increase in the use of a new hashtag group represents an increase " +
+    "of a new current trend.";
+            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(66, 306);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(225, 196);
+            this.pictureBox4.TabIndex = 1;
+            this.pictureBox4.TabStop = false;
             // 
             // textBox3
             // 
             this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(54)))));
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.textBox3.ForeColor = System.Drawing.SystemColors.MenuBar;
             this.textBox3.Location = new System.Drawing.Point(0, 0);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(333, 203);
+            this.textBox3.Size = new System.Drawing.Size(333, 54);
             this.textBox3.TabIndex = 0;
-            this.textBox3.Text = "Get the most popular hashtags in the last week and the videos that used the above" +
-    " hashtags. An increase in the use of a new hashtag group represents an increase " +
-    "of a new current trend.";
+            this.textBox3.Text = "Top Hashtags";
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // panel4
+            // NumericMLPanel
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(54)))));
-            this.panel4.Controls.Add(this.pictureBox3);
-            this.panel4.Controls.Add(this.textBox2);
-            this.panel4.Location = new System.Drawing.Point(411, 87);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(333, 419);
-            this.panel4.TabIndex = 1;
+            this.NumericMLPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(54)))));
+            this.NumericMLPanel.Controls.Add(this.textBox5);
+            this.NumericMLPanel.Controls.Add(this.pictureBox3);
+            this.NumericMLPanel.Controls.Add(this.textBox2);
+            this.NumericMLPanel.Location = new System.Drawing.Point(411, 87);
+            this.NumericMLPanel.Name = "NumericMLPanel";
+            this.NumericMLPanel.Size = new System.Drawing.Size(333, 524);
+            this.NumericMLPanel.TabIndex = 1;
+            // 
+            // textBox5
+            // 
+            this.textBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(54)))));
+            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.textBox5.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textBox5.ForeColor = System.Drawing.SystemColors.MenuBar;
+            this.textBox5.Location = new System.Drawing.Point(0, 53);
+            this.textBox5.Multiline = true;
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(333, 211);
+            this.textBox5.TabIndex = 2;
+            this.textBox5.Text = "Get a forecast of the machine learning regression model of the hype score which r" +
+    "epresents the amount of views expected to be next week for the trendy videos col" +
+    "lected from the social networks";
+            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(58, 217);
+            this.pictureBox3.Location = new System.Drawing.Point(53, 305);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(216, 199);
+            this.pictureBox3.Size = new System.Drawing.Size(216, 203);
             this.pictureBox3.TabIndex = 1;
             this.pictureBox3.TabStop = false;
             // 
@@ -332,35 +374,52 @@ namespace UI
             this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(54)))));
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.textBox2.ForeColor = System.Drawing.SystemColors.MenuBar;
             this.textBox2.Location = new System.Drawing.Point(0, 0);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(333, 211);
+            this.textBox2.Size = new System.Drawing.Size(333, 53);
             this.textBox2.TabIndex = 0;
-            this.textBox2.Text = "Get a forecast of the machine learning regression model of the hype score which r" +
-    "epresents the amount of views expected to be next week for the trendy videos col" +
-    "lected from the social networks";
+            this.textBox2.Text = "Numeric ML Model";
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // panel3
+            // MetricPanel
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(54)))));
-            this.panel3.Controls.Add(this.pictureBox2);
-            this.panel3.Controls.Add(this.textBox1);
-            this.panel3.Location = new System.Drawing.Point(45, 86);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(299, 419);
-            this.panel3.TabIndex = 0;
+            this.MetricPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(54)))));
+            this.MetricPanel.Controls.Add(this.textBox4);
+            this.MetricPanel.Controls.Add(this.pictureBox2);
+            this.MetricPanel.Controls.Add(this.textBox1);
+            this.MetricPanel.Location = new System.Drawing.Point(45, 86);
+            this.MetricPanel.Name = "MetricPanel";
+            this.MetricPanel.Size = new System.Drawing.Size(304, 525);
+            this.MetricPanel.TabIndex = 0;
+            this.MetricPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.metricPanel_Paint_1);
+            // 
+            // textBox4
+            // 
+            this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(54)))));
+            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textBox4.ForeColor = System.Drawing.SystemColors.MenuBar;
+            this.textBox4.Location = new System.Drawing.Point(0, 54);
+            this.textBox4.Multiline = true;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(304, 212);
+            this.textBox4.TabIndex = 2;
+            this.textBox4.Text = "View the trendy videos collected in the last week according to selected parameter" +
+    "s and get a visual evidence of the growth graph according to these parameters";
+            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // pictureBox2
             // 
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(55, 218);
+            this.pictureBox2.Location = new System.Drawing.Point(58, 318);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(189, 163);
+            this.pictureBox2.Size = new System.Drawing.Size(189, 169);
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
@@ -369,27 +428,35 @@ namespace UI
             this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(54)))));
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.textBox1.ForeColor = System.Drawing.SystemColors.MenuBar;
             this.textBox1.Location = new System.Drawing.Point(0, 0);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(299, 212);
+            this.textBox1.Size = new System.Drawing.Size(304, 54);
             this.textBox1.TabIndex = 0;
-            this.textBox1.Text = "View the trendy videos collected in the last week according to selected parameter" +
-    "s and get a visual evidence of the growth graph according to these parameters";
+            this.textBox1.Text = "Metric\r\n";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // pictureBox4
+            // panel6
             // 
-            this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(66, 218);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(225, 198);
-            this.pictureBox4.TabIndex = 1;
-            this.pictureBox4.TabStop = false;
+            this.panel6.Controls.Add(this.button1);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(377, 766);
+            this.panel6.TabIndex = 6;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(132, 665);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(112, 34);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Select";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // MenuBtn
             // 
@@ -413,15 +480,16 @@ namespace UI
             this.panelTitleBar.ResumeLayout(false);
             this.panelTitleBar.PerformLayout();
             this.panelDesktopPane.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.TopHashPanel.ResumeLayout(false);
+            this.TopHashPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.NumericMLPanel.ResumeLayout(false);
+            this.NumericMLPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.MetricPanel.ResumeLayout(false);
+            this.MetricPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel6.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -441,9 +509,9 @@ namespace UI
         private System.Windows.Forms.Button btnNumericML;
         private System.Windows.Forms.Button btnHashtagsMetric;
         private System.Windows.Forms.Panel panelDesktopPane;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel TopHashPanel;
+        private System.Windows.Forms.Panel NumericMLPanel;
+        private System.Windows.Forms.Panel MetricPanel;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button button3;
@@ -453,6 +521,10 @@ namespace UI
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Panel panel6;
     }
 }
 

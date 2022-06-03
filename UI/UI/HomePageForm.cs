@@ -166,5 +166,30 @@ namespace UI
         {
 
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metricPanel_Paint_1(object sender, PaintEventArgs e)
+        {
+            //BtnMetrics_Click(sender, e);
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TopHashPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
