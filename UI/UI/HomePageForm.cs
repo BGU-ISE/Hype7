@@ -132,10 +132,7 @@ namespace UI
             btnNumericML.BackColor = Color.FromArgb(24, 30, 54);
         }
 
-        private void btnCustomMetric_Leave(object sender, EventArgs e)
-        {
-            btnCustomMetric.BackColor = Color.FromArgb(24, 30, 54);
-        }
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -160,12 +157,14 @@ namespace UI
             OpenChildForm(new Forms.ModelMetricForm(), sender);
         }
 
-        private void btnCustomMetric_Click(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            pnlNav.Height = btnCustomMetric.Height;
-            pnlNav.Top = btnCustomMetric.Top;
-            pnlNav.Left = btnCustomMetric.Left;
-            btnCustomMetric.BackColor = Color.FromArgb(46, 51, 73);
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
