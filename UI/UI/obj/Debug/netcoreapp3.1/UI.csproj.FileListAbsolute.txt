@@ -92,3 +92,4 @@ C:\Users\lynnn\Source\Repos\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.genruntimecon
 C:\Users\lynnn\source\repos\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.Forms.ModelMetricForm.resources
 C:\Users\lynnn\source\repos\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.NumericMetricForm.resources
 C:\Users\lynnn\source\repos\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.Forms.TopHashtagsMetricForm.resources
+C:\Users\lynnn\source\repos\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.Forms.Chart.resources

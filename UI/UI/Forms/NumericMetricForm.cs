@@ -15,13 +15,11 @@ namespace UI
 
         public class MetricData
         {
-            public string MetricForm { get; set; }
-            public string Name { get; set; }
+            private string Name { get; set; }
             public float Slope { get; set; }
             public string ID { get; set; }
             public string URL { get; set; }
-            public float AgerageScore { get; set; }
-            public string Formula { get; set; }
+            public float AverageScore { get; set; }
             public float Score1 { get; set; }
             public float Score2 { get; set; }
             public float Score3 { get; set; }
@@ -30,16 +28,12 @@ namespace UI
             public float Score6 { get; set; }
             public float Score7 { get; set; }
 
-            
-
-            public MetricData(string metricForm, string name, string id, float slope, float averageScore, string formula, float score1, float score2, float score3, float score4, float score5, float score6, float score7)
+            public MetricData( string name, string id, float slope, float averageScore, float score1, float score2, float score3, float score4, float score5, float score6, float score7)
             {
-                this.MetricForm = metricForm;
                 this.Name = name;
                 this.ID = id;
                 this.Slope = slope;
-                this.AgerageScore = averageScore;
-                this.Formula = formula;
+                this.AverageScore = averageScore;
                 this.Score1 = score1;
                 this.Score2 = score2;
                 this.Score3 = score3;
@@ -47,8 +41,8 @@ namespace UI
                 this.Score5 = score5;
                 this.Score6 = score6;
                 this.Score7 = score7;
-
             }
+
             public void SetURL(string url)
             {
                 this.URL = url;
