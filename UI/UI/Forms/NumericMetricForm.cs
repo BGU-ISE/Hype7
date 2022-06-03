@@ -78,9 +78,10 @@ namespace UI
             MetricComboBox.DataSource = DAL.GetMetricsNames();
             MetricComboBox.SelectedItem = null;
             MetricComboBox.SelectedText = "--Select--";
-            OrderByComboBox.SelectedItem = null;
+            
             List<string> orderBy = new List<string> { "slope", "averageScore" };
             OrderByComboBox.DataSource = orderBy;
+            OrderByComboBox.SelectedItem = null;
             OrderByComboBox.SelectedText = "--Select--";
 
         }

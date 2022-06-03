@@ -52,7 +52,6 @@ namespace UI
                 if (currentButton != (Button)btnSender)
                 {
                     currentButton = (Button)btnSender;
-                    currentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 }
             }
         }
@@ -63,10 +62,6 @@ namespace UI
             currentButton = null;
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void BtnMetrics_Click(object sender, EventArgs e)
         {
@@ -77,10 +72,6 @@ namespace UI
             OpenChildForm(new NumericMetricForm(), sender);
         }
 
-        private void MenuBtn_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void BtnHomepage_Click(object sender, EventArgs e)
         {
@@ -99,11 +90,6 @@ namespace UI
             pnlNav.Top = btnSettings.Top;
             pnlNav.Left = btnSettings.Left;
             btnSettings.BackColor = Color.FromArgb(46, 51, 73);
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void btnHomepage_Leave(object sender, EventArgs e)
@@ -132,8 +118,6 @@ namespace UI
             btnNumericML.BackColor = Color.FromArgb(24, 30, 54);
         }
 
-        
-
         private void button1_Click(object sender, EventArgs e)
         {
             Form form = new NumericMetricForm();
@@ -157,39 +141,19 @@ namespace UI
             OpenChildForm(new Forms.ModelMetricForm(), sender);
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void MetricBtnMenu_Click(object sender, EventArgs e)
         {
-
+            BtnMetrics_Click(sender, e);
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void MLBtnMenu_Click(object sender, EventArgs e)
         {
-
+            btnNumericML_Click(sender, e);
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void HashtagBtnMenu_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void metricPanel_Paint_1(object sender, PaintEventArgs e)
-        {
-            //BtnMetrics_Click(sender, e);
-        }
-
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TopHashPanel_Paint(object sender, PaintEventArgs e)
-        {
-
+            btnHashtagsMetric_Click(sender, e);
         }
     }
 }

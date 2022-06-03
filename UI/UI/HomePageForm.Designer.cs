@@ -42,8 +42,9 @@ namespace UI
             this.panelTitleBar = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panelDesktopPane = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.MetricBtnMenu = new System.Windows.Forms.Button();
+            this.MLBtnMenu = new System.Windows.Forms.Button();
+            this.HashtagBtnMenu = new System.Windows.Forms.Button();
             this.TopHashPanel = new System.Windows.Forms.Panel();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -56,8 +57,6 @@ namespace UI
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -69,7 +68,6 @@ namespace UI
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.MetricPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -196,7 +194,6 @@ namespace UI
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(233, 180);
             this.panel2.TabIndex = 0;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // pictureBox1
             // 
@@ -218,7 +215,6 @@ namespace UI
             this.pnlNav.Name = "pnlNav";
             this.pnlNav.Size = new System.Drawing.Size(4, 125);
             this.pnlNav.TabIndex = 1;
-            this.pnlNav.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // panelTitleBar
             // 
@@ -246,35 +242,65 @@ namespace UI
             // 
             // panelDesktopPane
             // 
-            this.panelDesktopPane.Controls.Add(this.button3);
-            this.panelDesktopPane.Controls.Add(this.button2);
+            this.panelDesktopPane.Controls.Add(this.MetricBtnMenu);
+            this.panelDesktopPane.Controls.Add(this.MLBtnMenu);
+            this.panelDesktopPane.Controls.Add(this.HashtagBtnMenu);
             this.panelDesktopPane.Controls.Add(this.TopHashPanel);
             this.panelDesktopPane.Controls.Add(this.NumericMLPanel);
             this.panelDesktopPane.Controls.Add(this.MetricPanel);
-            this.panelDesktopPane.Controls.Add(this.panel6);
             this.panelDesktopPane.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktopPane.Location = new System.Drawing.Point(233, 78);
             this.panelDesktopPane.Name = "panelDesktopPane";
             this.panelDesktopPane.Size = new System.Drawing.Size(1145, 766);
             this.panelDesktopPane.TabIndex = 1;
             // 
-            // button3
+            // MetricBtnMenu
             // 
-            this.button3.Location = new System.Drawing.Point(906, 665);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(112, 34);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.MetricBtnMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(54)))));
+            this.MetricBtnMenu.FlatAppearance.BorderSize = 0;
+            this.MetricBtnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.MetricBtnMenu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.MetricBtnMenu.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.MetricBtnMenu.Location = new System.Drawing.Point(134, 656);
+            this.MetricBtnMenu.Name = "MetricBtnMenu";
+            this.MetricBtnMenu.Size = new System.Drawing.Size(112, 34);
+            this.MetricBtnMenu.TabIndex = 8;
+            this.MetricBtnMenu.Text = "Explore";
+            this.MetricBtnMenu.UseVisualStyleBackColor = false;
+            this.MetricBtnMenu.Click += new System.EventHandler(this.MetricBtnMenu_Click);
+            this.MetricBtnMenu.Leave += new System.EventHandler(this.btnMetrics_Leave);
             // 
-            // button2
+            // MLBtnMenu
             // 
-            this.button2.Location = new System.Drawing.Point(514, 665);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(112, 34);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.MLBtnMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(54)))));
+            this.MLBtnMenu.FlatAppearance.BorderSize = 0;
+            this.MLBtnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.MLBtnMenu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.MLBtnMenu.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.MLBtnMenu.Location = new System.Drawing.Point(519, 656);
+            this.MLBtnMenu.Name = "MLBtnMenu";
+            this.MLBtnMenu.Size = new System.Drawing.Size(112, 34);
+            this.MLBtnMenu.TabIndex = 7;
+            this.MLBtnMenu.Text = "Explore";
+            this.MLBtnMenu.UseVisualStyleBackColor = false;
+            this.MLBtnMenu.Click += new System.EventHandler(this.MLBtnMenu_Click);
+            this.MLBtnMenu.Leave += new System.EventHandler(this.btnNumericML_Leave);
+            // 
+            // HashtagBtnMenu
+            // 
+            this.HashtagBtnMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(54)))));
+            this.HashtagBtnMenu.FlatAppearance.BorderSize = 0;
+            this.HashtagBtnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.HashtagBtnMenu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.HashtagBtnMenu.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.HashtagBtnMenu.Location = new System.Drawing.Point(907, 656);
+            this.HashtagBtnMenu.Name = "HashtagBtnMenu";
+            this.HashtagBtnMenu.Size = new System.Drawing.Size(112, 34);
+            this.HashtagBtnMenu.TabIndex = 5;
+            this.HashtagBtnMenu.Text = "Explore";
+            this.HashtagBtnMenu.UseVisualStyleBackColor = false;
+            this.HashtagBtnMenu.Click += new System.EventHandler(this.HashtagBtnMenu_Click);
+            this.HashtagBtnMenu.Leave += new System.EventHandler(this.btnHashtagsMetric_Leave);
             // 
             // TopHashPanel
             // 
@@ -286,7 +312,6 @@ namespace UI
             this.TopHashPanel.Name = "TopHashPanel";
             this.TopHashPanel.Size = new System.Drawing.Size(333, 525);
             this.TopHashPanel.TabIndex = 2;
-            this.TopHashPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.TopHashPanel_Paint);
             // 
             // textBox6
             // 
@@ -304,7 +329,6 @@ namespace UI
     " hashtags. An increase in the use of a new hashtag group represents an increase " +
     "of a new current trend.";
             this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // pictureBox4
             // 
@@ -394,7 +418,6 @@ namespace UI
             this.MetricPanel.Name = "MetricPanel";
             this.MetricPanel.Size = new System.Drawing.Size(304, 525);
             this.MetricPanel.TabIndex = 0;
-            this.MetricPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.metricPanel_Paint_1);
             // 
             // textBox4
             // 
@@ -411,7 +434,6 @@ namespace UI
             this.textBox4.Text = "View the trendy videos collected in the last week according to selected parameter" +
     "s and get a visual evidence of the growth graph according to these parameters";
             this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // pictureBox2
             // 
@@ -437,26 +459,6 @@ namespace UI
             this.textBox1.TabIndex = 0;
             this.textBox1.Text = "Metric\r\n";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.button1);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel6.Location = new System.Drawing.Point(0, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(377, 766);
-            this.panel6.TabIndex = 6;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(132, 665);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 34);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Select";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // MenuBtn
             // 
@@ -473,7 +475,6 @@ namespace UI
             this.Name = "MenuBtn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuBtn";
-            this.Load += new System.EventHandler(this.MenuBtn_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -489,7 +490,6 @@ namespace UI
             this.MetricPanel.ResumeLayout(false);
             this.MetricPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panel6.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -514,9 +514,7 @@ namespace UI
         private System.Windows.Forms.Panel MetricPanel;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button HashtagBtnMenu;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
@@ -524,7 +522,8 @@ namespace UI
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Button MetricBtnMenu;
+        private System.Windows.Forms.Button MLBtnMenu;
     }
 }
 
