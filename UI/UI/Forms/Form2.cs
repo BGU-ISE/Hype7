@@ -11,6 +11,8 @@ namespace UI
 {
     public partial class Form2 : Form
     {
+        public string[] ColumnMetric { get; set; }
+
         public class MetricData
         {
             public string MetricForm { get; set; }
@@ -27,6 +29,9 @@ namespace UI
             public float Score5 { get; set; }
             public float Score6 { get; set; }
             public float Score7 { get; set; }
+
+            
+
             public MetricData(string metricForm, string name, string id, float slope, float averageScore, string formula, float score1, float score2, float score3, float score4, float score5, float score6, float score7)
             {
                 this.MetricForm = metricForm;
@@ -42,6 +47,7 @@ namespace UI
                 this.Score5 = score5;
                 this.Score6 = score6;
                 this.Score7 = score7;
+
             }
             public void SetURL(string url)
             {
@@ -62,6 +68,43 @@ namespace UI
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MetricComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            MetricComboBox.DataSource = DAL.GetMetricsNames();
+            MetricComboBox.SelectedItem = null;
+            MetricComboBox.SelectedText = "--Select--";
+        }
+
+        private void OrderByComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LimitTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }
