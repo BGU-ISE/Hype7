@@ -13,6 +13,7 @@ namespace UI
     {
         public string[] ColumnMetric { get; set; }
         public DataGridView dataGridView { get; set; }
+        public List<MetricData> metricData { get; set; }
         public class MetricData
         {
             private string Name { get; set; }
@@ -54,7 +55,8 @@ namespace UI
             //List<MetricData> lst = new List<MetricData>();
             //lst.Add(new MetricData("m1", "test", "1234586", 12, 14, "12x-2", 1, 2, 3, 4, 5, 6, 7));
             //var t = DAL.GetMetricsNames();
-            dataGridView1.DataSource = DAL.GetMetrics("playCount", "slope", 10);
+            this.metricData = DAL.GetMetrics("playCount", "slope", 10);
+            dataGridView1.DataSource = this.metricData;
         }
         public void GetData()
         {
@@ -95,12 +97,13 @@ namespace UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = DAL.GetMetrics(MetricComboBox.Text, OrderByComboBox.Text, Int32.Parse(LimitTextBox.Text));
+            this.metricData = DAL.GetMetrics(MetricComboBox.Text, OrderByComboBox.Text, Int32.Parse(LimitTextBox.Text));
+            dataGridView1.DataSource = this.metricData;
         }
 
         private void LoadGraph_Click_1(object sender, EventArgs e)
         {
-            Form form = new Forms.Chart(dataGridView);
+            Form form = new Forms.Chart(dataGridView, this.metricData);
             form.Show();
         }
     }
