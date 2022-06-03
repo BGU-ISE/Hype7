@@ -103,7 +103,7 @@ namespace UI
 
         private void LoadGraph_Click_1(object sender, EventArgs e)
         {
-            Form form = new Forms.Chart(dataGridView, this.metricData);
+            Form form = new Forms.ChartForm(dataGridView, this.metricData);
             form.Show();
         }
     }

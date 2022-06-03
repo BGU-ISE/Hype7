@@ -1,6 +1,6 @@
 ﻿namespace UI.Forms
 {
-    partial class Chart
+    partial class ChartForm
     {
         /// <summary>
         /// Required designer variable.

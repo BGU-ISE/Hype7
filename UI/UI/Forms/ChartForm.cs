@@ -13,11 +13,11 @@ using static UI.NumericMetricForm;
 
 namespace UI.Forms
 {
-    public partial class Chart : Form
+    public partial class ChartForm : Form
     {
         public DataGridView DataGridView { get; set; }
         public List<MetricData> MetricDataList { get; set; }
-        public Chart(DataGridView dataGridView, List<MetricData> metricDataList)
+        public ChartForm(DataGridView dataGridView, List<MetricData> metricDataList)
         {
             InitializeComponent();
             DataGridView = dataGridView;
@@ -31,7 +31,6 @@ namespace UI.Forms
 
         private void Chart_Load(object sender, EventArgs e)
         {
-            
             cartesianChart1.AxisX.Add(new LiveCharts.Wpf.Axis
             {
                 Title = "Day Number",
@@ -40,7 +39,7 @@ namespace UI.Forms
             cartesianChart1.AxisY.Add(new LiveCharts.Wpf.Axis
             {
                 Title = "Growth",
-                LabelFormatter = v => v.ToString("")
+                LabelFormatter = v => v.ToString()
             });
             cartesianChart1.LegendLocation = LiveCharts.LegendLocation.Right;
             cartesianChart1.Series.Clear();
@@ -52,10 +51,6 @@ namespace UI.Forms
                 cartesianChart1.Series = series;
             }
             cartesianChart1.Series = series;
-            //SeriesCollection series = new SeriesCollection();
-            //var years = from o in DataGridView.DataSource as List<VideoModel>
-            //           select new {  };
-            //List<double> values = new List<double> { 1,2,3,4,5,6,7};
 
         }
     }
