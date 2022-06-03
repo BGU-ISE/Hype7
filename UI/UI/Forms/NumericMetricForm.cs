@@ -12,7 +12,7 @@ namespace UI
     public partial class NumericMetricForm : Form
     {
         public string[] ColumnMetric { get; set; }
-
+        public DataGridView dataGridView { get; set; }
         public class MetricData
         {
             private string Name { get; set; }
@@ -66,16 +66,6 @@ namespace UI
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void MetricComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
            
@@ -106,6 +96,12 @@ namespace UI
         private void button1_Click(object sender, EventArgs e)
         {
             dataGridView1.DataSource = DAL.GetMetrics(MetricComboBox.Text, OrderByComboBox.Text, Int32.Parse(LimitTextBox.Text));
+        }
+
+        private void LoadGraph_Click_1(object sender, EventArgs e)
+        {
+            Form form = new Forms.Chart(dataGridView);
+            form.Show();
         }
     }
 }

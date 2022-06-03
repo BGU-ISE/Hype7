@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\UI"
+    "\\UI",
+    "\\UI\\UI",
+    "\\UI\\UI\\Forms"
   ],
   "SelectedNode": "\\UI\\UI.sln",
   "PreviewInSolutionExplorer": false

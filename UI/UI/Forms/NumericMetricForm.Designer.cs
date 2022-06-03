@@ -39,6 +39,7 @@ namespace UI
             this.MetricLabel = new System.Windows.Forms.Label();
             this.MetricComboBox = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.GraphButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -56,10 +57,10 @@ namespace UI
             this.dataGridView1.Size = new System.Drawing.Size(1143, 591);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.GraphButton);
             this.panel1.Controls.Add(this.SubmitButton);
             this.panel1.Controls.Add(this.LimitTextBox);
             this.panel1.Controls.Add(this.Limit);
@@ -75,7 +76,7 @@ namespace UI
             // 
             // SubmitButton
             // 
-            this.SubmitButton.Location = new System.Drawing.Point(508, 122);
+            this.SubmitButton.Location = new System.Drawing.Point(417, 117);
             this.SubmitButton.Name = "SubmitButton";
             this.SubmitButton.Size = new System.Drawing.Size(112, 34);
             this.SubmitButton.TabIndex = 6;
@@ -117,7 +118,6 @@ namespace UI
             this.OrderByLabel.Size = new System.Drawing.Size(82, 25);
             this.OrderByLabel.TabIndex = 2;
             this.OrderByLabel.Text = "Order By";
-            this.OrderByLabel.Click += new System.EventHandler(this.label2_Click);
             // 
             // MetricLabel
             // 
@@ -127,7 +127,6 @@ namespace UI
             this.MetricLabel.Size = new System.Drawing.Size(126, 25);
             this.MetricLabel.TabIndex = 1;
             this.MetricLabel.Text = "Choose metric";
-            this.MetricLabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // MetricComboBox
             // 
@@ -147,7 +146,17 @@ namespace UI
             this.panel2.Size = new System.Drawing.Size(1143, 591);
             this.panel2.TabIndex = 2;
             // 
-            // Form2
+            // GraphButton
+            // 
+            this.GraphButton.Location = new System.Drawing.Point(603, 117);
+            this.GraphButton.Name = "GraphButton";
+            this.GraphButton.Size = new System.Drawing.Size(112, 34);
+            this.GraphButton.TabIndex = 7;
+            this.GraphButton.Text = "Load Graph";
+            this.GraphButton.UseVisualStyleBackColor = true;
+            this.GraphButton.Click += new System.EventHandler(this.LoadGraph_Click_1);
+            // 
+            // NumericMetricForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -155,7 +164,7 @@ namespace UI
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "Form2";
+            this.Name = "NumericMetricForm";
             this.Text = "Metric";
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -181,5 +190,6 @@ namespace UI
         private System.Windows.Forms.Label Limit;
         private System.Windows.Forms.Button SubmitButton;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button GraphButton;
     }
 }
