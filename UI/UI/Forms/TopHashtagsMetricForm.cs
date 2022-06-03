@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace UI.Forms
 {
-    public partial class TopHashtagsMetric : Form
+    public partial class TopHashtagsMetricForm : Form
     {
-        public TopHashtagsMetric()
+        public TopHashtagsMetricForm()
         {
             InitializeComponent();
         }

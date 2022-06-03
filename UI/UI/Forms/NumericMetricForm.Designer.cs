@@ -1,7 +1,7 @@
 ﻿
 namespace UI
 {
-    partial class Form2
+    partial class NumericMetricForm
     {
         /// <summary>
         /// Required designer variable.

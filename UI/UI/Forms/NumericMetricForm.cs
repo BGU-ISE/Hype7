@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class Form2 : Form
+    public partial class NumericMetricForm : Form
     {
         public string[] ColumnMetric { get; set; }
 
@@ -54,7 +54,7 @@ namespace UI
                 this.URL = url;
             }
         }
-        public Form2()
+        public NumericMetricForm()
         {
             InitializeComponent();
             //List<MetricData> lst = new List<MetricData>();
@@ -92,6 +92,11 @@ namespace UI
             MetricComboBox.DataSource = DAL.GetMetricsNames();
             MetricComboBox.SelectedItem = null;
             MetricComboBox.SelectedText = "--Select--";
+            OrderByComboBox.SelectedItem = null;
+            List<string> orderBy = new List<string> { "slope", "averageScore" };
+            OrderByComboBox.DataSource = orderBy;
+            OrderByComboBox.SelectedText = "--Select--";
+
         }
 
         private void OrderByComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -106,7 +111,7 @@ namespace UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            dataGridView1.DataSource = DAL.GetMetrics(MetricComboBox.Text, OrderByComboBox.Text, Int32.Parse(LimitTextBox.Text));
         }
     }
 }

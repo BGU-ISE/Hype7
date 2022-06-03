@@ -74,7 +74,7 @@ namespace UI
             pnlNav.Top = btnMetrics.Top;
             pnlNav.Left = btnMetrics.Left;
             btnMetrics.BackColor = Color.FromArgb(46, 51, 73);
-            OpenChildForm(new Form2(), sender);
+            OpenChildForm(new NumericMetricForm(), sender);
         }
 
         private void MenuBtn_Load(object sender, EventArgs e)
@@ -139,7 +139,7 @@ namespace UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form form = new Form2();
+            Form form = new NumericMetricForm();
             form.Show();
         }
 
@@ -157,7 +157,7 @@ namespace UI
             pnlNav.Top = btnNumericML.Top;
             pnlNav.Left = btnNumericML.Left;
             btnNumericML.BackColor = Color.FromArgb(46, 51, 73);
-
+            OpenChildForm(new Forms.ModelMetricForm(), sender);
         }
 
         private void btnCustomMetric_Click(object sender, EventArgs e)

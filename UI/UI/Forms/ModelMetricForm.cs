@@ -8,11 +8,16 @@ using System.Windows.Forms;
 
 namespace UI.Forms
 {
-    public partial class ModelMetric : Form
+    public partial class ModelMetricForm : Form
     {
-        public ModelMetric()
+        public ModelMetricForm()
         {
             InitializeComponent();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 namespace UI.Forms
 {
-    partial class TopHashtagsMetric
+    partial class TopHashtagsMetricForm
     {
         /// <summary>
         /// Required designer variable.

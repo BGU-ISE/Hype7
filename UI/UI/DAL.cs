@@ -4,7 +4,7 @@ using System.Text;
 using System.Data.SQLite;
 using System.Data;
 using System.Text.RegularExpressions;
-using static UI.Form2;
+using static UI.NumericMetricForm;
 
 namespace UI
 {
