@@ -17,7 +17,7 @@ class DBConnection():
         """
         try:
             self.connection = sqlite3.connect(self.db_file)
-        except Error as e:
+        except NameError as e:
             print(e)
 
 
@@ -35,6 +35,11 @@ class DBConnection():
         for row in rows:
             print(row)
     
+    def write_predictions_to_DB(self, predictions, video_ids):
+        df = pd.DataFrame({'id': video_ids, 'model1score' : predictions})
+        df.to_sql(name='ModelHypeScore', con=self.connection, if_exists='append', index=False)
+        self.connection.close()
+
     def get_numeric_dataframe(self, num):
         #important to save the following fields: 'authorMeta.id' 'musicMeta.musicOriginal'
         tableName = 'VideosInfoDay' + str(num)

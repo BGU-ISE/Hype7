@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\ModelManager",
+    "\\ModelManager\\ModelManager"
   ],
-  "SelectedNode": "\\C:\\Users\\lynnn\\Source\\Repos\\Hype7",
+  "SelectedNode": "\\ModelManager\\ModelManager\\ModelManager.py",
   "PreviewInSolutionExplorer": false
 }

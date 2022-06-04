@@ -1,18 +1,23 @@
 import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
-from tqdm import tqdm #For memory function   reduce_mem_usage()
+from tqdm import tqdm
+from xgboost.rabit import is_distributed #For memory function   reduce_mem_usage()
 
 class NumericFeaturizer():
+    global numeric_columns 
+    numeric_columns =  ['id', 'createTime', 'authorMeta.id', 'authorMeta.verified','authorMeta.following', 'authorMeta.fans', 'authorMeta.heart', 'authorMeta.video', 'authorMeta.digg', 'musicMeta.musicId','musicMeta.musicOriginal', 'diggCount', 'shareCount', 'playCount', 'commentCount']
 
-    def __init__(self, datafile, labelfile=None):  
+    def __init__(self, is_DB, datafile, labelfile=None):  
         try: 
            self.df = datafile
         except:
             print('Unable to readcsv of dataframe')
         else: 
             self.labels  = labelfile
+            if(not is_DB):
+                self.df = datafile[numeric_columns]
             self.continuous_train = self.df.columns.values.tolist()
-            self.continuous_train = self.continuous_train.append('dv_playCount')
+            self.continuous_train.append('dv_playCount')
             self.continuous_predict = self.df.columns.values.tolist() 
 
             self.df = self.reduce_mem_usage(self.df)

@@ -16,7 +16,7 @@ class Model(IModel):
 
   def split(self, test_size):
     columns = self.df.columns.values.tolist()
-    columns = columns.remove('dv_playCount')
+    columns.remove('dv_playCount')
     y = self.df[["dv_playCount"]]
     X = self.df[columns]
     self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(X, y, test_size=0.2, random_state=123)

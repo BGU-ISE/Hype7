@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>752fbd9d-83e4-409a-8f6e-f26fbb78459a</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>UnitTests.py</StartupFile>
+    <StartupFile>ModelManager.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -42,6 +42,9 @@
     <Content Include="DataBase.db" />
     <Content Include="tiktok_12_31_2021.csv" />
     <Content Include="tiktok_duplicate_1_7_2022.csv" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
