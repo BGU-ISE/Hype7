@@ -1,0 +1,1 @@
+ts-node .\hype7\scrape_feed.ts

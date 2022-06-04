@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace System_Manager
 {
-    class SystemManager
+    public class SystemManager
     {
         static Runner metric_runner = new Metric_Manager_Runner();
         static Runner scraper_manager_runner = new Scraper_Manager_Runner();
@@ -15,11 +16,15 @@ namespace System_Manager
         static void Main(string[] args)
         {
             scrapers_runners.Add(new TikTok_Scraper_Runner());
-
-            foreach (var runner in scrapers_runners)
+            scrapers_runners.Add(new Youtube_Scraper_Runner());
+            using (var countdownEvent = new CountdownEvent(scrapers_runners.Count()))
             {
+                foreach (var runner in scrapers_runners)
+                {
 
-                runner.run();
+                    ThreadPool.QueueUserWorkItem((Object stateInfo) => { runner.run(); countdownEvent.Signal(); });
+                }
+                countdownEvent.Wait();
             }
             Console.WriteLine("finished all scrapers");
             

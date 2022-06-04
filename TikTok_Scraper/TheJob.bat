@@ -1,1 +1,3 @@
-ts-node .\hype7\scrape_feed.ts
+@echo off
+ECHO "sup"
+pause

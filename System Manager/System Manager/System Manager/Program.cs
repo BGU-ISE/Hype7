@@ -16,7 +16,7 @@ namespace System_Manager
                 proc.StartInfo.FileName = item;
                 Console.WriteLine(item);
                 proc.StartInfo.UseShellExecute = true;
-                proc.StartInfo.Arguments = Constants.input_output_folders_args;
+                //proc.StartInfo.Arguments = Constants.input_output_folders_args;
                 proc.Start();
                 proc.WaitForExit();
                 Console.WriteLine("doneee");
