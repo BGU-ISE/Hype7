@@ -6,6 +6,7 @@ import os
 import csv
 import pandas as pd
 import numpy as np # linear algebra
+from pathlib import Path
 
 from sklearn.metrics import mean_squared_error, mean_absolute_error
 
@@ -16,12 +17,16 @@ class ModelManager():
     y = '\\tiktok_duplicate_1_7_2022.csv'
     global db_file 
     db_file = '\\DataBase.db'
+    global db_directory
+    db_directory = Path(__file__).parent.parent.parent
+    global project_db_path
+    project_db_path = db_directory /  "Metric Manager/Metric Manager/bin/Debug/net5.0/DataBase.db"
     global dir 
     dir = os.path.dirname(__file__)
-    
+
     def __init__(self, fromDB): 
         self.is_DB = fromDB
-        filename = dir + db_file
+        filename = str(project_db_path) #dir + db_file
         self.db = DBConnection.DBConnection(filename)
         self.db.create_connection()
         if(fromDB):
