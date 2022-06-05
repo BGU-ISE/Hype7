@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mysEGEHCmeiNc6t8tBN6bd84uakNNMdAIbw8Q/0/jqRgiVtZwxJczdH2oEa6YcMkOqIQBP6OymihZ2ws4PUeXw==",
+  "dgSpecHash": "oTQnqJ3UeTQySPZr8lYMOob1e6fZOjX9YVt5y05bOs6F9bsCyrzme3aMbU8XkaQ1WzbJFAcRud2hs0eFoxckSA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Metric Manager\\Metric Manager\\Metric Manager.csproj",
+  "projectFilePath": "C:\\Users\\Iftah\\Desktop\\yt2\\Metric Manager\\Metric Manager\\Metric Manager.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Iftah\\.nuget\\packages\\aspose.cells\\22.3.0\\aspose.cells.22.3.0.nupkg.sha512",
     "C:\\Users\\Iftah\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
@@ -33,12 +33,5 @@
     "C:\\Users\\Iftah\\.nuget\\packages\\system.text.encoding.codepages\\4.7.0\\system.text.encoding.codepages.4.7.0.nupkg.sha512",
     "C:\\Users\\Iftah\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Metric Manager\\Metric Manager\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }
