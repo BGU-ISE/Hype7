@@ -79,9 +79,6 @@ C:\Users\lynnn\Source\Repos\Hype7\UI\UI\bin\Debug\netcoreapp3.1\runtimes\unix\li
 C:\Users\lynnn\Source\Repos\Hype7\UI\UI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\lynnn\Source\Repos\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.csproj.AssemblyReference.cache
 C:\Users\lynnn\Source\Repos\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.MenuBtn.resources
-C:\Users\lynnn\Source\Repos\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.Form2.resources
-C:\Users\lynnn\Source\Repos\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.Forms.ModelMetric.resources
-C:\Users\lynnn\Source\Repos\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.Forms.TopHashtagsMetric.resources
 C:\Users\lynnn\Source\Repos\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.Properties.Resources.resources
 C:\Users\lynnn\Source\Repos\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.csproj.GenerateResource.cache
 C:\Users\lynnn\Source\Repos\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.GeneratedMSBuildEditorConfig.editorconfig
@@ -92,3 +89,15 @@ C:\Users\lynnn\Source\Repos\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.csproj.CopyCo
 C:\Users\lynnn\Source\Repos\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.dll
 C:\Users\lynnn\Source\Repos\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.pdb
 C:\Users\lynnn\Source\Repos\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.genruntimeconfig.cache
+C:\Users\lynnn\source\repos\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.Forms.ModelMetricForm.resources
+C:\Users\lynnn\source\repos\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.NumericMetricForm.resources
+C:\Users\lynnn\source\repos\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.Forms.TopHashtagsMetricForm.resources
+C:\Users\lynnn\source\repos\Hype7\UI\UI\bin\Debug\netcoreapp3.1\Microsoft.ReportViewer.Common.dll
+C:\Users\lynnn\source\repos\Hype7\UI\UI\bin\Debug\netcoreapp3.1\Microsoft.ReportViewer.DataVisualization.dll
+C:\Users\lynnn\source\repos\Hype7\UI\UI\bin\Debug\netcoreapp3.1\GrapeCity.Documents.DataVisualization.Chart.dll
+C:\Users\lynnn\source\repos\Hype7\UI\UI\bin\Debug\netcoreapp3.1\LiveCharts.dll
+C:\Users\lynnn\source\repos\Hype7\UI\UI\bin\Debug\netcoreapp3.1\LiveCharts.WinForms.dll
+C:\Users\lynnn\source\repos\Hype7\UI\UI\bin\Debug\netcoreapp3.1\LiveCharts.Wpf.dll
+C:\Users\lynnn\source\repos\Hype7\UI\UI\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\lynnn\source\repos\Hype7\UI\UI\bin\Debug\netcoreapp3.1\SimpleChart.dll
+C:\Users\lynnn\source\repos\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.Forms.ChartForm.resources
