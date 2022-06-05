@@ -38,9 +38,9 @@ class ModelManager():
         model_instance = NumericModel.Model(df)
         model_instance.split(0.2)
         model_instance.fit() 
-        predictions = model_instance.predict(model_instance.X_test)
+        predictions = model_instance.predict(model_instance.X_test_id)
         self.print_regression_analysis(model_instance.y_test, predictions)
-        self.db.write_predictions_to_DB(predictions, model_instance.X_test[['id']])
+        self.db.write_predictions_to_DB(predictions, model_instance.X_test_id['id'].tolist())
 
     def print_regression_analysis(self, y_actual, y_prediction):
         mae = mean_absolute_error(y_actual, y_prediction)

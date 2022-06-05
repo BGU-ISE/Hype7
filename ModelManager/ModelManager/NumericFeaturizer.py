@@ -18,6 +18,7 @@ class NumericFeaturizer():
                 self.df = datafile[numeric_columns]
             self.continuous_train = self.df.columns.values.tolist()
             self.continuous_train.append('dv_playCount')
+            self.continuous_train.remove('id')
             self.continuous_predict = self.df.columns.values.tolist() 
 
             self.df = self.reduce_mem_usage(self.df)
@@ -77,6 +78,7 @@ class NumericFeaturizer():
            self.df["dv_playCount"]=round( self.df["playCount_y"]- self.df["playCount_x"] /7,4)
            self.df = self.df.drop(['playCount_y'], axis=1)
            self.df  = self.df.rename(columns={"playCount_x": "playCount"})
+
            self.normalize(self.continuous_train)
            return self.df
 
