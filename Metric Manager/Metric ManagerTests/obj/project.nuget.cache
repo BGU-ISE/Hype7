@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bp9Z5yxrTWC8mYtMICJIvGRLxEWJWZ6EhjUTpXIRy7TqrvQfHXu9a66NpjP1+WugKWzKoE3K9yP2UszLT2dUtg==",
+  "dgSpecHash": "KfVLiAlx+XXBgfxCNjmmQ32pJssc/uq1h0bP1q+D1xgT14riBHjDyg+011wErBAW64pLlDVRZ5fpozEm5tUqYg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Metric Manager\\Metric ManagerTests\\Metric ManagerTests.csproj",
+  "projectFilePath": "C:\\Users\\Iftah\\Desktop\\yt2\\Metric Manager\\Metric ManagerTests\\Metric ManagerTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Iftah\\.nuget\\packages\\aspose.cells\\22.3.0\\aspose.cells.22.3.0.nupkg.sha512",
     "C:\\Users\\Iftah\\.nuget\\packages\\coverlet.collector\\3.0.2\\coverlet.collector.3.0.2.nupkg.sha512",
@@ -119,12 +119,5 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Metric Manager\\Metric ManagerTests\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }

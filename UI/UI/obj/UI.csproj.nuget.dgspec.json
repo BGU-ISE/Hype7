@@ -40,9 +40,41 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "Cquential.Microsoft.ReportViewer.DataVisualization": {
+              "target": "Package",
+              "version": "[10.0.40219.1, )"
+            },
+            "GrapeCity.Documents.DataVisualization.Chart": {
+              "target": "Package",
+              "version": "[13.0.36, )"
+            },
+            "LiveCharts": {
+              "target": "Package",
+              "version": "[0.9.7, )"
+            },
+            "LiveCharts.Core": {
+              "target": "Package",
+              "version": "[0.9.8, )"
+            },
+            "LiveCharts.NetCore": {
+              "target": "Package",
+              "version": "[0.9.7, )"
+            },
+            "LiveCharts.WinForms": {
+              "target": "Package",
+              "version": "[0.9.7.1, )"
+            },
+            "LiveCharts.WinForms.NetCore3": {
+              "target": "Package",
+              "version": "[0.9.7, )"
+            },
             "Microsoft.Data.Sqlite.Core": {
               "target": "Package",
               "version": "[6.0.4, )"
+            },
+            "SimpleChart": {
+              "target": "Package",
+              "version": "[1.0.0, )"
             },
             "System.Data.SQLite": {
               "target": "Package",
