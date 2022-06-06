@@ -60,7 +60,7 @@ namespace Hype7.Tests
             DAL.OpenConnect();
             DAL.SetUpDB();
             SQLiteCommand command = new SQLiteCommand(null, DAL.connection);
-            command.CommandText = "SELECT id, playCountDay3 FROM PlayCountPerDay WHERE id = '7038764928076877103'";
+            command.CommandText = "SELECT video_id, playCountDay3 FROM PlayCountPerDay WHERE video_id = '7038764928076877103'";
             command.Prepare();
             var reader = command.ExecuteReader();
             bool flag = false;

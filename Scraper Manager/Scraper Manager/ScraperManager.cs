@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace Scraper_Manager
 {
@@ -52,14 +53,31 @@ namespace Scraper_Manager
                     Console.WriteLine("Reading file:" + Path.GetFileName(file));
                     RecordsFile r = new RecordsFile("../../../settings.txt", file, output_path);
                     r.loadFile();
+                    string fileName = Path.GetFileName(output_path);
                     Console.WriteLine("Saving to file:" + Path.GetFileName(output_path));
                     fieldNames = r.output_names;
-                    DAL.InsertDataFromToday(r, LastIndexTable, true);
+                    DAL.InsertDataFromToday(r, LastIndexTable, ConvertStringToDatetime(fileName), true);
+                    r.saveRecords();
                     add_to_history(Path.GetFileName(file));
                     Console.WriteLine("Done with file:" + Path.GetFileName(file) +" adding to history");
                 }
             }
-
+        }
+        private static DateTime ConvertStringToDatetime(string time)
+        {
+            var arr1 = Regex.Split(time, @"[a-zA-Z|(|)|+|/|\-|*|^|_|\.]");
+            DateTime date = new DateTime();
+            for (int j = 0; j < arr1.Length; j++)
+            {
+                if (arr1[j].Length > 0)
+                {
+                    if (arr1[j].Length == 2)
+                        arr1[j] = "20" + arr1[j];
+                    date = new DateTime(int.Parse(arr1[j]), int.Parse(arr1[j + 2]), int.Parse(arr1[j + 1]));
+                    j = arr1.Length;
+                }
+            }
+            return date;
         }
     }
 }

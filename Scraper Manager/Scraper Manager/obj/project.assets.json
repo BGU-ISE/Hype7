@@ -1240,24 +1240,30 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Iftah\\.nuget\\packages\\": {},
+    "C:\\Users\\Almogi\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Scraper Manager\\Scraper Manager\\Scraper Manager.csproj",
+      "projectUniqueName": "C:\\Users\\Almogi\\Desktop\\githubtry\\Project\\Hype7\\Scraper Manager\\Scraper Manager\\Scraper Manager.csproj",
       "projectName": "Scraper Manager",
-      "projectPath": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Scraper Manager\\Scraper Manager\\Scraper Manager.csproj",
-      "packagesPath": "C:\\Users\\Iftah\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Scraper Manager\\Scraper Manager\\obj\\",
+      "projectPath": "C:\\Users\\Almogi\\Desktop\\githubtry\\Project\\Hype7\\Scraper Manager\\Scraper Manager\\Scraper Manager.csproj",
+      "packagesPath": "C:\\Users\\Almogi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Almogi\\Desktop\\githubtry\\Project\\Hype7\\Scraper Manager\\Scraper Manager\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Iftah\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Almogi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
