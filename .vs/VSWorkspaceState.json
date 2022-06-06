@@ -2,8 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\ModelManager",
-    "\\ModelManager\\ModelManager"
+    "\\ModelManager\\ModelManager",
+    "\\UI",
+    "\\UI\\UI"
   ],
-  "SelectedNode": "\\ModelManager\\ModelManager\\ModelManager.py",
+  "SelectedNode": "\\UI\\UI\\Program.cs",
   "PreviewInSolutionExplorer": false
 }

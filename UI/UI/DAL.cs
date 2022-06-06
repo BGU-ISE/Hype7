@@ -5,6 +5,7 @@ using System.Data.SQLite;
 using System.Data;
 using System.Text.RegularExpressions;
 using static UI.NumericMetricForm;
+using static UI.Forms.ModelMetricForm;
 
 namespace UI
 {
@@ -60,6 +61,31 @@ namespace UI
             }
             return ans;
         }
+
+        public static List<ModelPrediction> GetModelPredictions(string socialMedia, int limit)
+        {
+            List<ModelPrediction> ans = new List<ModelPrediction>();
+            try
+            {
+                OpenConnect();
+                SQLiteCommand command = new SQLiteCommand("SELECT * FROM "+ socialMedia +" ORDER BY model1score DESC LIMIT " + limit, DAL.connection);
+                command.Prepare();
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    ModelPrediction metricData = new ModelPrediction(reader["id"].ToString(),  float.Parse(reader["model1score"].ToString()));
+                    ans.Add(metricData);
+                }
+                command.Dispose();
+                CloseConnect();
+            }
+            catch (SQLiteException e)
+            {
+                DAL.CloseConnect();
+            }
+            return ans;
+        }
+
         public static string GetURL(MetricData metricData)
         {
             string ans = "";
