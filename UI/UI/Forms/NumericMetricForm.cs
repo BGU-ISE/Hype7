@@ -29,7 +29,7 @@ namespace UI
             public float Score6 { get; set; }
             public float Score7 { get; set; }
 
-            public MetricData( string name, string id, float slope, float averageScore, float score1, float score2, float score3, float score4, float score5, float score6, float score7)
+            public MetricData(string name, string id, float slope, float averageScore, float score1, float score2, float score3, float score4, float score5, float score6, float score7)
             {
                 this.Name = name;
                 this.ID = id;
@@ -43,6 +43,21 @@ namespace UI
                 this.Score6 = score6;
                 this.Score7 = score7;
             }
+            public MetricData(string name, float slope, float averageScore, float score1, float score2, float score3, float score4, float score5, float score6, float score7)
+            {
+                this.Name = name;
+                this.ID = "";
+                this.Slope = slope;
+                this.AverageScore = averageScore;
+                this.Score1 = score1;
+                this.Score2 = score2;
+                this.Score3 = score3;
+                this.Score4 = score4;
+                this.Score5 = score5;
+                this.Score6 = score6;
+                this.Score7 = score7;
+                this.URL = "";
+            }
 
             public void SetURL(string url)
             {
@@ -51,12 +66,14 @@ namespace UI
         }
         public NumericMetricForm()
         {
+            var t = DAL.GetFilterNames();
             InitializeComponent();
             //List<MetricData> lst = new List<MetricData>();
             //lst.Add(new MetricData("m1", "test", "1234586", 12, 14, "12x-2", 1, 2, 3, 4, 5, 6, 7));
             //var t = DAL.GetMetricsNames();
-            this.metricData = DAL.GetMetrics("playCount", "slope", 10);
+            this.metricData = DAL.GetHashtags("averageScore", 10);
             dataGridView1.DataSource = this.metricData;
+            
         }
         public void GetData()
         {

@@ -14,6 +14,7 @@ namespace UI
         [STAThread]
         static void Main()
         {
+            DAL.GetHashtags("averageScore", 10);
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
