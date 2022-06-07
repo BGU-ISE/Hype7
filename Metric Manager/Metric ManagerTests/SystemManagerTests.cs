@@ -74,5 +74,7 @@ namespace Hype7.Tests
             var index = SystemManager.GetIndexByFieldName("id");
             Assert.IsTrue(index == 0, "index id not correct");
         }
+
+        
     }
 }

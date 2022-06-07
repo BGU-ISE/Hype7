@@ -12,21 +12,12 @@ namespace Hype7
         {
             DateTime start = DateTime.Now;
 
-            //StartDaySettings(args);
-            // scraper need to run
             DataAnalysis(args);
 
             DateTime end = DateTime.Now;
             Console.WriteLine("duration: " + (end - start) + " min");
         }
 
-        private static void StartDaySettings(string[] args)
-        {
-            SystemManager.InitializeData(args); // get ignore hashtags, get metrics, get path
-            DAL.OpenConnect(); // create db and init table if doesnt exist, open db
-            DAL.SetUpDB(); // insert today data, calc views today
-            DAL.CloseConnect();
-        }
         private static void DataAnalysis(string[] args)
         {
             SystemManager.InitializeData(args);

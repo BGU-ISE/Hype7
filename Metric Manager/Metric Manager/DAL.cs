@@ -21,52 +21,53 @@ namespace Hype7
         private static List<string> notIntField = new List<string>();
         private static bool isOverDay7;
         static public string checke;
+        public static string IDName = "video_id";
 
         public static SQLiteConnection connection = null;
 
-        public static void SetUpDB()
-        {
-            LastIndexTable = GetLastIndexTable(true);
-            InitIntField();
-            int indexCreatesTable = CreateDateTable(SystemManager.GetFieldsName());
-            Console.WriteLine("finish setup for DB.");
-        }
-        public static void AddIntField(string value)
-        {
-            intFileld.Add(value);
-        }
-        private static void InitIntField()
-        {
-            if (intFileld.Count == 0)
-            {
-                SystemManager.SetNumericField();
-                SetStringField();
-                foreach (string name in intFileld)
-                {
+        //public static void SetUpDB()
+        //{
+        //    LastIndexTable = GetLastIndexTable(true);
+        //    InitIntField();
+        //    int indexCreatesTable = CreateDateTable(SystemManager.GetFieldsName());
+        //    Console.WriteLine("finish setup for DB.");
+        //}
+        //public static void AddIntField(string value)
+        //{
+        //    intFileld.Add(value);
+        //}
+        //private static void InitIntField()
+        //{
+        //    if (intFileld.Count == 0)
+        //    {
+        //        SystemManager.SetNumericField();
+        //        SetStringField();
+        //        foreach (string name in intFileld)
+        //        {
 
-                }
-                foreach (string name in notIntField)
-                {
-                    intFileld.Remove(name);
-                }
-            }
-        }
-        private static void SetStringField()
-        {
-            notIntField.Add("id");
-            notIntField.Add("musicMeta_musicId");
-            notIntField.Add("trending_date");
-        }
+        //        }
+        //        foreach (string name in notIntField)
+        //        {
+        //            intFileld.Remove(name);
+        //        }
+        //    }
+        //}
+        //private static void SetStringField()
+        //{
+        //    notIntField.Add("id");
+        //    notIntField.Add("musicMeta_musicId");
+        //    notIntField.Add("trending_date");
+        //}
         public static void OpenConnect()
         {
-            if (!System.IO.File.Exists(DB()))
-            {
-                SQLiteConnection.CreateFile(DB());
-                connection = new SQLiteConnection(Connection_String);
-                connection.Open();
-                InitTables(true);
-                isOverDay7 = false;
-            }
+            //if (!System.IO.File.Exists(DB()))
+            //{
+            //    SQLiteConnection.CreateFile(DB());
+            //    connection = new SQLiteConnection(Connection_String);
+            //    connection.Open();
+            //    InitTables(true);
+            //    isOverDay7 = false;
+            //}
 
             if (connection == null)
                 connection = new SQLiteConnection(Connection_String);
@@ -80,107 +81,107 @@ namespace Hype7
             if (connection.State != ConnectionState.Closed)
                 connection.Close();
         }
-        private static int CreateDateTable(List<string> Fields)
-        {
-            try
-            {
-                string names = "";
-                foreach (string name in Fields)
-                {
-                    if (name.Length > 0)
-                    {
-                        if (intFileld.Contains(name))
-                            names += name + " INTEGER, ";
-                        else
-                            names += name + " TEXT, ";
-                    }
-                }
-                names += "PullDate TEXT";
-                LastIndexTable = GetLastIndexTable(true);
-                int index = LastIndexTable + 1;
+        //private static int CreateDateTable(List<string> Fields)
+        //{
+        //    try
+        //    {
+        //        string names = "";
+        //        foreach (string name in Fields)
+        //        {
+        //            if (name.Length > 0)
+        //            {
+        //                if (intFileld.Contains(name))
+        //                    names += name + " INTEGER, ";
+        //                else
+        //                    names += name + " TEXT, ";
+        //            }
+        //        }
+        //        names += "PullDate TEXT";
+        //        LastIndexTable = GetLastIndexTable(true);
+        //        int index = LastIndexTable + 1;
 
-                if (index <= SAVED_DAYS)
-                {
-                    SQLiteCommand command = new SQLiteCommand("CREATE TABLE VideosInfoDay" + index + " (" + names + ")", connection);
-                    command.ExecuteNonQuery();
-                    command.Dispose();
-                    SystemManager.SaveToText((int)index);
-                    return index;
-                }
-                isOverDay7 = true;
-                FixTableNames();
-                SystemManager.SaveToText(SAVED_DAYS);
-                return SAVED_DAYS;
-            }
-            catch (SQLiteException e)
-            {
-                DAL.CloseConnect();
-                return -1;
-            }
-        }
-        private static void InitTables(bool isDBOpen)
-        {
-            try
-            {
-                if (!isDBOpen)
-                    OpenConnect();
-                SQLiteCommand command = new SQLiteCommand("CREATE TABLE FilterHypeScore (id TEXT, metric TEXT DEFAULT 'empty', averageScore REAL DEFAULT 0.0, slope REAL DEFAULT 0.0, formula TEXT, scoreDay1 REAL DEFAULT 0.0, scoreDay2 REAL DEFAULT 0.0, scoreDay3 REAL DEFAULT 0.0, scoreDay4 REAL DEFAULT 0.0, scoreDay5 REAL DEFAULT 0.0, scoreDay6 REAL DEFAULT 0.0, scoreDay7 REAL DEFAULT 0.0, PRIMARY KEY('id','metric'), FOREIGN KEY (id) REFERENCES ID(id))", connection);
-                command.ExecuteNonQuery();
-                command = new SQLiteCommand("CREATE TABLE ModelHypeScore (id TEXT, model1score REAL, PRIMARY KEY('id'))", connection);
-                command.ExecuteNonQuery();
-                command = new SQLiteCommand("CREATE TABLE PlayCountPerDay (id TEXT, playCountDay1 INTEGER DEFAULT 0, playCountDay2 INTEGER DEFAULT 0, playCountDay3 INTEGER DEFAULT 0, playCountDay4 INTEGER DEFAULT 0, playCountDay5 INTEGER DEFAULT 0, playCountDay6 INTEGER DEFAULT 0, playCountDay7 INTEGER DEFAULT 0,playCountAllWeek INTEGER DEFAULT 0, PRIMARY KEY('id'))", connection);
-                command.ExecuteNonQuery();
-                command = new SQLiteCommand("CREATE TABLE Hashtags (name TEXT, averageScore REAL DEFAULT 0.0, slope REAL DEFAULT 0.0, formula TEXT, scoreDay1 REAL DEFAULT 0.0, scoreDay2 REAL DEFAULT 0.0, scoreDay3 REAL DEFAULT 0.0, scoreDay4 REAL DEFAULT 0.0, scoreDay5 REAL DEFAULT 0.0, scoreDay6 REAL DEFAULT 0.0, scoreDay7 REAL DEFAULT 0.0, PRIMARY KEY('name'))", connection);
-                command.ExecuteNonQuery();
-                command = new SQLiteCommand("CREATE TABLE ID (id TEXT, counter INTEGER DEFAULT 0, PRIMARY KEY('id'))", connection);
-                command.ExecuteNonQuery();
+        //        if (index <= SAVED_DAYS)
+        //        {
+        //            SQLiteCommand command = new SQLiteCommand("CREATE TABLE VideosInfoDay" + index + " (" + names + ")", connection);
+        //            command.ExecuteNonQuery();
+        //            command.Dispose();
+        //            SystemManager.SaveToText((int)index);
+        //            return index;
+        //        }
+        //        isOverDay7 = true;
+        //        FixTableNames();
+        //        SystemManager.SaveToText(SAVED_DAYS);
+        //        return SAVED_DAYS;
+        //    }
+        //    catch (SQLiteException e)
+        //    {
+        //        DAL.CloseConnect();
+        //        return -1;
+        //    }
+        //}
+        //private static void InitTables(bool isDBOpen)
+        //{
+        //    try
+        //    {
+        //        if (!isDBOpen)
+        //            OpenConnect();
+        //        SQLiteCommand command = new SQLiteCommand("CREATE TABLE FilterHypeScore (" + IDName + " TEXT, metric TEXT DEFAULT 'empty', averageScore REAL DEFAULT 0.0, slope REAL DEFAULT 0.0, formula TEXT, scoreDay1 REAL DEFAULT 0.0, scoreDay2 REAL DEFAULT 0.0, scoreDay3 REAL DEFAULT 0.0, scoreDay4 REAL DEFAULT 0.0, scoreDay5 REAL DEFAULT 0.0, scoreDay6 REAL DEFAULT 0.0, scoreDay7 REAL DEFAULT 0.0, PRIMARY KEY('" + IDName + "','metric'), FOREIGN KEY (" + IDName + ") REFERENCES ID(" + IDName + "))", connection);
+        //        command.ExecuteNonQuery();
+        //        command = new SQLiteCommand("CREATE TABLE ModelHypeScore ("+ IDName + " TEXT, model1score REAL, PRIMARY KEY('" + IDName + "'))", connection);
+        //        command.ExecuteNonQuery();
+        //        command = new SQLiteCommand("CREATE TABLE PlayCountPerDay (" + IDName + " TEXT, playCountDay1 INTEGER DEFAULT 0, playCountDay2 INTEGER DEFAULT 0, playCountDay3 INTEGER DEFAULT 0, playCountDay4 INTEGER DEFAULT 0, playCountDay5 INTEGER DEFAULT 0, playCountDay6 INTEGER DEFAULT 0, playCountDay7 INTEGER DEFAULT 0,playCountAllWeek INTEGER DEFAULT 0, PRIMARY KEY('" + IDName + "'))", connection);
+        //        command.ExecuteNonQuery();
+        //        command = new SQLiteCommand("CREATE TABLE Hashtags (name TEXT, averageScore REAL DEFAULT 0.0, slope REAL DEFAULT 0.0, formula TEXT, scoreDay1 REAL DEFAULT 0.0, scoreDay2 REAL DEFAULT 0.0, scoreDay3 REAL DEFAULT 0.0, scoreDay4 REAL DEFAULT 0.0, scoreDay5 REAL DEFAULT 0.0, scoreDay6 REAL DEFAULT 0.0, scoreDay7 REAL DEFAULT 0.0, PRIMARY KEY('name'))", connection);
+        //        command.ExecuteNonQuery();
+        //        command = new SQLiteCommand("CREATE TABLE ID (" + IDName + " TEXT, counter INTEGER DEFAULT 0, PRIMARY KEY('" + IDName + "'))", connection);
+        //        command.ExecuteNonQuery();
 
-                command.Dispose();
-                Console.WriteLine("Initialization tables.");
-                if (!isDBOpen)
-                    CloseConnect();
-            }
-            catch (SQLiteException e)
-            {
-                DAL.CloseConnect();
-            }
-        }
-        private static void FixTableNames()
-        {
-            // save VideosInfoDay1 in archion
-            SQLiteCommand command = new SQLiteCommand("SELECT ID.video_id, ID.counter FROM VideosInfoDay1 JOIN ID ON VideosInfoDay1.video_id == ID.video_id", connection);
-            command.Prepare();
-            var reader = command.ExecuteReader();
-            while (reader.Read())
-            {
-                string id = reader["video_id"].ToString();
-                string counter = reader["counter"].ToString();
-                if (counter.Equals("0"))
-                    command = new SQLiteCommand("DELETE FROM ID WHERE video_id == '" + id + "'", connection);
-                else
-                    command = new SQLiteCommand("UPDATE ID SET counter=counter-1 WHERE video_id=='" + id + "'", connection);
-                command.Prepare();
-                command.ExecuteNonQuery();
-            }
+        //        command.Dispose();
+        //        Console.WriteLine("Initialization tables.");
+        //        if (!isDBOpen)
+        //            CloseConnect();
+        //    }
+        //    catch (SQLiteException e)
+        //    {
+        //        DAL.CloseConnect();
+        //    }
+        //}
+        //private static void FixTableNames()
+        //{
+        //    // save VideosInfoDay1 in archion
+        //    SQLiteCommand command = new SQLiteCommand("SELECT ID.video_id, ID.counter FROM VideosInfoDay1 JOIN ID ON VideosInfoDay1.video_id == ID.video_id", connection);
+        //    command.Prepare();
+        //    var reader = command.ExecuteReader();
+        //    while (reader.Read())
+        //    {
+        //        string id = reader["video_id"].ToString();
+        //        string counter = reader["counter"].ToString();
+        //        if (counter.Equals("0"))
+        //            command = new SQLiteCommand("DELETE FROM ID WHERE video_id == '" + id + "'", connection);
+        //        else
+        //            command = new SQLiteCommand("UPDATE ID SET counter=counter-1 WHERE video_id=='" + id + "'", connection);
+        //        command.Prepare();
+        //        command.ExecuteNonQuery();
+        //    }
 
-            command.Prepare();
-            command.ExecuteNonQuery();
+        //    command.Prepare();
+        //    command.ExecuteNonQuery();
 
-            command = new SQLiteCommand("DELETE FROM VideosInfoDay1", connection);
-            command.ExecuteNonQuery();
-            command.Dispose();
-            SQLiteCommand command2 = new SQLiteCommand("ALTER TABLE VideosInfoDay1 RENAME TO VideosInfoDay8", connection);
-            command2.ExecuteNonQuery();
-            command2.Dispose();
+        //    command = new SQLiteCommand("DELETE FROM VideosInfoDay1", connection);
+        //    command.ExecuteNonQuery();
+        //    command.Dispose();
+        //    SQLiteCommand command2 = new SQLiteCommand("ALTER TABLE VideosInfoDay1 RENAME TO VideosInfoDay8", connection);
+        //    command2.ExecuteNonQuery();
+        //    command2.Dispose();
 
-            for (int i = 2; i <= SAVED_DAYS + 1; i++)
-            {
-                //command = new SQLiteCommand("", connection);
-                SQLiteCommand command1 = new SQLiteCommand("ALTER TABLE VideosInfoDay" + i + " RENAME TO VideosInfoDay" + (i - 1), connection);
-                command1.ExecuteNonQuery();
-                command1.Dispose();
-            }
-        }
+        //    for (int i = 2; i <= SAVED_DAYS + 1; i++)
+        //    {
+        //        //command = new SQLiteCommand("", connection);
+        //        SQLiteCommand command1 = new SQLiteCommand("ALTER TABLE VideosInfoDay" + i + " RENAME TO VideosInfoDay" + (i - 1), connection);
+        //        command1.ExecuteNonQuery();
+        //        command1.Dispose();
+        //    }
+        //}
         private static void InsertAllData(Dictionary<DateTime, List<VideoInfo>> Data, bool isDBOpen)
         {
             try
@@ -196,7 +197,7 @@ namespace Hype7
                     foreach (var element in Current)
                     {
                         VideoDAL.saveVideo(element, date.ToString(), true); // ---- date
-                        commandVideo = new SQLiteCommand("SELECT EXISTS(SELECT 1 FROM ID WHERE id='" + element.GetID() + "') as flag", DAL.connection);
+                        commandVideo = new SQLiteCommand("SELECT EXISTS(SELECT 1 FROM ID WHERE " + IDName + "='" + element.GetID() + "') as flag", DAL.connection);
                         commandVideo.Prepare();
                         var readerID = commandVideo.ExecuteReader();
                         readerID.Read();
@@ -204,11 +205,11 @@ namespace Hype7
 
                         if (res.ToString().Equals("0"))
                         {
-                            command.CommandText = "INSERT INTO ID (id) VALUES('" + element.GetID() + "')";
+                            command.CommandText = "INSERT INTO ID (" + IDName + ") VALUES('" + element.GetID() + "')";
                         }
                         else
                         {
-                            command.CommandText = "UPDATE ID SET counter=counter+1 WHERE id=" + element.GetID();
+                            command.CommandText = "UPDATE ID SET counter=counter+1 WHERE " + IDName + "=" + element.GetID();
                         }
                         command.Prepare();
                         command.ExecuteNonQuery();
@@ -225,33 +226,33 @@ namespace Hype7
                 DAL.CloseConnect();
             }
         }
-        private static void InsertDataFromToday(List<VideoInfo> Data, int tableIndex, bool isDBOpen)
-        {
-            try
-            {
-                if (!isDBOpen)
-                    OpenConnect();
-                var date = DateTime.Now.ToString("dd-MM-yyyy");
-                Console.WriteLine("upload information from day  " + date);
-                SQLiteCommand command = new SQLiteCommand(null, DAL.connection);
-                foreach (var element in Data)
-                {
-                    element.setSerialDate(tableIndex);
-                    VideoDAL.saveVideo(element, date, true);
+        //private static void InsertDataFromToday(List<VideoInfo> Data, int tableIndex, bool isDBOpen)
+        //{
+        //    try
+        //    {
+        //        if (!isDBOpen)
+        //            OpenConnect();
+        //        var date = DateTime.Now.ToString("dd-MM-yyyy");
+        //        Console.WriteLine("upload information from day  " + date);
+        //        SQLiteCommand command = new SQLiteCommand(null, DAL.connection);
+        //        foreach (var element in Data)
+        //        {
+        //            element.setSerialDate(tableIndex);
+        //            VideoDAL.saveVideo(element, date, true);
 
-                    command.CommandText = "INSERT OR REPLACE INTO ID (id) VALUES ('" + element.GetID() + "')";
-                    command.Prepare();
-                    command.ExecuteNonQuery();
-                }
-                command.Dispose();
-                if (!isDBOpen)
-                    CloseConnect();
-            }
-            catch (SQLiteException e)
-            {
-                DAL.CloseConnect();
-            }
-        }
+        //            command.CommandText = "INSERT OR REPLACE INTO ID (id) VALUES ('" + element.GetID() + "')";
+        //            command.Prepare();
+        //            command.ExecuteNonQuery();
+        //        }
+        //        command.Dispose();
+        //        if (!isDBOpen)
+        //            CloseConnect();
+        //    }
+        //    catch (SQLiteException e)
+        //    {
+        //        DAL.CloseConnect();
+        //    }
+        //}
         public static void RunMetricLastDay(string metric, bool isDBOpen)
         {
             try
@@ -266,16 +267,16 @@ namespace Hype7
                     i = SAVED_DAYS;
                 }
 
-                SQLiteCommand command = new SQLiteCommand("SELECT id, (" + metric + ") as scoreDay" + i + " FROM VideosInfoDay" + i + " ORDER BY scoreDay" + i + " DESC", connection);
+                SQLiteCommand command = new SQLiteCommand("SELECT " + IDName + ", (" + metric + ") as scoreDay" + i + " FROM VideosInfoDay" + i + " ORDER BY scoreDay" + i + " DESC", connection);
                 command.Prepare();
                 var reader = command.ExecuteReader();
                 SaveResultToDB(reader, "FilterHypeScore", "scoreDay" + i);
                 command.Dispose();
 
-                command = new SQLiteCommand("SELECT id, scoreDay1, scoreDay2, scoreDay3, scoreDay4, scoreDay5, scoreDay6, scoreDay7 FROM FilterHypeScore WHERE metric='empty'", connection);
+                command = new SQLiteCommand("SELECT " + IDName + ", scoreDay1, scoreDay2, scoreDay3, scoreDay4, scoreDay5, scoreDay6, scoreDay7 FROM FilterHypeScore WHERE metric='empty'", connection);
                 command.Prepare();
                 var reader2 = command.ExecuteReader();
-                SaveResultToDB(reader2, "FilterHypeScore", new string[4] { "averageScore", "slope", "formula", "metric" }, new string[4] { "averageScore", "slope", "formula", "'" + metric + "'" }, "video_id");
+                SaveResultToDB(reader2, "FilterHypeScore", new string[4] { "averageScore", "slope", "formula", "metric" }, new string[4] { "averageScore", "slope", "formula", "'" + metric + "'" }, DBname);
                 command.Dispose();
 
                 if (!isDBOpen)
@@ -297,7 +298,7 @@ namespace Hype7
                 SQLiteCommand command = new SQLiteCommand(null, DAL.connection);
                 for (int i = 1; i < LastIndexTable; i++)
                 {
-                    command = new SQLiteCommand("SELECT video_id, (" + metric + ") as scoreDay" + i + " FROM VideosInfoDay" + i + " ORDER BY scoreDay" + i + " DESC", connection);
+                    command = new SQLiteCommand("SELECT " + IDName + ", (" + metric + ") as scoreDay" + i + " FROM VideosInfoDay" + i + " ORDER BY scoreDay" + i + " DESC", connection);
                     command.Prepare();
                     checke = command.CommandText;
                     var reader = command.ExecuteReader();
@@ -305,11 +306,11 @@ namespace Hype7
                     command.Dispose();
                 }
                 //, scoreDay4, scoreDay5, scoreDay6, scoreDay7
-                command = new SQLiteCommand("SELECT video_id, scoreDay1, scoreDay2, scoreDay3, scoreDay4, scoreDay5, scoreDay6, scoreDay7 FROM FilterHypeScore WHERE metric='empty'", connection);
+                command = new SQLiteCommand("SELECT " + IDName + ", scoreDay1, scoreDay2, scoreDay3, scoreDay4, scoreDay5, scoreDay6, scoreDay7 FROM FilterHypeScore WHERE metric='empty'", connection);
                 command.Prepare();
                 checke = command.CommandText;
                 var reader2 = command.ExecuteReader();
-                SaveResultToDB(reader2, "FilterHypeScore", new string[4] { "averageScore", "slope", "formula", "metric" }, new string[4] { "averageScore", "slope", "formula", "'" + metric + "'" }, "video_id");
+                SaveResultToDB(reader2, "FilterHypeScore", new string[4] { "averageScore", "slope", "formula", "metric" }, new string[4] { "averageScore", "slope", "formula", "'" + metric + "'" }, IDName);
                 command.Dispose();
 
                 if (!isDBOpen)
@@ -355,7 +356,7 @@ namespace Hype7
                 checke = command.CommandText;
                 var reader = command.ExecuteReader();
                 SaveHashtagsToDB(reader, "Hashtags", "scoreDay" + i);
-                command.Dispose();
+                //command.Dispose();
             }
             command = new SQLiteCommand("SELECT name, scoreDay1, scoreDay2, scoreDay3, scoreDay4, scoreDay5, scoreDay6, scoreDay7 FROM Hashtags", connection);
             command.Prepare();
@@ -398,14 +399,14 @@ namespace Hype7
                 }
                 if (LastIndexTable >= 2)
                 {
-                    command = new SQLiteCommand("SELECT a.id, (b.PlayCount - a.PlayCount) as playCountDay" + (i + 1) + " From VideosInfoDay" + i + " a JOIN VideosInfoDay" + (i + 1) + " b ON a.id == b.id", connection);
+                    command = new SQLiteCommand("SELECT a." + IDName + ", (b.PlayCount - a.PlayCount) as playCountDay" + (i + 1) + " From VideosInfoDay" + i + " a JOIN VideosInfoDay" + (i + 1) + " b ON a." + IDName + " == b." + IDName + "", connection);
                     command.Prepare();
                     checke = command.CommandText;
                     var reader = command.ExecuteReader();
                     SaveResultToDB(reader, "PlayCountPerDay", "playCountDay" + (i + 1));
                     command.Dispose();
 
-                    command = new SQLiteCommand("SELECT id, SUM(playCountDay1 + playCountDay2 + playCountDay3 + playCountDay4 + playCountDay5 + playCountDay6 + playCountDay7) as playCountAllWeek FROM PlayCountPerDay GROUP BY id", connection);
+                    command = new SQLiteCommand("SELECT " + IDName + ", SUM(playCountDay1 + playCountDay2 + playCountDay3 + playCountDay4 + playCountDay5 + playCountDay6 + playCountDay7) as playCountAllWeek FROM PlayCountPerDay GROUP BY " + IDName + "", connection);
                     command.Prepare();
                     checke = command.CommandText;
                     var reader5 = command.ExecuteReader();
@@ -429,7 +430,7 @@ namespace Hype7
                 LastIndexTable = 7;
                 for (int i = 1; i < LastIndexTable; i++)
                 {
-                    command = new SQLiteCommand("SELECT a.video_id, (b.view_count - a.view_count) as playCountDay" + (i + 1) + " From VideosInfoDay" + i + " a JOIN VideosInfoDay" + (i + 1) + " b ON a.video_id == b.video_id", DAL.connection);
+                    command = new SQLiteCommand("SELECT a."+ IDName + ", (b.view_count - a.view_count) as playCountDay" + (i + 1) + " From VideosInfoDay" + i + " a JOIN VideosInfoDay" + (i + 1) + " b ON a." + IDName + " == b." + IDName + "", DAL.connection);
                     checke = command.CommandText;
                     command.Prepare();
                     var reader = command.ExecuteReader();
@@ -437,7 +438,7 @@ namespace Hype7
                     command.Dispose();
                 }
 
-                command = new SQLiteCommand("SELECT video_id, SUM(playCountDay1 + playCountDay2 + playCountDay3 + playCountDay4 + playCountDay5 + playCountDay6 + playCountDay7) as playCountAllWeek FROM PlayCountPerDay GROUP BY video_id", connection);
+                command = new SQLiteCommand("SELECT " + IDName + ", SUM(playCountDay1 + playCountDay2 + playCountDay3 + playCountDay4 + playCountDay5 + playCountDay6 + playCountDay7) as playCountAllWeek FROM PlayCountPerDay GROUP BY " + IDName + "", connection);
                 command.Prepare();
                 var reader5 = command.ExecuteReader();
                 SaveResultToDB(reader5, "PlayCountPerDay", "playCountAllWeek");
@@ -470,7 +471,7 @@ namespace Hype7
                     string tableName = reader["name"].ToString();
                     if (tableName.Contains("Video"))
                     {
-                        commandVideo.CommandText = "SELECT id FROM " + tableName;
+                        commandVideo.CommandText = "SELECT " + IDName + " FROM " + tableName;
                         commandVideo.Prepare();
                         var readerVideo = commandVideo.ExecuteScalarAsync();
                         if (readerVideo != null)
@@ -491,10 +492,6 @@ namespace Hype7
             }
 
             return (int)maxIndex;
-        }
-        private static bool isNumericField(string name)
-        {
-            return false;
         }
         private static void moveColumn(string tableName, string columnName)
         {
@@ -524,14 +521,14 @@ namespace Hype7
             {
                 while (reader.Read())
                 {
-                    string id = reader["video_id"].ToString();
+                    string id = reader[IDName].ToString();
                     var playcount = reader[columnName].ToString(); // bug here
                     if (playcount.Length > 0)
                     {
                         if (tableName.Equals("PlayCountPerDay"))
-                            commandVideo = new SQLiteCommand("SELECT EXISTS(SELECT 1 FROM " + tableName + " WHERE video_id='" + id + "') as flag", DAL.connection);
+                            commandVideo = new SQLiteCommand("SELECT EXISTS(SELECT 1 FROM " + tableName + " WHERE " + IDName + "='" + id + "') as flag", DAL.connection);
                         else
-                            commandVideo = new SQLiteCommand("SELECT EXISTS(SELECT 1 FROM " + tableName + " WHERE video_id='" + id + "' AND metric='empty') as flag", DAL.connection);
+                            commandVideo = new SQLiteCommand("SELECT EXISTS(SELECT 1 FROM " + tableName + " WHERE " + IDName + "='" + id + "' AND metric='empty') as flag", DAL.connection);
                         commandVideo.Prepare();
                         checke = commandVideo.CommandText;
                         var readerID = commandVideo.ExecuteReader();
@@ -540,14 +537,14 @@ namespace Hype7
 
                         if (res.ToString().Equals("0"))
                         {
-                            command2.CommandText = "INSERT INTO " + tableName + "(video_id, " + columnName + ") VALUES('" + id + "', '" + playcount + "')";
+                            command2.CommandText = "INSERT INTO " + tableName + "(" + IDName + ", " + columnName + ") VALUES('" + id + "', '" + playcount + "')";
                         }
                         else
                         {
                             if (tableName.Equals("PlayCountPerDay"))
-                                command2.CommandText = "UPDATE " + tableName + " SET " + columnName + "='" + playcount + "' WHERE video_id='" + id + "'";
+                                command2.CommandText = "UPDATE " + tableName + " SET " + columnName + "='" + playcount + "' WHERE " + IDName + "='" + id + "'";
                             else
-                                command2.CommandText = "UPDATE " + tableName + " SET " + columnName + "='" + playcount + "' WHERE video_id='" + id + "' AND metric='empty'";
+                                command2.CommandText = "UPDATE " + tableName + " SET " + columnName + "='" + playcount + "' WHERE " + IDName + "='" + id + "' AND metric='empty'";
                         }
                         checke = command2.CommandText;
                         command2.Prepare();
@@ -631,6 +628,7 @@ namespace Hype7
                 var readerID = commandVideo.ExecuteReader();
                 readerID.Read();
                 var res = readerID[readerID.GetName(0)];
+                readerID.Close();
 
                 if (res.ToString().Equals("0"))
                 {
@@ -791,10 +789,7 @@ namespace Hype7
         }
 
         // public functions, doesn't assume that the DB is open
-        public static void InitTables(List<string> Fields)
-        {
-            InitTables(false);
-        }
+        
         public static void InsertAllData(Dictionary<DateTime, List<VideoInfo>> Data)
         {
             InsertAllData(Data, false);
@@ -823,10 +818,10 @@ namespace Hype7
         {
             if (testMood)
             {
-                Connection_String = @"Data Source=DataBaseTest.db";
-                return @"DataBaseTest.db";
+                Connection_String = @"Data Source=..\..\..\..\..\Metric Manager\Metric Manager\bin\Debug\net5.0\DataBaseTest.db";
+                return @"..\..\..\..\..\Metric Manager\Metric Manager\bin\Debug\net5.0\DataBaseTest.db";
             }
-            Connection_String = @"Data Source=DataBase.db";
+            Connection_String = @"Data Source=..\..\..\..\..\Metric Manager\Metric Manager\bin\Debug\net5.0\DataBase.db";
             return DAL.DBname;
         }
         public static void ResetDB()
