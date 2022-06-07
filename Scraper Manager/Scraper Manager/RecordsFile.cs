@@ -15,7 +15,7 @@ namespace Scraper_Manager
         public List<Record> records = new List<Record>();
         string origin { get; set; }
         Dictionary<int, int> swap_order { get; set; }
-       public  Dictionary<string, string> settings_dict { get; set; }
+        public  Dictionary<string, string> settings_dict { get; set; }
         public List<string> output_names { get; set; }
         public List<string> values_names { get; set; }
         public string[] output_names_arr { get { return output_names.ToArray(); } set { } }
@@ -164,7 +164,7 @@ namespace Scraper_Manager
             eval_values_name(lines);
             eval_swap_order();
             lines.RemoveAt(0); //remove the values name
-         
+
             foreach (var line in lines)
             {
                 Record new_rec = new Record(line, values_names, origin);
@@ -172,6 +172,7 @@ namespace Scraper_Manager
                 new_rec.reformat_hashtags();
                 this.records.Add(new_rec);
             }
+
 
         }
 

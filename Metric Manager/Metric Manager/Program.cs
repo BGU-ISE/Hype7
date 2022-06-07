@@ -12,9 +12,9 @@ namespace Hype7
         {
             DateTime start = DateTime.Now;
 
-            StartDaySettings(args);
+            //StartDaySettings(args);
             // scraper need to run
-            //DataAnalysis();
+            DataAnalysis(args);
 
             DateTime end = DateTime.Now;
             Console.WriteLine("duration: " + (end - start) + " min");

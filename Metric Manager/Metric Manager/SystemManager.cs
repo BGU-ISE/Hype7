@@ -65,7 +65,7 @@ namespace Hype7
                 string file_content = "";
                 List<string> lines = new List<string>();
                 int count = 0;
-                while (!reader.EndOfStream && count < 200000)
+                while (!reader.EndOfStream)
                 {
                     char c = (char)reader.Read();
                     if (c == ((char)13) && !reader.EndOfStream)

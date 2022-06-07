@@ -30,7 +30,6 @@ namespace Hype7
             InitIntField();
             int indexCreatesTable = CreateDateTable(SystemManager.GetFieldsName());
             Console.WriteLine("finish setup for DB.");
-
         }
         public static void AddIntField(string value)
         {

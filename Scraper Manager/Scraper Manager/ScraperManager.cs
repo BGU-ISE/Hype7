@@ -43,7 +43,7 @@ namespace Scraper_Manager
         {
             List<string> history = load_history();
             string[] dirs = Directory.GetFiles("../../../input_folder", "*.csv");
-            ReadFromText();
+            LastIndexTable = DAL.GetLastIndexTable(true);
 
             foreach (string file in dirs)
             {
@@ -54,10 +54,14 @@ namespace Scraper_Manager
                     RecordsFile r = new RecordsFile("../../../settings.txt", file, output_path);
                     r.loadFile();
                     string fileName = Path.GetFileName(output_path);
-                    Console.WriteLine("Saving to file:" + Path.GetFileName(output_path));
                     fieldNames = r.output_names;
+                    DAL.InitIntField(r);
+                    DAL.CreateDateTable(fieldNames, true);
+                    Console.WriteLine("Create table day " + LastIndexTable);
                     DAL.InsertDataFromToday(r, LastIndexTable, ConvertStringToDatetime(fileName), true);
+                    Console.WriteLine("insert information to DB.");
                     r.saveRecords();
+                    Console.WriteLine("Saving to file:" + Path.GetFileName(output_path));
                     add_to_history(Path.GetFileName(file));
                     Console.WriteLine("Done with file:" + Path.GetFileName(file) +" adding to history");
                 }
@@ -79,5 +83,8 @@ namespace Scraper_Manager
             }
             return date;
         }
+        
+        
+        
     }
 }
