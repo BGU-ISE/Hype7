@@ -13,12 +13,74 @@ namespace Hype7.Tests
     [TestClass()]
     public class DALTests
     {
+        public static int countTest = 0;
+
+        [TestInitialize()]
+        public void InitTest()
+        {
+            if (countTest == 0)
+            {
+                DAL.testMood = true;
+                DAL.DB();
+                string[] arr = new string[0];
+                SystemManager.InitializeData(arr);
+                DAL.OpenConnect();
+                DAL.CalcPlayCountAllWeek(true);
+                SystemManager.RunAllMetricsWeek();
+                DAL.CloseConnect();
+            }
+
+        }
+        [TestCleanup()]
+        public void CleanTest()
+        {
+            if(countTest == 4)
+            {
+                string[] arr = new string[0];
+                SystemManager.InitializeData(arr);
+                DAL.OpenConnect();
+
+                DAL.ResetDBToAnalysis();
+
+                SQLiteCommand command = new SQLiteCommand(null, DAL.connection);
+                command.CommandText = "SELECT * FROM PlayCountPerDay";
+                command.Prepare();
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    Assert.Fail("there is somethig in PlayCountPerDay");
+                }
+                reader.Close();
+
+                command.CommandText = "SELECT * FROM FilterHypeScore";
+                command.Prepare();
+                var reader1 = command.ExecuteReader();
+                while (reader1.Read())
+                {
+                    Assert.Fail("there is somethig in FilterHypeScore");
+                }
+                reader1.Close();
+
+                command.CommandText = "SELECT * FROM Hashtags";
+                command.Prepare();
+                var reader2 = command.ExecuteReader();
+                while (reader2.Read())
+                {
+                    Assert.Fail("there is somethig in Hashtags");
+                }
+                reader2.Close();
+
+                command.Dispose();
+                DAL.CloseConnect();
+
+                DAL.testMood = false;
+                DAL.DB();
+            }
+        }
 
         [TestMethod()]
         public void aOpenConnectTest()
         {
-            DAL.testMood = true;
-            DAL.DB();
             DAL.OpenConnect();
 
             String DBName = @"..\..\..\..\..\Metric Manager\Metric Manager\bin\Debug\net5.0\DataBaseTest.db";
@@ -58,15 +120,12 @@ namespace Hype7.Tests
             Assert.IsTrue(id, "ID table doesn't created.");
 
             DAL.CloseConnect();
-            DAL.testMood = false;
-            DAL.DB();
+            countTest++;
         }
 
         [TestMethod()]
         public void CloseConnectTest()
-        {//2
-            DAL.testMood = true;
-            DAL.DB();
+        {
             if (DAL.connection != null && DAL.connection.State == ConnectionState.Open)
                 DAL.CloseConnect();
 
@@ -75,67 +134,15 @@ namespace Hype7.Tests
             Assert.IsTrue(DAL.connection.State == ConnectionState.Open, "connection is not open");
             DAL.CloseConnect();
             Assert.IsTrue(DAL.connection.State == ConnectionState.Closed, "connection is not close");
-
-            DAL.testMood = false;
-            DAL.DB();
-        }
-
-        [TestMethod()]
-        public void dResetDBToAnalysisTest()
-        {//3
-            DAL.testMood = true;
-            DAL.DB();
-            string[] arr = new string[0];
-            SystemManager.InitializeData(arr);
-            DAL.OpenConnect();
-
-            DAL.ResetDBToAnalysis();
-
-            SQLiteCommand command = new SQLiteCommand(null, DAL.connection);
-            command.CommandText = "SELECT * FROM PlayCountPerDay";
-            command.Prepare();
-            var reader = command.ExecuteReader();
-            while (reader.Read())
-            {
-                Assert.Fail("there is somethig in PlayCountPerDay");
-            }
-            reader.Close();
-
-            command.CommandText = "SELECT * FROM FilterHypeScore";
-            command.Prepare();
-            var reader1 = command.ExecuteReader();
-            while (reader1.Read())
-            {
-                Assert.Fail("there is somethig in FilterHypeScore");
-            }
-            reader1.Close();
-
-            command.CommandText = "SELECT * FROM Hashtags";
-            command.Prepare();
-            var reader2 = command.ExecuteReader();
-            while (reader2.Read())
-            {
-                Assert.Fail("there is somethig in Hashtags");
-            }
-            reader2.Close();
-
-            command.Dispose();
-            DAL.CloseConnect();
-            DAL.testMood = false;
-            DAL.DB();
+            countTest++;
         }
 
         [TestMethod()]
         public void fCalcPlayCountAllWeekTest()
-        {//1
-            DAL.testMood = true;
-            DAL.DB();
+        {
             string[] arr = new string[0];
             SystemManager.InitializeData(arr);
             DAL.OpenConnect();
-            //DAL.ResetDBToAnalysis();
-
-            DAL.CalcPlayCountAllWeek(true);
 
             SQLiteCommand command = new SQLiteCommand(null, DAL.connection);
             command.CommandText = "SELECT * FROM PlayCountPerDay WHERE " + DAL.IDName + " = 'kBeQasWa3ts'";
@@ -156,22 +163,15 @@ namespace Hype7.Tests
             }
             reader.Close();
 
+            countTest++;
             DAL.CloseConnect();
-            DAL.testMood = false;
-            DAL.DB();
         }
         [TestMethod()]
         public void RunAllMetricsWeekTest()
         {
-            DAL.testMood = true;
-            DAL.DB();
             string[] arr = new string[0];
             SystemManager.InitializeData(arr);
             DAL.OpenConnect();
-            //DAL.ResetDBToAnalysis();
-            //DAL.CalcPlayCountAllWeek(true);
-
-            SystemManager.RunAllMetricsWeek();
 
             // metrics
             SQLiteCommand command = new SQLiteCommand(null, DAL.connection);
@@ -243,10 +243,8 @@ namespace Hype7.Tests
             Assert.IsTrue(boxing, "didn't calc hashtag - boxing.");
 
             command.Dispose();
-            //DAL.ResetDBToAnalysis();
             DAL.CloseConnect();
-            DAL.testMood = false;
-            DAL.DB();
+            countTest++;
         }
     }
 }

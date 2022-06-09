@@ -103,7 +103,7 @@ namespace Hype7
                         file_content += c;
                     count++;
                 }
-                hashtag = indexByName["hashtags"];
+                hashtag = indexByName["tags"];
             }
             //System.IO.File.Move(name, Path.Combine(path, @"Data\\ReadData"), true);
             return dataCurrent;
@@ -558,16 +558,28 @@ namespace Hype7
 
         public static int GetIndexByFieldName(string name)
         {
-            return indexByName[name];
+            int i = 0;
+            foreach (var element in Fields)
+            {
+                if (element.Equals(name))
+                    return i;
+                i++;
+            }
+            return -1;
         }
         public static DateTime GetDateByIndex(int index)
         {
-            int i = 1;
             foreach (var element in Data.Keys)
             {
-                if (i == index)
-                    return element;
-                i++;
+                bool flag = true;
+                foreach (var video in Data[element])
+                {
+                    if (!flag)
+                        break;
+                    if (video.GetSerialDate() == index)
+                        return element;
+                    flag = false;
+                }
             }
             return new DateTime();
         }
