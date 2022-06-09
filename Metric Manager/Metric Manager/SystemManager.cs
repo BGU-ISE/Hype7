@@ -103,7 +103,7 @@ namespace Hype7
                         file_content += c;
                     count++;
                 }
-                hashtag = indexByName["hashtags"];
+                hashtag = indexByName["tags"];
             }
             //System.IO.File.Move(name, Path.Combine(path, @"Data\\ReadData"), true);
             return dataCurrent;
@@ -558,16 +558,28 @@ namespace Hype7
 
         public static int GetIndexByFieldName(string name)
         {
-            return indexByName[name];
+            int i = 0;
+            foreach (var element in Fields)
+            {
+                if (element.Equals(name))
+                    return i;
+                i++;
+            }
+            return -1;
         }
         public static DateTime GetDateByIndex(int index)
         {
-            int i = 1;
             foreach (var element in Data.Keys)
             {
-                if (i == index)
-                    return element;
-                i++;
+                bool flag = true;
+                foreach (var video in Data[element])
+                {
+                    if (!flag)
+                        break;
+                    if (video.GetSerialDate() == index)
+                        return element;
+                    flag = false;
+                }
             }
             return new DateTime();
         }
@@ -642,41 +654,41 @@ namespace Hype7
             }
             return null; // Data[date];
         }
-        public static void SetNumericField()
-        {
-            if (path == null)
-                path = GetPath();
-            //string[] fileArray = Directory.GetFiles(path + "\\UnReadData");
-            load_settings();
-            string[] fileArray = Directory.GetFiles("../../../../../Scraper Manager/Scraper Manager/input_folder", "*.csv");
-            for (int i = 0; i < fileArray.Length; i++)
-            {
-                DateTime date = ConvertPathToDatetime(fileArray[i]);
-                //if (date.ToString("dd-MM-yyyy").Equals(currentDate))
-                //{
-                List<VideoInfo> lst = ReadFromCSV(fileArray[i], date, true);
-                foreach (VideoInfo video in lst)
-                {
-                    string[] arr = video.GetData();
-                    List<int> numbers = new List<int>();
-                    for (int j = 0; j < arr.Length; j++)
-                    {
-                        arr[j] = arr[j].Substring(1, arr[j].Length - 2);
-                        if (isNumeric(arr[j]))
-                            numbers.Add(j);
-                    }
-                    foreach (string name in indexByName.Keys)
-                    {
-                        if (numbers.Contains(indexByName[name] + 1))
-                        {
-                            if (settings_dict.ContainsKey(name))
-                                DAL.AddIntField(settings_dict[name]);
-                        }
-                    }
-                }
-                //}
-            }
-        }
+        //public static void SetNumericField()
+        //{
+        //    if (path == null)
+        //        path = GetPath();
+        //    //string[] fileArray = Directory.GetFiles(path + "\\UnReadData");
+        //    load_settings();
+        //    string[] fileArray = Directory.GetFiles("../../../../../Scraper Manager/Scraper Manager/input_folder", "*.csv");
+        //    for (int i = 0; i < fileArray.Length; i++)
+        //    {
+        //        DateTime date = ConvertPathToDatetime(fileArray[i]);
+        //        //if (date.ToString("dd-MM-yyyy").Equals(currentDate))
+        //        //{
+        //        List<VideoInfo> lst = ReadFromCSV(fileArray[i], date, true);
+        //        foreach (VideoInfo video in lst)
+        //        {
+        //            string[] arr = video.GetData();
+        //            List<int> numbers = new List<int>();
+        //            for (int j = 0; j < arr.Length; j++)
+        //            {
+        //                arr[j] = arr[j].Substring(1, arr[j].Length - 2);
+        //                if (isNumeric(arr[j]))
+        //                    numbers.Add(j);
+        //            }
+        //            foreach (string name in indexByName.Keys)
+        //            {
+        //                if (numbers.Contains(indexByName[name] + 1))
+        //                {
+        //                    if (settings_dict.ContainsKey(name))
+        //                        DAL.AddIntField(settings_dict[name]);
+        //                }
+        //            }
+        //        }
+        //        //}
+        //    }
+        //}
         private static string GetPath()
         {
             var current = Directory.GetCurrentDirectory();

@@ -24,16 +24,16 @@ namespace Hype7.Tests
         [TestMethod()]
         public void ConvertPathToDatetimeTest()
         {
-            var date = SystemManager.ConvertPathToDatetime("C:\\Users\\Almogi\\Desktop\\githubtry\\Project\\Hype7\\Metric Manager\\Metric Manager\\Data\\UnReadData\\tiktok_1_3_2022_formated.csv");
+            var date = SystemManager.ConvertPathToDatetime("C:\\Users\\Almogi\\Desktop\\githubtry\\Project\\Hype7\\Metric Manager\\Metric Manager\\Data\\UnReadData\\22.26.04_US_videos_formated.csv");
             Assert.IsTrue(date.Year == 2022, "year not correct");
-            Assert.IsTrue(date.Month == 1, "month not correct");
-            Assert.IsTrue(date.Day == 3, "day not correct");
+            Assert.IsTrue(date.Month == 4, "month not correct");
+            Assert.IsTrue(date.Day == 26, "day not correct");
         }
 
         [TestMethod()]
         public void GetDataTest()
         {
-            string date = "03-01-2022";
+            string date = "26-05-2022";
             var data = SystemManager.GetData(date);
             Assert.IsNotNull(data, "data is null");
             foreach (var element in data)
@@ -58,21 +58,29 @@ namespace Hype7.Tests
         {
             SystemManager.GetAllData();
             var date = SystemManager.GetDateByIndex(1);
-            Assert.IsTrue(date.Day == 31, "day not correct");
-            Assert.IsTrue(date.Month == 12, "month not correct");
-            Assert.IsTrue(date.Year == 2021, "year not correct");
+            Assert.IsTrue(date.Day == 26, "day 1 not correct");
+            Assert.IsTrue(date.Month == 5, "month 1 not correct");
+            Assert.IsTrue(date.Year == 2022, "year 1 not correct");
             date = SystemManager.GetDateByIndex(3);
-            Assert.IsTrue(date.Day == 2, "day not correct");
-            Assert.IsTrue(date.Month == 1, "month not correct");
-            Assert.IsTrue(date.Year == 2022, "year not correct");
+            Assert.IsTrue(date.Day == 28, "day 3 not correct");
+            Assert.IsTrue(date.Month == 5, "month 3 not correct");
+            Assert.IsTrue(date.Year == 2022, "year 3 not correct");
+            date = SystemManager.GetDateByIndex(7);
+            Assert.IsTrue(date.Day == 1, "day 7 not correct");
+            Assert.IsTrue(date.Month == 6, "month 7 not correct");
+            Assert.IsTrue(date.Year == 2022, "year 7 not correct");
         }
 
         [TestMethod()]
         public void GetIndexByFieldNameTest()
         {
+            string[] arr = new string[0];
+            SystemManager.InitializeData(arr);
             SystemManager.GetFieldsName();
-            var index = SystemManager.GetIndexByFieldName("id");
+            var index = SystemManager.GetIndexByFieldName(DAL.IDName);
             Assert.IsTrue(index == 0, "index id not correct");
         }
+
+        
     }
 }
