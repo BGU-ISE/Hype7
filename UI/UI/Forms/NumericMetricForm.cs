@@ -54,16 +54,8 @@ namespace UI
         {
             var t = DAL.GetFilterNames();
             InitializeComponent();
-            //List<MetricData> lst = new List<MetricData>();
-            //lst.Add(new MetricData("m1", "test", "1234586", 12, 14, "12x-2", 1, 2, 3, 4, 5, 6, 7));
-            //var t = DAL.GetMetricsNames();
             this.metricData = DAL.GetMetrics("viewcount","averageScore", 10);
             dataGridView1.DataSource = this.metricData;
-            
-        }
-        public void GetData()
-        {
-            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -115,22 +107,16 @@ namespace UI
             }
         }
 
-        private void MetricComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
-        }
-
         private void Form2_Load(object sender, EventArgs e)
         {
             MetricComboBox.DataSource = DAL.GetMetricsNames();
             MetricComboBox.SelectedItem = null;
             MetricComboBox.SelectedText = "--Select--";
-            
+
             List<string> orderBy = new List<string> { "slope", "averageScore" };
             OrderByComboBox.DataSource = orderBy;
             OrderByComboBox.SelectedItem = null;
             OrderByComboBox.SelectedText = "--Select--";
-
         }
 
         private void OrderByComboBox_SelectedIndexChanged(object sender, EventArgs e)
