@@ -2,6 +2,8 @@
 import NumericFeaturizer
 import NumericModel
 import DBConnection
+import YouTubeFeaturizer
+import YouTubeModel
 import os
 import csv
 import pandas as pd
@@ -30,12 +32,21 @@ class ModelManager():
         self.db = DBConnection.DBConnection(filename)
         self.db.create_connection()
         if(fromDB):
-            self.df1 = self.db.get_numeric_dataframe(1)
-            self.df7 = self.db.get_numeric_dataframe(7)
+            self.df1 = self.db.get_numeric_Youtube_dataframe(1)
+            self.df7 = self.db.get_numeric_Youtube_dataframe(7)
         else:
             self.df1 = pd.read_csv(dir + x) 
             self.df7 = pd.read_csv(dir + y)
 
+    def train_and_fit_Youtube(self):
+        features = YouTubeFeaturizer.YouTubeFeaturizer(self.is_DB, self.df1, self.df7)
+        df = features.prepare_to_train()
+        model_instance = YouTubeModel.Model(df)
+        model_instance.split(0.2)
+        model_instance.fit() 
+        predictions = model_instance.predict(model_instance.X_test_id)
+        self.print_regression_analysis(model_instance.y_test, predictions)
+        self.db.write_predictions_to_DB(predictions, model_instance.X_test_id['video_id'].tolist())
 
     def train_and_fit(self):
         features = NumericFeaturizer.NumericFeaturizer( self.is_DB, self.df1, self.df7)
@@ -64,5 +75,5 @@ class ModelManager():
 
 
 if __name__ == '__main__':
-    model = ModelManager(False)
-    model.train_and_fit()
+    model = ModelManager(True)
+    model.train_and_fit_Youtube()

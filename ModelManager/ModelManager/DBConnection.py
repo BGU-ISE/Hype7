@@ -1,5 +1,6 @@
 import sqlite3
-import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+import pandas as pd
+from pandas.core.frame import DataFrame # data processing, CSV file I/O (e.g. pd.read_csv)
 
 class DBConnection():
     """description of class"""
@@ -36,7 +37,7 @@ class DBConnection():
             print(row)
     
     def write_predictions_to_DB(self, predictions, video_ids):
-        df = pd.DataFrame({'id': video_ids, 'model1score' : predictions})
+        df = pd.DataFrame({'video_id': video_ids, 'model1score' : predictions})
         df.to_sql(name='ModelHypeScore', con=self.connection, if_exists='append', index=False)
         self.connection.close()
 
@@ -47,6 +48,17 @@ class DBConnection():
         dataframe = pd.read_sql(query, self.connection)
         return dataframe
 
+    def get_numeric_Youtube_dataframe(self, num):
+        tableName = 'VideosInfoDay' + str(num)
+        query = 'SELECT video_id, category, likes, view_count, comment_count, comments_disabled, ratings_disabled FROM ' + tableName
+        dataframe = pd.read_sql(query, self.connection)
+        return dataframe
+
+    def get_videosInfoDay_Youtube_dataframe(self):
+        dataframe = pd.read_sql('SELECT id, text, createTime, authorMeta_name, authorMeta_nickName, authorMeta_verified, authorMeta_following, authorMeta_fans, authorMeta_heart, authorMeta_video, authorMeta_digg, musicMeta_musicId, musicMeta_musicName, musicMeta_duration, videoMeta_height, videoMeta_width, videoMeta_duration, diggCount, shareCount, playCount, commentCount, hashtags, PullDate, FROM VideosInfoDay1', self.connection)
+        return DataFrame
+    
+   
     def get_videosInfoDay_dataframe(self):
         dataframe = pd.read_sql('SELECT id, text, createTime, authorMeta_name, authorMeta_nickName, authorMeta_verified, authorMeta_following, authorMeta_fans, authorMeta_heart, authorMeta_video, authorMeta_digg, musicMeta_musicId, musicMeta_musicName, musicMeta_duration, videoMeta_height, videoMeta_width, videoMeta_duration, diggCount, shareCount, playCount, commentCount, hashtags, PullDate, FROM VideosInfoDay1', self.connection)
         return dataframe
