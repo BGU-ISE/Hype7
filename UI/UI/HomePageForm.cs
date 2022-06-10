@@ -130,6 +130,7 @@ namespace UI
             pnlNav.Top = btnHashtagsMetric.Top;
             pnlNav.Left = btnHashtagsMetric.Left;
             btnHashtagsMetric.BackColor = Color.FromArgb(46, 51, 73);
+            OpenChildForm(new Forms.TopHashtagsMetricForm(), sender);
         }
 
         private void btnNumericML_Click(object sender, EventArgs e)

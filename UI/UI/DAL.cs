@@ -159,7 +159,7 @@ namespace UI
             {
                 
                 // ----- change to url
-                SQLiteCommand command = new SQLiteCommand("SELECT text FROM VideosInfoDay"+i+" WHERE video_id == '" + metricData.ID + "'", DAL.connection);
+                SQLiteCommand command = new SQLiteCommand("SELECT channelName FROM VideosInfoDay"+i+" WHERE video_id == '" + metricData.ID + "'", DAL.connection);
                 command.Prepare();
 
                 var reader = command.ExecuteReader();
@@ -197,7 +197,7 @@ namespace UI
             {
 
                 // ----- change to url
-                SQLiteCommand command = new SQLiteCommand("SELECT text FROM VideosInfoDay" + i + " WHERE video_id == '" + metricData.ID + "'", DAL.connection);
+                SQLiteCommand command = new SQLiteCommand("SELECT title FROM VideosInfoDay" + i + " WHERE video_id == '" + metricData.ID + "'", DAL.connection);
                 command.Prepare();
 
                 var reader = command.ExecuteReader();

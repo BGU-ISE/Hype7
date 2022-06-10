@@ -18,7 +18,7 @@ namespace UI
         {
             public string Name { get; set; }
             public float Slope { get; set; }
-            public string ID { get; set; }
+            public Uri ID { get; set; }
             public string URL { get; set; }
             public float AverageScore { get; set; }
             public float Score1 { get; set; }
@@ -32,7 +32,8 @@ namespace UI
             public MetricData(string name, string id, float slope, float averageScore, float score1, float score2, float score3, float score4, float score5, float score6, float score7)
             {
                 this.Name = name;
-                this.ID = id;
+                this.ID = new Uri("https://www.youtube.com/watch?v=" + id);
+
                 this.Slope = slope;
                 this.AverageScore = averageScore;
                 this.Score1 = score1;
@@ -46,7 +47,7 @@ namespace UI
             public MetricData(string name, float slope, float averageScore, float score1, float score2, float score3, float score4, float score5, float score6, float score7)
             {
                 this.Name = name;
-                this.ID = "";
+                this.ID = new Uri("");
                 this.Slope = slope;
                 this.AverageScore = averageScore;
                 this.Score1 = score1;

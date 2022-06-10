@@ -4,6 +4,9 @@
     <Compile Update="Forms\ChartForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\HashtagsChartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="HomePageForm.cs">
       <SubType>Form</SubType>
     </Compile>
