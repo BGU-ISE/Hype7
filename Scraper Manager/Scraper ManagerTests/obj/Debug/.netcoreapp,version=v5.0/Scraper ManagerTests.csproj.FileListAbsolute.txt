@@ -104,3 +104,9 @@ C:\Users\Iftah\Desktop\אוניברסיטה\שנה ד\Project\Scraper Manager\Sc
 C:\Users\Iftah\Desktop\אוניברסיטה\שנה ד\Project\Scraper Manager\Scraper Manager\Scraper ManagerTests\obj\Debug\.netcoreapp,version=v5.0\ref\Scraper ManagerTests.dll
 C:\Users\Iftah\Desktop\אוניברסיטה\שנה ד\Project\Scraper Manager\Scraper Manager\Scraper ManagerTests\obj\Debug\.netcoreapp,version=v5.0\Scraper ManagerTests.pdb
 C:\Users\Iftah\Desktop\אוניברסיטה\שנה ד\Project\Scraper Manager\Scraper Manager\Scraper ManagerTests\obj\Debug\.netcoreapp,version=v5.0\Scraper ManagerTests.genruntimeconfig.cache
+C:\Users\Almogi\Desktop\githubtry\Project\Hype7\Scraper Manager\Scraper ManagerTests\bin\Debug\.netcoreapp,version=v5.0\CoverletSourceRootsMapping
+C:\Users\Almogi\Desktop\githubtry\Project\Hype7\Scraper Manager\Scraper ManagerTests\obj\Debug\.netcoreapp,version=v5.0\Scraper ManagerTests.csproj.AssemblyReference.cache
+C:\Users\Almogi\Desktop\githubtry\Project\Hype7\Scraper Manager\Scraper ManagerTests\obj\Debug\.netcoreapp,version=v5.0\Scraper ManagerTests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Almogi\Desktop\githubtry\Project\Hype7\Scraper Manager\Scraper ManagerTests\obj\Debug\.netcoreapp,version=v5.0\Scraper ManagerTests.AssemblyInfoInputs.cache
+C:\Users\Almogi\Desktop\githubtry\Project\Hype7\Scraper Manager\Scraper ManagerTests\obj\Debug\.netcoreapp,version=v5.0\Scraper ManagerTests.AssemblyInfo.cs
+C:\Users\Almogi\Desktop\githubtry\Project\Hype7\Scraper Manager\Scraper ManagerTests\obj\Debug\.netcoreapp,version=v5.0\Scraper ManagerTests.csproj.CoreCompileInputs.cache

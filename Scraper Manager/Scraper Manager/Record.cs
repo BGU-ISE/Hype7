@@ -128,6 +128,7 @@ namespace Scraper_Manager
                     line += ", '"+item+"'";
 
             }
+            line = line.Replace("\"", "");
             return line;
         }
 
