@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 
@@ -15,7 +17,7 @@ namespace UI
         public List<MetricData> metricData { get; set; }
         public class MetricData
         {
-            public string Name { get; set; }
+            private string Name { get; set; }
             public float Slope { get; set; }
             public Uri ID { get; set; }
             private string URL { get; set; }
@@ -66,7 +68,51 @@ namespace UI
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            try
+            {
+                if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                {
+                    if(dataGridView1.Columns[e.ColumnIndex].Name == "ID")
+                    {
+                        var video_url = dataGridView1.Rows[e.RowIndex].Cells["ID"].Value;
+                        OpenUrl(video_url.ToString());
+                    }
+                    
+                    
+                }
+            }
+            catch (Exception ex)
+            {
 
+            }
+        }
+        private void OpenUrl(string url)
+        {
+            try
+            {
+                Process.Start(url);
+            }
+            catch
+            {
+                // hack because of this: https://github.com/dotnet/corefx/issues/10361
+                if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                {
+                    url = url.Replace("&", "^&");
+                    Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
+                }
+                else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+                {
+                    Process.Start("xdg-open", url);
+                }
+                else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+                {
+                    Process.Start("open", url);
+                }
+                else
+                {
+                    throw;
+                }
+            }
         }
 
         private void MetricComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -108,5 +154,7 @@ namespace UI
             Form form = new Forms.ChartForm(dataGridView, this.metricData);
             form.Show();
         }
+
+        
     }
 }
