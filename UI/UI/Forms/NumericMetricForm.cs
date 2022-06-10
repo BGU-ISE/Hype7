@@ -16,7 +16,7 @@ namespace UI
         public List<MetricData> metricData { get; set; }
         public class MetricData
         {
-            private string Name { get; set; }
+            public string Name { get; set; }
             public float Slope { get; set; }
             public string ID { get; set; }
             public string URL { get; set; }
@@ -71,7 +71,7 @@ namespace UI
             //List<MetricData> lst = new List<MetricData>();
             //lst.Add(new MetricData("m1", "test", "1234586", 12, 14, "12x-2", 1, 2, 3, 4, 5, 6, 7));
             //var t = DAL.GetMetricsNames();
-            this.metricData = DAL.GetHashtags("averageScore", 10);
+            this.metricData = DAL.GetMetrics("viewcount","averageScore", 10);
             dataGridView1.DataSource = this.metricData;
             
         }

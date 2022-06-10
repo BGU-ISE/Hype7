@@ -6,6 +6,8 @@ using System.Data;
 using System.Text.RegularExpressions;
 using static UI.NumericMetricForm;
 using static UI.Forms.ModelMetricForm;
+using System.IO;
+using static UI.Forms.TopHashtagsMetricForm;
 
 namespace UI
 {
@@ -13,11 +15,14 @@ namespace UI
     {
         public readonly static int SAVED_DAYS = 7;
         private const String DBname = @"DataBase.db";
-        
-        private static String Connection_String = @"Data Source= ..\..\..\..\..\Metric Manager\Metric Manager\bin\Debug\net5.0\DataBase.db";
+        public static string currentDir = Environment.CurrentDirectory;
+        static readonly DirectoryInfo directory = new DirectoryInfo(
+            Path.GetFullPath(Path.Combine(currentDir, @"..\..\..\..\..\" + "Metric Manager\\Metric Manager\\bin\\Debug\\net5.0\\DataBase.db")));
+        public static string db_con = directory.ToString();
+        private static String Connection_String = @"Data Source= " + db_con;
         private static bool isOverDay7;
         static public string checke;
-
+        public static string IDName = "video_id";
         public static SQLiteConnection connection = null;
 
         public static Dictionary<string, List<MetricData>> Metrics = new Dictionary<string, List<MetricData>>();
@@ -34,9 +39,29 @@ namespace UI
             if (connection.State != ConnectionState.Closed)
                 connection.Close();
         }
-        public static List<MetricData> GetHashtags(string orderBy, int limit)
+
+        public static HashSet<string> GetURLToHashtag(MetricData metricData)
         {
-            List<MetricData> ans = new List<MetricData>();
+            var set = new HashSet<string>();
+            SQLiteCommand command = new SQLiteCommand(null, DAL.connection);
+            for (int i = 1; i < 7; i++)
+            {
+                command = new SQLiteCommand("SELECT " + IDName + " From VideosInfoDay" + i + " WHERE tags LIKE '%" + metricData.Name + "%'", DAL.connection);
+                checke = command.CommandText;
+                command.Prepare();
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    set.Add("https://www.youtube.com/watch?v=" + reader[IDName].ToString());
+                }
+                command.Dispose();
+            }
+            return set;
+        }
+
+        public static List<HashtagModel> GetHashtags(string orderBy, int limit)
+        {
+            List<HashtagModel> ans = new List<HashtagModel>();
             try
             {
                 OpenConnect();
@@ -47,7 +72,7 @@ namespace UI
                 var reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    MetricData metricData = new MetricData(reader["name"].ToString(), float.Parse(reader["slope"].ToString()), float.Parse(reader["averageScore"].ToString()), float.Parse(reader["scoreDay1"].ToString()), float.Parse(reader["scoreDay2"].ToString()), float.Parse(reader["scoreDay3"].ToString()), float.Parse(reader["scoreDay4"].ToString()), float.Parse(reader["scoreDay5"].ToString()), float.Parse(reader["scoreDay6"].ToString()), float.Parse(reader["scoreDay7"].ToString()));
+                    HashtagModel metricData = new HashtagModel(reader["name"].ToString(), float.Parse(reader["slope"].ToString()), float.Parse(reader["averageScore"].ToString()), float.Parse(reader["scoreDay1"].ToString()), float.Parse(reader["scoreDay2"].ToString()), float.Parse(reader["scoreDay3"].ToString()), float.Parse(reader["scoreDay4"].ToString()), float.Parse(reader["scoreDay5"].ToString()), float.Parse(reader["scoreDay6"].ToString()), float.Parse(reader["scoreDay7"].ToString()));
                     //metricData.SetURL(GetVideoName(metricData) + " " + GetChannelName(metricData));
                     ans.Add(metricData);
                 }
@@ -113,8 +138,7 @@ namespace UI
             return ans;
         }
 
-        public static string GetURL(MetricData metricData)
-        {
+        
         public static string GetChannelName(MetricData metricData)
         {
             string ans = "";
@@ -191,6 +215,7 @@ namespace UI
             }
             return ans;
         }
+
         public static List<string> GetMetricsNames()
         {
             List<string> ans = new List<string>();

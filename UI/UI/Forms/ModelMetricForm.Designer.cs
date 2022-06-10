@@ -34,10 +34,10 @@ namespace UI.Forms
             this.panel2 = new System.Windows.Forms.Panel();
             this.LoadGraphBtn = new System.Windows.Forms.Button();
             this.SubmitBtn = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.socialMediaLbl = new System.Windows.Forms.Label();
+            this.socialMediaCombBox = new System.Windows.Forms.ComboBox();
+            this.limitLabel = new System.Windows.Forms.Label();
+            this.limitTxtBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -67,10 +67,10 @@ namespace UI.Forms
             // 
             this.panel2.Controls.Add(this.LoadGraphBtn);
             this.panel2.Controls.Add(this.SubmitBtn);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.comboBox1);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.socialMediaLbl);
+            this.panel2.Controls.Add(this.socialMediaCombBox);
+            this.panel2.Controls.Add(this.limitLabel);
+            this.panel2.Controls.Add(this.limitTxtBox);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -94,39 +94,40 @@ namespace UI.Forms
             this.SubmitBtn.TabIndex = 4;
             this.SubmitBtn.Text = "Submit";
             this.SubmitBtn.UseVisualStyleBackColor = true;
+            this.SubmitBtn.Click += new System.EventHandler(this.SubmitBtn_Click);
             // 
-            // label2
+            // socialMediaLbl
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(174, 49);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 25);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Social Media";
+            this.socialMediaLbl.AutoSize = true;
+            this.socialMediaLbl.Location = new System.Drawing.Point(174, 49);
+            this.socialMediaLbl.Name = "socialMediaLbl";
+            this.socialMediaLbl.Size = new System.Drawing.Size(112, 25);
+            this.socialMediaLbl.TabIndex = 3;
+            this.socialMediaLbl.Text = "Social Media";
             // 
-            // comboBox1
+            // socialMediaCombBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(293, 46);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(182, 33);
-            this.comboBox1.TabIndex = 2;
+            this.socialMediaCombBox.FormattingEnabled = true;
+            this.socialMediaCombBox.Location = new System.Drawing.Point(293, 46);
+            this.socialMediaCombBox.Name = "socialMediaCombBox";
+            this.socialMediaCombBox.Size = new System.Drawing.Size(182, 33);
+            this.socialMediaCombBox.TabIndex = 2;
             // 
-            // label1
+            // limitLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(601, 49);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(161, 25);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Number Of Videos";
+            this.limitLabel.AutoSize = true;
+            this.limitLabel.Location = new System.Drawing.Point(601, 49);
+            this.limitLabel.Name = "limitLabel";
+            this.limitLabel.Size = new System.Drawing.Size(161, 25);
+            this.limitLabel.TabIndex = 1;
+            this.limitLabel.Text = "Number Of Videos";
             // 
-            // textBox1
+            // limitTxtBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(768, 46);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(150, 31);
-            this.textBox1.TabIndex = 0;
+            this.limitTxtBox.Location = new System.Drawing.Point(768, 46);
+            this.limitTxtBox.Name = "limitTxtBox";
+            this.limitTxtBox.Size = new System.Drawing.Size(150, 31);
+            this.limitTxtBox.TabIndex = 0;
             // 
             // ModelMetricForm
             // 
@@ -150,10 +151,10 @@ namespace UI.Forms
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label limitLabel;
+        private System.Windows.Forms.TextBox limitTxtBox;
+        private System.Windows.Forms.Label socialMediaLbl;
+        private System.Windows.Forms.ComboBox socialMediaCombBox;
         private System.Windows.Forms.Button SubmitBtn;
         private System.Windows.Forms.Button LoadGraphBtn;
     }

@@ -26,11 +26,16 @@ namespace UI.Forms
         public ModelMetricForm()
         {
             InitializeComponent();
-            this.ModelPredictions = DAL.GetModelPredictions( "ModelHypeScore",  10);
+            this.ModelPredictions = DAL.GetModelPredictions("ModelHypeScore",  10);
             dataGridView1.DataSource = this.ModelPredictions;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void SubmitBtn_Click(object sender, EventArgs e)
         {
 
         }
