@@ -79,12 +79,12 @@ namespace UI.Forms
             this.SubmitBtn.UseVisualStyleBackColor = true;
             this.SubmitBtn.Click += new System.EventHandler(this.submitBtn_Click);
             // 
-            // MetricComboBox
+            // OrderByComboBox
             // 
             this.OrderByComboBox.FormattingEnabled = true;
             this.OrderByComboBox.Location = new System.Drawing.Point(701, 92);
             this.OrderByComboBox.Margin = new System.Windows.Forms.Padding(4);
-            this.OrderByComboBox.Name = "MetricComboBox";
+            this.OrderByComboBox.Name = "OrderByComboBox";
             this.OrderByComboBox.Size = new System.Drawing.Size(188, 33);
             this.OrderByComboBox.TabIndex = 3;
             // 
@@ -140,6 +140,8 @@ namespace UI.Forms
             this.dataGridView1.RowTemplate.Height = 33;
             this.dataGridView1.Size = new System.Drawing.Size(1000, 329);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // TopHashtagsMetricForm
             // 

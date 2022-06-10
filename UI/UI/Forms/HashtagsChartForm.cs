@@ -15,9 +15,9 @@ namespace UI.Forms
     {
 
         public DataGridView DataGridView { get; set; }
-        public List<HashtagModel> MetricDataList { get; set; }
+        public List<HashtagData> MetricDataList { get; set; }
 
-        public HashtagsChartForm(DataGridView dataGridView, List<HashtagModel> metricDataList)
+        public HashtagsChartForm(DataGridView dataGridView, List<HashtagData> metricDataList)
         {
             InitializeComponent();
             DataGridView = dataGridView;
@@ -44,7 +44,7 @@ namespace UI.Forms
             cartesianChart1.LegendLocation = LiveCharts.LegendLocation.Right;
             cartesianChart1.Series.Clear();
             SeriesCollection series = new SeriesCollection();
-            foreach (HashtagModel data in MetricDataList)
+            foreach (HashtagData data in MetricDataList)
             {
                 List<double> values = new List<double> { data.Score1, data.Score2, data.Score3, data.Score4, data.Score5, data.Score6, data.Score7 };
                 series.Add(new LineSeries() { Title = data.Name, Values = new ChartValues<double>(values) });

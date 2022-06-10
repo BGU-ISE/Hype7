@@ -11,7 +11,6 @@ namespace UI
 {
     public partial class NumericMetricForm : Form
     {
-        public string[] ColumnMetric { get; set; }
         public DataGridView dataGridView { get; set; }
         public List<MetricData> metricData { get; set; }
         public class MetricData
@@ -19,7 +18,7 @@ namespace UI
             public string Name { get; set; }
             public float Slope { get; set; }
             public Uri ID { get; set; }
-            public string URL { get; set; }
+            private string URL { get; set; }
             public float AverageScore { get; set; }
             public float Score1 { get; set; }
             public float Score2 { get; set; }
@@ -33,7 +32,6 @@ namespace UI
             {
                 this.Name = name;
                 this.ID = new Uri("https://www.youtube.com/watch?v=" + id);
-
                 this.Slope = slope;
                 this.AverageScore = averageScore;
                 this.Score1 = score1;
@@ -43,21 +41,6 @@ namespace UI
                 this.Score5 = score5;
                 this.Score6 = score6;
                 this.Score7 = score7;
-            }
-            public MetricData(string name, float slope, float averageScore, float score1, float score2, float score3, float score4, float score5, float score6, float score7)
-            {
-                this.Name = name;
-                this.ID = new Uri("");
-                this.Slope = slope;
-                this.AverageScore = averageScore;
-                this.Score1 = score1;
-                this.Score2 = score2;
-                this.Score3 = score3;
-                this.Score4 = score4;
-                this.Score5 = score5;
-                this.Score6 = score6;
-                this.Score7 = score7;
-                this.URL = "";
             }
 
             public void SetURL(string url)

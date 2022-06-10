@@ -40,28 +40,37 @@ namespace UI
                 connection.Close();
         }
 
-        public static HashSet<string> GetURLToHashtag(MetricData metricData)
-        {
+        public static HashSet<string> GetURLToHashtag(string hashtagData)
+        {   
             var set = new HashSet<string>();
-            SQLiteCommand command = new SQLiteCommand(null, DAL.connection);
-            for (int i = 1; i < 7; i++)
+            try
             {
-                command = new SQLiteCommand("SELECT " + IDName + " From VideosInfoDay" + i + " WHERE tags LIKE '%" + metricData.Name + "%'", DAL.connection);
-                checke = command.CommandText;
-                command.Prepare();
-                var reader = command.ExecuteReader();
-                while (reader.Read())
+                OpenConnect();
+                
+                SQLiteCommand command = new SQLiteCommand(null, DAL.connection);
+                for (int i = 1; i < 7; i++)
                 {
-                    set.Add("https://www.youtube.com/watch?v=" + reader[IDName].ToString());
+                    command = new SQLiteCommand("SELECT " + IDName + " From VideosInfoDay" + i + " WHERE tags LIKE '%" + hashtagData + "%'", DAL.connection);
+                    checke = command.CommandText;
+                    command.Prepare();
+                    var reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        set.Add("https://www.youtube.com/watch?v=" + reader[IDName].ToString());
+                    }
+                    command.Dispose();
                 }
-                command.Dispose();
+            }
+            catch (SQLiteException e)
+            {
+                DAL.CloseConnect();
             }
             return set;
         }
 
-        public static List<HashtagModel> GetHashtags(string orderBy, int limit)
+        public static List<HashtagData> GetHashtags(string orderBy, int limit)
         {
-            List<HashtagModel> ans = new List<HashtagModel>();
+            List<HashtagData> ans = new List<HashtagData>();
             try
             {
                 OpenConnect();
@@ -72,7 +81,7 @@ namespace UI
                 var reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    HashtagModel metricData = new HashtagModel(reader["name"].ToString(), float.Parse(reader["slope"].ToString()), float.Parse(reader["averageScore"].ToString()), float.Parse(reader["scoreDay1"].ToString()), float.Parse(reader["scoreDay2"].ToString()), float.Parse(reader["scoreDay3"].ToString()), float.Parse(reader["scoreDay4"].ToString()), float.Parse(reader["scoreDay5"].ToString()), float.Parse(reader["scoreDay6"].ToString()), float.Parse(reader["scoreDay7"].ToString()));
+                    HashtagData metricData = new HashtagData(reader["name"].ToString(), float.Parse(reader["slope"].ToString()), float.Parse(reader["averageScore"].ToString()), float.Parse(reader["scoreDay1"].ToString()), float.Parse(reader["scoreDay2"].ToString()), float.Parse(reader["scoreDay3"].ToString()), float.Parse(reader["scoreDay4"].ToString()), float.Parse(reader["scoreDay5"].ToString()), float.Parse(reader["scoreDay6"].ToString()), float.Parse(reader["scoreDay7"].ToString()));
                     //metricData.SetURL(GetVideoName(metricData) + " " + GetChannelName(metricData));
                     ans.Add(metricData);
                 }
