@@ -49,6 +49,7 @@
             this.Controls.Add(this.cartesianChart1);
             this.Name = "HashtagsChartForm";
             this.Text = "HashtagsChartForm";
+            this.Load += new System.EventHandler(this.Chart_Load);
             this.ResumeLayout(false);
 
         }
