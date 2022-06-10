@@ -32,12 +32,12 @@ namespace UI.Forms
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.SubmitBtn = new System.Windows.Forms.Button();
             this.LoadGraphBtn = new System.Windows.Forms.Button();
+            this.SubmitBtn = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -46,7 +46,7 @@ namespace UI.Forms
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(341, 3);
+            this.dataGridView1.Location = new System.Drawing.Point(330, 6);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 33;
@@ -77,38 +77,14 @@ namespace UI.Forms
             this.panel2.Size = new System.Drawing.Size(1121, 152);
             this.panel2.TabIndex = 2;
             // 
-            // textBox1
+            // LoadGraphBtn
             // 
-            this.textBox1.Location = new System.Drawing.Point(768, 46);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(150, 31);
-            this.textBox1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(601, 49);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(161, 25);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Number Of Videos";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(293, 46);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(182, 33);
-            this.comboBox1.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(174, 49);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 25);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Social Media";
+            this.LoadGraphBtn.Location = new System.Drawing.Point(585, 101);
+            this.LoadGraphBtn.Name = "LoadGraphBtn";
+            this.LoadGraphBtn.Size = new System.Drawing.Size(112, 34);
+            this.LoadGraphBtn.TabIndex = 5;
+            this.LoadGraphBtn.Text = "Load Graph";
+            this.LoadGraphBtn.UseVisualStyleBackColor = true;
             // 
             // SubmitBtn
             // 
@@ -119,14 +95,38 @@ namespace UI.Forms
             this.SubmitBtn.Text = "Submit";
             this.SubmitBtn.UseVisualStyleBackColor = true;
             // 
-            // LoadGraphBtn
+            // label2
             // 
-            this.LoadGraphBtn.Location = new System.Drawing.Point(585, 101);
-            this.LoadGraphBtn.Name = "LoadGraphBtn";
-            this.LoadGraphBtn.Size = new System.Drawing.Size(112, 34);
-            this.LoadGraphBtn.TabIndex = 5;
-            this.LoadGraphBtn.Text = "Load Graph";
-            this.LoadGraphBtn.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(174, 49);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(112, 25);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Social Media";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(293, 46);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(182, 33);
+            this.comboBox1.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(601, 49);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(161, 25);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Number Of Videos";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(768, 46);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(150, 31);
+            this.textBox1.TabIndex = 0;
             // 
             // ModelMetricForm
             // 
