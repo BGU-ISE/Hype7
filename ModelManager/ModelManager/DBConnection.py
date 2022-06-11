@@ -36,9 +36,9 @@ class DBConnection():
         for row in rows:
             print(row)
     
-    def write_predictions_to_DB(self, predictions, video_ids):
-        df = pd.DataFrame({'video_id': video_ids, 'model1score' : predictions})
-        df.to_sql(name='ModelHypeScore', con=self.connection, if_exists='append', index=False)
+    def write_predictions_to_DB(self, table_name, predictions, video_ids, denorm_predictions):
+        df = pd.DataFrame({'video_id': video_ids, 'model1score' : predictions, 'denormalize_score': denorm_predictions })
+        df.to_sql(name=table_name, con=self.connection, if_exists='replace', index=False)
         self.connection.close()
 
     def get_numeric_dataframe(self, num):

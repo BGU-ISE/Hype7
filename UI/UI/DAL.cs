@@ -134,7 +134,7 @@ namespace UI
                 var reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    ModelPrediction metricData = new ModelPrediction(reader["id"].ToString(),  float.Parse(reader["model1score"].ToString()));
+                    ModelPrediction metricData = new ModelPrediction(reader["video_id"].ToString(),  float.Parse(reader["model1score"].ToString()));
                     ans.Add(metricData);
                 }
                 command.Dispose();

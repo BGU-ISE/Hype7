@@ -23,7 +23,11 @@ class Model(IModel):
     self.X_train_id, self.X_test_id, self.y_train, self.y_test = train_test_split(X, y, test_size=0.2, random_state=123)
     self.X_train = self.X_train_id.drop(labels='id', axis=1)
     self.X_test = self.X_test_id.drop(labels='id', axis=1)
-
+    self.X_train = self.X_train.drop(labels='dv_check', axis=1)
+    self.dv_test = self.X_test[['dv_check']]
+    self.X_test_id = self.X_test_id.drop(labels='dv_check', axis=1)
+    self.X_test = self.X_test.drop(labels='dv_check', axis=1)
+    
   def fit(self):
     # define model evaluation method
     self.cv = RepeatedKFold(n_splits=10, n_repeats=3, random_state=1)
@@ -33,11 +37,15 @@ class Model(IModel):
     self.scores = absolute(self.scores)
     print('Train: Mean: %.3f STD: (%.3f)' % (self.scores.mean(), self.scores.std()) )
     self.model = self.model.fit(self.X_train, self.y_train)
-    self.model.save_model("model.txt")
+    self.model.save_model("modelTiktok.txt")
+
+
+  def get_dv(self):
+    return self.dv_test
 
   def predict(self, data=None):
     model2 = xgb.XGBRegressor()
-    model2.load_model("model.txt")
+    model2.load_model("modelTiktok.txt")
     data_without_id = data.drop(labels='id', axis=1)
     result = model2.predict(data_without_id)
     compare = pd.DataFrame({'id': data['id'].tolist(), 'Prediction' : result})

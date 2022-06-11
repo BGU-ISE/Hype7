@@ -86,8 +86,8 @@ class YouTubeFeaturizer():
            self.labels = self.reduce_mem_usage(self.labels)
            self.labels = self.labels[['video_id', 'view_count']]
            self.df = self.df.merge(self.labels, on='video_id', how='inner')
-           self.df["dv_view_count"] = round( self.df["view_count_y"]- self.df["view_count_x"] /7,4)
-           self.df["dv_check"] = round( self.df["view_count_y"]- self.df["view_count_x"] /7,4)
+           self.df["dv_view_count"] = round( (self.df["view_count_y"]- self.df["view_count_x"]) /7,3)
+           self.df["dv_check"] = round( (self.df["view_count_y"]- self.df["view_count_x"]) /7,3)
            self.df = self.df.drop(['view_count_y'], axis=1)
            self.df  = self.df.rename(columns={"view_count_x": "view_count"})
 

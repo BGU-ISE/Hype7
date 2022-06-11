@@ -41,14 +41,17 @@ class ModelManager():
     def train_and_fit_Youtube(self):
         features = YouTubeFeaturizer.YouTubeFeaturizer(self.is_DB, self.df1, self.df7)
         df = features.prepare_to_train()
-        
         model_instance = YouTubeModel.Model(df)
         model_instance.split(0.2)
-
         model_instance.fit() 
         predictions = model_instance.predict(model_instance.X_test_id)
         self.print_regression_analysis(model_instance.y_test, predictions)
-        self.db.write_predictions_to_DB(predictions, model_instance.X_test_id['video_id'].tolist())
+        denorm = features.denormalize(predictions)
+        dv = model_instance.get_dv()
+        d= dv['dv_check'].tolist()
+        self.print_regression_analysis(dv, denorm)
+
+        self.db.write_predictions_to_DB('YoutubeModel',predictions, model_instance.X_test_id['video_id'].tolist(), denorm)
     
     def predict_Youtube_model_exists(self):
         features = YouTubeFeaturizer.YouTubeFeaturizer(self.is_DB, self.df1)
@@ -75,8 +78,20 @@ class ModelManager():
         model_instance.fit() 
         predictions = model_instance.predict(model_instance.X_test_id)
         self.print_regression_analysis(model_instance.y_test, predictions)
+        denorm = features.denormalize(predictions)
+        dv = model_instance.get_dv()
+        d= dv['dv_check'].tolist()
+        self.print_regression_analysis(dv, denorm)
+        self.db.write_predictions_to_DB('TiktokModel', predictions, model_instance.X_test_id['id'].tolist(), denorm)
 
-        self.db.write_predictions_to_DB(predictions, model_instance.X_test_id['id'].tolist())
+    def train_and_fit1(self):
+        features = NumericFeaturizer.NumericFeaturizer( self.is_DB, self.df1, self.df7)
+        df = features.prepare_to_train()
+        model_instance = NumericModel.Model(df)
+        model_instance.split(0.2)
+        model_instance.fit() 
+        predictions = model_instance.predict(model_instance.X_test_id)
+        self.print_regression_analysis(model_instance.y_test, predictions)
 
     def print_regression_analysis(self, y_actual, y_prediction):
         mae = mean_absolute_error(y_actual, y_prediction)
