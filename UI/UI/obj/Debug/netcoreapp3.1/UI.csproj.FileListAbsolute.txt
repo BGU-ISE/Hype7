@@ -96,7 +96,6 @@ C:\Users\lynnn\source\repos\Hype7\UI\UI\bin\Debug\netcoreapp3.1\LiveCharts.WinFo
 C:\Users\lynnn\source\repos\Hype7\UI\UI\bin\Debug\netcoreapp3.1\LiveCharts.Wpf.dll
 C:\Users\lynnn\source\repos\Hype7\UI\UI\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\lynnn\source\repos\Hype7\UI\UI\bin\Debug\netcoreapp3.1\SimpleChart.dll
-C:\Users\lynnn\source\repos\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.Forms.ChartForm.resources
 C:\Users\Almogi\Desktop\githubtry\Project\Hype7\UI\UI\bin\Debug\netcoreapp3.1\Microsoft.ReportViewer.Common.dll
 C:\Users\Almogi\Desktop\githubtry\Project\Hype7\UI\UI\bin\Debug\netcoreapp3.1\Microsoft.ReportViewer.DataVisualization.dll
 C:\Users\Almogi\Desktop\githubtry\Project\Hype7\UI\UI\bin\Debug\netcoreapp3.1\GrapeCity.Documents.DataVisualization.Chart.dll
@@ -111,3 +110,5 @@ C:\Users\Almogi\Desktop\githubtry\Project\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI
 C:\Users\Almogi\Desktop\githubtry\Project\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.Forms.TopHashtagsMetricForm.resources
 C:\Users\lynnn\Source\Repos\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.Forms.HashtagsChartForm.resources
 C:\Users\lynnn\Source\Repos\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.Forms.VideosForm.resources
+C:\Users\lynnn\Source\Repos\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.Forms.DataModelChartForm.resources
+C:\Users\lynnn\Source\Repos\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.Forms.NumericChartForm.resources

@@ -1598,11 +1598,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lynnn\\Source\\Repos\\Hype7\\UI\\UI\\UI.csproj",
+      "projectUniqueName": "C:\\Users\\lynnn\\source\\repos\\Hype7\\UI\\UI\\UI.csproj",
       "projectName": "UI",
-      "projectPath": "C:\\Users\\lynnn\\Source\\Repos\\Hype7\\UI\\UI\\UI.csproj",
+      "projectPath": "C:\\Users\\lynnn\\source\\repos\\Hype7\\UI\\UI\\UI.csproj",
       "packagesPath": "C:\\Users\\lynnn\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lynnn\\Source\\Repos\\Hype7\\UI\\UI\\obj\\",
+      "outputPath": "C:\\Users\\lynnn\\source\\repos\\Hype7\\UI\\UI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\lynnn\\AppData\\Roaming\\NuGet\\NuGet.Config",

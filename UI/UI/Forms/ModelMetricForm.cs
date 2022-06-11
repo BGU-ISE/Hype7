@@ -118,8 +118,9 @@ namespace UI.Forms
 
         private void LoadGraphBtn_Click(object sender, EventArgs e)
         {
-            //Form form = new Forms.HashtagsChartForm(dataGridView, this.ModelPredictions);
-            //form.Show();
+           
+            Form form = new Forms.DataModelChartForm(dataGridView, this.ModelPredictions);
+            form.Show();
         }
 
         private void socialMediaCombBox_SelectedIndexChanged(object sender, EventArgs e)
