@@ -14,11 +14,11 @@ using static UI.NumericMetricForm;
 
 namespace UI.Forms
 {
-    public partial class ChartForm : Form
+    public partial class NumericChartForm : Form
     {
         public DataGridView DataGridView { get; set; }
         public List<MetricData> MetricDataList { get; set; }
-        public ChartForm(DataGridView dataGridView, List<MetricData> metricDataList)
+        public NumericChartForm(DataGridView dataGridView, List<MetricData> metricDataList)
         {
             InitializeComponent();
             DataGridView = dataGridView;
