@@ -64,8 +64,18 @@ class YouTubeFeaturizer():
         for feature_name in continuous:
             max_value = self.df[feature_name].max()
             min_value = self.df[feature_name].min()
+            if (feature_name == 'dv_view_count'):
+                self.min = min_value
+                self.max = max_value
             self.df[feature_name] = (self.df[feature_name] - min_value) / (max_value - min_value)
-        
+    
+    def denormalize(self, predictions):
+        result = []
+        for idx, p in enumerate(predictions):
+            res = p * (self.max - self.min) + self.min
+            result.append(res)
+        return result
+
     def prepare_to_train(self):
        try: 
            if(self.labels is None):
@@ -76,7 +86,8 @@ class YouTubeFeaturizer():
            self.labels = self.reduce_mem_usage(self.labels)
            self.labels = self.labels[['video_id', 'view_count']]
            self.df = self.df.merge(self.labels, on='video_id', how='inner')
-           self.df["dv_view_count"]=round( self.df["view_count_y"]- self.df["view_count_x"] /7,4)
+           self.df["dv_view_count"] = round( self.df["view_count_y"]- self.df["view_count_x"] /7,4)
+           self.df["dv_check"] = round( self.df["view_count_y"]- self.df["view_count_x"] /7,4)
            self.df = self.df.drop(['view_count_y'], axis=1)
            self.df  = self.df.rename(columns={"view_count_x": "view_count"})
 

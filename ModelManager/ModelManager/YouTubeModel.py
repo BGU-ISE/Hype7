@@ -23,7 +23,15 @@ class Model(IModel):
     self.X_train_id, self.X_test_id, self.y_train, self.y_test = train_test_split(X, y, test_size=0.2, random_state=123)
     self.X_train = self.X_train_id.drop(labels='video_id', axis=1)
     self.X_test = self.X_test_id.drop(labels='video_id', axis=1)
+    self.X_train = self.X_train.drop(labels='dv_check', axis=1)
+    self.dv_test = self.X_test[['dv_check']]
+    self.X_test_id = self.X_test_id.drop(labels='dv_check', axis=1)
+    self.X_test = self.X_test.drop(labels='dv_check', axis=1)
+    
 
+  def get_dv(self):
+    return self.dv_test
+  
   def fit(self):
     # define model evaluation method
     self.cv = RepeatedKFold(n_splits=10, n_repeats=3, random_state=1)

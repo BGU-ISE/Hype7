@@ -41,12 +41,31 @@ class ModelManager():
     def train_and_fit_Youtube(self):
         features = YouTubeFeaturizer.YouTubeFeaturizer(self.is_DB, self.df1, self.df7)
         df = features.prepare_to_train()
+        
         model_instance = YouTubeModel.Model(df)
         model_instance.split(0.2)
+
         model_instance.fit() 
         predictions = model_instance.predict(model_instance.X_test_id)
         self.print_regression_analysis(model_instance.y_test, predictions)
         self.db.write_predictions_to_DB(predictions, model_instance.X_test_id['video_id'].tolist())
+    
+    def predict_Youtube_model_exists(self):
+        features = YouTubeFeaturizer.YouTubeFeaturizer(self.is_DB, self.df1)
+        df = features.prepare_to_predict()
+        model_instance = YouTubeModel.Model(df)
+        print(model_instance.predict(df)) 
+        self.db.write_predictions_to_DB(predictions, model_instance.X_test_id['video_id'].tolist())
+
+
+    def predictions_to_csv(self, predictions, model_instance):
+        denorm = features.denormalize(predictions)
+        dv = model_instance.get_dv()
+        d= dv['dv_check'].tolist()
+        self.print_regression_analysis(dv, denorm)
+        df = pd.DataFrame({'video_id': model_instance.X_test_id['video_id'].tolist(), 'model1score' : predictions, 'normal':denorm, 'dv':d})
+        df.to_csv('predictions.csv')
+       
 
     def train_and_fit(self):
         features = NumericFeaturizer.NumericFeaturizer( self.is_DB, self.df1, self.df7)
@@ -56,6 +75,7 @@ class ModelManager():
         model_instance.fit() 
         predictions = model_instance.predict(model_instance.X_test_id)
         self.print_regression_analysis(model_instance.y_test, predictions)
+
         self.db.write_predictions_to_DB(predictions, model_instance.X_test_id['id'].tolist())
 
     def print_regression_analysis(self, y_actual, y_prediction):
