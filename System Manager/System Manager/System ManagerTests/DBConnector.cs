@@ -47,8 +47,19 @@ namespace System_ManagerTests
             return ans;
         }
 
+        public IEnumerable<object[]> getMetrics()
+        {
+            return getTable("FilterHypeScore");
 
-        public IEnumerable<object[]> getTable(string tableName)
+        }
+
+        public IEnumerable<object[]> getModelScore()
+        {
+            return getTable("ModelHypeScore");
+
+        }
+
+        private IEnumerable<object[]> getTable(string tableName)
         {
             List<object[]> ans = new List<object[]>();
             string command_Str = "SELECT * FROM " + tableName;
