@@ -123,18 +123,28 @@ namespace UI
             return ans;
         }
 
-        public static List<ModelPrediction> GetModelPredictions(string socialMedia, int limit)
+        public static List<ModelPrediction> GetModelPredictions(string socialMedia, string orderBy, int limit)
         {
             List<ModelPrediction> ans = new List<ModelPrediction>();
             try
             {
                 OpenConnect();
-                SQLiteCommand command = new SQLiteCommand("SELECT * FROM "+ socialMedia +" ORDER BY model1score DESC LIMIT " + limit, DAL.connection);
+                SQLiteCommand command = new SQLiteCommand("SELECT * FROM " + socialMedia + " ORDER BY " + orderBy + " DESC LIMIT " + limit, DAL.connection);
                 command.Prepare();
                 var reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    ModelPrediction metricData = new ModelPrediction(reader["video_id"].ToString(),  float.Parse(reader["model1score"].ToString()));
+                    ModelPrediction metricData = null;
+                    if (socialMedia == "YoutubeModel")
+                    {
+                        metricData = new ModelPrediction("https://www.youtube.com/watch?v=" + reader["video_id"].ToString(), float.Parse(reader["model1score"].ToString()), float.Parse(reader["denormalize_score"].ToString()));
+                    }
+                    else if(socialMedia == "TiktokModel")
+                    {
+                        metricData = new ModelPrediction(reader["webVideoUrl"].ToString(), float.Parse(reader["model1score"].ToString()), float.Parse(reader["denormalize_score"].ToString()));
+                    }
+                    
+                    
                     ans.Add(metricData);
                 }
                 command.Dispose();

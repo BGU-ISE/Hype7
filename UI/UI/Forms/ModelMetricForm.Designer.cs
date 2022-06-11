@@ -32,6 +32,8 @@ namespace UI.Forms
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.OrderByComboBox = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.LoadGraphBtn = new System.Windows.Forms.Button();
             this.SubmitBtn = new System.Windows.Forms.Button();
             this.socialMediaLbl = new System.Windows.Forms.Label();
@@ -46,11 +48,12 @@ namespace UI.Forms
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(330, 6);
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 33;
-            this.dataGridView1.Size = new System.Drawing.Size(432, 371);
+            this.dataGridView1.Size = new System.Drawing.Size(1121, 377);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -65,6 +68,8 @@ namespace UI.Forms
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.OrderByComboBox);
+            this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.LoadGraphBtn);
             this.panel2.Controls.Add(this.SubmitBtn);
             this.panel2.Controls.Add(this.socialMediaLbl);
@@ -76,6 +81,25 @@ namespace UI.Forms
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1121, 152);
             this.panel2.TabIndex = 2;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // OrderByComboBox
+            // 
+            this.OrderByComboBox.FormattingEnabled = true;
+            this.OrderByComboBox.Location = new System.Drawing.Point(515, 46);
+            this.OrderByComboBox.Name = "OrderByComboBox";
+            this.OrderByComboBox.Size = new System.Drawing.Size(182, 33);
+            this.OrderByComboBox.TabIndex = 7;
+            this.OrderByComboBox.SelectedIndexChanged += new System.EventHandler(this.OrderByComboBox_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(418, 49);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(82, 25);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Order By";
             // 
             // LoadGraphBtn
             // 
@@ -85,6 +109,7 @@ namespace UI.Forms
             this.LoadGraphBtn.TabIndex = 5;
             this.LoadGraphBtn.Text = "Load Graph";
             this.LoadGraphBtn.UseVisualStyleBackColor = true;
+            this.LoadGraphBtn.Click += new System.EventHandler(this.LoadGraphBtn_Click);
             // 
             // SubmitBtn
             // 
@@ -99,7 +124,7 @@ namespace UI.Forms
             // socialMediaLbl
             // 
             this.socialMediaLbl.AutoSize = true;
-            this.socialMediaLbl.Location = new System.Drawing.Point(174, 49);
+            this.socialMediaLbl.Location = new System.Drawing.Point(69, 49);
             this.socialMediaLbl.Name = "socialMediaLbl";
             this.socialMediaLbl.Size = new System.Drawing.Size(112, 25);
             this.socialMediaLbl.TabIndex = 3;
@@ -108,15 +133,16 @@ namespace UI.Forms
             // socialMediaCombBox
             // 
             this.socialMediaCombBox.FormattingEnabled = true;
-            this.socialMediaCombBox.Location = new System.Drawing.Point(293, 46);
+            this.socialMediaCombBox.Location = new System.Drawing.Point(188, 46);
             this.socialMediaCombBox.Name = "socialMediaCombBox";
             this.socialMediaCombBox.Size = new System.Drawing.Size(182, 33);
             this.socialMediaCombBox.TabIndex = 2;
+            this.socialMediaCombBox.SelectedIndexChanged += new System.EventHandler(this.socialMediaCombBox_SelectedIndexChanged);
             // 
             // limitLabel
             // 
             this.limitLabel.AutoSize = true;
-            this.limitLabel.Location = new System.Drawing.Point(601, 49);
+            this.limitLabel.Location = new System.Drawing.Point(729, 49);
             this.limitLabel.Name = "limitLabel";
             this.limitLabel.Size = new System.Drawing.Size(161, 25);
             this.limitLabel.TabIndex = 1;
@@ -124,7 +150,7 @@ namespace UI.Forms
             // 
             // limitTxtBox
             // 
-            this.limitTxtBox.Location = new System.Drawing.Point(768, 46);
+            this.limitTxtBox.Location = new System.Drawing.Point(896, 46);
             this.limitTxtBox.Name = "limitTxtBox";
             this.limitTxtBox.Size = new System.Drawing.Size(150, 31);
             this.limitTxtBox.TabIndex = 0;
@@ -138,6 +164,7 @@ namespace UI.Forms
             this.Controls.Add(this.panel1);
             this.Name = "ModelMetricForm";
             this.Text = "ModelMetric";
+            this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -157,5 +184,7 @@ namespace UI.Forms
         private System.Windows.Forms.ComboBox socialMediaCombBox;
         private System.Windows.Forms.Button SubmitBtn;
         private System.Windows.Forms.Button LoadGraphBtn;
+        private System.Windows.Forms.ComboBox OrderByComboBox;
+        private System.Windows.Forms.Label label1;
     }
 }
