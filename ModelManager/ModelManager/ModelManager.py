@@ -9,6 +9,7 @@ import csv
 import pandas as pd
 import numpy as np # linear algebra
 from pathlib import Path
+import sys
 
 from sklearn.metrics import mean_squared_error, mean_absolute_error
 
@@ -26,9 +27,12 @@ class ModelManager():
     global dir 
     dir = os.path.dirname(__file__)
 
-    def __init__(self, fromDB): 
+    def __init__(self, fromDB, DB_path=None): 
         self.is_DB = fromDB
-        filename = str(project_db_path) #dir + db_file
+        if(DB_path == None):
+            filename = str(project_db_path) #dir + db_file
+        else:
+            filename = DB_path
         self.db = DBConnection.DBConnection(filename)
         self.db.create_connection()
         if(fromDB):
@@ -44,7 +48,7 @@ class ModelManager():
         model_instance = YouTubeModel.Model(df)
         model_instance.split(0.2)
         model_instance.fit() 
-        predictions = model_instance.predict(model_instance.X_test_id)
+        predictions, data_frame = model_instance.predict(model_instance.X_test_id)
         self.print_regression_analysis(model_instance.y_test, predictions)
         denorm = features.denormalize(predictions)
         dv = model_instance.get_dv()
@@ -57,8 +61,10 @@ class ModelManager():
         features = YouTubeFeaturizer.YouTubeFeaturizer(self.is_DB, self.df1)
         df = features.prepare_to_predict()
         model_instance = YouTubeModel.Model(df)
-        print(model_instance.predict(df)) 
-        self.db.write_predictions_to_DB(predictions, model_instance.X_test_id['video_id'].tolist())
+        predictions, data_frame = model_instance.predict(df)
+        print(predictions) 
+        self.db.write_predictions_to_DB_without_train('YoutubeModel', data_frame)
+        #self.db.write_predictions_to_DB(predictions, model_instance.X_test_id['video_id'].tolist())
 
 
     def predictions_to_csv(self, predictions, model_instance):
@@ -110,5 +116,9 @@ class ModelManager():
 
 
 if __name__ == '__main__':
-    model = ModelManager(True)
-    model.train_and_fit_Youtube()
+    if(not len(sys.argv)==1):
+        model = ModelManager(True, sys.argv[1])
+        model.predict_Youtube_model_exists()
+    else:
+        model = ModelManager(True)
+        model.predict_Youtube_model_exists()

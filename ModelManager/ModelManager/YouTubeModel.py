@@ -49,7 +49,7 @@ class Model(IModel):
     data_without_id = data.drop(labels='video_id', axis=1)
     result = model2.predict(data_without_id)
     compare = pd.DataFrame({'id': data['video_id'].tolist(), 'Prediction' : result})
-    return result
+    return result, compare
 
 
 

@@ -95,5 +95,7 @@ class YouTubeFeaturizer():
            return self.df
 
     def prepare_to_predict(self):
+       columns =self.continuous_predict
+       columns.remove('video_id')
        self.normalize(self.continuous_predict)
        return self.df
