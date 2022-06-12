@@ -135,7 +135,6 @@ namespace UI
             this.MetricComboBox.Name = "MetricComboBox";
             this.MetricComboBox.Size = new System.Drawing.Size(266, 33);
             this.MetricComboBox.TabIndex = 0;
-            this.MetricComboBox.SelectedIndexChanged += new System.EventHandler(this.MetricComboBox_SelectedIndexChanged);
             // 
             // panel2
             // 

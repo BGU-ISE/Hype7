@@ -7,8 +7,4 @@ build_property.InvariantGlobalization =
 build_property.PlatformNeutralAssembly = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Metric_ManagerTests
-<<<<<<< HEAD
-build_property.ProjectDir = C:\Users\alina\Source\Repos\Hype7U\Metric Manager\Metric ManagerTests\
-=======
-build_property.ProjectDir = C:\Users\lynnn\source\repos\Hype7\Metric Manager\Metric ManagerTests\
->>>>>>> c5f0975bce42d532a6b2cb4f491559cd78614e70
+build_property.ProjectDir = C:\Users\lynnn\Source\Repos\Hype7\Metric Manager\Metric ManagerTests\

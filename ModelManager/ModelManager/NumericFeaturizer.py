@@ -20,8 +20,10 @@ class NumericFeaturizer():
             self.continuous_train.append('dv_playCount')
             self.continuous_train.remove('id')
             self.continuous_predict = self.df.columns.values.tolist() 
-
-            self.df = self.reduce_mem_usage(self.df)
+            self.df["authorMeta.verified"].replace({True: 1, False: 0}, inplace=True)
+            self.df["musicMeta.musicOriginal"].replace({True: 1, False: 0}, inplace=True)
+            
+            #self.df = self.reduce_mem_usage(self.df)
 
 
     def reduce_mem_usage(seldf, df):
@@ -63,8 +65,18 @@ class NumericFeaturizer():
         for feature_name in continuous:
             max_value = self.df[feature_name].max()
             min_value = self.df[feature_name].min()
+            if (feature_name == 'dv_playCount'):
+                self.min = min_value
+                self.max = max_value
             self.df[feature_name] = (self.df[feature_name] - min_value) / (max_value - min_value)
-        
+            
+    def denormalize(self, predictions):
+        result = []
+        for idx, p in enumerate(predictions):
+            res = p * (self.max - self.min) + self.min
+            result.append(res)
+        return result
+    
     def prepare_to_train(self):
        try: 
            if(self.labels is None):
@@ -72,10 +84,11 @@ class NumericFeaturizer():
        except:
             print('No label file is given Unable to train')
        else: 
-           self.labels = self.reduce_mem_usage(self.labels)
+           #self.labels = self.reduce_mem_usage(self.labels)
            self.labels = self.labels[['id', 'playCount']]
            self.df = self.df.merge(self.labels, on='id', how='inner')
-           self.df["dv_playCount"]=round( self.df["playCount_y"]- self.df["playCount_x"] /7,4)
+           self.df["dv_playCount"]=round( (self.df["playCount_y"]- self.df["playCount_x"]) /7,3)
+           self.df["dv_check"] = round( (self.df["playCount_y"]- self.df["playCount_x"]) /7,3)
            self.df = self.df.drop(['playCount_y'], axis=1)
            self.df  = self.df.rename(columns={"playCount_x": "playCount"})
 

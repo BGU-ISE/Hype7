@@ -37,6 +37,8 @@
     <Compile Include="UnitTests.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="YouTubeFeaturizer.py" />
+    <Compile Include="YouTubeModel.py" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="DataBase.db" />
