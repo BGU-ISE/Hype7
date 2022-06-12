@@ -1,0 +1,1 @@
+Hype7\Metric Manager\Metric Manager\bin\Debug\net5.0

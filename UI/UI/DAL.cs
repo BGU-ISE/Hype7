@@ -4,7 +4,7 @@ using System.Text;
 using System.Data.SQLite;
 using System.Data;
 using System.Text.RegularExpressions;
-using static UI.Form2;
+using static UI.NumericMetricForm;
 
 namespace UI
 {
@@ -13,7 +13,7 @@ namespace UI
         public readonly static int SAVED_DAYS = 7;
         private const String DBname = @"DataBase.db";
         
-        private static String Connection_String = @"Data Source= C:\Users\lynnn\source\repos\Hype7\Metric Manager\Metric Manager\bin\Debug\net5.0\DataBase.db";
+        private static String Connection_String = @"Data Source= ..\..\..\..\..\Metric Manager\Metric Manager\bin\Debug\net5.0\DataBase.db";
         private static bool isOverDay7;
         static public string checke;
 
@@ -33,6 +33,33 @@ namespace UI
             if (connection.State != ConnectionState.Closed)
                 connection.Close();
         }
+        public static List<MetricData> GetHashtags(string orderBy, int limit)
+        {
+            List<MetricData> ans = new List<MetricData>();
+            try
+            {
+                OpenConnect();
+
+                SQLiteCommand command = new SQLiteCommand("SELECT * FROM Hashtags ORDER BY " + orderBy + " DESC LIMIT " + limit, DAL.connection);
+                command.Prepare();
+
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    MetricData metricData = new MetricData(reader["name"].ToString(), float.Parse(reader["slope"].ToString()), float.Parse(reader["averageScore"].ToString()), float.Parse(reader["scoreDay1"].ToString()), float.Parse(reader["scoreDay2"].ToString()), float.Parse(reader["scoreDay3"].ToString()), float.Parse(reader["scoreDay4"].ToString()), float.Parse(reader["scoreDay5"].ToString()), float.Parse(reader["scoreDay6"].ToString()), float.Parse(reader["scoreDay7"].ToString()));
+                    //metricData.SetURL(GetVideoName(metricData) + " " + GetChannelName(metricData));
+                    ans.Add(metricData);
+                }
+
+                command.Dispose();
+                CloseConnect();
+            }
+            catch (SQLiteException e)
+            {
+                DAL.CloseConnect();
+            }
+            return ans;
+        }
         public static List<MetricData> GetMetrics(string metric, string orderBy, int limit)
         {
             List<MetricData> ans = new List<MetricData>();
@@ -46,8 +73,8 @@ namespace UI
                 var reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    MetricData metricData = new MetricData(reader["metric"].ToString(), reader["metric"].ToString(), reader["id"].ToString(), float.Parse(reader["slope"].ToString()), float.Parse(reader["averageScore"].ToString()), reader["formula"].ToString(), float.Parse(reader["scoreDay1"].ToString()), float.Parse(reader["scoreDay2"].ToString()), float.Parse(reader["scoreDay3"].ToString()), float.Parse(reader["scoreDay4"].ToString()), float.Parse(reader["scoreDay5"].ToString()), float.Parse(reader["scoreDay6"].ToString()), float.Parse(reader["scoreDay7"].ToString()));
-                    metricData.SetURL(GetURL(metricData));
+                    MetricData metricData = new MetricData(reader["metric"].ToString(), reader["video_id"].ToString(), float.Parse(reader["slope"].ToString()), float.Parse(reader["averageScore"].ToString()),  float.Parse(reader["scoreDay1"].ToString()), float.Parse(reader["scoreDay2"].ToString()), float.Parse(reader["scoreDay3"].ToString()), float.Parse(reader["scoreDay4"].ToString()), float.Parse(reader["scoreDay5"].ToString()), float.Parse(reader["scoreDay6"].ToString()), float.Parse(reader["scoreDay7"].ToString()));
+                    metricData.SetURL(GetVideoName(metricData) + " " + GetChannelName(metricData));
                     ans.Add(metricData);
                 }
 
@@ -60,7 +87,7 @@ namespace UI
             }
             return ans;
         }
-        public static string GetURL(MetricData metricData)
+        public static string GetChannelName(MetricData metricData)
         {
             string ans = "";
             int i = 1;
@@ -80,17 +107,55 @@ namespace UI
             {
                 
                 // ----- change to url
-                SQLiteCommand command = new SQLiteCommand("SELECT text FROM VideosInfoDay"+i+" WHERE id == '" + metricData.ID + "'", DAL.connection);
+                SQLiteCommand command = new SQLiteCommand("SELECT text FROM VideosInfoDay"+i+" WHERE video_id == '" + metricData.ID + "'", DAL.connection);
                 command.Prepare();
 
                 var reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    ans = reader["text"].ToString();
+                    ans = reader["channelName"].ToString();
                 }
 
                 command.Dispose();
                 
+            }
+            catch (SQLiteException e)
+            {
+                DAL.CloseConnect();
+            }
+            return ans;
+        }
+        public static string GetVideoName(MetricData metricData)
+        {
+            string ans = "";
+            int i = 1;
+            if (metricData.Score7 > 0)
+                i = 7;
+            else if (metricData.Score6 > 0)
+                i = 6;
+            else if (metricData.Score5 > 0)
+                i = 5;
+            else if (metricData.Score4 > 0)
+                i = 4;
+            else if (metricData.Score3 > 0)
+                i = 3;
+            else if (metricData.Score2 > 0)
+                i = 2;
+            try
+            {
+
+                // ----- change to url
+                SQLiteCommand command = new SQLiteCommand("SELECT text FROM VideosInfoDay" + i + " WHERE video_id == '" + metricData.ID + "'", DAL.connection);
+                command.Prepare();
+
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    ans = reader["title"].ToString();
+                }
+
+                command.Dispose();
+
             }
             catch (SQLiteException e)
             {
@@ -124,5 +189,57 @@ namespace UI
             }
             return ans;
         }
+        public static List<string> GetFilterNames()
+        {
+            List<string> ans = new List<string>();
+            try
+            {
+                OpenConnect();
+                SQLiteCommand command = new SQLiteCommand("SELECT name FROM PRAGMA_TABLE_INFO('FilterHypeScore')", DAL.connection);
+
+                command.Prepare();
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    string metric = reader["name"].ToString();
+                    if (!metric.Equals("video_id") && !metric.Equals("metric") && !metric.Equals("formula") && !metric.Contains("scoreDay"))
+                        ans.Add(metric);
+                }
+                command.Dispose();
+
+                CloseConnect();
+            }
+            catch (SQLiteException e)
+            {
+                DAL.CloseConnect();
+            }
+            return ans;
+        }
+        public static List<string> GetModelNames()
+        {
+            List<string> ans = new List<string>();
+            try
+            {
+                OpenConnect();
+                SQLiteCommand command = new SQLiteCommand("SELECT name FROM PRAGMA_TABLE_INFO('ModelHypeScore')", DAL.connection);
+
+                command.Prepare();
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    string metric = reader["name"].ToString();
+                    ans.Add(metric);
+                }
+                command.Dispose();
+
+                CloseConnect();
+            }
+            catch (SQLiteException e)
+            {
+                DAL.CloseConnect();
+            }
+            return ans;
+        }
+
     }
 }

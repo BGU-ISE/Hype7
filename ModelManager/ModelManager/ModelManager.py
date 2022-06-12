@@ -1,50 +1,68 @@
 
-import sys
 import NumericFeaturizer
 import NumericModel
 import DBConnection
+import os
+import csv
+import pandas as pd
+import numpy as np # linear algebra
+from pathlib import Path
 
-global x 
-x =  'C:/Users/alina/source/repos/Hype7U/ModelManager/ModelManager/tiktok_12_31_2021.csv'
-global y 
-y = 'C:/Users/alina/source/repos/Hype7U/ModelManager/ModelManager/tiktok_duplicate_1_7_2022.csv'
-global db_file 
-db_file = 'C:/Users/alina/source/repos/Hype7U/ModelManager/ModelManager/DataBase.db'
+from sklearn.metrics import mean_squared_error, mean_absolute_error
 
 class ModelManager():
-    def __init__(self):
-        self.db = DBConnection.DBConnection(db_file)
+    global x 
+    x =  '\\tiktok_12_31_2021.csv'
+    global y 
+    y = '\\tiktok_duplicate_1_7_2022.csv'
+    global db_file 
+    db_file = '\\DataBase.db'
+    global db_directory
+    db_directory = Path(__file__).parent.parent.parent
+    global project_db_path
+    project_db_path = db_directory /  "Metric Manager/Metric Manager/bin/Debug/net5.0/DataBase.db"
+    global dir 
+    dir = os.path.dirname(__file__)
+
+    def __init__(self, fromDB): 
+        self.is_DB = fromDB
+        filename = str(project_db_path) #dir + db_file
+        self.db = DBConnection.DBConnection(filename)
         self.db.create_connection()
-        self.df1 = self.db.get_numeric_dataframe(1)
-        self.df7 = self.db.get_numeric_dataframe(7)  
-    
-    def test_train_and_fit(self):
-        features = NumericFeaturizer.NumericFeaturizer(self.df1, self.df7)
+        if(fromDB):
+            self.df1 = self.db.get_numeric_dataframe(1)
+            self.df7 = self.db.get_numeric_dataframe(7)
+        else:
+            self.df1 = pd.read_csv(dir + x) 
+            self.df7 = pd.read_csv(dir + y)
+
+
+    def train_and_fit(self):
+        features = NumericFeaturizer.NumericFeaturizer( self.is_DB, self.df1, self.df7)
         df = features.prepare_to_train()
         model_instance = NumericModel.Model(df)
         model_instance.split(0.2)
         model_instance.fit() 
-        print(model_instance.predict(model_instance.X_test))   
-        print("Accuracy: ",     model_instance.model.score(model_instance.X_test, model_instance.y_test))
+        predictions = model_instance.predict(model_instance.X_test_id)
+        self.print_regression_analysis(model_instance.y_test, predictions)
+        self.db.write_predictions_to_DB(predictions, model_instance.X_test_id['id'].tolist())
 
-    def test_predict_model_exists(self):
-        features = NumericFeaturizer.NumericFeaturizer(self.df1)
+    def print_regression_analysis(self, y_actual, y_prediction):
+        mae = mean_absolute_error(y_actual, y_prediction)
+        mse = mean_squared_error(y_actual, y_prediction)
+        rmse = np.sqrt(mse)
+        print("RMSE: %f" % (rmse), "MSE: %f" % (mse), "MAE: %f" % (mae))
+
+    def predict_model_exists(self):
+        features = NumericFeaturizer.NumericFeaturizer(self.is_DB, self.df1)
         df = features.prepare_to_predict()
         model_instance = NumericModel.Model(df)
-        print(model_instance.predict(df))   
+        print(model_instance.predict(df))  
 
-    def main(self, num):    
-        if num == "1" :
-            self.test_train_and_fit()
-        elif num == "2" :
-            self.test_predict_model_exists()
-        else :
-            raise Exception("Command entered does not exist")
+    def export_df_to_csv(df, filename):
+        df.to_csv(filename)
 
 
 if __name__ == '__main__':
-    command = sys.argv[1:]
-    cmd = command[0]
-    manager = ModelManager()
-    manager.main(cmd)
-    
+    model = ModelManager(False)
+    model.train_and_fit()
