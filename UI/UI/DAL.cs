@@ -34,6 +34,22 @@ namespace UI
                 connection.Open();
 
         }
+        public static void SetUpDB(string[] args)
+        {
+            string path = "..\\..\\..\\..\\..\\";
+            for (int i = 0; i < args.Length; i++)
+            {
+                path += args[i] + " ";
+            }
+            path = path.Substring(0, path.Length - 1);
+            Connection_String = @"Data Source=" + path;
+        }
+        public static void ChangeDBName(string newName)
+        {
+            string[] arr = Connection_String.Split("\\");
+            Connection_String = Connection_String.Substring(0, Connection_String.Length - arr[arr.Length - 1].Length) + newName;
+            int j = 0;
+        }
         public static void CloseConnect()
         {
             if (connection.State != ConnectionState.Closed)
@@ -128,6 +144,7 @@ namespace UI
             List<ModelPrediction> ans = new List<ModelPrediction>();
             try
             {
+                ChangeDBName("DataBase" + socialMedia.Substring(0, socialMedia.Length - 5) + ".db");
                 OpenConnect();
                 SQLiteCommand command = new SQLiteCommand("SELECT * FROM " + socialMedia + " ORDER BY " + orderBy + " DESC LIMIT " + limit, DAL.connection);
                 command.Prepare();

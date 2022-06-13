@@ -10,10 +10,11 @@ namespace Scraper_Manager
     public static class DAL
     {
         public readonly static int SAVED_DAYS = 7;
-        private const String DBname = @"..\..\..\..\..\Metric Manager\Metric Manager\bin\Debug\net5.0\DataBase.db";
+        //private const String DBname = @"..\..\..\..\..\Metric Manager\Metric Manager\bin\Debug\net5.0\DataBase.db";
         public static bool testMood = false;
-        private static String Connection_String = @"Data Source=..\..\..\..\..\Metric Manager\Metric Manager\bin\Debug\net5.0\DataBase.db";
-        
+        private static String Connection_String = @"Data Source=";
+        public static string realPathDB;
+
         private static bool isOverDay7;
         public static string IDName = "video_id";
         public static int LastIndexTable;
@@ -25,17 +26,21 @@ namespace Scraper_Manager
 
         public static SQLiteConnection connection = null;
 
-        //public static void SetUpDB(bool isDBOpen)
-        //{
-        //    if (!isDBOpen)
-        //        OpenConnect();
-        //    LastIndexTable = GetLastIndexTable(true);
-        //    //InitIntField();
-        //    //int indexCreatesTable = CreateDateTable(SystemManager.GetFieldsName());
-        //    if (!isDBOpen)
-        //        CloseConnect();
-        //    Console.WriteLine("finish setup for DB.");
-        //}
+        public static void SetUpDB(string[] args)
+        {
+            if (args.Length > 0)
+            {
+                string path = "..\\..\\..\\..\\..\\";
+                for (int i = 0; i < args.Length; i++)
+                {
+                    path += args[i] + " ";
+                }
+                path = path.Substring(0, path.Length - 1);
+
+                realPathDB = path;
+                Connection_String = @"Data Source=" + path;
+            }
+        }
         public static void OpenConnect()
         {
             if (!System.IO.File.Exists(DB()))
@@ -60,8 +65,8 @@ namespace Scraper_Manager
                 Connection_String = @"Data Source=..\..\..\..\..\Metric Manager\Metric Manager\bin\Debug\net5.0\DataBaseTest.db";
                 return @"..\..\..\..\..\Metric Manager\Metric Manager\bin\Debug\net5.0\DataBaseTest.db";
             }
-            Connection_String = @"Data Source=..\..\..\..\..\Metric Manager\Metric Manager\bin\Debug\net5.0\DataBase.db";
-            return DAL.DBname;
+            Connection_String = @"Data Source=" + realPathDB;
+            return DAL.realPathDB;
         }
         public static void CloseConnect()
         {

@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Metric Manager": {
+      "commandName": "Project",
+      "commandLineArgs": "Metric Manager\\Metric Manager\\bin\\Debug\\net5.0\\DataBaseYoutube.db"
+    }
+  }
+}

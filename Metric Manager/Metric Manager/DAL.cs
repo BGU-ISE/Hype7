@@ -13,10 +13,11 @@ namespace Hype7
     public static class DAL
     {
         public readonly static int SAVED_DAYS = 7;
-        private const String DBname = @"DataBase.db";
+        //private const String DBname = @"DataBase.db";
         public static bool testMood = false;
         public static int LastIndexTable;
-        private static String Connection_String = @"Data Source=DataBase.db";
+        private static String Connection_String = @"Data Source=";
+        public static string realPathDB;
         private static List<string> intFileld = new List<string>();
         private static List<string> notIntField = new List<string>();
         private static bool isOverDay7;
@@ -25,50 +26,13 @@ namespace Hype7
 
         public static SQLiteConnection connection = null;
 
-        //public static void SetUpDB()
-        //{
-        //    LastIndexTable = GetLastIndexTable(true);
-        //    InitIntField();
-        //    int indexCreatesTable = CreateDateTable(SystemManager.GetFieldsName());
-        //    Console.WriteLine("finish setup for DB.");
-        //}
-        //public static void AddIntField(string value)
-        //{
-        //    intFileld.Add(value);
-        //}
-        //private static void InitIntField()
-        //{
-        //    if (intFileld.Count == 0)
-        //    {
-        //        SystemManager.SetNumericField();
-        //        SetStringField();
-        //        foreach (string name in intFileld)
-        //        {
-
-        //        }
-        //        foreach (string name in notIntField)
-        //        {
-        //            intFileld.Remove(name);
-        //        }
-        //    }
-        //}
-        //private static void SetStringField()
-        //{
-        //    notIntField.Add("id");
-        //    notIntField.Add("musicMeta_musicId");
-        //    notIntField.Add("trending_date");
-        //}
+        public static void SetUpDB(string path)
+        {
+            realPathDB = path;
+            Connection_String = @"Data Source=" + path;
+        }
         public static void OpenConnect()
         {
-            //if (!System.IO.File.Exists(DB()))
-            //{
-            //    SQLiteConnection.CreateFile(DB());
-            //    connection = new SQLiteConnection(Connection_String);
-            //    connection.Open();
-            //    InitTables(true);
-            //    isOverDay7 = false;
-            //}
-
             if (connection == null)
                 connection = new SQLiteConnection(Connection_String);
             if (connection.State == ConnectionState.Closed)
@@ -276,7 +240,7 @@ namespace Hype7
                 command = new SQLiteCommand("SELECT " + IDName + ", scoreDay1, scoreDay2, scoreDay3, scoreDay4, scoreDay5, scoreDay6, scoreDay7 FROM FilterHypeScore WHERE metric='empty'", connection);
                 command.Prepare();
                 var reader2 = command.ExecuteReader();
-                SaveResultToDB(reader2, "FilterHypeScore", new string[4] { "averageScore", "slope", "formula", "metric" }, new string[4] { "averageScore", "slope", "formula", "'" + metric + "'" }, DBname);
+                SaveResultToDB(reader2, "FilterHypeScore", new string[4] { "averageScore", "slope", "formula", "metric" }, new string[4] { "averageScore", "slope", "formula", "'" + metric + "'" }, IDName);
                 command.Dispose();
 
                 if (!isDBOpen)
@@ -821,8 +785,8 @@ namespace Hype7
                 Connection_String = @"Data Source=..\..\..\..\..\Metric Manager\Metric Manager\bin\Debug\net5.0\DataBaseTest.db";
                 return @"..\..\..\..\..\Metric Manager\Metric Manager\bin\Debug\net5.0\DataBaseTest.db";
             }
-            Connection_String = @"Data Source=..\..\..\..\..\Metric Manager\Metric Manager\bin\Debug\net5.0\DataBase.db";
-            return DAL.DBname;
+            Connection_String = @"Data Source=" + realPathDB;
+            return DAL.Connection_String;
         }
         public static void ResetDB()
         {
