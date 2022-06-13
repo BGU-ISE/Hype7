@@ -43,12 +43,12 @@ namespace Scraper_Manager
         {
             List<string> history = load_history();
             string[] dirs = Directory.GetFiles("../../../input_folder", "*.csv");
-            LastIndexTable = DAL.GetLastIndexTable(true);
-
+            
             foreach (string file in dirs)
             {
                 if (!history.Contains(Path.GetFileName(file)))
                 {
+                    LastIndexTable = DAL.GetLastIndexTable(true);
                     string output_path = "../../../output_folder/" + Path.GetFileNameWithoutExtension(file) + "_formated.csv";
                     Console.WriteLine("Reading file:" + Path.GetFileName(file));
                     RecordsFile r = new RecordsFile("../../../settings.txt", file, output_path);
@@ -67,7 +67,7 @@ namespace Scraper_Manager
                 }
             }
         }
-        private static DateTime ConvertStringToDatetime(string time)
+        public static DateTime ConvertStringToDatetime(string time)
         {
             var arr1 = Regex.Split(time, @"[a-zA-Z|(|)|+|/|\-|*|^|_|\.]");
             DateTime date = new DateTime();

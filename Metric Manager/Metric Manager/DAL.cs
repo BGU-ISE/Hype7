@@ -794,12 +794,16 @@ namespace Hype7
             DB();
             OpenConnect();
             SQLiteCommand command = new SQLiteCommand("DROP TABLE VideosInfoDay1", DAL.connection);
+            command.Prepare();
             command.ExecuteNonQuery();
             command = new SQLiteCommand("DROP TABLE VideosInfoDay2", DAL.connection);
+            command.Prepare();
+            command.ExecuteNonQuery();
+            command = new SQLiteCommand("DROP TABLE VideosInfoDay3", DAL.connection);
+            command.Prepare();
             command.ExecuteNonQuery();
             command = new SQLiteCommand("DELETE FROM ID", DAL.connection);
-            command.ExecuteNonQuery();
-            command = new SQLiteCommand("DELETE FROM PlayCountPerDay", DAL.connection);
+            command.Prepare();
             command.ExecuteNonQuery();
             command.Dispose();
             CloseConnect();
