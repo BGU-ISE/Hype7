@@ -66,8 +66,8 @@ namespace Scraper_Manager
         {
             if (testMood)
             {
-                Connection_String = @"Data Source=..\..\..\..\..\Metric Manager\Metric Manager\bin\Debug\net5.0\DataBaseTest.db";
-                return @"..\..\..\..\..\Metric Manager\Metric Manager\bin\Debug\net5.0\DataBaseTest.db";
+                Connection_String = @"Data Source=..\..\..\..\..\Metric Manager\Metric Manager\bin\Debug\net5.0\DataBaseTestScraper.db";
+                return @"..\..\..\..\..\Metric Manager\Metric Manager\bin\Debug\net5.0\DataBaseTestScraper.db";
             }
             Connection_String = @"Data Source=" + realPathDB;
             return DAL.realPathDB;
@@ -340,6 +340,22 @@ namespace Scraper_Manager
                 DAL.CloseConnect();
             }
         }
+        public static void ResetDB()
+        {
+            SQLiteCommand command = new SQLiteCommand("DROP TABLE VideosInfoDay1", DAL.connection);
+            command.Prepare();
+            command.ExecuteNonQuery();
+            command = new SQLiteCommand("DROP TABLE VideosInfoDay2", DAL.connection);
+            command.Prepare();
+            command.ExecuteNonQuery();
+            command = new SQLiteCommand("DROP TABLE VideosInfoDay3", DAL.connection);
+            command.Prepare();
+            command.ExecuteNonQuery();
+            command = new SQLiteCommand("DELETE FROM ID", DAL.connection);
+            command.Prepare();
+            command.ExecuteNonQuery();
+            command.Dispose();
 
+        }
     }
 }
