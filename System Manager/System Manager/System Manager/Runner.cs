@@ -15,6 +15,11 @@ namespace System_Manager
 
         public abstract bool run();
 
+        public virtual void kill()
+        {
+            throw new Exception("tried killing an innocent runner");
+        }
+
         protected void find_exe_path()
         {
             foreach (var file in Directory.GetFiles(Constants.excutables_folder))
