@@ -37,6 +37,10 @@ namespace Scraper_Manager
                 }
                 path = path.Substring(0, path.Length - 1);
 
+                //_____________________________________chnaing args________________
+                path = args[0]+"\\DataBase.db";
+                //________________________________________________________
+
                 realPathDB = path;
                 Connection_String = @"Data Source=" + path;
             }
