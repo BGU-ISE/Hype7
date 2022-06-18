@@ -27,7 +27,7 @@ namespace UI.Forms
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            DeleteMetricComboBox.DataSource = DAL.GetMetricsNames();
+            DeleteMetricComboBox.DataSource = DAL.GetMetricsFormula();
             DeleteMetricComboBox.SelectedItem = null;
             DeleteMetricComboBox.SelectedText = "--Select--";
 
@@ -45,5 +45,19 @@ namespace UI.Forms
 
         }
 
+        private void RemoveMetricBtn_Click(object sender, EventArgs e)
+        {
+            DAL.RemoveMetric(DeleteMetricComboBox.Text);
+        }
+
+        private void AddMetricBtn_Click(object sender, EventArgs e)
+        {
+            DAL.AddMetric(MetricNameTxtBox.Text, FormulaTxtBox.Text);
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

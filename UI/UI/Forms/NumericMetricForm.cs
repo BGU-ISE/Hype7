@@ -109,7 +109,7 @@ namespace UI
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            MetricComboBox.DataSource = DAL.GetMetricsNames();
+            MetricComboBox.DataSource = DAL.GetMetricsFormula();
             MetricComboBox.SelectedItem = null;
             MetricComboBox.SelectedText = "--Select--";
 
