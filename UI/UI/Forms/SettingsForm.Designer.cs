@@ -39,10 +39,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.SocialMediaBtn = new System.Windows.Forms.Button();
-            this.SocialMediaComboBox = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -168,61 +164,12 @@
             this.label5.TabIndex = 5;
             this.label5.Text = "Choose metric to delete";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.label6.Location = new System.Drawing.Point(30, 344);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(120, 25);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Social Media";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.label7.Location = new System.Drawing.Point(30, 395);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(175, 25);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "Choose social media";
-            // 
-            // SocialMediaBtn
-            // 
-            this.SocialMediaBtn.AutoSize = true;
-            this.SocialMediaBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(54)))));
-            this.SocialMediaBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.SocialMediaBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.SocialMediaBtn.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.SocialMediaBtn.Location = new System.Drawing.Point(946, 387);
-            this.SocialMediaBtn.Name = "SocialMediaBtn";
-            this.SocialMediaBtn.Size = new System.Drawing.Size(112, 35);
-            this.SocialMediaBtn.TabIndex = 9;
-            this.SocialMediaBtn.Text = "Submit";
-            this.SocialMediaBtn.UseVisualStyleBackColor = false;
-            // 
-            // SocialMediaComboBox
-            // 
-            this.SocialMediaComboBox.FormattingEnabled = true;
-            this.SocialMediaComboBox.Location = new System.Drawing.Point(280, 387);
-            this.SocialMediaComboBox.Name = "SocialMediaComboBox";
-            this.SocialMediaComboBox.Size = new System.Drawing.Size(393, 33);
-            this.SocialMediaComboBox.TabIndex = 10;
-            this.SocialMediaComboBox.SelectedIndexChanged += new System.EventHandler(this.SocialMediaComboBox_SelectedIndexChanged);
-            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(1128, 578);
-            this.Controls.Add(this.SocialMediaComboBox);
-            this.Controls.Add(this.SocialMediaBtn);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.RemoveMetricBtn);
             this.Controls.Add(this.DeleteMetricComboBox);
@@ -251,9 +198,5 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button SocialMediaBtn;
-        private System.Windows.Forms.ComboBox SocialMediaComboBox;
     }
 }

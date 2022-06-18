@@ -14,7 +14,18 @@ import sys
 from sklearn.metrics import mean_squared_error, mean_absolute_error
 
 class ModelManager():
-   
+    global x 
+    x =  '\\tiktok_12_31_2021.csv'
+    global y 
+    y = '\\tiktok_duplicate_1_7_2022.csv'
+    global db_file 
+    db_file = '\\DataBase.db'
+    global db_directory
+    db_directory = Path(__file__).parent.parent.parent
+    global project_db_path
+    project_db_path = db_directory /  "Metric Manager/Metric Manager/bin/Debug/net5.0/DataBaseYoutube.db"
+    global dir 
+    dir = os.path.dirname(__file__)
 
     def __init__(self, fromDB, data_path=None): 
         self.is_DB = fromDB
@@ -77,7 +88,7 @@ class ModelManager():
         dv = model_instance.get_dv()
         d= dv['dv_check'].tolist()
         self.print_regression_analysis(dv, denorm)
-        self.db.write_predictions_to_DB('TiktokModel', predictions, model_instance.X_test_id['id'].tolist(), denorm)
+        #self.db.write_predictions_to_DB('TiktokModel', predictions, model_instance.X_test_id['id'].tolist(), denorm)
 
     def train_and_fit1(self):
         features = NumericFeaturizer.NumericFeaturizer( self.is_DB, self.df1, self.df7)
@@ -105,14 +116,14 @@ class ModelManager():
 
 
 if __name__ == '__main__':
-    #model = ModelManager(True)
-   #model.predict_Youtube_model_exists()
+    model = ModelManager(False)
+    model.train_and_fit()
     
-  
+    """
     if(not len(sys.argv)==1):
         model = ModelManager(True, sys.argv[1])
         model.predict_Youtube_model_exists()
     else:
         model = ModelManager(True)
         model.predict_Youtube_model_exists()
-    
+    """
