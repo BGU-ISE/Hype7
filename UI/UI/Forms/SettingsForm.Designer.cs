@@ -211,6 +211,7 @@
             this.SocialMediaComboBox.Name = "SocialMediaComboBox";
             this.SocialMediaComboBox.Size = new System.Drawing.Size(393, 33);
             this.SocialMediaComboBox.TabIndex = 10;
+            this.SocialMediaComboBox.SelectedIndexChanged += new System.EventHandler(this.SocialMediaComboBox_SelectedIndexChanged);
             // 
             // SettingsForm
             // 

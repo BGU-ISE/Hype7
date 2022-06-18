@@ -31,9 +31,20 @@ namespace UI.Forms
             DeleteMetricComboBox.SelectedItem = null;
             DeleteMetricComboBox.SelectedText = "--Select--";
 
+            //TODO get tables names
+            List<string> socialMedia = new List<string> { "DataBaseTiktok", "DataBaseYoutube" };
+            SocialMediaComboBox.DataSource = DAL.GetMetricsNames();
+            SocialMediaComboBox.SelectedItem = null;
+            SocialMediaComboBox.SelectedText = "--Select--";
+
         }
 
         private void deleteMetricComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SocialMediaComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
