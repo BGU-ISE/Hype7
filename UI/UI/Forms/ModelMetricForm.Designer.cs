@@ -32,6 +32,7 @@ namespace UI.Forms
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.InputErrorLbl = new System.Windows.Forms.Label();
             this.OrderByComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.LoadGraphBtn = new System.Windows.Forms.Button();
@@ -47,6 +48,7 @@ namespace UI.Forms
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
@@ -68,6 +70,8 @@ namespace UI.Forms
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.panel2.Controls.Add(this.InputErrorLbl);
             this.panel2.Controls.Add(this.OrderByComboBox);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.LoadGraphBtn);
@@ -76,12 +80,21 @@ namespace UI.Forms
             this.panel2.Controls.Add(this.socialMediaCombBox);
             this.panel2.Controls.Add(this.limitLabel);
             this.panel2.Controls.Add(this.limitTxtBox);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1121, 152);
+            this.panel2.Size = new System.Drawing.Size(1121, 158);
             this.panel2.TabIndex = 2;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // InputErrorLbl
+            // 
+            this.InputErrorLbl.AutoSize = true;
+            this.InputErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.InputErrorLbl.Location = new System.Drawing.Point(370, 99);
+            this.InputErrorLbl.Name = "InputErrorLbl";
+            this.InputErrorLbl.Size = new System.Drawing.Size(0, 25);
+            this.InputErrorLbl.TabIndex = 8;
             // 
             // OrderByComboBox
             // 
@@ -95,6 +108,7 @@ namespace UI.Forms
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.label1.Location = new System.Drawing.Point(418, 49);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 25);
@@ -103,27 +117,38 @@ namespace UI.Forms
             // 
             // LoadGraphBtn
             // 
-            this.LoadGraphBtn.Location = new System.Drawing.Point(585, 101);
+            this.LoadGraphBtn.AutoSize = true;
+            this.LoadGraphBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(54)))));
+            this.LoadGraphBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.LoadGraphBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LoadGraphBtn.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.LoadGraphBtn.Location = new System.Drawing.Point(603, 138);
             this.LoadGraphBtn.Name = "LoadGraphBtn";
-            this.LoadGraphBtn.Size = new System.Drawing.Size(112, 34);
+            this.LoadGraphBtn.Size = new System.Drawing.Size(120, 35);
             this.LoadGraphBtn.TabIndex = 5;
             this.LoadGraphBtn.Text = "Load Graph";
-            this.LoadGraphBtn.UseVisualStyleBackColor = true;
+            this.LoadGraphBtn.UseVisualStyleBackColor = false;
             this.LoadGraphBtn.Click += new System.EventHandler(this.LoadGraphBtn_Click);
             // 
             // SubmitBtn
             // 
-            this.SubmitBtn.Location = new System.Drawing.Point(388, 101);
+            this.SubmitBtn.AutoSize = true;
+            this.SubmitBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(54)))));
+            this.SubmitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.SubmitBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.SubmitBtn.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.SubmitBtn.Location = new System.Drawing.Point(335, 138);
             this.SubmitBtn.Name = "SubmitBtn";
-            this.SubmitBtn.Size = new System.Drawing.Size(112, 34);
+            this.SubmitBtn.Size = new System.Drawing.Size(112, 35);
             this.SubmitBtn.TabIndex = 4;
             this.SubmitBtn.Text = "Submit";
-            this.SubmitBtn.UseVisualStyleBackColor = true;
+            this.SubmitBtn.UseVisualStyleBackColor = false;
             this.SubmitBtn.Click += new System.EventHandler(this.SubmitBtn_Click);
             // 
             // socialMediaLbl
             // 
             this.socialMediaLbl.AutoSize = true;
+            this.socialMediaLbl.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.socialMediaLbl.Location = new System.Drawing.Point(69, 49);
             this.socialMediaLbl.Name = "socialMediaLbl";
             this.socialMediaLbl.Size = new System.Drawing.Size(112, 25);
@@ -142,6 +167,7 @@ namespace UI.Forms
             // limitLabel
             // 
             this.limitLabel.AutoSize = true;
+            this.limitLabel.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.limitLabel.Location = new System.Drawing.Point(729, 49);
             this.limitLabel.Name = "limitLabel";
             this.limitLabel.Size = new System.Drawing.Size(161, 25);
@@ -186,5 +212,6 @@ namespace UI.Forms
         private System.Windows.Forms.Button LoadGraphBtn;
         private System.Windows.Forms.ComboBox OrderByComboBox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label InputErrorLbl;
     }
 }

@@ -66,8 +66,17 @@ namespace UI.Forms
 
         private void submitBtn_Click(object sender, EventArgs e)
         {
-            this.Hashtags = DAL.GetHashtags(OrderByComboBox.Text, Int32.Parse(limitTxtBox.Text));
-            dataGridView1.DataSource = this.Hashtags;
+            if (Int32.TryParse(limitTxtBox.Text, out int res))
+            {
+                this.Hashtags = DAL.GetHashtags(OrderByComboBox.Text, Int32.Parse(limitTxtBox.Text));
+                dataGridView1.DataSource = this.Hashtags;
+                InputErrorLbl.Text = "";
+            }
+            else
+            {
+                InputErrorLbl.Text = "Error: Illegal insertion in limit";
+            }
+            
 
         }
 
@@ -90,7 +99,7 @@ namespace UI.Forms
                             {
                                 var hashtag = dataGridView1.Rows[e.RowIndex].Cells["Name"].Value;
                                 var ids = DAL.GetURLToHashtag((string)hashtag);
-                                Form form = new Forms.VideosForm(ids);
+                                Form form = new Forms.VideosDataForm(ids);
                                 form.Show();
                             }
             }

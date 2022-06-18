@@ -1,3 +1,9 @@
 is_global = true
+build_property.ApplicationManifest = 
+build_property.StartupObject = 
+build_property.ApplicationDefaultFont = 
+build_property.ApplicationHighDpiMode = 
+build_property.ApplicationUseCompatibleTextRendering = 
+build_property.ApplicationVisualStyles = 
 build_property.RootNamespace = UI
-build_property.ProjectDir = C:\Users\Almogi\Desktop\githubtry\Project\Hype7\UI\UI\
+build_property.ProjectDir = C:\Users\lynnn\source\repos\Hype7\UI\UI\
