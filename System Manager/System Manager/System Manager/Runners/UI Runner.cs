@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace System_Manager
 {
-    class UI_Runner : Runner
+   public class UI_Runner : Runner
     {
         Process process;
         public override void kill()

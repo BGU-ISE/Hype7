@@ -8,9 +8,9 @@ namespace System_ManagerTests
 {
     public interface iProxy
     {
-        void scrapers(string exePath, string outputFolder);
-        void scraper_manager(string exePath, string inputPath, string DBPath);
-        void metrics(string exePath, string DBPath);
-        void model(string exePath, string DBPath);
+        void scrapers(string directory);
+        void scraper_manager(string directory);
+        void metrics(string directory);
+        void model(string directory);
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace System_Manager
 {
-    abstract class Runner
+    public abstract class Runner
     {
         protected string executable_path;
         protected string args;

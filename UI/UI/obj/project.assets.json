@@ -1237,19 +1237,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\lynnn\\.nuget\\packages\\": {}
+    "C:\\Users\\Iftah\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lynnn\\Source\\Repos\\Hype7\\UI\\UI\\UI.csproj",
+      "projectUniqueName": "C:\\Users\\Iftah\\Desktop\\Project\\Project\\Scraper Manager\\UI\\UI\\UI.csproj",
       "projectName": "UI",
-      "projectPath": "C:\\Users\\lynnn\\Source\\Repos\\Hype7\\UI\\UI\\UI.csproj",
-      "packagesPath": "C:\\Users\\lynnn\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lynnn\\Source\\Repos\\Hype7\\UI\\UI\\obj\\",
+      "projectPath": "C:\\Users\\Iftah\\Desktop\\Project\\Project\\Scraper Manager\\UI\\UI\\UI.csproj",
+      "packagesPath": "C:\\Users\\Iftah\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Iftah\\Desktop\\Project\\Project\\Scraper Manager\\UI\\UI\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\lynnn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Iftah\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1302,7 +1306,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="output\UnitTest\" />
     <Folder Include="output\scrapeToDB1\" />
     <Folder Include="output\scrapeToDB2\" />
   </ItemGroup>

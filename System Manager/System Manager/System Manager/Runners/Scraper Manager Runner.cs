@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace System_Manager
 {
-    class Scraper_Manager_Runner : Runner
+   public class Scraper_Manager_Runner : Runner
     {
         public override bool run()
         {

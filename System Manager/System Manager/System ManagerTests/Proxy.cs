@@ -6,9 +6,13 @@ using System.Threading.Tasks;
 
 namespace System_ManagerTests
 {
-
+    /// <summary>
+    /// depracated
+    /// </summary>
     class Proxy : iProxy
     {
+
+        
         public iProxy realImp { get; set; } = null;
         public bool isReal { get { return realImp != null; } private set { } }
         public Proxy()
@@ -21,32 +25,32 @@ namespace System_ManagerTests
             this.realImp = realImplementation;
         }
 
-        public void scrapers(string exePath, string outputFolder)
+        public void scrapers(string directory)
         {
             if (this.isReal)
-                this.realImp.scrapers(exePath, outputFolder);
+                this.realImp.scrapers(directory);
             throw new NotImplementedException();
         }
 
-        public void scraper_manager(string exePath, string inputPath, string DBPath)
+        public void scraper_manager(string directory)
         {
             if (this.isReal)
-                this.realImp.scraper_manager(exePath, inputPath, DBPath);
+                this.realImp.scraper_manager(directory);
             throw new NotImplementedException();
         }
 
-        public void metrics(string exePath, string DBPath)
+        public void metrics(string directory)
         {
             if (this.isReal)
-                this.realImp.metrics(exePath, DBPath);
+                this.realImp.metrics(directory);
 
             throw new NotImplementedException();
         }
 
-        public void model(string exePath, string DBPath)
+        public void model(string directory)
         {
             if (this.isReal)
-                this.realImp.model(exePath, DBPath);
+                this.realImp.model(directory);
 
             throw new NotImplementedException();
         }

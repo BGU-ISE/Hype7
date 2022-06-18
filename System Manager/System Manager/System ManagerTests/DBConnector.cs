@@ -12,8 +12,8 @@ namespace System_ManagerTests
     {
 
 
-    
-        private  SQLiteConnection connection = null;
+
+        public SQLiteConnection connection { get; private set; } = null;
 
         public DBConnector()
         {
