@@ -69,6 +69,16 @@ class YouTubeFeaturizer():
                 self.max = max_value
             self.df[feature_name] = (self.df[feature_name] - min_value) / (max_value - min_value)
     
+
+    def denorm_to_hundred(self, predictions):
+        result = [] 
+        max_p = predictions.max()
+        min_p = predictions.min()
+        for idx, p in enumerate(predictions):
+            res = ((p-min_p) / (max_p - min_p)) *100 
+            result.append(res)
+        return result
+
     def denormalize(self, predictions):
         result = []
         for idx, p in enumerate(predictions):

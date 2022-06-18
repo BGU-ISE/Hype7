@@ -74,7 +74,6 @@ C:\Users\lynnn\Source\Repos\Hype7\UI\UI\bin\Debug\netcoreapp3.1\runtimes\win-x86
 C:\Users\lynnn\Source\Repos\Hype7\UI\UI\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\lynnn\Source\Repos\Hype7\UI\UI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\lynnn\Source\Repos\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.csproj.AssemblyReference.cache
-C:\Users\lynnn\Source\Repos\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.MenuBtn.resources
 C:\Users\lynnn\Source\Repos\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.Properties.Resources.resources
 C:\Users\lynnn\Source\Repos\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.csproj.GenerateResource.cache
 C:\Users\lynnn\Source\Repos\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.GeneratedMSBuildEditorConfig.editorconfig
@@ -108,10 +107,12 @@ C:\Users\Almogi\Desktop\githubtry\Project\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI
 C:\Users\Almogi\Desktop\githubtry\Project\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.NumericMetricForm.resources
 C:\Users\Almogi\Desktop\githubtry\Project\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.Forms.TopHashtagsMetricForm.resources
 C:\Users\lynnn\Source\Repos\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.Forms.HashtagsChartForm.resources
-C:\Users\lynnn\Source\Repos\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.Forms.VideosForm.resources
 C:\Users\lynnn\Source\Repos\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.Forms.DataModelChartForm.resources
 C:\Users\lynnn\Source\Repos\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.Forms.NumericChartForm.resources
 C:\Users\Almogi\Desktop\githubtry\Project\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.Forms.DataModelChartForm.resources
 C:\Users\Almogi\Desktop\githubtry\Project\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.Forms.HashtagsChartForm.resources
 C:\Users\Almogi\Desktop\githubtry\Project\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.Forms.NumericChartForm.resources
 C:\Users\Almogi\Desktop\githubtry\Project\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.Forms.VideosForm.resources
+C:\Users\lynnn\source\repos\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.Forms.VideosDataForm.resources
+C:\Users\lynnn\source\repos\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.Hype7.resources
+C:\Users\lynnn\source\repos\Hype7\UI\UI\obj\Debug\netcoreapp3.1\UI.Forms.SettingsForm.resources

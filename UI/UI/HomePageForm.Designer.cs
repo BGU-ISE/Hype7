@@ -1,7 +1,7 @@
 ﻿
 namespace UI
 {
-    partial class MenuBtn
+    partial class Hype7
     {
         /// <summary>
         ///  Required designer variable.
@@ -29,7 +29,7 @@ namespace UI
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuBtn));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Hype7));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnNumericML = new System.Windows.Forms.Button();
             this.btnHashtagsMetric = new System.Windows.Forms.Button();
@@ -460,7 +460,7 @@ namespace UI
             this.textBox1.Text = "Metric\r\n";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // MenuBtn
+            // Hype7
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -472,9 +472,9 @@ namespace UI
             this.Controls.Add(this.pnlNav);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Name = "MenuBtn";
+            this.Name = "Hype7";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MenuBtn";
+            this.Text = "Hype7";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -8,6 +8,7 @@ using static UI.NumericMetricForm;
 using static UI.Forms.ModelMetricForm;
 using System.IO;
 using static UI.Forms.TopHashtagsMetricForm;
+using static UI.Forms.VideosDataForm;
 
 namespace UI
 {
@@ -56,8 +57,8 @@ namespace UI
                 connection.Close();
         }
 
-        public static HashSet<string> GetURLToHashtag(string hashtagData)
-        {   
+        public static List<VideoData> GetURLToHashtag(string hashtagData)
+        {   var list = new List<VideoData>();   
             var set = new HashSet<string>();
             try
             {
@@ -66,13 +67,14 @@ namespace UI
                 SQLiteCommand command = new SQLiteCommand(null, DAL.connection);
                 for (int i = 1; i < 7; i++)
                 {
-                    command = new SQLiteCommand("SELECT " + IDName + " From VideosInfoDay" + i + " WHERE tags LIKE '%" + hashtagData + "%'", DAL.connection);
+                    command = new SQLiteCommand("SELECT " + IDName +", title, channelName" + " From VideosInfoDay" + i + " WHERE tags LIKE '%" + hashtagData + "%'", DAL.connection);
                     checke = command.CommandText;
                     command.Prepare();
                     var reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        set.Add("https://www.youtube.com/watch?v=" + reader[IDName].ToString());
+                        VideoData item = new VideoData(reader["title"].ToString(), "https://www.youtube.com/watch?v=" + reader[IDName].ToString(), reader["channelName"].ToString());
+                        list.Add(item);
                     }
                     command.Dispose();
                 }
@@ -81,7 +83,7 @@ namespace UI
             {
                 DAL.CloseConnect();
             }
-            return set;
+            return list;
         }
 
         public static List<HashtagData> GetHashtags(string orderBy, int limit)

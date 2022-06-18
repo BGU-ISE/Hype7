@@ -29,8 +29,10 @@ namespace UI
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.Panel panel1;
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.InputErrorLbl = new System.Windows.Forms.Label();
+            this.GraphButton = new System.Windows.Forms.Button();
             this.SubmitButton = new System.Windows.Forms.Button();
             this.LimitTextBox = new System.Windows.Forms.TextBox();
             this.Limit = new System.Windows.Forms.Label();
@@ -39,9 +41,9 @@ namespace UI
             this.MetricLabel = new System.Windows.Forms.Label();
             this.MetricComboBox = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.GraphButton = new System.Windows.Forms.Button();
+            panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel1.SuspendLayout();
+            panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,34 +56,65 @@ namespace UI
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(1143, 591);
+            this.dataGridView1.Size = new System.Drawing.Size(1143, 515);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.GraphButton);
-            this.panel1.Controls.Add(this.SubmitButton);
-            this.panel1.Controls.Add(this.LimitTextBox);
-            this.panel1.Controls.Add(this.Limit);
-            this.panel1.Controls.Add(this.OrderByComboBox);
-            this.panel1.Controls.Add(this.OrderByLabel);
-            this.panel1.Controls.Add(this.MetricLabel);
-            this.panel1.Controls.Add(this.MetricComboBox);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1143, 159);
-            this.panel1.TabIndex = 1;
+            panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            panel1.Controls.Add(this.InputErrorLbl);
+            panel1.Controls.Add(this.GraphButton);
+            panel1.Controls.Add(this.SubmitButton);
+            panel1.Controls.Add(this.LimitTextBox);
+            panel1.Controls.Add(this.Limit);
+            panel1.Controls.Add(this.OrderByComboBox);
+            panel1.Controls.Add(this.OrderByLabel);
+            panel1.Controls.Add(this.MetricLabel);
+            panel1.Controls.Add(this.MetricComboBox);
+            panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            panel1.Location = new System.Drawing.Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new System.Drawing.Size(1143, 235);
+            panel1.TabIndex = 1;
+            // 
+            // InputErrorLbl
+            // 
+            this.InputErrorLbl.AutoSize = true;
+            this.InputErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.InputErrorLbl.Location = new System.Drawing.Point(431, 128);
+            this.InputErrorLbl.Name = "InputErrorLbl";
+            this.InputErrorLbl.Size = new System.Drawing.Size(0, 25);
+            this.InputErrorLbl.TabIndex = 8;
+            // 
+            // GraphButton
+            // 
+            this.GraphButton.AutoSize = true;
+            this.GraphButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(54)))));
+            this.GraphButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.GraphButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.GraphButton.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.GraphButton.Location = new System.Drawing.Point(588, 167);
+            this.GraphButton.Name = "GraphButton";
+            this.GraphButton.Size = new System.Drawing.Size(120, 35);
+            this.GraphButton.TabIndex = 7;
+            this.GraphButton.Text = "Load Graph";
+            this.GraphButton.UseVisualStyleBackColor = false;
+            this.GraphButton.Click += new System.EventHandler(this.LoadGraph_Click_1);
             // 
             // SubmitButton
             // 
-            this.SubmitButton.Location = new System.Drawing.Point(417, 117);
+            this.SubmitButton.AutoSize = true;
+            this.SubmitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(54)))));
+            this.SubmitButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.SubmitButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.SubmitButton.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.SubmitButton.Location = new System.Drawing.Point(343, 167);
             this.SubmitButton.Name = "SubmitButton";
-            this.SubmitButton.Size = new System.Drawing.Size(112, 34);
+            this.SubmitButton.Size = new System.Drawing.Size(112, 35);
             this.SubmitButton.TabIndex = 6;
             this.SubmitButton.Text = "Submit";
-            this.SubmitButton.UseVisualStyleBackColor = true;
+            this.SubmitButton.UseVisualStyleBackColor = false;
             this.SubmitButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // LimitTextBox
@@ -95,6 +128,7 @@ namespace UI
             // Limit
             // 
             this.Limit.AutoSize = true;
+            this.Limit.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.Limit.Location = new System.Drawing.Point(798, 62);
             this.Limit.Name = "Limit";
             this.Limit.Size = new System.Drawing.Size(158, 25);
@@ -113,6 +147,7 @@ namespace UI
             // OrderByLabel
             // 
             this.OrderByLabel.AutoSize = true;
+            this.OrderByLabel.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.OrderByLabel.Location = new System.Drawing.Point(489, 62);
             this.OrderByLabel.Name = "OrderByLabel";
             this.OrderByLabel.Size = new System.Drawing.Size(82, 25);
@@ -122,6 +157,7 @@ namespace UI
             // MetricLabel
             // 
             this.MetricLabel.AutoSize = true;
+            this.MetricLabel.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.MetricLabel.Location = new System.Drawing.Point(29, 62);
             this.MetricLabel.Name = "MetricLabel";
             this.MetricLabel.Size = new System.Drawing.Size(126, 25);
@@ -135,25 +171,16 @@ namespace UI
             this.MetricComboBox.Name = "MetricComboBox";
             this.MetricComboBox.Size = new System.Drawing.Size(266, 33);
             this.MetricComboBox.TabIndex = 0;
+            this.MetricComboBox.SelectedIndexChanged += new System.EventHandler(this.MetricComboBox_SelectedIndexChanged);
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 159);
+            this.panel2.Location = new System.Drawing.Point(0, 235);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1143, 591);
+            this.panel2.Size = new System.Drawing.Size(1143, 515);
             this.panel2.TabIndex = 2;
-            // 
-            // GraphButton
-            // 
-            this.GraphButton.Location = new System.Drawing.Point(603, 117);
-            this.GraphButton.Name = "GraphButton";
-            this.GraphButton.Size = new System.Drawing.Size(112, 34);
-            this.GraphButton.TabIndex = 7;
-            this.GraphButton.Text = "Load Graph";
-            this.GraphButton.UseVisualStyleBackColor = true;
-            this.GraphButton.Click += new System.EventHandler(this.LoadGraph_Click_1);
             // 
             // NumericMetricForm
             // 
@@ -161,14 +188,14 @@ namespace UI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1143, 750);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(panel1);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "NumericMetricForm";
             this.Text = "Metric";
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -190,5 +217,6 @@ namespace UI
         private System.Windows.Forms.Button SubmitButton;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button GraphButton;
+        private System.Windows.Forms.Label InputErrorLbl;
     }
 }

@@ -14,25 +14,14 @@ import sys
 from sklearn.metrics import mean_squared_error, mean_absolute_error
 
 class ModelManager():
-    global x 
-    x =  '\\tiktok_12_31_2021.csv'
-    global y 
-    y = '\\tiktok_duplicate_1_7_2022.csv'
-    global db_file 
-    db_file = '\\DataBase.db'
-    global db_directory
-    db_directory = Path(__file__).parent.parent.parent
-    global project_db_path
-    project_db_path = db_directory /  "Metric Manager/Metric Manager/bin/Debug/net5.0/DataBase.db"
-    global dir 
-    dir = os.path.dirname(__file__)
+   
 
-    def __init__(self, fromDB, DB_path=None): 
+    def __init__(self, fromDB, data_path=None): 
         self.is_DB = fromDB
-        if(DB_path == None):
+        if(data_path == None):
             filename = str(project_db_path) #dir + db_file
         else:
-            filename = DB_path
+            filename = data_path
         self.db = DBConnection.DBConnection(filename)
         self.db.create_connection()
         if(fromDB):
@@ -63,12 +52,12 @@ class ModelManager():
         model_instance = YouTubeModel.Model(df)
         predictions, data_frame = model_instance.predict(df)
         print(predictions) 
-        self.db.write_predictions_to_DB_without_train('YoutubeModel', data_frame)
-        #self.db.write_predictions_to_DB(predictions, model_instance.X_test_id['video_id'].tolist())
+        denorm = features.denorm_to_hundred(predictions)
+        self.db.write_predictions_to_DB_without_train('ModelHypeScore', data_frame)
 
 
     def predictions_to_csv(self, predictions, model_instance):
-        denorm = features.denormalize(predictions)
+        denorm = model_instance.denormalize(predictions)
         dv = model_instance.get_dv()
         d= dv['dv_check'].tolist()
         self.print_regression_analysis(dv, denorm)
@@ -116,14 +105,14 @@ class ModelManager():
 
 
 if __name__ == '__main__':
-    model = ModelManager(True)
-    model.train_and_fit_Youtube()
+    #model = ModelManager(True)
+   #model.predict_Youtube_model_exists()
     
-    """
+  
     if(not len(sys.argv)==1):
         model = ModelManager(True, sys.argv[1])
         model.predict_Youtube_model_exists()
     else:
         model = ModelManager(True)
         model.predict_Youtube_model_exists()
-    """
+    
