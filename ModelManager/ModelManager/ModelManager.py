@@ -116,14 +116,10 @@ class ModelManager():
 
 
 if __name__ == '__main__':
-    model = ModelManager(True)
-    model.train_and_fit_Youtube()
-    
-    """
+
     if(not len(sys.argv)==1):
-        model = ModelManager(True, sys.argv[1])
+        model = ModelManager(True, sys.argv[1]) 
         model.predict_Youtube_model_exists()
     else:
         model = ModelManager(True)
         model.predict_Youtube_model_exists()
-    """

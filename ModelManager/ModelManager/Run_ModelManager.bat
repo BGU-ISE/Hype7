@@ -1,3 +1,3 @@
 @echo off
-"C:\Users\lynnn\AppData\Local\Programs\Python\Python36-32\python.exe" "C:\Users\lynnn\Source\Repos\Hype7\ModelManager\ModelManager\ModelManager.py"
+"C:\Python310\python.exe" ".\ModelManager.py" %1
 pause

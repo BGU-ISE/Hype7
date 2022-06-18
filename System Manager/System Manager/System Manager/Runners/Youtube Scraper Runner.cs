@@ -12,12 +12,12 @@ namespace System_Manager
     {
 
 
-        public Youtube_Scraper_Runner(string directory = "Youtube")
+        public Youtube_Scraper_Runner(string directory = "youtube")
         {
 
             this.directory = directory;
             args = this.fullDir;
-            file_name = "runner";
+            file_name = "YoutubeScraper";
             find_exe_path();
 
         }
@@ -31,6 +31,7 @@ namespace System_Manager
                 Process proc = new Process();
                 proc.StartInfo.FileName = executable_path;
                 proc.StartInfo.UseShellExecute = true;
+                proc.StartInfo.ArgumentList.Add(args);
                 proc.Start();
                 proc.WaitForExit();
                 Console.WriteLine("finished youtube run");
