@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,26 +26,28 @@ namespace System_ManagerTests
             this.realImp = realImplementation;
         }
 
-        public void scrapers(string directory)
+        public void scraper(string directory)
         {
             if (this.isReal)
-                this.realImp.scrapers(directory);
-            throw new NotImplementedException();
+                this.realImp.scraper(directory);
+            else
+                throw new NotImplementedException();
         }
 
         public void scraper_manager(string directory)
         {
             if (this.isReal)
                 this.realImp.scraper_manager(directory);
-            throw new NotImplementedException();
+            else
+                throw new NotImplementedException();
         }
 
         public void metrics(string directory)
         {
             if (this.isReal)
                 this.realImp.metrics(directory);
-
-            throw new NotImplementedException();
+            else
+                throw new NotImplementedException();
         }
 
         public void model(string directory)
@@ -52,7 +55,17 @@ namespace System_ManagerTests
             if (this.isReal)
                 this.realImp.model(directory);
 
-            throw new NotImplementedException();
+            else
+                throw new NotImplementedException();
+        }
+
+        public Process runGui(string[] directory)
+        {
+            if (this.isReal)
+                return this.realImp.runGui(directory);
+
+            else
+                throw new NotImplementedException();
         }
     }
 }

@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace System_Manager
 {
-    class GUI_Runner : Runner
+    public class GUI_Runner : Runner
     {
         private List<string> arg_list;
-        private Process process;
+        public Process process { get; private set; }
         public GUI_Runner()
         {
             file_name = "GUI";

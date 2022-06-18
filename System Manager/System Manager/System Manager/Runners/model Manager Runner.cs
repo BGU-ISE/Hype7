@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace System_Manager
 {
-    class Model_Manager_Runner :Runner
+    public class Model_Manager_Runner :Runner
     {
         public Model_Manager_Runner(string directory)
         {

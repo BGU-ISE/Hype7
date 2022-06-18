@@ -21,7 +21,7 @@ namespace System_Manager.Tests
         public string modelManager = null;
 
         public string output_folder = @"C:\Users\Iftah\Desktop\אוניברסיטה\שנה ד\Project\Scraper Manager\System Manager\System Manager\System ManagerTests\output";
-
+        public iProxy proxy { get; set; }
         /*
         [TestMethod()]
         public void dbConnectionTest()
@@ -50,7 +50,7 @@ namespace System_Manager.Tests
             IEnumerable<object[]>[] vids_before = connector.getAll();
             connector.CloseConnect();
 
-            scrapeToDB(output_path);
+            //scrapeToDB(output_path);
 
             connector.OpenConnect(db_path);
             IEnumerable<object[]>[] vids_after = connector.getAll();
@@ -85,7 +85,7 @@ namespace System_Manager.Tests
 
 
 
-            proxy.metrics(metricManger, db_path);
+         //   proxy.metrics(metricManger, db_path);
 
             connector.OpenConnect(db_path);
             IEnumerable<object[]> metrics_after = connector.getMetrics();
@@ -139,7 +139,7 @@ namespace System_Manager.Tests
             Assert.AreEqual(2, model_before.ElementAt(0).Length);
 
 
-            proxy.metrics(metricManger, db_path);
+            //proxy.metrics(metricManger, db_path);
 
             connector.OpenConnect(db_path);
             IEnumerable<object[]> model_after = connector.getMetrics();
