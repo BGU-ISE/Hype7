@@ -12,6 +12,8 @@ namespace System_Manager
         protected string executable_path;
         protected string args;
         protected string file_name;
+        public string directory;
+        protected string fullDir { get { return (new DirectoryInfo(Constants.Data_folder+"/"+ this.directory)).FullName; } private set { } }
 
         public abstract bool run();
 

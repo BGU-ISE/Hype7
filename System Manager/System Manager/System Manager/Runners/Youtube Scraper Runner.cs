@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,9 +12,11 @@ namespace System_Manager
     {
 
 
-        public Youtube_Scraper_Runner()
+        public Youtube_Scraper_Runner(string directory = "Youtube")
         {
-            args = "";
+
+            this.directory = directory;
+            args = this.fullDir;
             file_name = "runner";
             find_exe_path();
 

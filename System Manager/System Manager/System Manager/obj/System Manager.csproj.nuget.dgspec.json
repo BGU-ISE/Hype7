@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\System Manager\\System Manager\\System Manager\\System Manager.csproj": {}
+    "C:\\Users\\Iftah\\Desktop\\Project\\Project\\Scraper Manager\\System Manager\\System Manager\\System Manager\\System Manager.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\System Manager\\System Manager\\System Manager\\System Manager.csproj": {
+    "C:\\Users\\Iftah\\Desktop\\Project\\Project\\Scraper Manager\\System Manager\\System Manager\\System Manager\\System Manager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\System Manager\\System Manager\\System Manager\\System Manager.csproj",
+        "projectUniqueName": "C:\\Users\\Iftah\\Desktop\\Project\\Project\\Scraper Manager\\System Manager\\System Manager\\System Manager\\System Manager.csproj",
         "projectName": "System Manager",
-        "projectPath": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\System Manager\\System Manager\\System Manager\\System Manager.csproj",
+        "projectPath": "C:\\Users\\Iftah\\Desktop\\Project\\Project\\Scraper Manager\\System Manager\\System Manager\\System Manager\\System Manager.csproj",
         "packagesPath": "C:\\Users\\Iftah\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\System Manager\\System Manager\\System Manager\\obj\\",
+        "outputPath": "C:\\Users\\Iftah\\Desktop\\Project\\Project\\Scraper Manager\\System Manager\\System Manager\\System Manager\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
