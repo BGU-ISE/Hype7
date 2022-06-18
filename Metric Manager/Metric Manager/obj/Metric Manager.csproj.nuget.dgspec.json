@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Metric Manager\\Metric Manager\\Metric Manager.csproj": {}
+    "C:\\Users\\Iftah\\Desktop\\Project\\Project\\Scraper Manager\\Metric Manager\\Metric Manager\\Metric Manager.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Metric Manager\\Metric Manager\\Metric Manager.csproj": {
+    "C:\\Users\\Iftah\\Desktop\\Project\\Project\\Scraper Manager\\Metric Manager\\Metric Manager\\Metric Manager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Metric Manager\\Metric Manager\\Metric Manager.csproj",
+        "projectUniqueName": "C:\\Users\\Iftah\\Desktop\\Project\\Project\\Scraper Manager\\Metric Manager\\Metric Manager\\Metric Manager.csproj",
         "projectName": "Metric Manager",
-        "projectPath": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Metric Manager\\Metric Manager\\Metric Manager.csproj",
+        "projectPath": "C:\\Users\\Iftah\\Desktop\\Project\\Project\\Scraper Manager\\Metric Manager\\Metric Manager\\Metric Manager.csproj",
         "packagesPath": "C:\\Users\\Iftah\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Metric Manager\\Metric Manager\\obj\\",
+        "outputPath": "C:\\Users\\Iftah\\Desktop\\Project\\Project\\Scraper Manager\\Metric Manager\\Metric Manager\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

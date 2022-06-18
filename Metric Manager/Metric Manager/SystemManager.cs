@@ -18,17 +18,31 @@ namespace Hype7
         static private List<Metric> Metrics = new List<Metric>();
         static public List<string> ignoreHashtag = new List<string>();
         static private int hashtag;
+        static public List<string> Fields = new List<string>();
+        static public Dictionary<string, string> settings_dict = new Dictionary<string, string>();
+        static public List<string> values_order = new List<string>();
 
         public static void InitializeData(string[] args)
         {
-            if (path == null && args.Length == 0)
-                path = Path.Combine(GetPath(),  "Data");
-            else
+            path = Path.Combine(GetPath(), "Data");
+            if (args.Length > 0)
             {
-                path = args[0];
-                var arr = path.Split("\\");
-                dataDir = arr[arr.Length - 1];
-                path = path.Substring(0, path.Length - (dataDir.Length + 2));
+                string ans;//= "..\\..\\..\\..\\..\\";
+             /*   for (int i = 0; i < args.Length; i++)
+                {
+                    ans += args[i] + " ";
+                }
+                ans = ans.Substring(0, ans.Length - 1);
+
+                */
+                //______________
+                ans = args[0];
+                //----------------
+                DAL.SetUpDB(ans);
+                //path = args[0];
+                //var arr = path.Split("\\");
+                //dataDir = arr[arr.Length - 1];
+                //path = path.Substring(0, path.Length - (dataDir.Length + 2));
             }
             ReadFromText(Path.Combine(path, "ignoreHashtag.txt"));
             LoadMetrics();
@@ -62,7 +76,7 @@ namespace Hype7
                 string file_content = "";
                 List<string> lines = new List<string>();
                 int count = 0;
-                while (!reader.EndOfStream && count < 200000)
+                while (!reader.EndOfStream)
                 {
                     char c = (char)reader.Read();
                     if (c == ((char)13) && !reader.EndOfStream)
@@ -100,7 +114,7 @@ namespace Hype7
                         file_content += c;
                     count++;
                 }
-                hashtag = indexByName["hashtags"];
+                hashtag = indexByName["tags"];
             }
             //System.IO.File.Move(name, Path.Combine(path, @"Data\\ReadData"), true);
             return dataCurrent;
@@ -108,7 +122,7 @@ namespace Hype7
         private static void ReadAllFromCSV(string path)
         {
             string[] fileArray = Directory.GetFiles(path);
-            for (int i=0; i<fileArray.Length; i++)
+            for (int i = 0; i < fileArray.Length; i++)
             {
                 DateTime date = ConvertPathToDatetime(fileArray[i]);
                 var temp = ReadFromCSV(fileArray[i], date, false);
@@ -168,6 +182,7 @@ namespace Hype7
         }
         public static void SaveToText(int num)
         {
+            //num++;
             using (var w = new StreamWriter(Path.Combine(path, "lastIndexTable.txt")))
             {
                 w.WriteLine(num);
@@ -194,7 +209,7 @@ namespace Hype7
         }
         public static void AddMetric(string metric)
         {
-            if(GetMetric(metric) == null)
+            if (GetMetric(metric) == null)
                 Metrics.Add(new Metric(metric));
             else
             {
@@ -215,7 +230,7 @@ namespace Hype7
                     Metrics.Add(new Metric(metric, name));
                     Console.WriteLine("update metrics name");
                 }
-                    
+
             }
         }
         private static void RemoveMetric(Metric metric)
@@ -233,8 +248,12 @@ namespace Hype7
         {
             foreach (Metric metric in Metrics)
             {
-                DAL.RunMetricAllWeek(metric.GetMetric(), true);
+                if (metric.GetName().Contains("special"))
+                    DAL.RunSpecialAllWeek(metric.GetMetric(), true);
+                else
+                    DAL.RunMetricAllWeek(metric.GetMetric(), true);
             }
+            Console.WriteLine("finish run all metrics.");
         }
         public static void RunMetricByName(string name)
         {
@@ -250,7 +269,7 @@ namespace Hype7
         public static void LoadMetrics()
         {
             string text = System.IO.File.ReadAllText(Path.Combine(path, "metricToRun.txt"));
-            
+
             string[] arr = text.Split(";;");
             for (int i = 0; i < arr.Length; i++)
             {
@@ -372,7 +391,7 @@ namespace Hype7
                 return 0;
             string prev = a.GetFieldByIndex(indexByName["playCount"]);
             string now = GetInfoByID(id, date).GetFieldByIndex(indexByName["playCount"]);
-            return double.Parse(now)- double.Parse(prev);
+            return double.Parse(now) - double.Parse(prev);
         }
         public static double GetPlayCountPerDay(string id, DateTime time)
         {
@@ -495,7 +514,7 @@ namespace Hype7
             return -1;
         }
 
-        
+
         private static List<VideoInfo> selectField(string fieldReturn, List<VideoInfo> allData)
         {
             fieldReturn = fieldReturn.Replace(" ", string.Empty);
@@ -521,9 +540,9 @@ namespace Hype7
             {
                 if (arr1[j].Length > 0)
                 {
-                    if (arr1[j + 2].Length == 2)
-                        arr1[j + 2] = "20" + arr1[j + 2];
-                    date = new DateTime(int.Parse(arr1[j + 2]), int.Parse(arr1[j]), int.Parse(arr1[j + 1]));
+                    if (j == 0 && arr1[j].Length == 2)
+                        arr1[j] = "20" + arr1[j];
+                    date = new DateTime(int.Parse(arr1[j]), int.Parse(arr1[j + 2]), int.Parse(arr1[j + 1]));
                     j = arr1.Length;
                 }
             }
@@ -547,19 +566,31 @@ namespace Hype7
             }
             return ans;
         }
-        
+
         public static int GetIndexByFieldName(string name)
         {
-            return indexByName[name];
+            int i = 0;
+            foreach (var element in Fields)
+            {
+                if (element.Equals(name))
+                    return i;
+                i++;
+            }
+            return -1;
         }
         public static DateTime GetDateByIndex(int index)
         {
-            int i = 1;
             foreach (var element in Data.Keys)
             {
-                if (i == index)
-                    return element;
-                i++;
+                bool flag = true;
+                foreach (var video in Data[element])
+                {
+                    if (!flag)
+                        break;
+                    if (video.GetSerialDate() == index)
+                        return element;
+                    flag = false;
+                }
             }
             return new DateTime();
         }
@@ -567,15 +598,53 @@ namespace Hype7
         {
             if (path == null)
                 path = GetPath();
-            if (indexByName == null || indexByName.Count == 0)
-                ReadFieldNameFromCSV(path + "\\UnReadData");
-            return indexByName.Keys.ToList();
+            //if (indexByName == null || indexByName.Count == 0)
+            //    ReadFieldNameFromCSV(path + "\\UnReadData");
+            if (Fields == null || Fields.Count == 0)
+            {
+                load_settings();
+                Fields = values_order;
+            }
+
+            return Fields;
+            //return indexByName.Keys.ToList();
+        }
+        private static List<string> load_settings()
+        {
+            //Dictionary<string, string>  settings_dict = new Dictionary<string, string>();
+            //List<string> values_order = new List<string>();
+
+            using (var reader = new StreamReader("../../../../../Scraper Manager/Scraper Manager/settings.txt"))
+            {
+                if (!reader.EndOfStream)
+                {
+                    var line = reader.ReadLine();
+                    var values = line.Split(";;");
+                    var pairs = new List<string[]>();
+                    foreach (string pair in values)
+                    {
+                        if (!settings_dict.ContainsKey(pair.Split(";")[0]))
+                        {
+                            settings_dict.Add(pair.Split(";")[0], pair.Split(";")[1]);
+                            values_order.Add(pair.Split(";")[1]);
+                        }
+
+                    }
+
+                }
+                if (!reader.EndOfStream)
+                {
+                    var line = reader.ReadLine();
+                    string origin = line;
+                }
+            }
+            return values_order;
         }
         public static Dictionary<DateTime, List<VideoInfo>> GetAllData()
         {
             if (path == null)
                 path = GetPath();
-            if(Data == null || Data.Count == 0)
+            if (Data == null || Data.Count == 0)
             {
                 Setup(path + "\\UnReadData", path + "\\ignoreHashtag.txt");
             }
@@ -596,37 +665,41 @@ namespace Hype7
             }
             return null; // Data[date];
         }
-        public static void SetNumericField(string currentDate)
-        {
-            if (path == null)
-                path = GetPath();
-            string[] fileArray = Directory.GetFiles(path + "\\UnReadData");
-            for (int i = 0; i < fileArray.Length; i++)
-            {
-                DateTime date = ConvertPathToDatetime(fileArray[i]);
-                if (date.ToString("dd-MM-yyyy").Equals(currentDate))
-                {
-                    List<VideoInfo> lst = ReadFromCSV(fileArray[i], date, true);
-                    foreach (VideoInfo video in lst)
-                    {
-                        string[] arr = video.GetData();
-                        List<int> numbers = new List<int>();
-                        for(int j=0; j<arr.Length; j++)
-                        {
-                            if (isNumeric(arr[j]))
-                                numbers.Add(j);
-                        }
-                        foreach(string name in indexByName.Keys)
-                        {
-                            if (numbers.Contains(indexByName[name]))
-                            {
-                                DAL.AddIntField(name);
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        //public static void SetNumericField()
+        //{
+        //    if (path == null)
+        //        path = GetPath();
+        //    //string[] fileArray = Directory.GetFiles(path + "\\UnReadData");
+        //    load_settings();
+        //    string[] fileArray = Directory.GetFiles("../../../../../Scraper Manager/Scraper Manager/input_folder", "*.csv");
+        //    for (int i = 0; i < fileArray.Length; i++)
+        //    {
+        //        DateTime date = ConvertPathToDatetime(fileArray[i]);
+        //        //if (date.ToString("dd-MM-yyyy").Equals(currentDate))
+        //        //{
+        //        List<VideoInfo> lst = ReadFromCSV(fileArray[i], date, true);
+        //        foreach (VideoInfo video in lst)
+        //        {
+        //            string[] arr = video.GetData();
+        //            List<int> numbers = new List<int>();
+        //            for (int j = 0; j < arr.Length; j++)
+        //            {
+        //                arr[j] = arr[j].Substring(1, arr[j].Length - 2);
+        //                if (isNumeric(arr[j]))
+        //                    numbers.Add(j);
+        //            }
+        //            foreach (string name in indexByName.Keys)
+        //            {
+        //                if (numbers.Contains(indexByName[name] + 1))
+        //                {
+        //                    if (settings_dict.ContainsKey(name))
+        //                        DAL.AddIntField(settings_dict[name]);
+        //                }
+        //            }
+        //        }
+        //        //}
+        //    }
+        //}
         private static string GetPath()
         {
             var current = Directory.GetCurrentDirectory();

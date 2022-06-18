@@ -7296,11 +7296,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Metric Manager\\Metric ManagerTests\\Metric ManagerTests.csproj",
+      "projectUniqueName": "C:\\Users\\Iftah\\Desktop\\Project\\Project\\Scraper Manager\\Metric Manager\\Metric ManagerTests\\Metric ManagerTests.csproj",
       "projectName": "Metric ManagerTests",
-      "projectPath": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Metric Manager\\Metric ManagerTests\\Metric ManagerTests.csproj",
+      "projectPath": "C:\\Users\\Iftah\\Desktop\\Project\\Project\\Scraper Manager\\Metric Manager\\Metric ManagerTests\\Metric ManagerTests.csproj",
       "packagesPath": "C:\\Users\\Iftah\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Metric Manager\\Metric ManagerTests\\obj\\",
+      "outputPath": "C:\\Users\\Iftah\\Desktop\\Project\\Project\\Scraper Manager\\Metric Manager\\Metric ManagerTests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -7320,8 +7320,8 @@
         "net5.0": {
           "targetAlias": ".NETCoreApp,Version=v5.0",
           "projectReferences": {
-            "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Metric Manager\\Metric Manager\\Metric Manager.csproj": {
-              "projectPath": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Metric Manager\\Metric Manager\\Metric Manager.csproj"
+            "C:\\Users\\Iftah\\Desktop\\Project\\Project\\Scraper Manager\\Metric Manager\\Metric Manager\\Metric Manager.csproj": {
+              "projectPath": "C:\\Users\\Iftah\\Desktop\\Project\\Project\\Scraper Manager\\Metric Manager\\Metric Manager\\Metric Manager.csproj"
             }
           }
         }
@@ -7379,13 +7379,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Metric Manager\\Metric ManagerTests\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

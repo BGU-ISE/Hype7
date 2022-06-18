@@ -13,8 +13,9 @@ namespace System_Manager
 
 
 
-        public TikTok_Scraper_Runner()
+        public TikTok_Scraper_Runner(string directory = "TikTok")
         {
+            this.directory = directory;
             args = "";
             file_name = "tiktokScraper";
             find_exe_path();

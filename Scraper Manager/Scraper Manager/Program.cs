@@ -10,6 +10,8 @@ namespace Scraper_Manager
     {
         public static void Main(string[] args)
         {
+         //   string foldre_path = args[0];
+            DAL.SetUpDB(args);
             DAL.OpenConnect();
             ScraperManager.run(args);
             DAL.CloseConnect();

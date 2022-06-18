@@ -4,17 +4,13 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>752fbd9d-83e4-409a-8f6e-f26fbb78459a</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>test_DB_connection.py</StartupFile>
+    <StartupFile>ModelManager.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>ModelManager</Name>
     <RootNamespace>ModelManager</RootNamespace>
-    <LaunchProvider>Standard Python launcher</LaunchProvider>
-    <CommandLineArguments>
-    </CommandLineArguments>
-    <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -38,18 +34,19 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ModelManager.py" />
-    <Compile Include="test_DB_connection.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="UnitTests.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="YouTubeFeaturizer.py" />
+    <Compile Include="YouTubeModel.py" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="DataBase.db" />
-    <Content Include="NumericColumnNames.txt" />
     <Content Include="tiktok_12_31_2021.csv" />
     <Content Include="tiktok_duplicate_1_7_2022.csv" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

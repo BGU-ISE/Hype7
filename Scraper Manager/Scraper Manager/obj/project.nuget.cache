@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "v4PHOjszqTYWzdWm8yqPXZ0nH98ufHBMpdqHApBbyi+4L58r3hSul+O9nAwE2bIq4MY6I3M1Ak4kkjbvimPKcg==",
+  "dgSpecHash": "ugwNgfyTYWT7OdkabdRF55DMnZCdLelGqyl98wiyuL14Dl0BJ0xyQccw/XHDkft19D4jn3S+JR/f7D1dM1v+QQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Scraper Manager\\Scraper Manager\\Scraper Manager.csproj",
+  "projectFilePath": "C:\\Users\\Iftah\\Desktop\\Project\\Project\\Scraper Manager\\Scraper Manager\\Scraper Manager\\Scraper Manager.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Iftah\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\Iftah\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

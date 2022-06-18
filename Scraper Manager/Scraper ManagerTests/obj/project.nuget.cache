@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HcUEKE+etJCaVKMq89U7qHEnit20aUDWC6gLHY1XrMiGP2ReyeOGb1Ct5TN5qrsyBZhkyRU3tIcyqs9abFFPcw==",
+  "dgSpecHash": "9t3+fhzYyR0+U2J4ldUTdpttcNsDZg8MXhcpxxHxX85V34I8/E4nz+/QxFf3i+twAfOO70+XjwH2Tv0omn8m8g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Scraper Manager\\Scraper ManagerTests\\Scraper ManagerTests.csproj",
+  "projectFilePath": "C:\\Users\\Iftah\\Desktop\\Project\\Project\\Scraper Manager\\Scraper Manager\\Scraper ManagerTests\\Scraper ManagerTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Iftah\\.nuget\\packages\\coverlet.collector\\3.0.2\\coverlet.collector.3.0.2.nupkg.sha512",
     "C:\\Users\\Iftah\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",

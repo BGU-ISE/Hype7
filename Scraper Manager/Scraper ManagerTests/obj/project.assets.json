@@ -7194,11 +7194,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Scraper Manager\\Scraper ManagerTests\\Scraper ManagerTests.csproj",
+      "projectUniqueName": "C:\\Users\\Iftah\\Desktop\\Project\\Project\\Scraper Manager\\Scraper Manager\\Scraper ManagerTests\\Scraper ManagerTests.csproj",
       "projectName": "Scraper ManagerTests",
-      "projectPath": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Scraper Manager\\Scraper ManagerTests\\Scraper ManagerTests.csproj",
+      "projectPath": "C:\\Users\\Iftah\\Desktop\\Project\\Project\\Scraper Manager\\Scraper Manager\\Scraper ManagerTests\\Scraper ManagerTests.csproj",
       "packagesPath": "C:\\Users\\Iftah\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Scraper Manager\\Scraper ManagerTests\\obj\\",
+      "outputPath": "C:\\Users\\Iftah\\Desktop\\Project\\Project\\Scraper Manager\\Scraper Manager\\Scraper ManagerTests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -7218,8 +7218,8 @@
         "net5.0": {
           "targetAlias": ".NETCoreApp,Version=v5.0",
           "projectReferences": {
-            "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Scraper Manager\\Scraper Manager\\Scraper Manager.csproj": {
-              "projectPath": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\Scraper Manager\\Scraper Manager\\Scraper Manager.csproj"
+            "C:\\Users\\Iftah\\Desktop\\Project\\Project\\Scraper Manager\\Scraper Manager\\Scraper Manager\\Scraper Manager.csproj": {
+              "projectPath": "C:\\Users\\Iftah\\Desktop\\Project\\Project\\Scraper Manager\\Scraper Manager\\Scraper Manager\\Scraper Manager.csproj"
             }
           }
         }
