@@ -16,7 +16,7 @@
     <PackageReference Include="LiveCharts.WinForms.NetCore3" Version="0.9.7" />
     <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="6.0.4" />
     <PackageReference Include="SimpleChart" Version="1.0.0" />
-    <PackageReference Include="System.Data.SQLite" Version="1.0.115.5" />
+    <PackageReference Include="System.Data.SQLite" Version="1.0.116" />
   </ItemGroup>
 
   <ItemGroup>

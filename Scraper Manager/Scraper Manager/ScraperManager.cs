@@ -43,17 +43,19 @@ namespace Scraper_Manager
         }
         public static void run(string[] args)
         {
-            List<string> history = load_history();
-            string[] dirs = Directory.GetFiles("../../../input_folder", "*.csv");
-            LastIndexTable = DAL.GetLastIndexTable(true);
+            string folder = args[0];
+            List<string> history = load_history(folder); 
+            string[] dirs = Directory.GetFiles(folder, "*.csv");
+
 
             foreach (string file in dirs)
             {
                 if (!history.Contains(Path.GetFileName(file)))
                 {
-                    string output_path = "../../../output_folder/" + Path.GetFileNameWithoutExtension(file) + "_formated.csv";
+                    LastIndexTable = DAL.GetLastIndexTable(true);
+                    string output_path = folder + "/logs/" + Path.GetFileNameWithoutExtension(file) + "_formated.csv";
                     Console.WriteLine("Reading file:" + Path.GetFileName(file));
-                    RecordsFile r = new RecordsFile(folder+"/settings.txt", file, output_path);
+                    RecordsFile r = new RecordsFile(folder + "/settings.txt", file, output_path);
                     r.loadFile();
                     string fileName = Path.GetFileName(output_path);
                     fieldNames = r.output_names;
@@ -65,7 +67,7 @@ namespace Scraper_Manager
                     r.saveRecords();
                     Console.WriteLine("Saving to file:" + Path.GetFileName(output_path));
                     add_to_history(Path.GetFileName(file), folder);
-                    Console.WriteLine("Done with file:" + Path.GetFileName(file) +" adding to history");
+                    Console.WriteLine("Done with file:" + Path.GetFileName(file) + " adding to history");
                     File.Delete(file);
                 }
             }
@@ -86,8 +88,8 @@ namespace Scraper_Manager
             }
             return date;
         }
-        
-        
-        
+
+
+
     }
 }

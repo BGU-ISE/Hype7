@@ -27,12 +27,17 @@ namespace Hype7
             path = Path.Combine(GetPath(), "Data");
             if (args.Length > 0)
             {
-                string ans = "..\\..\\..\\..\\..\\";
-                for (int i = 0; i < args.Length; i++)
+                string ans;//= "..\\..\\..\\..\\..\\";
+             /*   for (int i = 0; i < args.Length; i++)
                 {
                     ans += args[i] + " ";
                 }
                 ans = ans.Substring(0, ans.Length - 1);
+
+                */
+                //______________
+                ans = args[0];
+                //----------------
                 DAL.SetUpDB(ans);
                 //path = args[0];
                 //var arr = path.Split("\\");

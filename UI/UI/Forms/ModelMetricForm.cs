@@ -58,8 +58,19 @@ namespace UI.Forms
 
             if (OrderByComboBox.Text == "Model score") { orderBY = "model1score"; }
             else { orderBY = "denormalize_score"; }
-            this.ModelPredictions = DAL.GetModelPredictions(socialMediaDB, orderBY, Int32.Parse(limitTxtBox.Text));
-            dataGridView1.DataSource = this.ModelPredictions;
+            
+            if(Int32.TryParse(limitTxtBox.Text, out int res))
+            {
+                this.ModelPredictions = DAL.GetModelPredictions(socialMediaDB, orderBY, res);
+                dataGridView1.DataSource = this.ModelPredictions;
+                InputErrorLbl.Text = "";
+            }
+            else
+            {
+                InputErrorLbl.Text = "Error: Illegal insertion in limit";
+            }
+           
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

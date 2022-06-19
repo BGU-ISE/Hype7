@@ -268,7 +268,7 @@
           "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
         }
       },
-      "Stub.System.Data.SQLite.Core.NetStandard/1.0.115.5": {
+      "Stub.System.Data.SQLite.Core.NetStandard/1.0.116": {
         "type": "package",
         "compile": {
           "lib/netstandard2.1/System.Data.SQLite.dll": {}
@@ -359,20 +359,20 @@
           }
         }
       },
-      "System.Data.SQLite/1.0.115.5": {
+      "System.Data.SQLite/1.0.116": {
         "type": "package",
         "dependencies": {
-          "System.Data.SQLite.Core": "[1.0.115.5]",
-          "System.Data.SQLite.EF6": "[1.0.115.5]"
+          "System.Data.SQLite.Core": "[1.0.116]",
+          "System.Data.SQLite.EF6": "[1.0.116]"
         }
       },
-      "System.Data.SQLite.Core/1.0.115.5": {
+      "System.Data.SQLite.Core/1.0.116": {
         "type": "package",
         "dependencies": {
-          "Stub.System.Data.SQLite.Core.NetStandard": "[1.0.115.5]"
+          "Stub.System.Data.SQLite.Core.NetStandard": "[1.0.116]"
         }
       },
-      "System.Data.SQLite.EF6/1.0.115.5": {
+      "System.Data.SQLite.EF6/1.0.116": {
         "type": "package",
         "dependencies": {
           "EntityFramework": "6.4.4"
@@ -1004,10 +1004,10 @@
         "sqlitepclraw.core.nuspec"
       ]
     },
-    "Stub.System.Data.SQLite.Core.NetStandard/1.0.115.5": {
-      "sha512": "WfrqQg6WL+r4H1sVKTenNj6ERLXUukUxqcjH1rqPqXadeIWccTVpydESieD7cZ/NWQVSKLYIHuoBX5du+BFhIQ==",
+    "Stub.System.Data.SQLite.Core.NetStandard/1.0.116": {
+      "sha512": "VEe/vzvn2ECKovtyb+nf8fsnNQ4EYOUms7gnp9729NN7FSR/0v/uVoBDO7DETzV7YCquRVwRnSnYuoOwAoTEKA==",
       "type": "package",
-      "path": "stub.system.data.sqlite.core.netstandard/1.0.115.5",
+      "path": "stub.system.data.sqlite.core.netstandard/1.0.116",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1021,7 +1021,7 @@
         "runtimes/osx-x64/native/SQLite.Interop.dll",
         "runtimes/win-x64/native/SQLite.Interop.dll",
         "runtimes/win-x86/native/SQLite.Interop.dll",
-        "stub.system.data.sqlite.core.netstandard.1.0.115.5.nupkg.sha512",
+        "stub.system.data.sqlite.core.netstandard.1.0.116.nupkg.sha512",
         "stub.system.data.sqlite.core.netstandard.nuspec"
       ]
     },
@@ -1265,32 +1265,32 @@
         "version.txt"
       ]
     },
-    "System.Data.SQLite/1.0.115.5": {
-      "sha512": "zo5xzYAVkmREKM4ImeiEatwa9D6Bc1KvnmX+VFysJ4sf89yZVdz4uf7A351hZhqBbHsX4ZeULmYocokOPCOcKw==",
+    "System.Data.SQLite/1.0.116": {
+      "sha512": "ykbwLhE8ejsQKMGb1xUCVsbMboNG1BWEr88fdxCW6t3yoIFqGpYpkSpskXw7IACveAFf7FDNuYRSqNIqBlZFMg==",
       "type": "package",
-      "path": "system.data.sqlite/1.0.115.5",
+      "path": "system.data.sqlite/1.0.116",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "system.data.sqlite.1.0.115.5.nupkg.sha512",
+        "system.data.sqlite.1.0.116.nupkg.sha512",
         "system.data.sqlite.nuspec"
       ]
     },
-    "System.Data.SQLite.Core/1.0.115.5": {
-      "sha512": "vADIqqgpxaC5xR6qOV8/KMZkQeSDCfmmWpVOtQx0oEr3Yjq2XdTxX7+jfE4+oO2xPovAbYiz6Q5cLRbSsDkq6Q==",
+    "System.Data.SQLite.Core/1.0.116": {
+      "sha512": "djwmo97syWCpUPJbDS0e2qUFUa8cDLeIfMotVkaRkAC5gpfBSZLMzvoLkLp1prY8waAuH1jEC3wcB2ymVVQWtA==",
       "type": "package",
-      "path": "system.data.sqlite.core/1.0.115.5",
+      "path": "system.data.sqlite.core/1.0.116",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "system.data.sqlite.core.1.0.115.5.nupkg.sha512",
+        "system.data.sqlite.core.1.0.116.nupkg.sha512",
         "system.data.sqlite.core.nuspec"
       ]
     },
-    "System.Data.SQLite.EF6/1.0.115.5": {
-      "sha512": "wzPtZ9kTol1nCBI2sktI8UggEfiZUv4HDHEQx1ci8jcD5cDEIKNtABwThUFckoliTLuehej4lFd3+ToUHRCHjg==",
+    "System.Data.SQLite.EF6/1.0.116": {
+      "sha512": "oWkl3W9ZKb4oiS4mFd363qK317t/l5KyM3dmj7BD+eW7Qji8Oid5L4Tn+OshQrgY7xNpG4Ga9NUZVXyF91qXAA==",
       "type": "package",
-      "path": "system.data.sqlite.ef6/1.0.115.5",
+      "path": "system.data.sqlite.ef6/1.0.116",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -1316,7 +1316,7 @@
         "lib/net451/System.Data.SQLite.EF6.dll",
         "lib/net46/System.Data.SQLite.EF6.dll",
         "lib/netstandard2.1/System.Data.SQLite.EF6.dll",
-        "system.data.sqlite.ef6.1.0.115.5.nupkg.sha512",
+        "system.data.sqlite.ef6.1.0.116.nupkg.sha512",
         "system.data.sqlite.ef6.nuspec",
         "tools/net40/install.ps1",
         "tools/net45/install.ps1",
@@ -1589,34 +1589,28 @@
       "LiveCharts.WinForms.NetCore3 >= 0.9.7",
       "Microsoft.Data.Sqlite.Core >= 6.0.4",
       "SimpleChart >= 1.0.0",
-      "System.Data.SQLite >= 1.0.115.5"
+      "System.Data.SQLite >= 1.0.116"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Almogi\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Users\\Iftah\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Almogi\\Desktop\\githubtry\\Project\\Hype7\\UI\\UI\\UI.csproj",
+      "projectUniqueName": "C:\\Users\\Iftah\\Desktop\\Project\\Project\\Scraper Manager\\UI\\UI\\UI.csproj",
       "projectName": "UI",
-      "projectPath": "C:\\Users\\Almogi\\Desktop\\githubtry\\Project\\Hype7\\UI\\UI\\UI.csproj",
-      "packagesPath": "C:\\Users\\Almogi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Almogi\\Desktop\\githubtry\\Project\\Hype7\\UI\\UI\\obj\\",
+      "projectPath": "C:\\Users\\Iftah\\Desktop\\Project\\Project\\Scraper Manager\\UI\\UI\\UI.csproj",
+      "packagesPath": "C:\\Users\\Iftah\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Iftah\\Desktop\\Project\\Project\\Scraper Manager\\UI\\UI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Almogi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\Iftah\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -1679,7 +1673,7 @@
           },
           "System.Data.SQLite": {
             "target": "Package",
-            "version": "[1.0.115.5, )"
+            "version": "[1.0.116, )"
           }
         },
         "imports": [

@@ -18,7 +18,7 @@ namespace UI
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MenuBtn());
+            Application.Run(new Hype7());
         }
     }
 }

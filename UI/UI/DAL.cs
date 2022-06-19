@@ -8,6 +8,8 @@ using static UI.NumericMetricForm;
 using static UI.Forms.ModelMetricForm;
 using System.IO;
 using static UI.Forms.TopHashtagsMetricForm;
+using static UI.Forms.VideosDataForm;
+
 
 namespace UI
 {
@@ -24,6 +26,7 @@ namespace UI
         static public string checke;
         public static string IDName = "video_id";
         public static SQLiteConnection connection = null;
+        static private List<Metric> realMetrics = new List<Metric>();
 
         public static Dictionary<string, List<MetricData>> Metrics = new Dictionary<string, List<MetricData>>();
         public static void OpenConnect()
@@ -56,8 +59,8 @@ namespace UI
                 connection.Close();
         }
 
-        public static HashSet<string> GetURLToHashtag(string hashtagData)
-        {   
+        public static List<VideoData> GetURLToHashtag(string hashtagData)
+        {   var list = new List<VideoData>();   
             var set = new HashSet<string>();
             try
             {
@@ -66,13 +69,14 @@ namespace UI
                 SQLiteCommand command = new SQLiteCommand(null, DAL.connection);
                 for (int i = 1; i < 7; i++)
                 {
-                    command = new SQLiteCommand("SELECT " + IDName + " From VideosInfoDay" + i + " WHERE tags LIKE '%" + hashtagData + "%'", DAL.connection);
+                    command = new SQLiteCommand("SELECT " + IDName +", title, channelName" + " From VideosInfoDay" + i + " WHERE tags LIKE '%" + hashtagData + "%'", DAL.connection);
                     checke = command.CommandText;
                     command.Prepare();
                     var reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        set.Add("https://www.youtube.com/watch?v=" + reader[IDName].ToString());
+                        VideoData item = new VideoData(reader["title"].ToString(), "https://www.youtube.com/watch?v=" + reader[IDName].ToString(), reader["channelName"].ToString());
+                        list.Add(item);
                     }
                     command.Dispose();
                 }
@@ -81,7 +85,7 @@ namespace UI
             {
                 DAL.CloseConnect();
             }
-            return set;
+            return list;
         }
 
         public static List<HashtagData> GetHashtags(string orderBy, int limit)
@@ -174,6 +178,7 @@ namespace UI
             return ans;
         }
 
+        
         
         public static string GetChannelName(MetricData metricData)
         {
@@ -330,5 +335,126 @@ namespace UI
             return ans;
         }
 
+        // metrics
+        public static List<string> GetMetricsName()
+        {
+            if (realMetrics.Count == 0)
+                LoadMetrics();
+            List<string> ans = new List<string>();
+            foreach (Metric element in realMetrics)
+            {
+                ans.Add(element.GetName());
+            }
+            return ans;
+        }
+        public static List<string> GetMetricsFormula()
+        {
+            if (realMetrics.Count == 0)
+                LoadMetrics();
+            List<string> ans = new List<string>();
+            foreach (Metric element in realMetrics)
+            {
+                ans.Add(element.GetMetric());
+            }
+            return ans;
+        }
+        public static void AddMetric(string MetricName, string MetricFormula)
+        {
+            if(realMetrics.Count == 0)
+                LoadMetrics();
+
+            Metric temp = GetMetric(MetricFormula);
+            if (temp == null)
+                realMetrics.Add(new Metric(MetricFormula, MetricName));
+            else
+            {
+                Console.WriteLine("this metric exist");
+                if (temp.GetName().Equals("empty"))
+                {
+                    RemoveMetric(temp);
+                    realMetrics.Add(new Metric(MetricFormula, MetricName));
+                    Console.WriteLine("update metrics name");
+                }
+            }
+
+            SaveMetrics();
+
+        }
+        private static Metric GetMetric(string metric)
+        {
+            if (realMetrics.Count == 0)
+                LoadMetrics();
+            foreach (Metric element in realMetrics)
+            {
+                if (element.GetMetric().Equals(metric))
+                    return element;
+            }
+            return null;
+        }
+        public static void RemoveMetric(string MetricFormula)
+        {
+            if (realMetrics.Count == 0)
+                LoadMetrics();
+            RemoveMetric(GetMetric(MetricFormula));
+        }
+        private static void RemoveMetric(Metric metric)
+        {
+            if (realMetrics.Count == 0)
+                LoadMetrics();
+            realMetrics.Remove(metric);
+            SaveMetrics();
+            //LoadMetrics();
+        }
+        private static void LoadMetrics()
+        {
+            string text = System.IO.File.ReadAllText("..\\..\\..\\..\\..\\Metric Manager\\Metric Manager\\Data\\metricToRun.txt");
+
+            string[] arr = text.Split(";;");
+            for (int i = 0; i < arr.Length; i++)
+            {
+                string[] MetricInfo = arr[i].Split(";");
+                realMetrics.Add(new Metric(MetricInfo[0], MetricInfo[1]));
+            }
+        }
+        public static void SaveMetrics()
+        {
+            File.WriteAllText("..\\..\\..\\..\\..\\Metric Manager\\Metric Manager\\Data\\metricToRun.txt", String.Empty);
+            string ans = "";
+            foreach (Metric metric in realMetrics)
+            {
+                ans += metric.GetMetric() + ";" + metric.GetName() + ";;";
+            }
+            if (ans.Length > 0)
+                ans = ans.Substring(0, ans.Length - 2);
+            using (var w = File.AppendText("..\\..\\..\\..\\..\\Metric Manager\\Metric Manager\\Data\\metricToRun.txt"))
+            {
+                w.WriteLine(ans);
+                w.Flush();
+            }
+            realMetrics = new List<Metric>();
+            LoadMetrics();
+        }
+        class Metric
+        {
+            private string name;
+            private string input;
+            private string[] fieldsNameForMetric;
+
+            public Metric(string input)
+            {
+                this.name = "empty";
+                this.input = input; //CalcMetricSum(input);
+                fieldsNameForMetric = Regex.Split(input, @"[(|)|+|/|\-|*|^|\.]");
+            }
+            public Metric(string input, string name)
+            {
+                this.name = name;
+                this.input = input; //CalcMetricSum(input);
+                fieldsNameForMetric = Regex.Split(input, @"[(|)|+|/|\-|*|^|\.]");
+            }
+            public string GetMetric() { return input; }
+            public string[] GetFields() { return fieldsNameForMetric; }
+            public string GetName() { return name; }
+        }
     }
 }

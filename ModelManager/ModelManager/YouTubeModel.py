@@ -48,7 +48,7 @@ class Model(IModel):
     model2.load_model("model.txt")
     data_without_id = data.drop(labels='video_id', axis=1)
     result = model2.predict(data_without_id)
-    compare = pd.DataFrame({'id': data['video_id'].tolist(), 'Prediction' : result})
+    compare = pd.DataFrame({'video_id': data['video_id'].tolist(), 'model1score' : result})
     return result, compare
 
 

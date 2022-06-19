@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Zcn/2aYMltt5eGD7sG+r1EbyBKAezwpJlBRrcP+U9vCE9MKWESrIPWzbApg2FzeOE+6/376nLlBma4izCYPFAQ==",
+  "dgSpecHash": "6BU+FCjViU9sa+DNqOxzb/iI930Ip9J+QDHZlXN3kEaa4d4Hqs4eHFsGJDeSMzQm68xEIIVHkO3x1hudu6wULQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Iftah\\Desktop\\אוניברסיטה\\שנה ד\\Project\\Scraper Manager\\System Manager\\System Manager\\System ManagerTests\\System ManagerTests.csproj",
+  "projectFilePath": "C:\\Users\\Iftah\\Desktop\\Project\\Project\\Scraper Manager\\System Manager\\System Manager\\System ManagerTests\\System ManagerTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Iftah\\.nuget\\packages\\coverlet.collector\\3.0.2\\coverlet.collector.3.0.2.nupkg.sha512",
     "C:\\Users\\Iftah\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
