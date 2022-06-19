@@ -35,7 +35,7 @@ namespace System_Manager.Tests
         [TestMethod()]
         public void scrapeYTStabilityTest()
         {
-            string directory = "scrapeYTStabilityTest";
+            string directory = output_folder + "/scrapeYTStabilityTest";
             try
             {
                 proxy.scraper(directory);
@@ -52,11 +52,19 @@ namespace System_Manager.Tests
         [TestMethod()]
         public void metricStabilityTest()
         {
-            string good_dir = "metricStabilityTestGood";
-            string bad_dir = "metricStabilityTestBad";
+
+
+
+            
+            string good_dir = output_folder + "/metricStabilityTestGood";
+            string bad_dir = output_folder + "/metricStabilityTestBad";
 
             DateTime old_change_good = File.GetLastWriteTime(good_dir + "/DataBase.db");
             DateTime old_change_bad = File.GetLastWriteTime(bad_dir + "/DataBase.db");
+
+            File.Copy(good_dir + "/DataBase.db", bad_dir + "/DataBase.db");
+            
+            Assert.Fail();
             try
             {
                 proxy.scraper(good_dir);
@@ -76,8 +84,8 @@ namespace System_Manager.Tests
         [TestMethod()]
         public void modelStabilityTest()
         {
-            string good_dir = "modelStabilityTestGood";
-            string bad_dir = "modelStabilityTestBad";
+            string good_dir = output_folder +"/modelStabilityTestGood";
+            string bad_dir = output_folder + "/modelStabilityTestBad";
 
             DateTime old_change_good = File.GetLastWriteTime(good_dir + "/DataBase.db");
             DateTime old_change_bad = File.GetLastWriteTime(bad_dir + "/DataBase.db");
@@ -99,10 +107,10 @@ namespace System_Manager.Tests
         [TestMethod()]
         public void scraperManagerStabilityTest()
         {
-            string good_dir = "scraperManagerStabilityTestGood";
-            string bad_dir = "scraperManagerStabilityTestBad";
+            string good_dir = output_folder + "/scraperManagerStabilityTestGood";
+            string bad_dir = output_folder + "/scraperManagerStabilityTestBad";
 
-            DateTime old_change_good = File.GetLastWriteTime(good_dir + "/DataBase.db");
+            DateTime old_change_good = File.GetLastWriteTime(good_dir +"/DataBase.db");
             DateTime old_change_bad = File.GetLastWriteTime(bad_dir + "/DataBase.db");
             try
             {
@@ -123,8 +131,8 @@ namespace System_Manager.Tests
         [TestMethod()]
         public void GUIStabilityTest()
         {
-            string good_dir = "GUIStabilityTestGood";
-            string bad_dir = "GUIStabilityTestBad";
+            string good_dir = output_folder + "/GUIStabilityTestGood";
+            string bad_dir = output_folder + "/GUIStabilityTestBad";
             Process proc = new Process();
             try
             {
@@ -153,10 +161,9 @@ namespace System_Manager.Tests
         [TestMethod()]
         public void dbConnectionTest()
         {
-            int db_num = 1;
             string output_path = output_folder + "/UnitTest";
             Directory.CreateDirectory(output_path);
-            string db_path = output_path + "/Database"+db_num+".db";
+            string db_path = output_path + "/Database.db";
             Assert.IsTrue(File.Exists(db_path));
             DBConnector connector = new DBConnector();
             connector.OpenConnect(db_path);
@@ -170,10 +177,9 @@ namespace System_Manager.Tests
         [TestMethod()]
         public void dbRetrivalTest()
         {
-            int db_num = 1;
             string output_path = output_folder + "/UnitTest";
             Directory.CreateDirectory(output_path);
-            string db_path = output_path + "/Database" + db_num + ".db";
+            string db_path = output_path + "/Database.db";
             DBConnector connector = new DBConnector();
             connector.OpenConnect(db_path);
             IEnumerable<object[]>[] vids_before = connector.getAll();
