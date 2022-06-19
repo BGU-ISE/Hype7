@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace System_Manager
 {
-    class Youtube_Scraper_Runner : Runner
+   public class Youtube_Scraper_Runner : Runner
     {
 
 

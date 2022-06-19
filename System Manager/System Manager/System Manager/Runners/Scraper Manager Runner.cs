@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace System_Manager
 {
-    class Scraper_Manager_Runner : Runner
+   public class Scraper_Manager_Runner : Runner
     {
 
         public Scraper_Manager_Runner(string directory)

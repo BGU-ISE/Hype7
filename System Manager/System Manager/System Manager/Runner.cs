@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace System_Manager
 {
-    abstract class Runner
+    public abstract class Runner
     {
         protected string executable_path;
         protected string args;
@@ -16,6 +16,11 @@ namespace System_Manager
         protected string fullDir { get { return (new DirectoryInfo(Constants.Data_folder+"/"+ this.directory)).FullName; } private set { } }
 
         public abstract bool run();
+
+        public virtual void kill()
+        {
+            throw new Exception("tried killing an innocent runner");
+        }
 
         protected void find_exe_path()
         {

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace System_Manager
 {
-    class TikTok_Scraper_Runner : Runner
+   public class TikTok_Scraper_Runner : Runner
     {
 
 

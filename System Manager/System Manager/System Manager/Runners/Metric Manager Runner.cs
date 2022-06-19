@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace System_Manager
 {
-    class Metric_Manager_Runner : Runner
+   public class Metric_Manager_Runner : Runner
     {
 
         public Metric_Manager_Runner(string directory)

@@ -35,7 +35,7 @@ namespace System_Manager
 
                     ThreadPool.QueueUserWorkItem((Object stateInfo) => 
                     {
-                       // runner.run();
+                        runner.run();
                         (new Scraper_Manager_Runner(runner.directory)).run();
                         (new Metric_Manager_Runner(runner.directory)).run();
                         (new Model_Manager_Runner(runner.directory)).run();
@@ -46,7 +46,7 @@ namespace System_Manager
                 countdownEvent.Wait();
                 guiRunner.run();
             }
-            Console.WriteLine("finished all scrapers");
+            Console.WriteLine("finished everything for the day!");
             
         }
 
