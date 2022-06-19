@@ -1,7 +1,8 @@
 {
   "profiles": {
     "Scraper Manager": {
-      "commandName": "Project"
+      "commandName": "Project",
+      "commandLineArgs": "\"C:\\Users\\Iftah\\Desktop\\Project\\Project\\Scraper Manager\\System Manager\\System Manager\\System Manager\\Data\\youtube\""
     }
   }
 }

@@ -38,6 +38,7 @@ namespace UI.Forms
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.InputErrorLbl = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -45,38 +46,50 @@ namespace UI.Forms
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.panel1.Controls.Add(this.InputErrorLbl);
             this.panel1.Controls.Add(this.LoadGraphBtn);
             this.panel1.Controls.Add(this.SubmitBtn);
             this.panel1.Controls.Add(this.OrderByComboBox);
             this.panel1.Controls.Add(this.limitTxtBox);
             this.panel1.Controls.Add(this.OrderLbl);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1000, 232);
+            this.panel1.Size = new System.Drawing.Size(1000, 562);
             this.panel1.TabIndex = 0;
             // 
             // LoadGraphBtn
             // 
-            this.LoadGraphBtn.Location = new System.Drawing.Point(567, 177);
+            this.LoadGraphBtn.AutoSize = true;
+            this.LoadGraphBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(54)))));
+            this.LoadGraphBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.LoadGraphBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LoadGraphBtn.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.LoadGraphBtn.Location = new System.Drawing.Point(559, 190);
             this.LoadGraphBtn.Name = "LoadGraphBtn";
-            this.LoadGraphBtn.Size = new System.Drawing.Size(112, 34);
+            this.LoadGraphBtn.Size = new System.Drawing.Size(120, 35);
             this.LoadGraphBtn.TabIndex = 5;
             this.LoadGraphBtn.Text = "Load Graph";
-            this.LoadGraphBtn.UseVisualStyleBackColor = true;
+            this.LoadGraphBtn.UseVisualStyleBackColor = false;
             this.LoadGraphBtn.Click += new System.EventHandler(this.LoadGraphBtn_Click);
             // 
             // SubmitBtn
             // 
-            this.SubmitBtn.Location = new System.Drawing.Point(316, 175);
+            this.SubmitBtn.AutoSize = true;
+            this.SubmitBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(54)))));
+            this.SubmitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.SubmitBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.SubmitBtn.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.SubmitBtn.Location = new System.Drawing.Point(316, 189);
             this.SubmitBtn.Margin = new System.Windows.Forms.Padding(4);
             this.SubmitBtn.Name = "SubmitBtn";
             this.SubmitBtn.Size = new System.Drawing.Size(144, 36);
             this.SubmitBtn.TabIndex = 4;
             this.SubmitBtn.Text = "Submit";
-            this.SubmitBtn.UseVisualStyleBackColor = true;
+            this.SubmitBtn.UseVisualStyleBackColor = false;
             this.SubmitBtn.Click += new System.EventHandler(this.submitBtn_Click);
             // 
             // OrderByComboBox
@@ -100,6 +113,7 @@ namespace UI.Forms
             // OrderLbl
             // 
             this.OrderLbl.AutoSize = true;
+            this.OrderLbl.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.OrderLbl.Location = new System.Drawing.Point(597, 97);
             this.OrderLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.OrderLbl.Name = "OrderLbl";
@@ -111,6 +125,7 @@ namespace UI.Forms
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.label1.Location = new System.Drawing.Point(111, 96);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
@@ -143,6 +158,15 @@ namespace UI.Forms
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // InputErrorLbl
+            // 
+            this.InputErrorLbl.AutoSize = true;
+            this.InputErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.InputErrorLbl.Location = new System.Drawing.Point(414, 146);
+            this.InputErrorLbl.Name = "InputErrorLbl";
+            this.InputErrorLbl.Size = new System.Drawing.Size(0, 25);
+            this.InputErrorLbl.TabIndex = 6;
+            // 
             // TopHashtagsMetricForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
@@ -173,5 +197,6 @@ namespace UI.Forms
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button LoadGraphBtn;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label InputErrorLbl;
     }
 }

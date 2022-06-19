@@ -36,7 +36,7 @@ class DBConnection():
         for row in rows:
             print(row)
     
-    def write_predictions_to_DB_without_train(self,table_name,predictions):
+    def write_predictions_to_DB_without_train(self, table_name, predictions):
         predictions.to_sql(name=table_name, con=self.connection, if_exists='replace', index=False)
         self.connection.close()
 

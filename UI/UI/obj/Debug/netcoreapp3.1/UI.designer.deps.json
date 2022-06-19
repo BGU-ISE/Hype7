@@ -244,11 +244,11 @@
           }
         }
       },
-      "Stub.System.Data.SQLite.Core.NetStandard/1.0.115.5": {
+      "Stub.System.Data.SQLite.Core.NetStandard/1.0.116": {
         "runtime": {
           "lib/netstandard2.1/System.Data.SQLite.dll": {
-            "assemblyVersion": "1.0.115.5",
-            "fileVersion": "1.0.115.5"
+            "assemblyVersion": "1.0.116.0",
+            "fileVersion": "1.0.116.0"
           }
         },
         "runtimeTargets": {
@@ -265,12 +265,12 @@
           "runtimes/win-x64/native/SQLite.Interop.dll": {
             "rid": "win-x64",
             "assetType": "native",
-            "fileVersion": "1.0.115.5"
+            "fileVersion": "1.0.116.0"
           },
           "runtimes/win-x86/native/SQLite.Interop.dll": {
             "rid": "win-x86",
             "assetType": "native",
-            "fileVersion": "1.0.115.5"
+            "fileVersion": "1.0.116.0"
           }
         }
       },
@@ -337,25 +337,25 @@
           }
         }
       },
-      "System.Data.SQLite/1.0.115.5": {
+      "System.Data.SQLite/1.0.116": {
         "dependencies": {
-          "System.Data.SQLite.Core": "1.0.115.5",
-          "System.Data.SQLite.EF6": "1.0.115.5"
+          "System.Data.SQLite.Core": "1.0.116",
+          "System.Data.SQLite.EF6": "1.0.116"
         }
       },
-      "System.Data.SQLite.Core/1.0.115.5": {
+      "System.Data.SQLite.Core/1.0.116": {
         "dependencies": {
-          "Stub.System.Data.SQLite.Core.NetStandard": "1.0.115.5"
+          "Stub.System.Data.SQLite.Core.NetStandard": "1.0.116"
         }
       },
-      "System.Data.SQLite.EF6/1.0.115.5": {
+      "System.Data.SQLite.EF6/1.0.116": {
         "dependencies": {
           "EntityFramework": "6.4.4"
         },
         "runtime": {
           "lib/netstandard2.1/System.Data.SQLite.EF6.dll": {
-            "assemblyVersion": "1.0.115.5",
-            "fileVersion": "1.0.115.5"
+            "assemblyVersion": "1.0.116.0",
+            "fileVersion": "1.0.116.0"
           }
         }
       },
@@ -632,12 +632,12 @@
       "path": "sqlitepclraw.core/2.0.6",
       "hashPath": "sqlitepclraw.core.2.0.6.nupkg.sha512"
     },
-    "Stub.System.Data.SQLite.Core.NetStandard/1.0.115.5": {
+    "Stub.System.Data.SQLite.Core.NetStandard/1.0.116": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-WfrqQg6WL+r4H1sVKTenNj6ERLXUukUxqcjH1rqPqXadeIWccTVpydESieD7cZ/NWQVSKLYIHuoBX5du+BFhIQ==",
-      "path": "stub.system.data.sqlite.core.netstandard/1.0.115.5",
-      "hashPath": "stub.system.data.sqlite.core.netstandard.1.0.115.5.nupkg.sha512"
+      "sha512": "sha512-VEe/vzvn2ECKovtyb+nf8fsnNQ4EYOUms7gnp9729NN7FSR/0v/uVoBDO7DETzV7YCquRVwRnSnYuoOwAoTEKA==",
+      "path": "stub.system.data.sqlite.core.netstandard/1.0.116",
+      "hashPath": "stub.system.data.sqlite.core.netstandard.1.0.116.nupkg.sha512"
     },
     "System.CodeDom/4.7.0": {
       "type": "package",
@@ -674,26 +674,26 @@
       "path": "system.data.sqlclient/4.8.1",
       "hashPath": "system.data.sqlclient.4.8.1.nupkg.sha512"
     },
-    "System.Data.SQLite/1.0.115.5": {
+    "System.Data.SQLite/1.0.116": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-zo5xzYAVkmREKM4ImeiEatwa9D6Bc1KvnmX+VFysJ4sf89yZVdz4uf7A351hZhqBbHsX4ZeULmYocokOPCOcKw==",
-      "path": "system.data.sqlite/1.0.115.5",
-      "hashPath": "system.data.sqlite.1.0.115.5.nupkg.sha512"
+      "sha512": "sha512-ykbwLhE8ejsQKMGb1xUCVsbMboNG1BWEr88fdxCW6t3yoIFqGpYpkSpskXw7IACveAFf7FDNuYRSqNIqBlZFMg==",
+      "path": "system.data.sqlite/1.0.116",
+      "hashPath": "system.data.sqlite.1.0.116.nupkg.sha512"
     },
-    "System.Data.SQLite.Core/1.0.115.5": {
+    "System.Data.SQLite.Core/1.0.116": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-vADIqqgpxaC5xR6qOV8/KMZkQeSDCfmmWpVOtQx0oEr3Yjq2XdTxX7+jfE4+oO2xPovAbYiz6Q5cLRbSsDkq6Q==",
-      "path": "system.data.sqlite.core/1.0.115.5",
-      "hashPath": "system.data.sqlite.core.1.0.115.5.nupkg.sha512"
+      "sha512": "sha512-djwmo97syWCpUPJbDS0e2qUFUa8cDLeIfMotVkaRkAC5gpfBSZLMzvoLkLp1prY8waAuH1jEC3wcB2ymVVQWtA==",
+      "path": "system.data.sqlite.core/1.0.116",
+      "hashPath": "system.data.sqlite.core.1.0.116.nupkg.sha512"
     },
-    "System.Data.SQLite.EF6/1.0.115.5": {
+    "System.Data.SQLite.EF6/1.0.116": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-wzPtZ9kTol1nCBI2sktI8UggEfiZUv4HDHEQx1ci8jcD5cDEIKNtABwThUFckoliTLuehej4lFd3+ToUHRCHjg==",
-      "path": "system.data.sqlite.ef6/1.0.115.5",
-      "hashPath": "system.data.sqlite.ef6.1.0.115.5.nupkg.sha512"
+      "sha512": "sha512-oWkl3W9ZKb4oiS4mFd363qK317t/l5KyM3dmj7BD+eW7Qji8Oid5L4Tn+OshQrgY7xNpG4Ga9NUZVXyF91qXAA==",
+      "path": "system.data.sqlite.ef6/1.0.116",
+      "hashPath": "system.data.sqlite.ef6.1.0.116.nupkg.sha512"
     },
     "System.Drawing.Common/4.7.0": {
       "type": "package",

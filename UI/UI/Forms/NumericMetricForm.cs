@@ -52,7 +52,7 @@ namespace UI
         }
         public NumericMetricForm()
         {
-            var t = DAL.GetFilterNames();
+            
             InitializeComponent();
             this.metricData = DAL.GetMetrics("viewcount","averageScore", 10);
             dataGridView1.DataSource = this.metricData;
@@ -109,7 +109,7 @@ namespace UI
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            MetricComboBox.DataSource = DAL.GetMetricsNames();
+            MetricComboBox.DataSource = DAL.GetMetricsFormula();
             MetricComboBox.SelectedItem = null;
             MetricComboBox.SelectedText = "--Select--";
 
@@ -131,8 +131,16 @@ namespace UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.metricData = DAL.GetMetrics(MetricComboBox.Text, OrderByComboBox.Text, Int32.Parse(LimitTextBox.Text));
-            dataGridView1.DataSource = this.metricData;
+            if (Int32.TryParse(LimitTextBox.Text, out int res))
+            {
+                this.metricData = DAL.GetMetrics(MetricComboBox.Text, OrderByComboBox.Text, res);
+                dataGridView1.DataSource = this.metricData;
+                InputErrorLbl.Text = "";
+            }
+            else
+            {
+                InputErrorLbl.Text = "Error: Illegal insertion in limit";
+            }
         }
 
         private void LoadGraph_Click_1(object sender, EventArgs e)
@@ -141,6 +149,9 @@ namespace UI
             form.Show();
         }
 
-        
+        private void MetricComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

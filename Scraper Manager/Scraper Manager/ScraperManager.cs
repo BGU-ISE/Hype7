@@ -44,14 +44,15 @@ namespace Scraper_Manager
         public static void run(string[] args)
         {
             string folder = args[0];
-            List<string> history = load_history(folder);
+            List<string> history = load_history(folder); 
             string[] dirs = Directory.GetFiles(folder, "*.csv");
-            LastIndexTable = DAL.GetLastIndexTable(true);
+
 
             foreach (string file in dirs)
             {
                 if (!history.Contains(Path.GetFileName(file)))
                 {
+                    LastIndexTable = DAL.GetLastIndexTable(true);
                     string output_path = folder + "/logs/" + Path.GetFileNameWithoutExtension(file) + "_formated.csv";
                     Console.WriteLine("Reading file:" + Path.GetFileName(file));
                     RecordsFile r = new RecordsFile(folder + "/settings.txt", file, output_path);

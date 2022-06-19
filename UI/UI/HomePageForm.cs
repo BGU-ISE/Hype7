@@ -9,16 +9,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using System.Runtime.InteropServices;
+using UI.Forms;
 
 namespace UI
 {
-    public partial class MenuBtn : Form
+    public partial class Hype7 : Form
     {
         //Fields
         private Button currentButton;
         private Form activeForm;
 
-        public MenuBtn()
+        public Hype7()
         {
             InitializeComponent();
           
@@ -90,6 +91,7 @@ namespace UI
             pnlNav.Top = btnSettings.Top;
             pnlNav.Left = btnSettings.Left;
             btnSettings.BackColor = Color.FromArgb(46, 51, 73);
+            OpenChildForm(new SettingsForm(), sender);
         }
 
         private void btnHomepage_Leave(object sender, EventArgs e)
