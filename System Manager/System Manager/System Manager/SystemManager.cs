@@ -17,12 +17,12 @@ namespace System_Manager
 
         static void real_main()
         {
-            (new Youtube_Scraper_Runner()).run();
+            (new Model_Manager_Runner("youtube")).run();
         }
         static void Main(string[] args)
         {
-            real_main();
-            return;
+            //real_main();
+            //return;
            // scrapers_runners.Add(new TikTok_Scraper_Runner());
             scrapers_runners.Add(new Youtube_Scraper_Runner());
 
@@ -35,7 +35,7 @@ namespace System_Manager
 
                     ThreadPool.QueueUserWorkItem((Object stateInfo) => 
                     {
-                        runner.run();
+                       // runner.run();
                         (new Scraper_Manager_Runner(runner.directory)).run();
                         (new Metric_Manager_Runner(runner.directory)).run();
                         (new Model_Manager_Runner(runner.directory)).run();
