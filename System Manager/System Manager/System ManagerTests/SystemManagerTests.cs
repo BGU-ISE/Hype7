@@ -20,37 +20,42 @@ namespace System_Manager.Tests
         public string metricManger = null;
         public string modelManager = null;
 
-        public string output_folder = @"C:\Users\Iftah\Desktop\אוניברסיטה\שנה ד\Project\Scraper Manager\System Manager\System Manager\System ManagerTests\output";
-        public iProxy proxy { get; set; }
-        /*
-        [TestMethod()]
-        public void dbConnectionTest()
+        public string output_folder = @"../../../Data";
+        public static iProxy proxy { get; set; }
+
+        [ClassInitialize()]
+        public static void classInit(TestContext context)
         {
-            string output_path = output_folder + "/dbConnectionTest" + test_num;
-            Directory.CreateDirectory(output_path);
-            string db_path = output_path + "/Database.db";
-            Assert.IsTrue(File.Exists(db_path));
-            DBConnector connector = new DBConnector();
-            connector.OpenConnect(db_path);
-            Assert.IsTrue(connector.connection.
+            proxy = new Proxy(new RealProxy());
         }
-        */
 
 
-        [TestMethod()]
+
+            [TestMethod()]
         public void scrapeToDBTest1()
         {
-            int test_num = 1;
-            string output_path = output_folder + "/scrapeToDB" + test_num;
-            Directory.CreateDirectory(output_path);
-            string db_path = output_path + "/Database.db";
 
+            string output_path = output_folder + "/scrapeToDB";
+            Directory.CreateDirectory(output_path+"/logs");
+            string db_path = output_path + "/Database.db";
+            if (File.Exists(db_path))
+                File.Delete(db_path);
+            File.Copy(output_folder + "/DBOrigin/full.db", db_path);
+            if (File.Exists(output_path+"/settings.txt"))
+                File.Delete(output_path + "/settings.txt");
+            File.Copy(output_folder + "/DBOrigin/settings.txt", output_path + "/settings.txt");
+            if (File.Exists(output_path + "/history.txt"))
+                File.Delete(output_path + "/history.txt");
+            using (var temp = File.Create(output_path + "/history.txt")) ;
+            //File.SetAttributes(output_path + "/history.txt", FileAttributes.Normal);
+            
             DBConnector connector = new DBConnector();
             connector.OpenConnect(db_path);
             IEnumerable<object[]>[] vids_before = connector.getAll();
             connector.CloseConnect();
-
-            //scrapeToDB(output_path);
+            proxy.scraper(output_path);
+            proxy.scraper_manager("scrapeToDB");
+           
 
             connector.OpenConnect(db_path);
             IEnumerable<object[]>[] vids_after = connector.getAll();
@@ -62,7 +67,7 @@ namespace System_Manager.Tests
                 Assert.IsTrue(vids_after[i-1].Count() ==  vids_before[i].Count());
             }
             Assert.IsTrue(vids_after[6].Count() > vids_after[5].Count());
-            Assert.AreEqual(vids_after[2].ElementAt(23)[0], vids_before[1].ElementAt(23)[0]);
+            Assert.AreEqual(vids_after[1].ElementAt(23)[0], vids_before[2].ElementAt(23)[0]);
 
 
         }
@@ -72,20 +77,27 @@ namespace System_Manager.Tests
         public void MetricTest()
         {
 
-            int test_num = 1;
-            string output_path = output_folder + "/MetricTest" + test_num;
-            Directory.CreateDirectory(output_path);
+            string output_path = output_folder + "/MetricTest" ;
+            Directory.CreateDirectory(output_path+"/logs");
             string db_path = output_path + "/Database.db";
+            if (File.Exists(db_path))
+                File.Delete(db_path);
+            File.Copy(output_folder + "/DBOrigin/full+s.db", db_path);
+            if (File.Exists(output_path + "/settings.txt"))
+                File.Delete(output_path + "/settings.txt");
+            File.Copy(output_folder + "/DBOrigin/settings.txt", output_path + "/settings.txt");
+            if (File.Exists(output_path + "/history.txt"))
+                File.Delete(output_path + "/history.txt");
+            using (var temp = File.Create(output_path + "/history.txt")) ;
+
             DBConnector connector = new DBConnector();
             connector.OpenConnect(db_path);
             IEnumerable<object[]> metrics_before = connector.getMetrics();
             connector.CloseConnect();
-            Assert.IsFalse(metrics_before.Count() == 0);
-            Assert.AreEqual(12, metrics_before.ElementAt(0).Length);
 
 
 
-         //   proxy.metrics(metricManger, db_path);
+            proxy.metrics("MetricTest");
 
             connector.OpenConnect(db_path);
             IEnumerable<object[]> metrics_after = connector.getMetrics();
@@ -126,23 +138,31 @@ namespace System_Manager.Tests
         [TestMethod()]
         public void modelTest()
         {
-            int test_num = 1;
-            string output_path = output_folder + "/modelTest" + test_num;
-            Directory.CreateDirectory(output_path);
+       
+            string output_path = output_folder + "/modelTest";
+            Directory.CreateDirectory(output_path +"/logs");
             string db_path = output_path + "/Database.db";
-            Assert.Fail();
+
+            if (File.Exists(db_path))
+                File.Delete(db_path);
+            File.Copy(output_folder + "/DBOrigin/full+m.db", db_path);
+            if (File.Exists(output_path + "/settings.txt"))
+                File.Delete(output_path + "/settings.txt");
+            File.Copy(output_folder + "/DBOrigin/settings.txt", output_path + "/settings.txt");
+            if (File.Exists(output_path + "/history.txt"))
+                File.Delete(output_path + "/history.txt");
+            using (var temp = File.Create(output_path + "/history.txt")) ;
+
+
             DBConnector connector = new DBConnector();
             connector.OpenConnect(db_path);
-            IEnumerable<object[]> model_before = connector.getMetrics();
+            IEnumerable<object[]> model_before = connector.getModelScore();
             connector.CloseConnect();
-            Assert.IsFalse(model_before.Count() == 0);
-            Assert.AreEqual(2, model_before.ElementAt(0).Length);
 
-
-            //proxy.metrics(metricManger, db_path);
+            proxy.model("modelTest");
 
             connector.OpenConnect(db_path);
-            IEnumerable<object[]> model_after = connector.getMetrics();
+            IEnumerable<object[]> model_after = connector.getModelScore();
             connector.CloseConnect();
             Assert.IsFalse(model_after.Count() == 0);
             Assert.IsTrue(model_after.Count() > model_before.Count());

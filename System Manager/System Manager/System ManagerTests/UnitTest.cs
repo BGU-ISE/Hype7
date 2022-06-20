@@ -18,24 +18,60 @@ namespace System_Manager.Tests
     public class UnitTest
     {
 
-        public string scraper = null;
-        public string scraperManager = null;
-        public string metricManger = null;
-        public string modelManager = null;
 
-        public string output_folder = @"../../../Data";
+        public static string output_folder = @"../../../Data";
         public static iProxy proxy { get; set; }
+        const string db = "/DataBase.db";
+        
+        
+        private static void setupDB(string test_name, string db_name)
+        {
+            string test_file_name = "/" + test_name;
+            string db_file_name = "/" + db_name;
+            Directory.CreateDirectory(output_folder +  test_file_name +"/logs");
+            if (File.Exists(output_folder + test_file_name + db))
+                File.Delete(output_folder + test_file_name + db);
+            File.Copy(output_folder + "/DBOrigin" + db_file_name, output_folder + test_file_name + db);
 
+            if (File.Exists(output_folder + test_file_name + "/settings.txt"))
+                File.Delete(output_folder + test_file_name + "/settings.txt");
+          
+            File.Copy(output_folder + "/DBOrigin/settings.txt", output_folder + test_file_name + "/settings.txt");
+            if (File.Exists(output_folder + test_file_name + "/history.txt"))
+                File.Delete(output_folder + test_file_name + "/history.txt");
+            File.Create(output_folder + test_file_name + "/history.txt");
+        }
+        
         [ClassInitialize()]
         public static void classInit(TestContext context)
         {
             proxy = new Proxy(new RealProxy());
+
+
+
+
+
+            Directory.CreateDirectory(output_folder + "/scrapeYTStabilityTest");
+            setupDB("scraperManagerStabilityTestfull", "full+m.db");
+            setupDB("metricStabilityTestfull", "full+s.db");
+            setupDB("modelStabilityTestfull", "full+m.db");
+            setupDB("GUIStabilityTestfull", "full.db");
+
+
+            setupDB("scraperManagerStabilityTesthalf", "half+m.db");
+            //setupDB("metricStabilityTesthalf", "half+s.db");
+    //        setupDB("modelStabilityTesthalf", "half+m.db");
+           // setupDB("GUIStabilityTesthalf", "half+m.db");
+
+
         }
+
+
 
         [TestMethod()]
         public void scrapeYTStabilityTest()
         {
-            string directory = output_folder + "/scrapeYTStabilityTest";
+            string directory =  "scrapeYTStabilityTest";
             try
             {
                 proxy.scraper(directory);
@@ -56,87 +92,103 @@ namespace System_Manager.Tests
 
 
             
-            string good_dir = output_folder + "/metricStabilityTestGood";
-            string bad_dir = output_folder + "/metricStabilityTestBad";
+            string full_dir =  "metricStabilityTestfull";
+      //      string half_dir =  "metricStabilityTesthalf";
 
-            DateTime old_change_good = File.GetLastWriteTime(good_dir + "/DataBase.db");
-            DateTime old_change_bad = File.GetLastWriteTime(bad_dir + "/DataBase.db");
+            DateTime old_change_full = File.GetLastWriteTime(output_folder+"/"+ full_dir + "/DataBase.db");
+       //     DateTime old_change_half = File.GetLastWriteTime(output_folder + "/" + half_dir + "/DataBase.db");
 
-            File.Copy(good_dir + "/DataBase.db", bad_dir + "/DataBase.db");
-            
-            Assert.Fail();
+
             try
             {
-                proxy.scraper(good_dir);
-                proxy.scraper(bad_dir);
+                //proxy.metrics(half_dir);
+                proxy.metrics(full_dir);
+             
             }
             catch (Exception e)
             {
                 Assert.Fail(e.Message);
             }
-            DateTime new_change_good = File.GetLastWriteTime(good_dir + "/DataBase.db");
-            DateTime new_change_bad = File.GetLastWriteTime(bad_dir + "/DataBase.db");
+            DateTime new_change_full = File.GetLastWriteTime(output_folder + "/" + full_dir + "/DataBase.db");
+            //DateTime new_change_half = File.GetLastWriteTime(output_folder + "/" + half_dir + "/DataBase.db");
 
-            Assert.AreNotEqual(old_change_good, new_change_good);
-            Assert.AreNotEqual(old_change_bad, new_change_bad);
+            Assert.AreNotEqual(old_change_full, new_change_full);
+           // Assert.AreNotEqual(old_change_half, new_change_half);
 
         }
         [TestMethod()]
         public void modelStabilityTest()
         {
-            string good_dir = output_folder +"/modelStabilityTestGood";
-            string bad_dir = output_folder + "/modelStabilityTestBad";
+            string full_dir = "modelStabilityTestfull";
+          //  string half_dir =  "modelStabilityTesthalf";
 
-            DateTime old_change_good = File.GetLastWriteTime(good_dir + "/DataBase.db");
-            DateTime old_change_bad = File.GetLastWriteTime(bad_dir + "/DataBase.db");
+            DateTime old_change_full = File.GetLastWriteTime(output_folder + "/" + full_dir + "/DataBase.db");
+            //DateTime old_change_half = File.GetLastWriteTime(output_folder + "/" + half_dir + "/DataBase.db");
             try
             {
-                proxy.model(good_dir);
-                proxy.model(bad_dir);
+                proxy.model(full_dir);
+              //  proxy.model(half_dir);
             }
             catch (Exception e)
             {
                 Assert.Fail(e.Message);
             }
-            DateTime new_change_good = File.GetLastWriteTime(good_dir + "/DataBase.db");
-            DateTime new_change_bad = File.GetLastWriteTime(bad_dir + "/DataBase.db");
+            DateTime new_change_full = File.GetLastWriteTime(output_folder + "/" + full_dir + "/DataBase.db");
+           // DateTime new_change_half = File.GetLastWriteTime(output_folder + "/" + half_dir + "/DataBase.db");
 
-            Assert.AreNotEqual(old_change_good, new_change_good);
-            Assert.AreNotEqual(old_change_bad, new_change_bad);
+            Assert.AreNotEqual(old_change_full, new_change_full, "full fail");
+           // Assert.AreNotEqual(old_change_half, new_change_half, "half fail");
         }
         [TestMethod()]
         public void scraperManagerStabilityTest()
         {
-            string good_dir = output_folder + "/scraperManagerStabilityTestGood";
-            string bad_dir = output_folder + "/scraperManagerStabilityTestBad";
+            if (File.Exists(output_folder + "/scraperManagerStabilityTestfull/sample_scraping.csv"))
+            {
+                File.Delete(output_folder + "/scraperManagerStabilityTestfull/sample_scraping.csv");
+                
+            }
+            File.Copy(output_folder + "/DBOrigin/sample_scraping.csv", output_folder + "/scraperManagerStabilityTestfull/sample_scraping.csv");
 
-            DateTime old_change_good = File.GetLastWriteTime(good_dir +"/DataBase.db");
-            DateTime old_change_bad = File.GetLastWriteTime(bad_dir + "/DataBase.db");
+
+            if (File.Exists(output_folder + "/scraperManagerStabilityTesthalf/sample_scraping.csv"))
+            {
+                File.Delete(output_folder + "/scraperManagerStabilityTesthalf/sample_scraping.csv");
+
+            }
+            File.Copy(output_folder + "/DBOrigin/sample_scraping.csv", output_folder + "/scraperManagerStabilityTesthalf/sample_scraping.csv");
+
+
+
+            string full_dir = "scraperManagerStabilityTestfull";
+            string half_dir = "scraperManagerStabilityTesthalf";
+
+            DateTime old_change_full = File.GetLastWriteTime(output_folder + "/" + full_dir +"/DataBase.db");
+            DateTime old_change_half = File.GetLastWriteTime(output_folder + "/" + half_dir + "/DataBase.db");
             try
             {
-                proxy.scraper_manager(good_dir);
-                proxy.scraper_manager(bad_dir);
+                proxy.scraper_manager(full_dir);
+                proxy.scraper_manager(half_dir);
             }
             catch (Exception e)
             {
                 Assert.Fail(e.Message);
             }
-            DateTime new_change_good = File.GetLastWriteTime(good_dir + "/DataBase.db");
-            DateTime new_change_bad = File.GetLastWriteTime(bad_dir + "/DataBase.db");
+            DateTime new_change_full = File.GetLastWriteTime(output_folder + "/" + full_dir + "/DataBase.db");
+            DateTime new_change_half = File.GetLastWriteTime(output_folder + "/" + half_dir + "/DataBase.db");
 
-            Assert.AreNotEqual(old_change_good, new_change_good);
-            Assert.AreNotEqual(old_change_bad, new_change_bad);
+            Assert.AreNotEqual(old_change_full, new_change_full,  ("failed. old time was " + old_change_full.ToString() +" new is" + new_change_full.ToString()  ) );
+            Assert.AreNotEqual(old_change_half, new_change_half);
         }
 
         [TestMethod()]
         public void GUIStabilityTest()
         {
-            string good_dir = output_folder + "/GUIStabilityTestGood";
-            string bad_dir = output_folder + "/GUIStabilityTestBad";
+            string full_dir = output_folder + "/GUIStabilityTestfull";
+            string half_dir = output_folder + "/GUIStabilityTesthalf";
             Process proc = new Process();
             try
             {
-                proc = proxy.runGui(Directory.GetFiles(good_dir));
+                proc = proxy.runGui(Directory.GetFiles(full_dir));
             }
             catch (Exception e)
             {
@@ -144,16 +196,16 @@ namespace System_Manager.Tests
             }
             Assert.IsFalse(proc.HasExited);
             proc.Kill();
-
+            /*
             try
             {
-                proc = proxy.runGui(Directory.GetFiles(bad_dir));
+                proc = proxy.runGui(Directory.GetFiles(half_dir));
             }
             catch (Exception e)
             {
                 Assert.Fail(e.Message);
             }
-            proc.Kill();
+            proc.Kill();*/
 
         }
 

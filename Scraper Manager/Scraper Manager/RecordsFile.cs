@@ -176,10 +176,9 @@ namespace Scraper_Manager
 
         }
 
-
         public void saveRecords()
         {
-            using (var w = new StreamWriter(this.outputPath))
+            using (var w = new StreamWriter(this.outputPath, false))
             {
                 string values_names_str = "";
                 foreach (var item in this.output_names)

@@ -26,7 +26,8 @@ namespace System_Manager
 
         public void kill()
         {
-            this.process.Kill();
+            if(this.process != null)
+                this.process.Kill();
         }
 
         public override bool run()

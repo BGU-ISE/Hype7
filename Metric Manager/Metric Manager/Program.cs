@@ -10,6 +10,8 @@ namespace Hype7
      // third chane the format to number zero
         static void Main(string[] args)
         {
+
+            Console.WriteLine("hi");
             DateTime start = DateTime.Now;
             //args[0] = "C:\\Users\\Almogi\\Desktop\\githubtry\\Project\\Hype7\\System Manager\\System Manager\\System Manager\\Data\\tiktok";
             DataAnalysis(args);

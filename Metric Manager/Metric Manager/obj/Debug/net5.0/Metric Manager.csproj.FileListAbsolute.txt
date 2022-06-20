@@ -230,3 +230,4 @@ C:\Users\Iftah\Desktop\Project\Project\Scraper Manager\Metric Manager\Metric Man
 C:\Users\Iftah\Desktop\Project\Project\Scraper Manager\Metric Manager\Metric Manager\obj\Debug\net5.0\ref\Metric Manager.dll
 C:\Users\Iftah\Desktop\Project\Project\Scraper Manager\Metric Manager\Metric Manager\obj\Debug\net5.0\Metric Manager.pdb
 C:\Users\Iftah\Desktop\Project\Project\Scraper Manager\Metric Manager\Metric Manager\obj\Debug\net5.0\Metric Manager.genruntimeconfig.cache
+C:\Users\Iftah\Desktop\Project\Project\Scraper Manager\Metric Manager\Metric Manager\obj\Debug\net5.0\Metric Manager.csproj.AssemblyReference.cache

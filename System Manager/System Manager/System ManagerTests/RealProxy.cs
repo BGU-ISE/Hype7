@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,8 +38,10 @@ namespace System_ManagerTests
         public void scraper(string directory)
         {
             Youtube_Scraper_Runner a = (new Youtube_Scraper_Runner(directory));
-            Console.WriteLine(a.directory);
-           //(new Youtube_Scraper_Runner(directory)).run();
+            Console.WriteLine(Path.GetFullPath(a.directory));
+            
+
+            (new Youtube_Scraper_Runner(directory)).run();
         }
 
         public void scraper_manager(string directory)
