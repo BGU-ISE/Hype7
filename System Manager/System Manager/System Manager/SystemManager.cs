@@ -15,11 +15,7 @@ namespace System_Manager
         static void Main(string[] args)
         {
 
-            GUI_Runner a = new GUI_Runner();
-            //a.add_db("youtube");
-          //  a.add_db("tiktok");
-            a.run();
-            return;
+
 
             scrapers_runners.Add(new Youtube_Scraper_Runner());
             while (true)
