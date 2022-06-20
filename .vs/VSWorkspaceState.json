@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\ModelManager"
+    "\\ModelManager",
+    "\\UI"
   ],
-  "SelectedNode": "\\UI.csproj",
+  "SelectedNode": "\\UI\\UI.sln",
   "PreviewInSolutionExplorer": false
 }
