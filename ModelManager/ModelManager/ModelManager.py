@@ -23,16 +23,16 @@ class ModelManager():
     global db_directory
     db_directory = Path(__file__).parent.parent.parent
     global project_db_path
-    project_db_path = db_directory /  "Metric Manager/Metric Manager/bin/Debug/net5.0/DataBaseYoutube.db"
+    project_db_path = db_directory /  "Metric Manager/Metric Manager/bin/Debug/net5.0/DataBase.db"
     global dir 
     dir = os.path.dirname(__file__)
 
-    def __init__(self, fromDB, data_path=None): 
+    def __init__(self, fromDB, DB_path=None): 
         self.is_DB = fromDB
-        if(data_path == None):
+        if(DB_path == None):
             filename = str(project_db_path) #dir + db_file
         else:
-            filename = data_path
+            filename = DB_path
         self.db = DBConnection.DBConnection(filename)
         self.db.create_connection()
         if(fromDB):
@@ -63,12 +63,12 @@ class ModelManager():
         model_instance = YouTubeModel.Model(df)
         predictions, data_frame = model_instance.predict(df)
         print(predictions) 
-        denorm = features.denorm_to_hundred(predictions)
-        self.db.write_predictions_to_DB_without_train('ModelHypeScore', data_frame)
+        self.db.write_predictions_to_DB_without_train('YoutubeModel', data_frame)
+        #self.db.write_predictions_to_DB(predictions, model_instance.X_test_id['video_id'].tolist())
 
 
     def predictions_to_csv(self, predictions, model_instance):
-        denorm = model_instance.denormalize(predictions)
+        denorm = features.denormalize(predictions)
         dv = model_instance.get_dv()
         d= dv['dv_check'].tolist()
         self.print_regression_analysis(dv, denorm)
@@ -88,7 +88,7 @@ class ModelManager():
         dv = model_instance.get_dv()
         d= dv['dv_check'].tolist()
         self.print_regression_analysis(dv, denorm)
-        #self.db.write_predictions_to_DB('TiktokModel', predictions, model_instance.X_test_id['id'].tolist(), denorm)
+        self.db.write_predictions_to_DB('TiktokModel', predictions, model_instance.X_test_id['id'].tolist(), denorm)
 
     def train_and_fit1(self):
         features = NumericFeaturizer.NumericFeaturizer( self.is_DB, self.df1, self.df7)
@@ -116,14 +116,10 @@ class ModelManager():
 
 
 if __name__ == '__main__':
-    model = ModelManager(False)
-    model.train_and_fit()
-    
-    """
+
     if(not len(sys.argv)==1):
-        model = ModelManager(True, sys.argv[1])
+        model = ModelManager(True, sys.argv[1]) 
         model.predict_Youtube_model_exists()
     else:
         model = ModelManager(True)
         model.predict_Youtube_model_exists()
-    """

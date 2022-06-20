@@ -24,23 +24,15 @@ namespace Hype7
 
         public static void InitializeData(string[] args)
         {
-            path = Path.Combine(GetPath(), "Data");
             if (args.Length > 0)
             {
-                string ans = "..\\..\\..\\..\\..\\";
-                for (int i = 0; i < args.Length; i++)
-                {
-                    ans += args[i] + " ";
-                }
-                ans = ans.Substring(0, ans.Length - 1);
-                DAL.SetUpDB(ans);
-                //path = args[0];
-                //var arr = path.Split("\\");
-                //dataDir = arr[arr.Length - 1];
-                //path = path.Substring(0, path.Length - (dataDir.Length + 2));
+                path = args[0];
+                //string ans = args[0] + "\\DataBase.db";
+                DAL.SetUpDB(path);
+                ReadFromText(path + "\\ignoreHashtag.txt");
+                LoadMetrics();
             }
-            ReadFromText(Path.Combine(path, "ignoreHashtag.txt"));
-            LoadMetrics();
+            
         }
         private static void Setup(string pathFolder, string ignoreHashPath)
         {

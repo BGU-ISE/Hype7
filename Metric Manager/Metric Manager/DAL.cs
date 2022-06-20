@@ -17,19 +17,35 @@ namespace Hype7
         public static bool testMood = false;
         public static int LastIndexTable;
         private static String Connection_String = @"Data Source=";
+        public static string SocialMedia = "youtube";
         public static string realPathDB;
         private static List<string> intFileld = new List<string>();
         private static List<string> notIntField = new List<string>();
         private static bool isOverDay7;
         static public string checke;
         public static string IDName = "video_id";
+        public static string ViewName = "view_count";
 
         public static SQLiteConnection connection = null;
 
         public static void SetUpDB(string path)
         {
-            realPathDB = path;
-            Connection_String = @"Data Source=" + path;
+            // + "\\DataBase.db";
+            string[] arr = path.Split("\\");
+            SocialMedia = arr[arr.Length - 1];
+            if (SocialMedia.Equals("youtube"))
+            {
+                IDName = "video_id";
+                ViewName = "view_count";
+            }
+            if (SocialMedia.Equals("tiktok"))
+            {
+                IDName = "id";
+                ViewName = "playCount";
+            }
+                
+            realPathDB = path+"\\DataBase.db";
+            Connection_String = @"Data Source=" + realPathDB;
         }
         public static void OpenConnect()
         {
@@ -297,7 +313,10 @@ namespace Hype7
                 switch (metric)
                 {
                     case "hashtags":
-                        RunHashtag("tags");
+                        if (SocialMedia.Equals("youtube"))
+                            RunHashtag("tags");
+                        if (SocialMedia.Equals("tiktok"))
+                            RunHashtag("hashtags");
                         break;
                 }
 
@@ -394,7 +413,7 @@ namespace Hype7
                 LastIndexTable = 7;
                 for (int i = 1; i < LastIndexTable; i++)
                 {
-                    command = new SQLiteCommand("SELECT a."+ IDName + ", (b.view_count - a.view_count) as playCountDay" + (i + 1) + " From VideosInfoDay" + i + " a JOIN VideosInfoDay" + (i + 1) + " b ON a." + IDName + " == b." + IDName + "", DAL.connection);
+                    command = new SQLiteCommand("SELECT a."+ IDName + ", (b."+ViewName+ " - a." + ViewName + ") as playCountDay" + (i + 1) + " From VideosInfoDay" + i + " a JOIN VideosInfoDay" + (i + 1) + " b ON a." + IDName + " == b." + IDName + "", DAL.connection);
                     checke = command.CommandText;
                     command.Prepare();
                     var reader = command.ExecuteReader();
@@ -536,9 +555,16 @@ namespace Hype7
                 while (reader.Read())
                 {
                     var tags = reader[columnName].ToString();
-                    if (!tags.Equals("[none]") && !tags.Equals("0"))
+                    if (!tags.Equals("[none]") && !tags.Equals("0") && !tags.Equals("[]"))
                     {
-                        string[] arrTags = tags.Split('|');
+                        string[] arrTags = null;
+                        if (SocialMedia.Equals("youtube"))
+                            arrTags = tags.Split('|');
+                        else if (SocialMedia.Equals("tiktok"))
+                        {
+                            tags = tags.Substring(1, tags.Length - 2);
+                            arrTags = tags.Split("; ");
+                        }
                         foreach (string tag in arrTags)
                         {
                             string tag1 = tag.ToLower();

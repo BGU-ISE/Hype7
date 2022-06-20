@@ -16,15 +16,17 @@ namespace UI
     public static class DAL
     {
         public readonly static int SAVED_DAYS = 7;
-        private const String DBname = @"DataBase.db";
         public static string currentDir = Environment.CurrentDirectory;
-        static readonly DirectoryInfo directory = new DirectoryInfo(
-            Path.GetFullPath(Path.Combine(currentDir, @"..\..\..\..\..\" + "Metric Manager\\Metric Manager\\bin\\Debug\\net5.0\\DataBase.db")));
-        public static string db_con = directory.ToString();
-        private static String Connection_String = @"Data Source= " + db_con;
+        //static readonly DirectoryInfo directory = new DirectoryInfo(
+            //Path.GetFullPath(Path.Combine(currentDir, @"..\..\..\..\..\" + "Metric Manager\\Metric Manager\\bin\\Debug\\net5.0\\DataBase.db")));
+        //public static string db_con = directory.ToString();
+        private static String Connection_String = @"Data Source= ";
+        public static string realPathDB;
+        public static string SocialMedia = "youtube";
         private static bool isOverDay7;
         static public string checke;
         public static string IDName = "video_id";
+        public static string tag = "tags";
         public static SQLiteConnection connection = null;
         static private List<Metric> realMetrics = new List<Metric>();
 
@@ -39,19 +41,30 @@ namespace UI
         }
         public static void SetUpDB(string[] args)
         {
-            string path = "..\\..\\..\\..\\..\\";
-            for (int i = 0; i < args.Length; i++)
+            if (args.Length > 0)
             {
-                path += args[i] + " ";
+                realPathDB = args[0];
+                Connection_String = @"Data Source=" + args[0] + "\\"+ SocialMedia + "\\DataBase.db";
             }
-            path = path.Substring(0, path.Length - 1);
-            Connection_String = @"Data Source=" + path;
         }
         public static void ChangeDBName(string newName)
         {
-            string[] arr = Connection_String.Split("\\");
-            Connection_String = Connection_String.Substring(0, Connection_String.Length - arr[arr.Length - 1].Length) + newName;
-            int j = 0;
+            //string[] arr = Connection_String.Split("\\");
+            //Connection_String = Connection_String.Substring(0, Connection_String.Length - arr[arr.Length - 1].Length) + newName;
+            if (newName.Equals("youtube"))
+            {
+                IDName = "video_id";
+                tag = "tags";
+            }
+            if (newName.Equals("tiktok"))
+            {
+                IDName = "id";
+                tag = "hashtags";
+            }
+                
+            SocialMedia = newName;
+            Connection_String = @"Data Source=" + realPathDB + "\\"+ newName + "\\DataBase.db";
+            connection = new SQLiteConnection(Connection_String);
         }
         public static void CloseConnect()
         {
@@ -69,7 +82,7 @@ namespace UI
                 SQLiteCommand command = new SQLiteCommand(null, DAL.connection);
                 for (int i = 1; i < 7; i++)
                 {
-                    command = new SQLiteCommand("SELECT " + IDName +", title, channelName" + " From VideosInfoDay" + i + " WHERE tags LIKE '%" + hashtagData + "%'", DAL.connection);
+                    command = new SQLiteCommand("SELECT " + IDName +", title, channelName" + " From VideosInfoDay" + i + " WHERE "+ tag + " LIKE '%" + hashtagData + "%'", DAL.connection);
                     checke = command.CommandText;
                     command.Prepare();
                     var reader = command.ExecuteReader();
@@ -128,11 +141,14 @@ namespace UI
                 var reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    MetricData metricData = new MetricData(reader["metric"].ToString(), reader["video_id"].ToString(), float.Parse(reader["slope"].ToString()), float.Parse(reader["averageScore"].ToString()),  float.Parse(reader["scoreDay1"].ToString()), float.Parse(reader["scoreDay2"].ToString()), float.Parse(reader["scoreDay3"].ToString()), float.Parse(reader["scoreDay4"].ToString()), float.Parse(reader["scoreDay5"].ToString()), float.Parse(reader["scoreDay6"].ToString()), float.Parse(reader["scoreDay7"].ToString()));
-                    metricData.SetURL(GetVideoName(metricData) + " " + GetChannelName(metricData));
+                    MetricData metricData = new MetricData(reader["metric"].ToString(), reader[IDName].ToString(), float.Parse(reader["slope"].ToString()), float.Parse(reader["averageScore"].ToString()),  float.Parse(reader["scoreDay1"].ToString()), float.Parse(reader["scoreDay2"].ToString()), float.Parse(reader["scoreDay3"].ToString()), float.Parse(reader["scoreDay4"].ToString()), float.Parse(reader["scoreDay5"].ToString()), float.Parse(reader["scoreDay6"].ToString()), float.Parse(reader["scoreDay7"].ToString()));
+                    if(SocialMedia.Equals("youtube"))
+                        metricData.SetURL(GetVideoName(metricData) + " " + GetChannelName(metricData));
+                    else if (SocialMedia.Equals("tiktok"))
+                        metricData.SetURL(GetVideoURLTiktok(metricData));
                     ans.Add(metricData);
                 }
-
+                
                 command.Dispose();
                 CloseConnect();
             }
@@ -148,9 +164,9 @@ namespace UI
             List<ModelPrediction> ans = new List<ModelPrediction>();
             try
             {
-                ChangeDBName("DataBase" + socialMedia.Substring(0, socialMedia.Length - 5) + ".db");
+                ChangeDBName(socialMedia.Substring(0, socialMedia.Length - 5).ToLower());
                 OpenConnect();
-                SQLiteCommand command = new SQLiteCommand("SELECT * FROM " + socialMedia + " ORDER BY " + orderBy + " DESC LIMIT " + limit, DAL.connection);
+                SQLiteCommand command = new SQLiteCommand("SELECT * FROM ModelHypeScore ORDER BY " + orderBy + " DESC LIMIT " + limit, DAL.connection);
                 command.Prepare();
                 var reader = command.ExecuteReader();
                 while (reader.Read())
@@ -158,16 +174,17 @@ namespace UI
                     ModelPrediction metricData = null;
                     if (socialMedia == "YoutubeModel")
                     {
-                        metricData = new ModelPrediction("https://www.youtube.com/watch?v=" + reader["video_id"].ToString(), float.Parse(reader["model1score"].ToString()), float.Parse(reader["denormalize_score"].ToString()));
+                        metricData = new ModelPrediction("https://www.youtube.com/watch?v=" + reader[IDName].ToString(), float.Parse(reader["model1score"].ToString()), float.Parse(reader["denormalize_score"].ToString()));
                     }
                     else if(socialMedia == "TiktokModel")
                     {
                         metricData = new ModelPrediction(reader["webVideoUrl"].ToString(), float.Parse(reader["model1score"].ToString()), float.Parse(reader["denormalize_score"].ToString()));
                     }
                     
-                    
                     ans.Add(metricData);
                 }
+
+                reader.Close();
                 command.Dispose();
                 CloseConnect();
             }
@@ -200,7 +217,7 @@ namespace UI
             {
                 
                 // ----- change to url
-                SQLiteCommand command = new SQLiteCommand("SELECT channelName FROM VideosInfoDay"+i+" WHERE video_id == '" + metricData.ID + "'", DAL.connection);
+                SQLiteCommand command = new SQLiteCommand("SELECT channelName FROM VideosInfoDay"+i+" WHERE "+IDName+" == '" + metricData.ID + "'", DAL.connection);
                 command.Prepare();
 
                 var reader = command.ExecuteReader();
@@ -238,7 +255,7 @@ namespace UI
             {
 
                 // ----- change to url
-                SQLiteCommand command = new SQLiteCommand("SELECT title FROM VideosInfoDay" + i + " WHERE video_id == '" + metricData.ID + "'", DAL.connection);
+                SQLiteCommand command = new SQLiteCommand("SELECT title FROM VideosInfoDay" + i + " WHERE "+IDName+" == '" + metricData.ID + "'", DAL.connection);
                 command.Prepare();
 
                 var reader = command.ExecuteReader();
@@ -256,7 +273,31 @@ namespace UI
             }
             return ans;
         }
+        public static string GetVideoURLTiktok(MetricData metricData)
+        {
+            string ans = "";
+            try
+            {
 
+                // ----- change to url
+                SQLiteCommand command = new SQLiteCommand("SELECT webVideoUrl FROM ModelHypeScore WHERE " + IDName + " == '" + metricData.ID + "'", DAL.connection);
+                command.Prepare();
+
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    ans = reader["webVideoUrl"].ToString();
+                }
+
+                command.Dispose();
+
+            }
+            catch (SQLiteException e)
+            {
+                DAL.CloseConnect();
+            }
+            return ans;
+        }
         public static List<string> GetMetricsNames()
         {
             List<string> ans = new List<string>();
@@ -296,7 +337,7 @@ namespace UI
                 while (reader.Read())
                 {
                     string metric = reader["name"].ToString();
-                    if (!metric.Equals("video_id") && !metric.Equals("metric") && !metric.Equals("formula") && !metric.Contains("scoreDay"))
+                    if (!metric.Equals(IDName) && !metric.Equals("metric") && !metric.Equals("formula") && !metric.Contains("scoreDay"))
                         ans.Add(metric);
                 }
                 command.Dispose();
@@ -336,21 +377,9 @@ namespace UI
         }
 
         // metrics
-        public static List<string> GetMetricsName()
-        {
-            if (realMetrics.Count == 0)
-                LoadMetrics();
-            List<string> ans = new List<string>();
-            foreach (Metric element in realMetrics)
-            {
-                ans.Add(element.GetName());
-            }
-            return ans;
-        }
         public static List<string> GetMetricsFormula()
         {
-            if (realMetrics.Count == 0)
-                LoadMetrics();
+            LoadMetrics();
             List<string> ans = new List<string>();
             foreach (Metric element in realMetrics)
             {
@@ -360,8 +389,7 @@ namespace UI
         }
         public static void AddMetric(string MetricName, string MetricFormula)
         {
-            if(realMetrics.Count == 0)
-                LoadMetrics();
+            LoadMetrics();
 
             Metric temp = GetMetric(MetricFormula);
             if (temp == null)
@@ -382,8 +410,7 @@ namespace UI
         }
         private static Metric GetMetric(string metric)
         {
-            if (realMetrics.Count == 0)
-                LoadMetrics();
+            LoadMetrics();
             foreach (Metric element in realMetrics)
             {
                 if (element.GetMetric().Equals(metric))
@@ -393,22 +420,20 @@ namespace UI
         }
         public static void RemoveMetric(string MetricFormula)
         {
-            if (realMetrics.Count == 0)
-                LoadMetrics();
+            LoadMetrics();
             RemoveMetric(GetMetric(MetricFormula));
         }
         private static void RemoveMetric(Metric metric)
         {
-            if (realMetrics.Count == 0)
-                LoadMetrics();
+            LoadMetrics();
             realMetrics.Remove(metric);
             SaveMetrics();
             //LoadMetrics();
         }
         private static void LoadMetrics()
         {
-            string text = System.IO.File.ReadAllText("..\\..\\..\\..\\..\\Metric Manager\\Metric Manager\\Data\\metricToRun.txt");
-
+            string text = System.IO.File.ReadAllText(realPathDB + "\\"+SocialMedia+"\\metricToRun.txt");
+            realMetrics = new List<Metric>();
             string[] arr = text.Split(";;");
             for (int i = 0; i < arr.Length; i++)
             {
@@ -418,7 +443,7 @@ namespace UI
         }
         public static void SaveMetrics()
         {
-            File.WriteAllText("..\\..\\..\\..\\..\\Metric Manager\\Metric Manager\\Data\\metricToRun.txt", String.Empty);
+            File.WriteAllText(realPathDB + "\\" + SocialMedia + "\\metricToRun.txt", String.Empty);
             string ans = "";
             foreach (Metric metric in realMetrics)
             {
@@ -426,12 +451,12 @@ namespace UI
             }
             if (ans.Length > 0)
                 ans = ans.Substring(0, ans.Length - 2);
-            using (var w = File.AppendText("..\\..\\..\\..\\..\\Metric Manager\\Metric Manager\\Data\\metricToRun.txt"))
+            using (var w = File.AppendText(realPathDB + "\\" + SocialMedia + "\\metricToRun.txt"))
             {
                 w.WriteLine(ans);
                 w.Flush();
             }
-            realMetrics = new List<Metric>();
+            
             LoadMetrics();
         }
         class Metric

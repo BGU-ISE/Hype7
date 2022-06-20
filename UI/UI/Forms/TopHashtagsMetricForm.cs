@@ -48,6 +48,11 @@ namespace UI.Forms
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            List<string> socialMedia = new List<string> { "Youtube", "Tiktok" };
+            comboBox1.DataSource = socialMedia;
+            comboBox1.SelectedItem = null;
+            comboBox1.SelectedText = "--Select--";
+
             List<string> orderBy = new List<string> { "slope", "averageScore" };
             OrderByComboBox.DataSource = orderBy;
             OrderByComboBox.SelectedItem = null;
@@ -68,6 +73,8 @@ namespace UI.Forms
         {
             if (Int32.TryParse(limitTxtBox.Text, out int res))
             {
+                string socialMedia = comboBox1.Text;
+                DAL.ChangeDBName(socialMedia.ToLower());
                 this.Hashtags = DAL.GetHashtags(OrderByComboBox.Text, Int32.Parse(limitTxtBox.Text));
                 dataGridView1.DataSource = this.Hashtags;
                 InputErrorLbl.Text = "";
@@ -108,6 +115,11 @@ namespace UI.Forms
 
             }
             
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

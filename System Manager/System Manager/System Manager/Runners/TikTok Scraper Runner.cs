@@ -8,13 +8,14 @@ using System.Threading.Tasks;
 
 namespace System_Manager
 {
-    class TikTok_Scraper_Runner : Runner
+   public class TikTok_Scraper_Runner : Runner
     {
 
 
 
-        public TikTok_Scraper_Runner()
+        public TikTok_Scraper_Runner(string directory = "TikTok")
         {
+            this.directory = directory;
             args = "";
             file_name = "tiktokScraper";
             find_exe_path();

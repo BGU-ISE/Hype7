@@ -30,15 +30,15 @@ namespace Scraper_Manager
         {
             if (args.Length > 0)
             {
-                string path = "..\\..\\..\\..\\..\\";
-                for (int i = 0; i < args.Length; i++)
-                {
-                    path += args[i] + " ";
-                }
-                path = path.Substring(0, path.Length - 1);
+                //string path = "..\\..\\..\\..\\..\\";
+                //for (int i = 0; i < args.Length; i++)
+                //{
+                //    path += args[i] + " ";
+                //}
+                //path = path.Substring(0, path.Length - 1);
 
                 //_____________________________________chnaing args________________
-                path = args[0]+"\\DataBase.db";
+                string path = args[0]+"\\DataBase.db";
                 //________________________________________________________
 
                 realPathDB = path;
@@ -85,7 +85,7 @@ namespace Scraper_Manager
                     OpenConnect();
                 SQLiteCommand command = new SQLiteCommand("CREATE TABLE FilterHypeScore ("+ IDName + " TEXT, metric TEXT DEFAULT 'empty', averageScore REAL DEFAULT 0.0, slope REAL DEFAULT 0.0, formula TEXT, scoreDay1 REAL DEFAULT 0.0, scoreDay2 REAL DEFAULT 0.0, scoreDay3 REAL DEFAULT 0.0, scoreDay4 REAL DEFAULT 0.0, scoreDay5 REAL DEFAULT 0.0, scoreDay6 REAL DEFAULT 0.0, scoreDay7 REAL DEFAULT 0.0, PRIMARY KEY('" + IDName + "','metric'), FOREIGN KEY (" + IDName + ") REFERENCES ID(" + IDName + "))", connection);
                 command.ExecuteNonQuery();
-                command = new SQLiteCommand("CREATE TABLE ModelHypeScore (" + IDName + " TEXT, model1score REAL, PRIMARY KEY('" + IDName + "'))", connection);
+                command = new SQLiteCommand("CREATE TABLE ModelHypeScore (" + IDName + " TEXT, model1score REAL, denormalize_score REAL, webVideoUrl TEXT, PRIMARY KEY('" + IDName + "'))", connection);
                 command.ExecuteNonQuery();
                 command = new SQLiteCommand("CREATE TABLE PlayCountPerDay (" + IDName + " TEXT, playCountDay1 INTEGER DEFAULT 0, playCountDay2 INTEGER DEFAULT 0, playCountDay3 INTEGER DEFAULT 0, playCountDay4 INTEGER DEFAULT 0, playCountDay5 INTEGER DEFAULT 0, playCountDay6 INTEGER DEFAULT 0, playCountDay7 INTEGER DEFAULT 0,playCountAllWeek INTEGER DEFAULT 0, PRIMARY KEY('" + IDName + "'))", connection);
                 command.ExecuteNonQuery();
@@ -170,9 +170,6 @@ namespace Scraper_Manager
                 command.Prepare();
                 command.ExecuteNonQuery();
             }
-
-            command.Prepare();
-            command.ExecuteNonQuery();
 
             command = new SQLiteCommand("DELETE FROM VideosInfoDay1", connection);
             command.ExecuteNonQuery();

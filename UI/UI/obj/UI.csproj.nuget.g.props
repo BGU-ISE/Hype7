@@ -5,20 +5,26 @@
     <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
     <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
     <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
-    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\lynnn\.nuget\packages\</NuGetPackageFolders>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\Almogi\.nuget\packages\;C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages;C:\Program Files (x86)\Microsoft\Xamarin\NuGet\;C:\Program Files\dotnet\sdk\NuGetFallbackFolder</NuGetPackageFolders>
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
-    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.1.0</NuGetToolVersion>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">5.11.0</NuGetToolVersion>
   </PropertyGroup>
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <SourceRoot Include="C:\Users\lynnn\.nuget\packages\" />
+    <SourceRoot Include="C:\Users\Almogi\.nuget\packages\" />
+    <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
+    <SourceRoot Include="C:\Program Files (x86)\Microsoft\Xamarin\NuGet\" />
+    <SourceRoot Include="C:\Program Files\dotnet\sdk\NuGetFallbackFolder\" />
   </ItemGroup>
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+  </PropertyGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)entityframework\6.4.4\buildTransitive\netcoreapp3.0\EntityFramework.props" Condition="Exists('$(NuGetPackageRoot)entityframework\6.4.4\buildTransitive\netcoreapp3.0\EntityFramework.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgEntityFramework Condition=" '$(PkgEntityFramework)' == '' ">C:\Users\lynnn\.nuget\packages\entityframework\6.4.4</PkgEntityFramework>
-    <PkgSystem_Data_SQLite_EF6 Condition=" '$(PkgSystem_Data_SQLite_EF6)' == '' ">C:\Users\lynnn\.nuget\packages\system.data.sqlite.ef6\1.0.116</PkgSystem_Data_SQLite_EF6>
-    <PkgLiveCharts_Wpf Condition=" '$(PkgLiveCharts_Wpf)' == '' ">C:\Users\lynnn\.nuget\packages\livecharts.wpf\0.9.7</PkgLiveCharts_Wpf>
-    <PkgLiveCharts_WinForms Condition=" '$(PkgLiveCharts_WinForms)' == '' ">C:\Users\lynnn\.nuget\packages\livecharts.winforms\0.9.7.1</PkgLiveCharts_WinForms>
+    <PkgEntityFramework Condition=" '$(PkgEntityFramework)' == '' ">C:\Users\Almogi\.nuget\packages\entityframework\6.4.4</PkgEntityFramework>
+    <PkgSystem_Data_SQLite_EF6 Condition=" '$(PkgSystem_Data_SQLite_EF6)' == '' ">C:\Users\Almogi\.nuget\packages\system.data.sqlite.ef6\1.0.116</PkgSystem_Data_SQLite_EF6>
+    <PkgLiveCharts_Wpf Condition=" '$(PkgLiveCharts_Wpf)' == '' ">C:\Users\Almogi\.nuget\packages\livecharts.wpf\0.9.7</PkgLiveCharts_Wpf>
+    <PkgLiveCharts_WinForms Condition=" '$(PkgLiveCharts_WinForms)' == '' ">C:\Users\Almogi\.nuget\packages\livecharts.winforms\0.9.7.1</PkgLiveCharts_WinForms>
   </PropertyGroup>
 </Project>

@@ -54,7 +54,7 @@ namespace UI
         {
             
             InitializeComponent();
-            this.metricData = DAL.GetMetrics("viewcount","averageScore", 10);
+            this.metricData = DAL.GetMetrics("view_count","averageScore", 10);
             dataGridView1.DataSource = this.metricData;
         }
 
@@ -69,7 +69,6 @@ namespace UI
                         var video_url = dataGridView1.Rows[e.RowIndex].Cells["ID"].Value;
                         OpenUrl(video_url.ToString());
                     }
-                    
                     
                 }
             }
@@ -109,6 +108,11 @@ namespace UI
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            List<string> socialMedia = new List<string> { "Youtube", "Tiktok" };
+            comboBox1.DataSource = socialMedia;
+            comboBox1.SelectedItem = null;
+            comboBox1.SelectedText = "--Select--";
+
             MetricComboBox.DataSource = DAL.GetMetricsFormula();
             MetricComboBox.SelectedItem = null;
             MetricComboBox.SelectedText = "--Select--";
@@ -133,6 +137,8 @@ namespace UI
         {
             if (Int32.TryParse(LimitTextBox.Text, out int res))
             {
+                string socialMedia = comboBox1.Text;
+                DAL.ChangeDBName(socialMedia.ToLower()); // .Substring(0, socialMedia.Length - 5)
                 this.metricData = DAL.GetMetrics(MetricComboBox.Text, OrderByComboBox.Text, res);
                 dataGridView1.DataSource = this.metricData;
                 InputErrorLbl.Text = "";
@@ -152,6 +158,20 @@ namespace UI
         private void MetricComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!comboBox1.Text.Equals(""))
+            {
+                DAL.ChangeDBName(comboBox1.Text.ToLower());
+                MetricComboBox.DataSource = DAL.GetMetricsFormula();
+            }
         }
     }
 }
