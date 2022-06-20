@@ -30,15 +30,15 @@ namespace Scraper_Manager
         {
             if (args.Length > 0)
             {
-                string path = "..\\..\\..\\..\\..\\";
-                for (int i = 0; i < args.Length; i++)
-                {
-                    path += args[i] + " ";
-                }
-                path = path.Substring(0, path.Length - 1);
+                //string path = "..\\..\\..\\..\\..\\";
+                //for (int i = 0; i < args.Length; i++)
+                //{
+                //    path += args[i] + " ";
+                //}
+                //path = path.Substring(0, path.Length - 1);
 
                 //_____________________________________chnaing args________________
-                path = args[0]+"\\DataBase.db";
+                string path = args[0]+"\\DataBase.db";
                 //________________________________________________________
 
                 realPathDB = path;
