@@ -13,7 +13,7 @@ namespace System_Manager
         public Metric_Manager_Runner(string directory)
         {
             this.directory = directory;
-            args = this.fullDir + "/DataBase.db";
+            args = this.fullDir;// + "/DataBase.db";
             file_name = "MetricManager";
             find_exe_path();
         }

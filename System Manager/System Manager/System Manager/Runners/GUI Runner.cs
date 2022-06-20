@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ namespace System_Manager
             file_name = "GUI";
             find_exe_path();
             arg_list = new List<string>();
+            args = Path.GetFullPath(Constants.Data_folder);
         }
 
 
@@ -37,12 +39,12 @@ namespace System_Manager
                 Process proc = new Process();
                 proc.StartInfo.FileName = executable_path;
                 proc.StartInfo.UseShellExecute = true;
-                //proc.StartInfo.Arguments = args;
-                foreach (string path in arg_list)
+                proc.StartInfo.ArgumentList.Add( args);
+             /*   foreach (string path in arg_list)
                 {
 
                     proc.StartInfo.ArgumentList.Add(path);
-                }
+                }*/
                 this.process = proc;
                 proc.Start();
                 Console.WriteLine("launched gui");

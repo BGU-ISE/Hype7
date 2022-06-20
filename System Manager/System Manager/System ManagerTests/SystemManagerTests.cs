@@ -89,6 +89,15 @@ namespace System_Manager.Tests
             if (File.Exists(output_path + "/history.txt"))
                 File.Delete(output_path + "/history.txt");
             using (var temp = File.Create(output_path + "/history.txt")) ;
+            if (File.Exists(output_path + "/metricToRun.txt"))
+                File.Delete(output_path + "/metricToRun.txt");
+            File.Copy(output_folder + "/DBOrigin/metricToRun.txt", output_path + "/metricToRun.txt");
+            if (File.Exists(output_path + "/ignoreHashtag.txt"))
+                File.Delete(output_path + "/ignoreHashtag.txt");
+            File.Copy(output_folder + "/DBOrigin/ignoreHashtag.txt", output_path + "/ignoreHashtag.txt");
+
+
+
 
             DBConnector connector = new DBConnector();
             connector.OpenConnect(db_path);
@@ -128,7 +137,6 @@ namespace System_Manager.Tests
             }
             Assert.IsFalse(metricsCounter1 == 0);
             Assert.AreEqual(metricsCounter1, metricsCounter2);
-            Assert.Fail();
         }
 
 
