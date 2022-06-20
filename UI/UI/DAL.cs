@@ -26,6 +26,7 @@ namespace UI
         private static bool isOverDay7;
         static public string checke;
         public static string IDName = "video_id";
+        public static string tag = "tags";
         public static SQLiteConnection connection = null;
         static private List<Metric> realMetrics = new List<Metric>();
 
@@ -50,10 +51,17 @@ namespace UI
         {
             //string[] arr = Connection_String.Split("\\");
             //Connection_String = Connection_String.Substring(0, Connection_String.Length - arr[arr.Length - 1].Length) + newName;
-            if(newName.Equals("youtube"))
+            if (newName.Equals("youtube"))
+            {
                 IDName = "video_id";
+                tag = "tags";
+            }
             if (newName.Equals("tiktok"))
+            {
                 IDName = "id";
+                tag = "hashtags";
+            }
+                
             SocialMedia = newName;
             Connection_String = @"Data Source=" + realPathDB + "\\"+ newName + "\\DataBase.db";
             connection = new SQLiteConnection(Connection_String);
@@ -74,7 +82,7 @@ namespace UI
                 SQLiteCommand command = new SQLiteCommand(null, DAL.connection);
                 for (int i = 1; i < 7; i++)
                 {
-                    command = new SQLiteCommand("SELECT " + IDName +", title, channelName" + " From VideosInfoDay" + i + " WHERE tags LIKE '%" + hashtagData + "%'", DAL.connection);
+                    command = new SQLiteCommand("SELECT " + IDName +", title, channelName" + " From VideosInfoDay" + i + " WHERE "+ tag + " LIKE '%" + hashtagData + "%'", DAL.connection);
                     checke = command.CommandText;
                     command.Prepare();
                     var reader = command.ExecuteReader();
@@ -272,13 +280,13 @@ namespace UI
             {
 
                 // ----- change to url
-                SQLiteCommand command = new SQLiteCommand("SELECT webVideoRel FROM ModelHypeScore WHERE " + IDName + " == '" + metricData.ID + "'", DAL.connection);
+                SQLiteCommand command = new SQLiteCommand("SELECT webVideoUrl FROM ModelHypeScore WHERE " + IDName + " == '" + metricData.ID + "'", DAL.connection);
                 command.Prepare();
 
                 var reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    ans = reader["webVideoRel"].ToString();
+                    ans = reader["webVideoUrl"].ToString();
                 }
 
                 command.Dispose();

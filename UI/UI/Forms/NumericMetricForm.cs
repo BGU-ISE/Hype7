@@ -138,7 +138,7 @@ namespace UI
             if (Int32.TryParse(LimitTextBox.Text, out int res))
             {
                 string socialMedia = comboBox1.Text;
-                DAL.ChangeDBName(socialMedia.Substring(0, socialMedia.Length - 5).ToLower());
+                DAL.ChangeDBName(socialMedia.ToLower()); // .Substring(0, socialMedia.Length - 5)
                 this.metricData = DAL.GetMetrics(MetricComboBox.Text, OrderByComboBox.Text, res);
                 dataGridView1.DataSource = this.metricData;
                 InputErrorLbl.Text = "";
