@@ -12,7 +12,6 @@ namespace Hype7
         {
 
             Console.WriteLine("hi");
-            Console.WriteLine(args);
             DateTime start = DateTime.Now;
 
             DataAnalysis(args);
