@@ -176,3 +176,4 @@ C:\Users\Iftah\Desktop\Project\Project\Scraper Manager\Scraper Manager\Scraper M
 C:\Users\Iftah\Desktop\Project\Project\Scraper Manager\Scraper Manager\Scraper Manager\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 C:\Users\Iftah\Desktop\Project\Project\Scraper Manager\Scraper Manager\Scraper Manager\obj\Debug\net5.0\Scraper Manager.csproj.CopyComplete
 C:\Users\Iftah\Desktop\Project\Project\Scraper Manager\Scraper Manager\Scraper Manager\obj\Debug\net5.0\Scraper Manager.genruntimeconfig.cache
+C:\Users\Iftah\Desktop\Project\Project\Scraper Manager\Scraper Manager\Scraper Manager\obj\Debug\net5.0\Scraper Manager.csproj.AssemblyReference.cache

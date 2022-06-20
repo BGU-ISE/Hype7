@@ -39,6 +39,7 @@ namespace Scraper_Manager
 
                 //_____________________________________chnaing args________________
                 path = args[0]+"\\DataBase.db";
+                Console.WriteLine("the ddb is " + path);
                 //________________________________________________________
 
                 realPathDB = path;

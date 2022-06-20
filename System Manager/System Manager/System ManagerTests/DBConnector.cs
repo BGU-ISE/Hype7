@@ -55,7 +55,7 @@ namespace System_ManagerTests
 
         public IEnumerable<object[]> getModelScore()
         {
-            return getTable("ModelHypeScore");
+            return getTable("YoutubeModel");
 
         }
 

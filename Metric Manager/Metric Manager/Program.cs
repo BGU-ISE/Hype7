@@ -10,6 +10,9 @@ namespace Hype7
      // third chane the format to number zero
         static void Main(string[] args)
         {
+
+            Console.WriteLine("hi");
+            Console.WriteLine(args);
             DateTime start = DateTime.Now;
 
             DataAnalysis(args);

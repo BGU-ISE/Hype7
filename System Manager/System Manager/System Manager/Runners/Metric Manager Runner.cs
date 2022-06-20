@@ -29,7 +29,7 @@ namespace System_Manager
                 proc.StartInfo.ArgumentList.Add(args);
                 proc.Start();
                 proc.WaitForExit();
-                Console.WriteLine("finished model manager run");
+                Console.WriteLine("finished metric manager run");
                 return true;
             }
             catch (Exception e)

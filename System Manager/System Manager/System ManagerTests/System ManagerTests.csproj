@@ -8,6 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\scrapeToDB2\**" />
+    <EmbeddedResource Remove="Data\scrapeToDB2\**" />
+    <None Remove="Data\scrapeToDB2\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.4" />
     <PackageReference Include="MSTest.TestAdapter" Version="2.2.3" />
     <PackageReference Include="MSTest.TestFramework" Version="2.2.3" />
@@ -17,11 +23,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\System Manager\System Manager.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Data\UnitTest\" />
-    <Folder Include="Data\scrapeToDB2\" />
   </ItemGroup>
 
 </Project>
