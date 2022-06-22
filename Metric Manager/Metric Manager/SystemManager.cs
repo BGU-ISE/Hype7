@@ -255,7 +255,7 @@ namespace Hype7
         }
         public static void LoadMetrics()
         {
-            string text = System.IO.File.ReadAllText(Path.Combine(path, "metricToRun.txt"));
+            string text = System.IO.File.ReadAllText(path + "\\metricToRun.txt");
 
             string[] arr = text.Split(";;");
             for (int i = 0; i < arr.Length; i++)
@@ -266,7 +266,7 @@ namespace Hype7
         }
         public static void SaveMetrics()
         {
-            File.WriteAllText(Path.Combine(path, "metricToRun.txt"), String.Empty);
+            File.WriteAllText(path + "\\metricToRun.txt", String.Empty);
             string ans = "";
             foreach (Metric metric in Metrics)
             {
@@ -280,7 +280,7 @@ namespace Hype7
                 w.Flush();
             }
 
-            string text = System.IO.File.ReadAllText(Path.Combine(path, "metricToRun.txt"));
+            string text = System.IO.File.ReadAllText(path + "\\metricToRun.txt");
 
             string[] arr = text.Split(";;");
             for (int i = 0; i < arr.Length; i++)
@@ -601,7 +601,7 @@ namespace Hype7
             //Dictionary<string, string>  settings_dict = new Dictionary<string, string>();
             //List<string> values_order = new List<string>();
 
-            using (var reader = new StreamReader("../../../../../Scraper Manager/Scraper Manager/settings.txt"))
+            using (var reader = new StreamReader(path + "\\settings.txt"))
             {
                 if (!reader.EndOfStream)
                 {

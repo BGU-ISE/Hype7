@@ -20,9 +20,10 @@ namespace Hype7.Tests
         {
             if (countTest == 0)
             {
-                DAL.testMood = true;
-                DAL.DB();
-                string[] arr = new string[0];
+                //DAL.testMood = true;
+                //DAL.DB();
+                string[] arr = new string[1];
+                arr[0] = "..\\..\\..\\..\\..\\Metric Manager\\Metric Manager\\Data\\test\\youtube";
                 SystemManager.InitializeData(arr);
                 DAL.OpenConnect();
                 DAL.CalcPlayCountAllWeek(true);
@@ -36,7 +37,8 @@ namespace Hype7.Tests
         {
             if(countTest == 4)
             {
-                string[] arr = new string[0];
+                string[] arr = new string[1];
+                arr[0] = "..\\..\\..\\..\\..\\Metric Manager\\Metric Manager\\Data\\test\\youtube";
                 SystemManager.InitializeData(arr);
                 DAL.OpenConnect();
 
@@ -73,8 +75,8 @@ namespace Hype7.Tests
                 command.Dispose();
                 DAL.CloseConnect();
 
-                DAL.testMood = false;
-                DAL.DB();
+                //DAL.testMood = false;
+                //DAL.DB();
             }
         }
 
@@ -83,7 +85,7 @@ namespace Hype7.Tests
         {
             DAL.OpenConnect();
 
-            String DBName = @"..\..\..\..\..\Metric Manager\Metric Manager\bin\Debug\net5.0\DataBaseTest.db";
+            String DBName = @"..\..\..\..\..\Metric Manager\Metric Manager\Data\test\youtube\DataBase.db";
             Assert.IsTrue(System.IO.File.Exists(DBName), "DB not created.");
             SQLiteCommand command = new SQLiteCommand(null, DAL.connection);
             command.CommandText = "SELECT name FROM sqlite_master WHERE type = 'table'";
@@ -140,7 +142,8 @@ namespace Hype7.Tests
         [TestMethod()]
         public void fCalcPlayCountAllWeekTest()
         {
-            string[] arr = new string[0];
+            string[] arr = new string[1];
+            arr[0] = "..\\..\\..\\..\\..\\Metric Manager\\Metric Manager\\Data\\test\\youtube";
             SystemManager.InitializeData(arr);
             DAL.OpenConnect();
 
@@ -148,7 +151,7 @@ namespace Hype7.Tests
             command.CommandText = "SELECT * FROM PlayCountPerDay WHERE " + DAL.IDName + " = 'kBeQasWa3ts'";
             command.Prepare();
             var reader = command.ExecuteReader();
-            command.Dispose();
+            
             while (reader.Read())
             {
                 Assert.IsTrue(reader["playCountDay1"].ToString().Equals("0"), "didn't calc play count per day 1.");
@@ -162,6 +165,7 @@ namespace Hype7.Tests
 
             }
             reader.Close();
+            command.Dispose();
 
             countTest++;
             DAL.CloseConnect();
@@ -169,7 +173,8 @@ namespace Hype7.Tests
         [TestMethod()]
         public void RunAllMetricsWeekTest()
         {
-            string[] arr = new string[0];
+            string[] arr = new string[1];
+            arr[0] = "..\\..\\..\\..\\..\\Metric Manager\\Metric Manager\\Data\\test\\youtube";
             SystemManager.InitializeData(arr);
             DAL.OpenConnect();
 

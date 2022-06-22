@@ -34,7 +34,8 @@ namespace Scraper_Manager.Tests
                 int num = DAL.GetLastIndexTable(true);
                 Assert.IsTrue(num == 1, "didn't read correctly the number of tables.");
 
-                string[] arr = new string[0];
+                string[] arr = new string[1];
+                arr[0] = "..\\..\\..\\..\\..\\Scraper Manager\\Scraper ManagerTests\\input_folder";
                 ScraperManager.run(arr);
 
                 DAL.CloseConnect();

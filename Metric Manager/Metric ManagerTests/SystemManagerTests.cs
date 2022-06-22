@@ -14,7 +14,8 @@ namespace Hype7.Tests
         [TestMethod()]
         public void InitializeDataTest()
         {
-            string[] arr = new string[0];
+            string[] arr = new string[1];
+            arr[0] = "..\\..\\..\\..\\..\\Metric Manager\\Metric Manager\\Data\\test\\youtube";
             SystemManager.InitializeData(arr);
             Assert.IsTrue(SystemManager.GetMetricTest(), "metrics empty.");
             Assert.IsNotNull(SystemManager.path, "get path didn't work.");
@@ -74,7 +75,8 @@ namespace Hype7.Tests
         [TestMethod()]
         public void GetIndexByFieldNameTest()
         {
-            string[] arr = new string[0];
+            string[] arr = new string[1];
+            arr[0] = "..\\..\\..\\..\\..\\Metric Manager\\Metric Manager\\Data\\test\\youtube";
             SystemManager.InitializeData(arr);
             SystemManager.GetFieldsName();
             var index = SystemManager.GetIndexByFieldName(DAL.IDName);

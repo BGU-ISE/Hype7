@@ -426,19 +426,30 @@ namespace UI
         private static void RemoveMetric(Metric metric)
         {
             LoadMetrics();
-            realMetrics.Remove(metric);
+            foreach (Metric element in realMetrics)
+            {
+                if (element.GetMetric().Equals(metric.GetMetric()))
+                {
+                    realMetrics.Remove(element);
+                    break;
+                }
+                    
+            }
             SaveMetrics();
             //LoadMetrics();
         }
         private static void LoadMetrics()
         {
-            string text = System.IO.File.ReadAllText(realPathDB + "\\"+SocialMedia+"\\metricToRun.txt");
-            realMetrics = new List<Metric>();
-            string[] arr = text.Split(";;");
-            for (int i = 0; i < arr.Length; i++)
+            if(!SocialMedia.Equals("") && !SocialMedia.Equals("--select--"))
             {
-                string[] MetricInfo = arr[i].Split(";");
-                realMetrics.Add(new Metric(MetricInfo[0], MetricInfo[1]));
+                string text = System.IO.File.ReadAllText(realPathDB + "\\" + SocialMedia + "\\metricToRun.txt");
+                realMetrics = new List<Metric>();
+                string[] arr = text.Split(";;");
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    string[] MetricInfo = arr[i].Split(";");
+                    realMetrics.Add(new Metric(MetricInfo[0], MetricInfo[1]));
+                }
             }
         }
         public static void SaveMetrics()
