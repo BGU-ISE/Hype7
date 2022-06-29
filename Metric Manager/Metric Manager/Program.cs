@@ -11,7 +11,7 @@ namespace Hype7
         static void Main(string[] args)
         {
 
-            Console.WriteLine("hi");
+            Console.WriteLine("start metric.");
             DateTime start = DateTime.Now;
             //args[0] = "C:\\Users\\Almogi\\Desktop\\githubtry\\Project\\Hype7\\System Manager\\System Manager\\System Manager\\Data\\tiktok";
             DataAnalysis(args);
