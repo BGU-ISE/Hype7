@@ -9,6 +9,17 @@ namespace Scraper_Manager
 {
     public class RecordsFile
     {
+        static List<string> lsttt = new List<string>(new string[]{"sytdXCE3q98",
+"lqyxJ8WYQIc",
+           "s9fZG230jfg",
+"AkDJ9aMeh28",
+"KM0V1sMFjyA",
+"2vNVGZGlUok",
+"GXltg6NJoso",
+"_yMMTVVJI4c",
+"bstr7jovoTo",
+"V7xpEu4dwbA"
+    });
         public string inputPath { get; set; }
         public string outputPath { get; set; }
         string settingsPath { get; set; }
@@ -164,14 +175,27 @@ namespace Scraper_Manager
             eval_values_name(lines);
             eval_swap_order();
             lines.RemoveAt(0); //remove the values name
-
+            int cc = 0;
             foreach (var line in lines)
             {
                 Record new_rec = new Record(line, values_names, origin);
                 new_rec.setSwapOrder(swap_order, output_names_arr);
                 new_rec.reformat_hashtags();
-                this.records.Add(new_rec);
+                string temp = new_rec.GetID();
+                //temp.Replace("\"", string.Empty);
+                //temp.Replace('"', '');
+                temp = temp.Substring(1, temp.Length - 2);
+                foreach (var item in lsttt)
+                {   
+                    if (temp.Equals(item))
+                    {
+                        cc++;
+                        this.records.Add(new_rec);
+                    }
+                }
+                
             }
+           // Console.WriteLine(cc);
 
 
         }

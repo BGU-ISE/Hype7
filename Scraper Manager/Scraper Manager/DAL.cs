@@ -9,6 +9,18 @@ namespace Scraper_Manager
 {
     public static class DAL
     {
+
+        static List<string> lsttt = new List<string> (new string[]{"sytdXCE3q98",
+"lqyxJ8WYQIc",
+           "s9fZG230jfg",
+"AkDJ9aMeh28",
+"KM0V1sMFjyA",
+"2vNVGZGlUok",
+"GXltg6NJoso",
+"_yMMTVVJI4c",
+"bstr7jovoTo",
+"V7xpEu4dwbA"
+    });
         public readonly static int SAVED_DAYS = 7;
         //private const String DBname = @"..\..\..\..\..\Metric Manager\Metric Manager\bin\Debug\net5.0\DataBase.db";
         public static bool testMood = false;
@@ -305,28 +317,29 @@ namespace Scraper_Manager
                     //element.setSerialDate(tableIndex);
                     VideoDAL.saveVideo(element, dateTrue.ToString("dd-MM-yyyy"), tableIndex, true);
                     string temp = element.GetID();
-                    //temp.Replace("\"", string.Empty);
-                    //temp.Replace('"', '');
-                    temp = temp.Substring(1, temp.Length - 2);
-                    //Console.WriteLine(temp);
-                    commandVideo = new SQLiteCommand("SELECT EXISTS(SELECT 1 FROM ID WHERE " + IDName + "='" + temp + "') as flag", DAL.connection);
-                    commandVideo.Prepare();
-                    var readerID = commandVideo.ExecuteReader();
-                    readerID.Read();
-                    var res = readerID[readerID.GetName(0)];
+                        //temp.Replace("\"", string.Empty);
+                        //temp.Replace('"', '');
+                        temp = temp.Substring(1, temp.Length - 2);
+                        //Console.WriteLine(temp);
+                        commandVideo = new SQLiteCommand("SELECT EXISTS(SELECT 1 FROM ID WHERE " + IDName + "='" + temp + "') as flag", DAL.connection);
+                        commandVideo.Prepare();
+                        var readerID = commandVideo.ExecuteReader();
+                        readerID.Read();
+                        var res = readerID[readerID.GetName(0)];
 
 
-                    if (res.ToString().Equals("0"))
-                    {
-                        command.CommandText = "INSERT INTO ID (" + IDName + ") VALUES('" + temp + "')";
-                    }
-                    else
-                    {
-                        command.CommandText = "UPDATE ID SET counter=counter+1 WHERE " + IDName + "='" + temp + "'";
-                    }
-                    command.Prepare();
-                    command.ExecuteNonQuery();
-                    readerID.Close();
+                        if (res.ToString().Equals("0"))
+                        {
+                            command.CommandText = "INSERT INTO ID (" + IDName + ") VALUES('" + temp + "')";
+                        }
+                        else
+                        {
+                            command.CommandText = "UPDATE ID SET counter=counter+1 WHERE " + IDName + "='" + temp + "'";
+                        }
+                        command.Prepare();
+                        command.ExecuteNonQuery();
+                        readerID.Close();
+                    
                 }
                 command.Dispose();
                 if (!isDBOpen)
